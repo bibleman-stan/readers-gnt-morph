@@ -637,6 +637,31 @@ Open items for next session:
 - Mobile polish pass.
 - v2 UX ideas (Part 6).
 
+### 2026-04-17 (later still) — gloss fix, deploy verified, UI nav patterns ported from siblings
+
+What landed:
+- **Gloss participle fix** (`συναλιζόμενος` was rendering as "am assembled together withing"): made `toGerund()` in templates/reader.html aware of multi-word glosses — auxiliary phrases ("am assembled with") now produce "being assembled with"; phrasal verbs ("set apart") now gerund only the head word ("setting apart"). Also added `συναλίζομαι → "meet with"` to the gloss override table since Dodson's full phrase is unwieldy even after smart conversion. The general fix incidentally repairs other phrasal-verb participle glosses throughout Acts.
+- **GitHub Pages deploy verified end-to-end:** Cloudflare CNAME `morph` → `bibleman-stan.github.io`; repo `docs/CNAME` set to `morph.gnt-reader.com`; Pages settings configured (Source: main, folder: /docs, custom domain set). Initial build #1 failed (Jekyll choked on embedded JSON) — fixed permanently by adding `docs/.nojekyll`. Subsequent builds all green. Site live at `https://morph.gnt-reader.com`.
+- **Inter-chapter navigation UI ported from `readers-gnt` and `readers-bofm`** (sister projects). Five UI additions to `templates/reader.html`:
+  - **Floating ←/→ chapter arrows** at left/right screen edges (32×64px desktop, 28×48px mobile at .55 opacity until hover).
+  - **Bottom-of-chapter Prev/Next buttons** for end-of-reading flow.
+  - **Keyboard shortcuts:** ArrowLeft/ArrowRight advance chapters (suppressed when input/textarea focused).
+  - **Mobile swipe gestures:** horizontal swipe (≥60px, <500ms, <80px vertical) navigates chapters; excludes toolbar/panel/legend touch targets.
+  - **Progress line:** 2px accent-colored bar at top, scroll-position indicator (rAF-throttled).
+  - **Back-to-top button:** appears after 600px scroll, bottom-right corner.
+  - All boundary-aware (disabled state at chapter 1 / last chapter). Powered by new `TOTAL_CHAPTERS_PLACEHOLDER` injected by `build_html.py` from a `BOOK_CHAPTERS` dict keyed by book name.
+- All 28 chapter readers regenerated with the new template and nav.
+
+Validator state: unchanged at 99.5%+ on Acts 9 (no morpheus.py touched).
+
+Deferred to next session (sized as the larger lift):
+- **Full gloss-inflection design.** Two adversarial Opus subagents produced a comprehensive plan covering all 6 indicative tenses × 3 voices, fixing the aorist-participle "VERB-ing" bug (should be "having VERB-ed"), adding passive templates throughout, and explicitly leaving subjunctive/optative/imperative bare for v1 (because "may VERB" misleads English readers as permission, and the morph layer already shows mood). The plan also calls for a hand-curated override table for ~20 trap lemmas (εἰμί, οἶδα, δύναμαι, μέλλω, δεῖ, deponents like ἔρχομαι/ἀποκρίνομαι where naive voice-handling produces "was answered" for ἀπεκρίθη when it should stay "answered"), and a gloss-output validator wired into the existing validator discipline. Architecture: add `tvm` (3-char tense+voice+mood) field to verb entries in chapter JSON; do inflection client-side via vetted irregular-verb table (~200 standard English irregulars). Estimated half-session of focused work, with most time on the override curation and validator, not the inflection logic itself.
+
+Open items for next session:
+- Implement the gloss-inflection plan above (validator first, then engine, then override curation).
+- Generate Romans (next book target).
+- Future UI additions deferred from this round: full nav-panel overlay (defer until book #2 exists; with only Acts it just duplicates the chapter grid).
+
 ---
 
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**
