@@ -193,6 +193,24 @@ def decompose_word(word_data, stems_db, lexicon):
             stems_dict = stems_db[lemma]['stems']
         morph = morph_verb(text, lemma, parsing, pos, stems_dict)
         result.update(morph)
+
+        # Attach tense/voice/mood code (3-char) for the renderer.
+        # Used by inflected-gloss lookup and other tvm-aware UX.
+        if len(parsing) >= 4:
+            result['tvm'] = parsing[1:4]
+
+        # Pre-compute the inflected gloss for indicative-mood verbs
+        # so the browser can just look it up. Non-indicative moods get
+        # the bare gloss back (the inflect_gloss() function handles
+        # this internally).
+        from inflect_gloss import inflect_gloss
+        bare = resolve_bare_gloss(lemma, lexicon)
+        if bare:
+            inflected = inflect_gloss(bare, result.get('tvm', ''), lemma)
+            # Only emit igl when it differs from the bare gloss — saves
+            # JSON bytes and signals "no inflection happened" to renderer.
+            if inflected and inflected != bare:
+                result['igl'] = inflected
         return result
 
     # ═══ NOUNS / ADJECTIVES / PRONOUNS ═══
@@ -859,6 +877,65 @@ def generate_chapter_json(book_file, chapter, stems_db, lexicon, freq,
     return data
 
 
+# Bare-gloss overrides applied at lexicon-resolution time. These
+# are entries where Dodson's first sense is misleading or obscure;
+# we replace it before any inflection logic runs. (Inflection-aware
+# per-(lemma, tvm) overrides live separately in inflect_gloss.py.)
+_GLOSS_OVERRIDE = {
+    'μαθητής': 'disciple',
+    'ἀπειλή': 'threat',
+    'συναγωγή': 'synagogue',
+    'ἐκκλησία': 'church',
+    'ἀπόστολος': 'apostle',
+    'ἐπιστολή': 'letter',
+    'ἀρχιερεύς': 'high priest',
+    'παράκλησις': 'encouragement',
+    'προσέρχομαι': 'approach',
+    'παρίστημι': 'present',
+    'σκεῦος': 'vessel',
+    'ἐπικαλέω': 'call upon',
+    'ἐνώπιον': 'before',
+    'ἀποστέλλω': 'send',
+    'συνέρχομαι': 'gather',
+    'παρακαλέω': 'urge',
+    'κατά': 'according to',
+    'ἐπί': 'upon',
+    'διά': 'through',
+    'παρά': 'from',
+    'ὑπέρ': 'for',
+    'πρός': 'to',
+    'ἀφορίζω': 'set apart',  # Dodson "rail off" is obscure
+    'συναλίζομαι': 'meet with',  # Dodson "I am assembled together with" → unwieldy
+}
+
+
+def resolve_bare_gloss(lemma, lexicon):
+    """Resolve a lemma to its bare display gloss (post-override,
+    post-strip). Returns '' if no gloss is available.
+
+    This is the single source of truth used by BOTH the lex-table
+    builder and the per-word inflection step, so both stay in sync.
+    """
+    if lemma in _GLOSS_OVERRIDE:
+        return _GLOSS_OVERRIDE[lemma]
+    entry = lexicon.get(lemma, {})
+    gl = entry.get('gloss', '')
+    if not gl:
+        return ''
+    if isinstance(gl, list):
+        gl = gl[0] if gl else ''
+    if not isinstance(gl, str):
+        gl = str(gl)
+    short = gl.split(',')[0].strip()
+    # Strip leading Dodson voice/usage annotation: "(act.) I reign" → "I reign"
+    short = re.sub(r'^\([^)]*\)\s*', '', short)
+    for prefix in ('I ', 'a ', 'an ', 'the '):
+        if short.startswith(prefix):
+            short = short[len(prefix):]
+            break
+    return short
+
+
 def generate_lexicon_json(words, lexicon, freq):
     """Generate the LEX object for glosses."""
     lex = {}
@@ -868,54 +945,9 @@ def generate_lexicon_json(words, lexicon, freq):
         if lemma in seen:
             continue
         seen.add(lemma)
-        entry = lexicon.get(lemma, {})
-        gl = entry.get('gloss', '')
-        f = freq.get(lemma, 0)
-        if gl:
-            # Use contextual overrides for common NT words
-            # where the first dictionary meaning is misleading
-            _GLOSS_OVERRIDE = {
-                'μαθητής': 'disciple',
-                'ἀπειλή': 'threat',
-                'συναγωγή': 'synagogue',
-                'ἐκκλησία': 'church',
-                'ἀπόστολος': 'apostle',
-                'ἐπιστολή': 'letter',
-                'ἀρχιερεύς': 'high priest',
-                'παράκλησις': 'encouragement',
-                'προσέρχομαι': 'approach',
-                'παρίστημι': 'present',
-                'σκεῦος': 'vessel',
-                'ἐπικαλέω': 'call upon',
-                'ἐνώπιον': 'before',
-                'ἀποστέλλω': 'send',
-                'συνέρχομαι': 'gather',
-                'παρακαλέω': 'urge',
-                'κατά': 'according to',
-                'ἐπί': 'upon',
-                'διά': 'through',
-                'παρά': 'from',
-                'ὑπέρ': 'for',
-                'πρός': 'to',
-                'ἀφορίζω': 'set apart',  # Dodson "rail off" is obscure
-                'συναλίζομαι': 'meet with',  # Dodson "I am assembled together with" → unwieldy
-            }
-            if lemma in _GLOSS_OVERRIDE:
-                short = _GLOSS_OVERRIDE[lemma]
-            else:
-                # Handle lemmas where gloss is a list of alternatives
-                if isinstance(gl, list):
-                    gl = gl[0] if gl else ''
-                if not isinstance(gl, str):
-                    gl = str(gl)
-                # Trim to first meaning
-                short = gl.split(',')[0].strip()
-                # Strip leading articles and "I "
-                for prefix in ['I ', 'a ', 'an ', 'the ']:
-                    if short.startswith(prefix):
-                        short = short[len(prefix):]
-                        break
-            lex[lemma] = {'gl': short, 'f': f}
+        short = resolve_bare_gloss(lemma, lexicon)
+        if short:
+            lex[lemma] = {'gl': short, 'f': freq.get(lemma, 0)}
     return lex
 
 

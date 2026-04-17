@@ -662,6 +662,41 @@ Open items for next session:
 - Generate Romans (next book target).
 - Future UI additions deferred from this round: full nav-panel overlay (defer until book #2 exists; with only Acts it just duplicates the chapter grid).
 
+### 2026-04-17 (later still still) — gloss inflection v1 shipped
+
+What landed: build-time English-gloss inflection for indicative verbs across all 28 Acts chapters. The pedagogical mandate (cognitive-load reduction) is the driver: a reader looking at ἐξελέξατο should see "chose" rather than "choose" so that mental cycles go to meaning, not to conjugating English.
+
+Architecture (chosen over a JS-runtime engine after the audit):
+- **`src/inflect_gloss.py`** — pure-Python inflection function `inflect_gloss(bare_gloss, tvm, lemma)`. Self-contained, no DOM dependencies, importable by both the build pipeline and the validator. Houses an irregular-verb table (~80 entries covering NT lexicon needs), regular-verb spelling rules (with the right "single vowel + single consonant" doubling check, not the naive version), a gloss classifier (verbal / stative / impersonal / empty) and `LEMMA_OVERRIDES` (per-(lemma, tvm) overrides for ~17 trap lemmas: εἰμί, οἶδα, δύναμαι, μέλλω, δεῖ, deponents like ἔρχομαι/γίνομαι/πορεύομαι/ἀποκρίνομαι/βούλομαι/φοβέομαι, phrasals like ἀναλαμβάνω/ἐπικαλέω/ἀφορίζω, suppletives like ἀποθνῄσκω, stative κάθημαι, συναλίζομαι).
+- **`src/generate_chapter.py`** — extracted gloss-resolution into module-level `resolve_bare_gloss()` so the lex-table builder and the per-word inflection share one source of truth. Verb entries now carry `tvm` (3-char tense+voice+mood) and `igl` (build-time inflected gloss, only emitted when it differs from bare). Added a leading-parenthetical strip (`(act.) I reign` → `reign`) so Dodson voice annotations don't leak into the inflection input.
+- **`templates/reader.html`** — single-line render change: prefer `d.igl` when present; fall through to `toGerund(gInfo.gl)` for participles without overrides; fall through to bare lex gloss for everything else.
+- **`src/validate_glosses.py`** — quality gate. Two layers: (a) anti-pattern regex scan for ungrammatical output (`was am`, `withing`, `aparting`, etc.) — runs against the chapter JSON's `igl` field directly (not the rendered HTML, since rendering happens client-side). (b) Ground-truth test set: 31 hand-curated `(Greek form, lemma, parsing, expected English)` tuples spanning the tense × voice grid; runs the actual `inflect_gloss()` and asserts the output matches.
+
+Validator state at session end:
+- 31/31 ground-truth tests pass.
+- Zero anti-pattern hits across the 5 stress-test chapters (Acts 1, 9, 13, 17, 26).
+- Build-time inflected verb count per chapter: Acts 1=52, 9=94, 13=90, 17=58, 26=43.
+- Existing morpheus.py validator unchanged (no morpheus.py code was touched), still 99.5%+.
+
+Scope explicitly NOT taken:
+- **Subjunctive / optative / imperative / infinitive stay bare.** The agents argued (and Stan confirmed) that "may VERB" misleads English readers as permission, and the morph-layer mood symbols (?, !, →, ~) already carry the signal. Documented in the legend modal and about.html.
+- **Aorist participle still renders as plain `-ing` form** (current `toGerund` behavior). Stan's call: don't try to interpret participles. "Having come" vs "coming" depends on whether the aorist participle is anterior or attendant-circumstance — context decides, not the form. Leave bare `-ing`.
+- **Person/number not inflected.** No "she chose" / "they came" pronoun output. Stays uninflected (mood/person already shown by morph layer).
+
+Documentation updates:
+- Legend modal got a new "About the glosses" section explaining indicative inflection, participle treatment, other-mood bare-form rationale, and frequency color.
+- about.html "Glosses" section expanded with concrete examples (ἐξελέξατο → "chose", ἀνελήμφθη → "was taken up", λήμψεσθε → "will receive") and notes the override approach for stative lemmas.
+
+Methodology notes:
+- Built validator FIRST per the audit's discipline. Test set drove engine design — every test failure surfaced an issue (e.g. "hearring" → consonant-doubling regex needed `[^aeiou]` guard against vowel digraphs).
+- Pre-flight Opus subagents (one design, one adversarial) caught issues that would have shipped broken: deponents, stative glosses, parenthetical lexicon annotations, aux-collision patterns. Worth the latency every time on novel-rule design.
+
+Open items for next session:
+- ἄρχω currently inflects as "reigned" via the act.-stripped path; the (mid.) sense "begin" → "began" would be more useful. One-line override addition. Same pattern likely applies to ~5 other verbs whose middle/active senses diverge sharply.
+- Some passive renderings are mechanically correct but awkward English ("is brought a charge against" for ἐγκαλέω PPI). Hand-curate via `LEMMA_OVERRIDES` as users surface them.
+- Romans generation (the pipeline is ready; expect the inflection engine to surface 5-10 new trap lemmas from Pauline vocabulary).
+- Mobile pass on overflow — the engine works but I haven't tested 3-word glosses ("had been written") on a phone screen. Audit flagged this; should mock up.
+
 ---
 
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**

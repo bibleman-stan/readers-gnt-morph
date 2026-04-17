@@ -633,6 +633,13 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
       <div class="lg-row"><span class="lg-ex" style="text-decoration:underline;text-decoration-color:#fbbf24;text-underline-offset:2px">οντες</span><span class="lg-name">Participle</span><span class="lg-desc">marker underlined; color = case</span></div>
       <div class="lg-row"><span class="lg-ex"><span style="border-right:1.5px dotted #aaa;padding-right:3px">κατ</span>αβαίνω</span><span class="lg-name">Prefix seam</span><span class="lg-desc">compound verb boundary</span></div>
     </details>
+    <details class="lg-sec">
+      <summary>About the glosses</summary>
+      <div class="lg-row"><span class="lg-name">Indicative verbs</span><span class="lg-desc">inflected for tense+voice ("chose", "was taken up", "will hear")</span></div>
+      <div class="lg-row"><span class="lg-name">Participles</span><span class="lg-desc">shown as <em>-ing</em> form ("hearing", "having said")</span></div>
+      <div class="lg-row"><span class="lg-name">Other moods</span><span class="lg-desc">subjunctive, optative, imperative, infinitive show the bare dictionary form — let the morph layer carry the mood signal</span></div>
+      <div class="lg-row"><span class="lg-name">Color</span><span class="lg-desc">warmer = rarer (red=hapax, orange=rare, yellow=uncommon)</span></div>
+    </details>
     <div class="lg-foot">
       <p>Click any word to open the full parsing panel.</p>
       <a class="try-it" href="../about.html" target="_blank">Read the full overview →</a>
@@ -959,7 +966,14 @@ function render(data) {
     const gInfo = d.lem ? glossActive(d.lem) : null;
     // Use word-boundary match so 'ptc' doesn't match 'ptcl' (particle)
     const isPtc = d.prs && /\bptc\b/.test(d.prs);
-    const glText = gInfo ? (isPtc ? toGerund(gInfo.gl) : gInfo.gl) : '';
+    // Prefer the build-time inflected gloss (d.igl) whenever it's
+    // present — that includes participles when an override matched
+    // (e.g. εἰμί PAP → "being"). Fall through to JS toGerund for
+    // participles without overrides, then to the bare lex gloss for
+    // everything else (subj, opt, imp, inf, non-verb words).
+    const glText = gInfo
+      ? (d.igl || (isPtc ? toGerund(gInfo.gl) : gInfo.gl))
+      : '';
     const glHint = gInfo ? `<span class="gl-hint gl-b${gInfo.band}">${glText}</span>` : '';
 
     // Indeclinable words — only when there's literally no morphological
