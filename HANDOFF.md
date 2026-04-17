@@ -571,4 +571,34 @@ Both matter. The first gets you a proof-of-concept. The second gets you a resour
 
 ---
 
+## Part 8: Session Log
+
+### 2026-04-17 — v1 of Acts complete; repo move; handoff hardening
+
+Scope of this session: take the project from "Acts 9 prototype with ad-hoc fixes" to "full book of Acts, validator-gated, documented for compaction survival."
+
+What landed:
+- **validate_chapter.py** built from scratch — 11 check categories (SEGS_CONCAT_MISMATCH, HAS_SEGS, AUGMENT_EXPECTED, AOR_ACT_FORMATIVE, AOR_PASS_FORMATIVE, PERF_ACT_FORMATIVE, PARTICIPLE_HAS_CASE, PARTICIPLE_HAS_MARKER, COMPOUND_PREFIX_EXTRACTED, VERB_HAS_VOICE, NOMINAL_HAS_SUFFIX, RENDER_PATH_OK). Uses the stems DB to skip legitimate false positives (liquid aorists, suppletives, non-compounds whose prefix letters are coincidental). This removed the user-as-validator bottleneck.
+- **~10 systemic morpheus.py fixes** driven by validator findings: prefix-assimilation variants (συν↔συγ↔συμ), multi-prefix stripping (ἐξαποστέλλω), suppletive-augment table, `_detect_augment_from_surface` fallback for augments between prefix and stem, thematic-vowel transfer into formative, separation of verb-ending `ve` channel from noun case-suffix `suf` channel, `clean_surface` superscript stripping, article single-segment segs path, indeclinable shortcut only when no structural segs, word-boundary `\bptc\b` regex to avoid matching `ptcl`, gloss-override table for weird Dodson first meanings.
+- **All 28 Acts chapters generated and validated** at 99.5%+ automated morphological correctness. 18,412 words, 1,281 participles. Known edge cases documented in Part 6.
+- **UX layer:** index.html chapter grid, about.html two-audience pitch (students / researchers + teachers), collapsible `?` legend modal, All/Bare toggle buttons, frequency-banded glosses with -ing gerund conversion for participles.
+- **Short-word gloss drift** (δή, τε): tried inline-block padding, then JS Range-based measurement (see `test_dh5.html`). Accepted at "90-95% there" as known limitation — diminishing returns past that.
+- **HANDOFF.md restructured** with Part 0 (Trajectory), Part 1.5 (Validator — Read This Before Anything Else), Part 1.6 (UX Layer), Part 6.5 (Resumption Checklist for future Claude), expanded Part 6 (Known Gaps & Next-Move Ideas). This document is now the single source of truth for waking back up into this project.
+- **Repo moved** from Dropbox (`03-Biblical_Studies/Greek/morph-project/`) to `~/repos/readers-gnt-morph/`. Initial commit `188974d` captures the full v1 state. Deploy target gnt-reader.com/analysis/morph/ not yet wired.
+
+Validator state at session end: 99.5%+ across all 28 chapters. No regressions from the five stress-test chapters (Acts 1, 9, 13, 17, 26).
+
+Methodology notes accumulated (now enshrined in CLAUDE.md + memory files):
+- Validate data quality before debugging display (Acts-only vs. full-NT frequency bug burned an hour before diagnosis).
+- Pre-flight dependency audit before non-trivial features (reactive fix-break cycles were the failure mode this pattern eliminates).
+- Test in isolation before touching template.html (user pushback came only after isolated test files validated the approach).
+
+Open items for next session:
+- Romans + Hebrews generation (expect 2-5 new edge-case categories; same fix methodology).
+- v2 UX ideas ranked in Part 6: click-to-reveal, focus mode, hover-preview, mastery-based fade, SRS integration, parse-quiz mode, proficiency presets.
+- Mobile polish pass — the tool works but hasn't been deliberately tuned for phone screens.
+- Deploy wiring to gnt-reader.com/analysis/morph/.
+
+---
+
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**
