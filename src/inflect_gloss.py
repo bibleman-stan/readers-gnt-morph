@@ -258,6 +258,19 @@ LEMMA_OVERRIDES = {
         'API': 'feared', 'AMI': 'feared',
         'IMI': 'was fearing',
     },
+    # ἄρχω — Dodson "(act.) I reign, (mid.) I begin". All 10 Acts
+    # occurrences are middle; NT use is overwhelmingly middle
+    # ("begin"). Active sense ("rule, reign") is rare and lexically
+    # distinct, so override only the middle-voice forms.
+    'ἄρχω': {
+        'AMI': 'began',
+        'IMI': 'was beginning',
+        'PMI': 'begins',
+        'FMI': 'will begin',
+        'AMN': 'to begin',
+        'AMP': 'beginning',
+        'PMP': 'beginning',
+    },
 }
 
 
