@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Acts Morpheme Reader</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Gentium+Plus:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1c1f24;
+  --bg-raised: #22262d;
+  --text: #d4d0c8;
+  --muted: #8899aa;
+  --dim: #667788;
+  --accent: #7cafc2;
+  --border: rgba(255,255,255,.08);
+  --warm: #fbbf24;
+  --green: #10b981;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height:1.65; padding:40px 20px 80px; min-height:100vh;
+}
+.container { max-width:720px; margin:0 auto; }
+.greek { font-family:'Gentium Plus','Literata',serif; color:var(--accent); }
+.literata { font-family:'Literata',Georgia,serif; }
+
+.back {
+  display:inline-block; color:var(--muted); text-decoration:none;
+  font-size:13px; margin-bottom:24px;
+}
+.back:hover { color:var(--accent); }
+
+h1 {
+  font-family:'Literata',Georgia,serif; font-weight:600;
+  font-size:36px; margin-bottom:6px; color:var(--text);
+}
+.subtitle { color:var(--muted); font-size:15px; margin-bottom:48px; font-style:italic; }
+
+h2 {
+  font-family:'Literata',Georgia,serif; font-weight:600;
+  font-size:22px; margin:48px 0 12px; color:var(--accent);
+  padding-bottom:8px; border-bottom:1px solid var(--border);
+}
+h3 {
+  font-size:16px; font-weight:600; margin:24px 0 8px; color:var(--text);
+  letter-spacing:.02em;
+}
+p { margin-bottom:14px; color:var(--text); }
+p.muted { color:var(--muted); }
+ul { margin:10px 0 16px 24px; color:var(--text); }
+li { margin-bottom:6px; }
+
+.callout {
+  background:var(--bg-raised); border-left:3px solid var(--accent);
+  border-radius:4px; padding:16px 20px; margin:20px 0;
+  font-size:14.5px; color:var(--muted);
+}
+.callout strong { color:var(--text); }
+
+.split {
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  margin:24px 0;
+}
+.split-card {
+  background:var(--bg-raised); border:1px solid var(--border);
+  border-radius:8px; padding:20px;
+}
+.split-card h3 { margin-top:0; color:var(--accent); }
+.split-card .tag {
+  display:inline-block; font-size:11px; text-transform:uppercase;
+  letter-spacing:1.5px; color:var(--dim); margin-bottom:4px; font-weight:600;
+}
+
+.try-it {
+  display:inline-block; margin-top:8px; padding:8px 16px;
+  background:rgba(124,175,194,.12); color:var(--accent);
+  border:1px solid rgba(124,175,194,.3); border-radius:6px;
+  text-decoration:none; font-size:13px; font-weight:600;
+  transition:all .15s ease;
+}
+.try-it:hover { background:rgba(124,175,194,.22); border-color:var(--accent); }
+
+.credits {
+  margin-top:64px; padding-top:24px; border-top:1px solid var(--border);
+  font-size:13px; color:var(--muted);
+}
+.credits a { color:var(--accent); text-decoration:none; }
+.credits a:hover { text-decoration:underline; }
+
+@media (max-width:600px) {
+  .split { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back" href="index.html">← Back to chapters</a>
+
+  <h1>About the <span class="greek">Πράξεις</span> Morpheme Reader</h1>
+  <p class="subtitle">Why this tool exists, who it's for, and how to use it.</p>
+
+  <h2>What this is</h2>
+  <p>A reader for the Greek text of Acts that shows you morphology <em>visually</em>. Every color, shape, and glyph on screen represents one specific piece of grammatical information. Turn layers on and off to focus on whatever you're trying to see.</p>
+
+  <p>Everything is click-to-inspect: tap any word to see its full lexical and morphological breakdown.</p>
+
+  <div class="callout">
+    <strong>The core idea:</strong> Greek is a highly inflected language. Every verb carries tense, voice, mood, person, and number; every noun carries case, number, and gender. Traditional instruction hands students a wall of Greek and expects them to parse every word mentally. That's exhausting — and it's what makes students burn out. This tool carries the parsing burden so your brain can focus on meaning.
+  </div>
+
+  <h2>Two audiences</h2>
+  <div class="split">
+    <div class="split-card">
+      <div class="tag">For students</div>
+      <h3>Grammatical training wheels</h3>
+      <p>You've learned that 1st aorist actives take σα. You've learned that -ντ- is the participle marker. You've learned the five cases and their endings. What you haven't done is <em>see</em> all of that at once in running text, word by word, without having to reconstruct it from memory every time.</p>
+      <p>Turn on the Case Suffixes layer and the tool colors every case ending in Acts. Turn on Tense Markers and σα, θη, κε light up in teal wherever they appear. Turn on Participles and the participle-marker morpheme gets underlined on every participle in the chapter.</p>
+      <p>After a few weeks of reading with this, your brain starts predicting what it used to have to decode. The scaffolding fades as you internalize the patterns.</p>
+      <a class="try-it" href="acts1_reader.html">Try Acts 1 →</a>
+    </div>
+    <div class="split-card">
+      <div class="tag">For researchers &amp; teachers</div>
+      <h3>Visualize distributions</h3>
+      <p>Turn on a single layer across a chapter and you can <em>see</em> things that would take hours to tabulate manually:</p>
+      <ul>
+        <li>Case distribution — where genitives cluster, where datives are rare</li>
+        <li>Participle density — narrative passages vs. argumentative ones</li>
+        <li>Aorist vs. imperfect distribution in narrative</li>
+        <li>Hapax legomena and rare vocabulary hotspots</li>
+        <li>Voice patterns — where middle forms concentrate</li>
+      </ul>
+      <p>All 28 chapters of Acts are validated at 99.5%+ automated morphological correctness, with data from MorphGNT SBLGNT. Good enough to spot patterns; not a substitute for targeted textual study.</p>
+      <a class="try-it" href="acts13_reader.html">Try Acts 13 →</a>
+    </div>
+  </div>
+
+  <h2>How to read the display</h2>
+
+  <h3>Color layers (toggle individually)</h3>
+  <ul>
+    <li><strong style="color:#f87171">Augments</strong> — the ε-/η- prefix on past-tense indicative verbs appears in red</li>
+    <li><strong style="color:#2dd4bf">Tense Markers</strong> — σα, θη, κε, ψα, ξα get a teal background wash</li>
+    <li><strong style="color:#c084fc">Verb Endings</strong> — personal endings (-εις, -ει, -ομεν) in purple</li>
+    <li><strong style="color:#fbbf24">Case Suffixes</strong> — the inflectional ending on nouns/articles colored by case: <span style="color:#fbbf24">nominative</span>, <span style="color:#fb923c">genitive</span>, <span style="color:#10b981">dative</span>, <span style="color:#60a5fa">accusative</span>, <span style="color:#f472b6">vocative</span></li>
+    <li><strong style="color:#7da3c8">Gender</strong> — the stem of a noun tints <span style="color:#7da3c8">masculine</span>, <span style="color:#d48cb0">feminine</span>, or <span style="color:#9aa3ad">neuter</span></li>
+    <li><strong>Prefix Seams</strong> — a dotted vertical line separates a preposition prefix from its stem on compound verbs</li>
+  </ul>
+
+  <h3>Verb-specific signals</h3>
+  <ul>
+    <li><strong>Tense glyph</strong> (before the verb): <span style="font-size:16px">⟩</span> present (leaning forward), <span style="font-size:16px">⟫</span> future, <span style="font-size:16px">⟨</span> aorist (looking back), <span style="font-size:16px">∿</span> imperfect (ongoing), <span style="font-size:16px">◉</span> perfect, <span style="font-size:16px">◎</span> pluperfect</li>
+    <li><strong>Voice outline</strong> (around the verb): <span style="color:#f87171">red</span> = active (usually), <span style="color:#94a3b8">grey</span> = middle, <span style="color:#c084fc">purple</span> = passive. 4-sided box means infinitive.</li>
+    <li><strong>Mood symbol</strong> (after the verb): <strong>?</strong> subjunctive, <strong>!</strong> imperative, <strong>→</strong> infinitive, <strong>~</strong> optative. Indicative is unmarked (it's the default).</li>
+    <li><strong>Participle underline</strong> — the participle-forming morpheme (the -οντ-, -σαντ-, -μεν-, -εντ- part) is underlined with the color of its case.</li>
+  </ul>
+
+  <h3>Glosses</h3>
+  <ul>
+    <li>Toggle by frequency band. Rare words get English hints below them. The rarer the word, the warmer the gloss color (red = hapax, orange = rare, etc.).</li>
+    <li>Participles get <em>-ing</em> forms ("breathing", "approaching") to reinforce that they're verbal adjectives.</li>
+  </ul>
+
+  <h3>Toolbar</h3>
+  <ul>
+    <li><strong>Bare</strong> turns everything off. Start here when you want to read without visual aids.</li>
+    <li><strong>All</strong> turns everything on. Good for a maximum-information view, or for discovering what a layer does by seeing it.</li>
+    <li>Individual layer toggles work normally after either. Experiment.</li>
+  </ul>
+
+  <h2>Suggested starting points</h2>
+
+  <h3>If you're a first-year student</h3>
+  <p>Start with <strong>Case Suffixes</strong> and <strong>Glosses</strong> (both bands). Read a verse. Cover the glosses and guess cases, then check. Add <strong>Augments</strong> when aorists start tripping you up.</p>
+
+  <h3>If you're in second year</h3>
+  <p>Turn on <strong>Participles</strong>, <strong>Tense</strong>, and <strong>Voice</strong>. These are usually what slow down intermediate reading. Toggle Case Suffixes off — you probably don't need that scaffolding anymore.</p>
+
+  <h3>If you're teaching</h3>
+  <p>Before lecture, turn on whatever morphological feature you're covering that day. Walk through a verse with the class, naming what each color shows. Then turn the layer off and let them identify the same features unaided.</p>
+
+  <h3>If you're exploring</h3>
+  <p>Turn on <strong>All</strong> at once. Browse a chapter. You'll notice things — participles clustering in certain verses, tense formatives lighting up in a rhythm, rare words you'd have skipped. Let the density of information surprise you.</p>
+
+  <div class="credits">
+    <p><strong>Data sources:</strong> Greek text and morphological tagging from <a href="https://github.com/morphgnt/sblgnt" target="_blank">MorphGNT SBLGNT</a>. Verbal stem data from James Tauber's <a href="https://github.com/jtauber/greek-inflexion" target="_blank">greek-inflexion</a>. Lexicon from <a href="https://github.com/morphgnt/morphological-lexicon" target="_blank">MorphGNT morphological-lexicon</a>. Sense-line breaks adapted from a companion readers-gnt project.</p>
+    <p>This is a proof of concept, not a finished product. Edge cases remain. Clicking on a word always opens the authoritative parsing panel — if the color hints seem off, that panel is what to trust.</p>
+  </div>
+</div>
+</body>
+</html>

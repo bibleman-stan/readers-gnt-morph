@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+body { background:#1c1f24; color:#d4d0c8; font-family:Georgia,serif; font-size:22px; padding:40px; }
+.line { max-width:42em; line-height:2.6; text-indent:-1.5em; padding-left:1.5em; }
+
+/* Matching acts9.html exactly */
+.w { display:inline; margin-right:.25em; padding:1px 2px; border-radius:3px; cursor:pointer; position:relative; white-space:nowrap; }
+.gl { display:block; position:absolute; top:100%; left:50%; transform:translateX(-50%); font-family:sans-serif; font-size:0.42em; color:#fb923c; white-space:nowrap; line-height:1; opacity:.85; pointer-events:none; }
+
+/* Test: same but without padding */
+.w2 { display:inline; margin-right:.25em; cursor:pointer; position:relative; white-space:nowrap; }
+.w2 .gl { display:block; }
+</style></head><body>
+<h3 style="font-family:sans-serif;font-size:14px;color:#888;margin-bottom:20px">Test: WITH padding:1px 2px on .w</h3>
+<div class="line">
+<span class="w">Ὁ</span> <span class="w">δὲ</span> <span class="w">Σαῦλος<span class="gl">Saul</span></span> <span class="w">ἔτι<span class="gl">still</span></span> <span class="w">ἐμπνέων<span class="gl">breathe</span></span> <span class="w">ἀπειλῆς<span class="gl">threat</span></span> <span class="w">καὶ</span> <span class="w">φόνου<span class="gl">murder</span></span> <span class="w">εἰς</span> <span class="w">τοὺς</span> <span class="w">μαθητὰς<span class="gl">disciple</span></span> <span class="w">τοῦ</span> <span class="w">κυρίου</span>
+</div>
+
+<h3 style="font-family:sans-serif;font-size:14px;color:#888;margin:40px 0 20px">Test: WITHOUT padding on .w</h3>
+<div class="line">
+<span class="w2">Ὁ</span> <span class="w2">δὲ</span> <span class="w2">Σαῦλος<span class="gl">Saul</span></span> <span class="w2">ἔτι<span class="gl">still</span></span> <span class="w2">ἐμπνέων<span class="gl">breathe</span></span> <span class="w2">ἀπειλῆς<span class="gl">threat</span></span> <span class="w2">καὶ</span> <span class="w2">φόνου<span class="gl">murder</span></span> <span class="w2">εἰς</span> <span class="w2">τοὺς</span> <span class="w2">μαθητὰς<span class="gl">disciple</span></span> <span class="w2">τοῦ</span> <span class="w2">κυρίου</span>
+</div>
+</body></html>

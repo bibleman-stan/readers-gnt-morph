@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>δή diagnostic</title>
+<style>
+body { background:#1c1f24; color:#d4d0c8; font-family:'Literata',Georgia,serif; font-size:22px; padding:40px; }
+h3 { font-family:sans-serif; font-size:14px; color:#7cafc2; margin:28px 0 12px; }
+.line { max-width:42em; line-height:2.6; text-indent:-1.5em; padding-left:1.5em; margin-bottom:20px; position:relative; }
+
+.w {
+  display:inline; position:relative;
+  margin-right:.25em; padding:1px 2px;
+  /* DEBUG: show the word's bounding box */
+  outline:1px dashed rgba(255,0,0,.5);
+}
+.gl {
+  display:block; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  font-family:sans-serif; font-size:9px; color:#fb923c; opacity:.85; line-height:1;
+  white-space:nowrap;
+  /* DEBUG: show the gloss box */
+  outline:1px solid rgba(0,255,0,.5);
+}
+
+/* Compare: NO margin-right */
+.no-margin .w { margin-right:0; }
+.no-margin .w::after { content:' '; }
+
+/* Compare: NO padding */
+.no-pad .w { padding:0; }
+</style>
+</head><body>
+
+<h3>Baseline — red dashes show .w bounding box; green outlines show gloss box</h3>
+<p style="font-family:sans-serif;font-size:12px;color:#888">Look carefully: is the .w box around δή small (just the letters) or larger (extending toward μοι)? The gloss should be centered on the .w box.</p>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+</div>
+
+<h3>No margin-right — space via ::after pseudo instead</h3>
+<div class="line no-margin">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+</div>
+
+<h3>No padding</h3>
+<div class="line no-pad">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+</div>
+
+<h3>Print measurements via JS</h3>
+<pre id="debug" style="font-family:monospace;font-size:11px;color:#888;line-height:1.4;"></pre>
+
+<script>
+const dbg = document.getElementById('debug');
+document.querySelectorAll('.line').forEach((line, lineIdx) => {
+  dbg.textContent += `\n--- line ${lineIdx} ---\n`;
+  line.querySelectorAll('.w').forEach(w => {
+    const gl = w.querySelector('.gl');
+    const wR = w.getBoundingClientRect();
+    const txt = (w.firstChild && w.firstChild.nodeType === 3) ? w.firstChild.textContent : (w.textContent || '').slice(0,10);
+    let line2 = `  "${txt.trim()}" : w.width=${wR.width.toFixed(1)} w.left=${wR.left.toFixed(1)}`;
+    if (gl) {
+      const glR = gl.getBoundingClientRect();
+      line2 += `  gl.width=${glR.width.toFixed(1)} gl.left=${glR.left.toFixed(1)} gl.center=${(glR.left+glR.width/2).toFixed(1)}`;
+      line2 += `  w.center=${(wR.left+wR.width/2).toFixed(1)}`;
+      const delta = (glR.left+glR.width/2) - (wR.left+wR.width/2);
+      line2 += `  DELTA=${delta.toFixed(1)}`;
+    }
+    dbg.textContent += line2 + '\n';
+  });
+});
+</script>
+
+</body></html>

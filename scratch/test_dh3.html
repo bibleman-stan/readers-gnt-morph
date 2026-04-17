@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>δή fix: JS measurement</title>
+<style>
+body { background:#1c1f24; color:#d4d0c8; font-family:'Literata',Georgia,serif; font-size:22px; padding:40px; }
+h3 { font-family:sans-serif; font-size:14px; color:#7cafc2; margin:28px 0 12px; }
+.note { font-family:sans-serif; font-size:12px; color:#888; max-width:50em; margin-bottom:10px; }
+.line { max-width:42em; line-height:2.8; text-indent:-1.5em; padding-left:1.5em; margin-bottom:20px; position:relative; }
+
+.w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.gl {
+  display:block; position:absolute; top:100%;
+  font-family:sans-serif; font-size:9px; color:#fb923c; opacity:.85; line-height:1;
+  white-space:nowrap;
+}
+/* Default: CSS-only centering */
+.a1 .gl { left:50%; transform:translateX(-50%); }
+
+/* JS-positioned: left set in px by JS */
+.a2 .gl { left:0; transform:none; /* JS will override left */ }
+</style>
+</head><body>
+
+<h3>A1 — Current CSS-only (baseline)</h3>
+<div class="a1 line" id="a1">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>A2 — JS measures each word's center and positions gloss in pixels</h3>
+<p class="note">After DOM is ready, loop over glossed words, measure the word's visible bounding rect, and compute the gloss's pixel-offset `left` relative to the word's box.</p>
+<div class="a2 line" id="a2">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>A2 — second line to test line-wrapping</h3>
+<div class="a2 line" id="a2b" style="max-width:24em">
+<span class="w">τότε</span>
+<span class="w">νηστεύσαντες<span class="gl">fasting</span></span>
+<span class="w">καὶ</span>
+<span class="w">προσευξάμενοι<span class="gl">praying</span></span>
+<span class="w">καὶ</span>
+<span class="w">ἐπιθέντες<span class="gl">putting</span></span>
+<span class="w">τὰς</span>
+<span class="w">χεῖρας</span>
+<span class="w">αὐτοῖς</span>
+<span class="w">ἀπέλυσαν<span class="gl">release</span></span>
+</div>
+
+<script>
+// JS positioning: for each glossed word in .a2 lines, compute the word's
+// visible text center (in the inline content, EXCLUDING the gloss itself)
+// and set the gloss's `left` in pixels.
+function positionGlossesInLine(lineEl) {
+  lineEl.querySelectorAll('.w').forEach(w => {
+    const gl = w.querySelector('.gl');
+    if (!gl) return;
+    // Temporarily hide the gl to get a clean measurement of just the word
+    gl.style.display = 'none';
+    const wRect = w.getBoundingClientRect();
+    gl.style.display = '';
+    // Now set gl's left so that its center aligns with word center
+    // w's positioning context is itself (position:relative).
+    // Word center in word-local coordinates = wRect.width / 2
+    const wordCenter = wRect.width / 2;
+    gl.style.left = wordCenter + 'px';
+    gl.style.transform = 'translateX(-50%)';
+  });
+}
+
+document.querySelectorAll('.a2').forEach(positionGlossesInLine);
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.a2').forEach(positionGlossesInLine);
+});
+</script>
+
+</body></html>

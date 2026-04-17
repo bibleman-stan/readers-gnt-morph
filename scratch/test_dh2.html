@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>δή fix: padding for short words</title>
+<style>
+body { background:#1c1f24; color:#d4d0c8; font-family:'Literata',Georgia,serif; font-size:22px; padding:40px; }
+h3 { font-family:sans-serif; font-size:14px; color:#7cafc2; margin:28px 0 12px; }
+.note { font-family:sans-serif; font-size:12px; color:#888; max-width:50em; margin-bottom:10px; }
+.line { max-width:42em; line-height:2.6; text-indent:-1.5em; padding-left:1.5em; margin-bottom:10px; }
+
+/* Baseline (current production) */
+.w {
+  display:inline; position:relative;
+  margin-right:.25em; padding:1px 2px;
+  cursor:pointer;
+}
+.gl {
+  display:block; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  font-family:sans-serif; font-size:9px; color:#fb923c; opacity:.85; line-height:1;
+  white-space:nowrap;
+}
+
+/* Approach: JS-applied "short" class gets extra horizontal padding */
+.short { padding-left:0.5em; padding-right:0.5em; }
+.shorter { padding-left:0.8em; padding-right:0.8em; }
+
+/* Approach B: invisible padding via pseudo-elements — no layout shift for non-glossed words */
+.w-pad::before, .w-pad::after {
+  content:''; display:inline-block; width:0.4em;
+}
+</style>
+</head><body>
+
+<h3>Baseline — δή drifts right</h3>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Fix A: 2-char glossed words get class "shorter" (0.8em padding each side)</h3>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w shorter">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Fix B: 2-char glossed words get class "short" (0.5em padding each side)</h3>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w short">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Fix C: pseudo-element padding (0.4em on each side via ::before/::after)</h3>
+<p class="note">Only the glossed short word gets the padding, achieved via invisible pseudo-elements so it doesn't spread unnecessarily.</p>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w w-pad">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Verify: non-glossed short words (μοι, καὶ, τὸν) still look natural with Fix B</h3>
+<p class="note">If Fix B is right, only GLOSSED short words should widen. Unmarked short words should look normal.</p>
+<div class="line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w short">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+<span class="w">τε</span>
+<span class="w">ὁ</span>
+<span class="w">εἰ</span>
+</div>
+
+</body></html>

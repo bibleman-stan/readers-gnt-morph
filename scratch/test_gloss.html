@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gloss Layout Test — Three Approaches</title>
+<style>
+  /* ── Global ─────────────────────────────────────── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1c1f24;
+    color: #d4d0c8;
+    font-family: "SBL Greek", "Gentium Plus", "Noto Serif", Georgia, serif;
+    font-size: 22px;
+    line-height: 1.45;
+    padding: 24px 32px;
+  }
+  h2 {
+    font-size: 16px;
+    color: #8ab4f8;
+    margin: 32px 0 6px;
+    font-family: system-ui, sans-serif;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+  }
+  h2:first-of-type { margin-top: 12px; }
+  .note {
+    font-family: system-ui, sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  /* Toggle button */
+  #toggle-btn {
+    position: fixed; top: 12px; right: 16px; z-index: 100;
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    padding: 6px 14px;
+    background: #3a3d44; color: #d4d0c8;
+    border: 1px solid #555; border-radius: 4px;
+    cursor: pointer;
+  }
+  #toggle-btn:hover { background: #50535a; }
+
+  /* Gloss style shared */
+  .gloss {
+    font-family: system-ui, sans-serif;
+    font-size: 9px;
+    color: #9db8d4;
+    white-space: nowrap;
+  }
+
+  /* ── APPROACH A: inline-block columns ──────────── */
+  .approach-a .verse {
+    max-width: 42em;
+    text-indent: -1.5em;
+    padding-left: 1.5em;
+    margin-bottom: 18px;
+  }
+  .approach-a .w {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-right: 0.15em;
+  }
+  .approach-a .greek {
+    display: block;
+    line-height: 1.35;
+  }
+  .approach-a .gloss {
+    display: block;
+    line-height: 1.1;
+    min-height: 11px;  /* reserve space even when empty */
+  }
+  /* When glosses hidden */
+  body.glosses-off .approach-a .gloss {
+    display: none;
+  }
+  body.glosses-off .approach-a .w {
+    vertical-align: baseline;
+  }
+
+  /* ── APPROACH B: inline-flex columns ───────────── */
+  .approach-b .verse {
+    max-width: 42em;
+    text-indent: -1.5em;
+    padding-left: 1.5em;
+    margin-bottom: 18px;
+  }
+  .approach-b .w {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: top;
+    margin-right: 0.15em;
+  }
+  .approach-b .greek {
+    line-height: 1.35;
+  }
+  .approach-b .gloss {
+    line-height: 1.1;
+    min-height: 11px;
+  }
+  body.glosses-off .approach-b .gloss {
+    display: none;
+  }
+  body.glosses-off .approach-b .w {
+    vertical-align: baseline;
+  }
+
+  /* ── APPROACH C: absolute positioning ──────────── */
+  .approach-c .verse {
+    max-width: 42em;
+    text-indent: -1.5em;
+    padding-left: 1.5em;
+    margin-bottom: 18px;
+    line-height: 2.6;  /* extra line-height to make room for glosses */
+  }
+  .approach-c .w {
+    display: inline;
+    position: relative;
+    /* padding-bottom added via glosses-on class */
+  }
+  body:not(.glosses-off) .approach-c .verse {
+    line-height: 2.6;
+  }
+  body.glosses-off .approach-c .verse {
+    line-height: 1.45;
+  }
+  .approach-c .gloss {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+  }
+  body.glosses-off .approach-c .gloss {
+    display: none;
+  }
+
+  /* ── Verdict section ───────────────────────────── */
+  .verdict {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: #bbb;
+    max-width: 42em;
+    margin-top: 40px;
+    padding: 16px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #22252b;
+    line-height: 1.55;
+  }
+  .verdict h3 { color: #8ab4f8; margin-bottom: 8px; font-size: 14px; }
+  .verdict ul { padding-left: 18px; margin-top: 4px; }
+  .verdict li { margin-bottom: 4px; }
+  .verdict strong { color: #d4d0c8; }
+</style>
+</head>
+<body>
+
+<button id="toggle-btn" onclick="toggleGlosses()">Glosses: ON</button>
+
+<!-- ════════════════════════════════════════════════ -->
+<h2>Approach A &mdash; inline-block word columns</h2>
+<p class="note">Each .w is inline-block; vertical-align:top; text-align:center. Gloss is display:block child. text-indent for hanging indent.</p>
+
+<div class="approach-a">
+  <div class="verse">
+    <span class="w"><span class="greek">Ὁ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">δὲ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Σαῦλος</span><span class="gloss">Saul</span></span>
+    <span class="w"><span class="greek">ἔτι</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐμπνέων</span><span class="gloss">breathe</span></span>
+    <span class="w"><span class="greek">ἀπειλῆς</span><span class="gloss">threat</span></span>
+    <span class="w"><span class="greek">καὶ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">φόνου</span><span class="gloss">murder</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τοὺς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">μαθητὰς</span><span class="gloss">disciple</span></span>
+    <span class="w"><span class="greek">τοῦ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">κυρίου</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">προσελθὼν</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τῷ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἀρχιερεῖ</span><span class="gloss">high priest</span></span>
+    <span class="w"><span class="greek">ᾐτήσατο</span><span class="gloss">ask</span></span>
+    <span class="w"><span class="greek">παρ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">αὐτοῦ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐπιστολὰς</span><span class="gloss">letter</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Δαμασκὸν</span><span class="gloss">Damascus</span></span>
+    <span class="w"><span class="greek">πρὸς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τὰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">συναγωγάς</span><span class="gloss">synagogue</span></span>
+  </div>
+  <div class="verse">
+    <span class="w"><span class="greek">ὅπως</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐάν</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τινας</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">εὕρῃ</span><span class="gloss">find</span></span>
+    <span class="w"><span class="greek">τῆς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ὁδοῦ</span><span class="gloss">way</span></span>
+    <span class="w"><span class="greek">ὄντας</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἄνδρας</span><span class="gloss">man</span></span>
+    <span class="w"><span class="greek">τε</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">καὶ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">γυναῖκας</span><span class="gloss">woman</span></span>
+    <span class="w"><span class="greek">δεδεμένους</span><span class="gloss">bind</span></span>
+    <span class="w"><span class="greek">ἀγάγῃ</span><span class="gloss">lead</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Ἰερουσαλήμ</span><span class="gloss">Jerusalem</span></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<h2>Approach B &mdash; CSS flexbox per word</h2>
+<p class="note">Each .w is inline-flex; flex-direction:column; align-items:center. Gloss is flex child. text-indent for hanging indent.</p>
+
+<div class="approach-b">
+  <div class="verse">
+    <span class="w"><span class="greek">Ὁ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">δὲ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Σαῦλος</span><span class="gloss">Saul</span></span>
+    <span class="w"><span class="greek">ἔτι</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐμπνέων</span><span class="gloss">breathe</span></span>
+    <span class="w"><span class="greek">ἀπειλῆς</span><span class="gloss">threat</span></span>
+    <span class="w"><span class="greek">καὶ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">φόνου</span><span class="gloss">murder</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τοὺς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">μαθητὰς</span><span class="gloss">disciple</span></span>
+    <span class="w"><span class="greek">τοῦ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">κυρίου</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">προσελθὼν</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τῷ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἀρχιερεῖ</span><span class="gloss">high priest</span></span>
+    <span class="w"><span class="greek">ᾐτήσατο</span><span class="gloss">ask</span></span>
+    <span class="w"><span class="greek">παρ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">αὐτοῦ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐπιστολὰς</span><span class="gloss">letter</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Δαμασκὸν</span><span class="gloss">Damascus</span></span>
+    <span class="w"><span class="greek">πρὸς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τὰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">συναγωγάς</span><span class="gloss">synagogue</span></span>
+  </div>
+  <div class="verse">
+    <span class="w"><span class="greek">ὅπως</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἐάν</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">τινας</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">εὕρῃ</span><span class="gloss">find</span></span>
+    <span class="w"><span class="greek">τῆς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ὁδοῦ</span><span class="gloss">way</span></span>
+    <span class="w"><span class="greek">ὄντας</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">ἄνδρας</span><span class="gloss">man</span></span>
+    <span class="w"><span class="greek">τε</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">καὶ</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">γυναῖκας</span><span class="gloss">woman</span></span>
+    <span class="w"><span class="greek">δεδεμένους</span><span class="gloss">bind</span></span>
+    <span class="w"><span class="greek">ἀγάγῃ</span><span class="gloss">lead</span></span>
+    <span class="w"><span class="greek">εἰς</span><span class="gloss">&nbsp;</span></span>
+    <span class="w"><span class="greek">Ἰερουσαλήμ</span><span class="gloss">Jerusalem</span></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<h2>Approach C &mdash; Absolute positioning with uniform line-height</h2>
+<p class="note">All .w are display:inline; position:relative. Gloss is position:absolute. Extra line-height reserves space uniformly. text-indent for hanging indent.</p>
+
+<div class="approach-c">
+  <div class="verse">
+    <span class="w">Ὁ</span>
+    <span class="w">δὲ</span>
+    <span class="w">Σαῦλος<span class="gloss">Saul</span></span>
+    <span class="w">ἔτι</span>
+    <span class="w">ἐμπνέων<span class="gloss">breathe</span></span>
+    <span class="w">ἀπειλῆς<span class="gloss">threat</span></span>
+    <span class="w">καὶ</span>
+    <span class="w">φόνου<span class="gloss">murder</span></span>
+    <span class="w">εἰς</span>
+    <span class="w">τοὺς</span>
+    <span class="w">μαθητὰς<span class="gloss">disciple</span></span>
+    <span class="w">τοῦ</span>
+    <span class="w">κυρίου</span>
+    <span class="w">προσελθὼν</span>
+    <span class="w">τῷ</span>
+    <span class="w">ἀρχιερεῖ<span class="gloss">high priest</span></span>
+    <span class="w">ᾐτήσατο<span class="gloss">ask</span></span>
+    <span class="w">παρ</span>
+    <span class="w">αὐτοῦ</span>
+    <span class="w">ἐπιστολὰς<span class="gloss">letter</span></span>
+    <span class="w">εἰς</span>
+    <span class="w">Δαμασκὸν<span class="gloss">Damascus</span></span>
+    <span class="w">πρὸς</span>
+    <span class="w">τὰς</span>
+    <span class="w">συναγωγάς<span class="gloss">synagogue</span></span>
+  </div>
+  <div class="verse">
+    <span class="w">ὅπως</span>
+    <span class="w">ἐάν</span>
+    <span class="w">τινας</span>
+    <span class="w">εὕρῃ<span class="gloss">find</span></span>
+    <span class="w">τῆς</span>
+    <span class="w">ὁδοῦ<span class="gloss">way</span></span>
+    <span class="w">ὄντας</span>
+    <span class="w">ἄνδρας<span class="gloss">man</span></span>
+    <span class="w">τε</span>
+    <span class="w">καὶ</span>
+    <span class="w">γυναῖκας<span class="gloss">woman</span></span>
+    <span class="w">δεδεμένους<span class="gloss">bind</span></span>
+    <span class="w">ἀγάγῃ<span class="gloss">lead</span></span>
+    <span class="w">εἰς</span>
+    <span class="w">Ἰερουσαλήμ<span class="gloss">Jerusalem</span></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<div class="verdict">
+  <h3>Evaluation Checklist</h3>
+  <p>Toggle glosses on/off and resize the window to test each approach against these criteria:</p>
+  <ul>
+    <li><strong>Hanging indent</strong> &mdash; first line flush left, continuation lines indented ~1.5em</li>
+    <li><strong>No overlap/collapse</strong> &mdash; words never stack on top of each other</li>
+    <li><strong>Consistent baselines</strong> &mdash; glossed and un-glossed words sit at the same height</li>
+    <li><strong>Gloss centering</strong> &mdash; English text centered below its Greek word</li>
+    <li><strong>Natural wrapping</strong> &mdash; glosses stay attached to their words across line breaks</li>
+    <li><strong>Paragraph spacing</strong> &mdash; second paragraph clearly separated from first</li>
+    <li><strong>Glosses-off mode</strong> &mdash; text collapses cleanly to normal reading layout</li>
+  </ul>
+</div>
+
+<script>
+function toggleGlosses() {
+  document.body.classList.toggle('glosses-off');
+  var btn = document.getElementById('toggle-btn');
+  btn.textContent = document.body.classList.contains('glosses-off')
+    ? 'Glosses: OFF' : 'Glosses: ON';
+}
+</script>
+</body>
+</html>

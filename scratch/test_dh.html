@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>δή positioning test</title>
+<style>
+body { background:#1c1f24; color:#d4d0c8; font-family:'Literata',Georgia,serif; font-size:22px; padding:40px; }
+h3 { font-family:sans-serif; font-size:14px; color:#7cafc2; margin:28px 0 12px; }
+.note { font-family:sans-serif; font-size:12px; color:#888; max-width:50em; margin-bottom:10px; }
+.line { max-width:42em; line-height:2.6; text-indent:-1.5em; padding-left:1.5em; margin-bottom:10px; }
+
+/* === Shared gl-hint styling === */
+.gl {
+  display:block; font-family:sans-serif; font-size:9px;
+  color:#fb923c; opacity:.85; line-height:1;
+  white-space:nowrap;
+}
+
+/* === Approach 1: current (baseline) ===
+   .w is inline, position:relative, gl is absolute centered */
+.a1 .w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.a1 .gl { position:absolute; top:100%; left:50%; transform:translateX(-50%); }
+
+/* === Approach 2: inline-block on all .w === */
+.a2 .w { display:inline-block; position:relative; vertical-align:baseline; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.a2 .gl { position:absolute; top:100%; left:50%; transform:translateX(-50%); }
+
+/* === Approach 3: inline-block ONLY on glossed words === */
+.a3 .w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.a3 .w.has-gl { display:inline-block; vertical-align:baseline; }
+.a3 .gl { position:absolute; top:100%; left:50%; transform:translateX(-50%); }
+
+/* === Approach 4: inner inline-block wrapper only on glossed words === */
+.a4 .w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.a4 .w-anchor { display:inline-block; position:relative; vertical-align:baseline; }
+.a4 .gl { position:absolute; top:100%; left:50%; transform:translateX(-50%); }
+
+/* === Approach 5: CSS grid per glossed word === */
+.a5 .w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.a5 .w.has-gl { display:inline-grid; grid-template-rows:auto auto; justify-items:center; vertical-align:baseline; }
+.a5 .w.has-gl > .gl-inner { grid-row:1; }
+.a5 .w.has-gl > .gl { grid-row:2; position:static; transform:none; }
+</style>
+</head><body>
+
+<h3>Approach 1: current baseline (inline + position:relative + absolute gloss)</h3>
+<p class="note">Reference case. Should reproduce the δή drift.</p>
+<div class="a1 line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Approach 2: all words inline-block</h3>
+<p class="note">This caused a disaster in the real page. Reproduction.</p>
+<div class="a2 line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Approach 3: inline-block ONLY on glossed words (mixed display)</h3>
+<p class="note">Only glossed .w become inline-block. Non-glossed stay inline.</p>
+<div class="a3 line">
+<span class="w has-gl">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w has-gl">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w has-gl">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w has-gl">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>Approach 4: inner inline-block anchor (outer .w stays inline)</h3>
+<p class="note">Outer .w stays inline for text-indent. An inner &lt;span class="w-anchor"&gt; is inline-block and hosts the gloss's positioning context.</p>
+<div class="a4 line">
+<span class="w"><span class="w-anchor">Ἀφορίσατε<span class="gl">set apart</span></span></span>
+<span class="w"><span class="w-anchor">δή<span class="gl">so</span></span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w"><span class="w-anchor">Βαρναβᾶν<span class="gl">Barnabas</span></span></span>
+<span class="w">καὶ</span>
+<span class="w"><span class="w-anchor">Σαῦλον<span class="gl">Saul</span></span></span>
+</div>
+
+<h3>Approach 5: inline-grid on glossed words</h3>
+<p class="note">Each glossed .w is a 2-row grid: word on row 1, gloss on row 2, both center-aligned.</p>
+<div class="a5 line">
+<span class="w has-gl"><span class="gl-inner">Ἀφορίσατε</span><span class="gl">set apart</span></span>
+<span class="w has-gl"><span class="gl-inner">δή</span><span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w has-gl"><span class="gl-inner">Βαρναβᾶν</span><span class="gl">Barnabas</span></span>
+<span class="w">καὶ</span>
+<span class="w has-gl"><span class="gl-inner">Σαῦλον</span><span class="gl">Saul</span></span>
+</div>
+
+<h3>Wrapping test (narrow width) — Approach 4 with a longer line</h3>
+<p class="note">Stress-test: does Approach 4 survive when the line wraps?</p>
+<div class="a4 line" style="max-width:20em">
+<span class="w">τότε</span>
+<span class="w"><span class="w-anchor">νηστεύσαντες<span class="gl">fasting</span></span></span>
+<span class="w">καὶ</span>
+<span class="w"><span class="w-anchor">προσευξάμενοι<span class="gl">praying</span></span></span>
+<span class="w">καὶ</span>
+<span class="w"><span class="w-anchor">ἐπιθέντες<span class="gl">putting</span></span></span>
+<span class="w">τὰς</span>
+<span class="w">χεῖρας</span>
+<span class="w">αὐτοῖς</span>
+<span class="w"><span class="w-anchor">ἀπέλυσαν<span class="gl">release</span></span></span>
+</div>
+
+</body></html>

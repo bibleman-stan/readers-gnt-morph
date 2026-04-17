@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>δή: Range-based measurement</title>
+<style>
+body { background:#1c1f24; color:#d4d0c8; font-family:'Literata',Georgia,serif; font-size:22px; padding:40px; }
+h3 { font-family:sans-serif; font-size:14px; color:#7cafc2; margin:28px 0 12px; }
+.note { font-family:sans-serif; font-size:12px; color:#888; max-width:50em; margin-bottom:10px; }
+.line { max-width:42em; line-height:2.6; text-indent:-1.5em; padding-left:1.5em; margin-bottom:20px; }
+
+.w { display:inline; position:relative; margin-right:.25em; padding:1px 2px; cursor:pointer; }
+.gl {
+  display:block; position:absolute; top:100%;
+  font-family:sans-serif; font-size:9px; color:#fb923c; opacity:.85; line-height:1;
+  white-space:nowrap;
+}
+
+/* A1: CSS-only (baseline) */
+.a1 .gl { left:50%; transform:translateX(-50%); }
+
+/* A2: JS measures TEXT (not box) via Range */
+.a2 .gl { left:0; transform:translateX(-50%); }
+
+/* A3: debug — show word outline */
+.a3 .w { outline:1px dashed rgba(255,0,0,.4); }
+.a3 .gl { left:50%; transform:translateX(-50%); outline:1px solid rgba(0,255,0,.4); }
+</style>
+</head><body>
+
+<h3>A1 — CSS :50% baseline</h3>
+<div class="a1 line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>A2 — JS Range measurement (measures just the glyphs)</h3>
+<p class="note">Uses Range API to measure just the Greek text node's bounding rect, then positions the gloss at the true glyph center.</p>
+<div class="a2 line" id="a2">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">τὸν</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+<span class="w">Σαῦλον<span class="gl">Saul</span></span>
+</div>
+
+<h3>A2 wrap test</h3>
+<div class="a2 line" id="a2b" style="max-width:22em">
+<span class="w">τότε</span>
+<span class="w">νηστεύσαντες<span class="gl">fasting</span></span>
+<span class="w">καὶ</span>
+<span class="w">προσευξάμενοι<span class="gl">praying</span></span>
+<span class="w">καὶ</span>
+<span class="w">ἐπιθέντες<span class="gl">putting</span></span>
+<span class="w">τὰς</span>
+<span class="w">χεῖρας</span>
+<span class="w">αὐτοῖς</span>
+<span class="w">ἀπέλυσαν<span class="gl">release</span></span>
+</div>
+
+<h3>A3 — debug with red/green outlines</h3>
+<p class="note">Red dashes = .w box. Green = gloss box. Compare where gloss actually sits vs word box center.</p>
+<div class="a3 line">
+<span class="w">Ἀφορίσατε<span class="gl">set apart</span></span>
+<span class="w">δή<span class="gl">so</span></span>
+<span class="w">μοι</span>
+<span class="w">Βαρναβᾶν<span class="gl">Barnabas</span></span>
+</div>
+
+<script>
+function positionByRange(container) {
+  container.querySelectorAll('.w').forEach(w => {
+    const gl = w.querySelector('.gl');
+    if (!gl) return;
+    // Find the first TEXT node (skip the gloss span)
+    let textNode = null;
+    for (const child of w.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) {
+        textNode = child;
+        break;
+      }
+    }
+    if (!textNode) return;
+    const range = document.createRange();
+    range.selectNodeContents(textNode);
+    const textRect = range.getBoundingClientRect();
+    const wRect = w.getBoundingClientRect();
+    // Text center in word-local coordinates
+    const localCenter = textRect.left + textRect.width / 2 - wRect.left;
+    gl.style.left = localCenter + 'px';
+  });
+}
+
+function runAll() {
+  document.querySelectorAll('.a2').forEach(positionByRange);
+}
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(runAll);
+} else {
+  runAll();
+}
+window.addEventListener('resize', runAll);
+</script>
+
+</body></html>
