@@ -898,6 +898,7 @@ def generate_lexicon_json(words, lexicon, freq):
                 'ὑπέρ': 'for',
                 'πρός': 'to',
                 'ἀφορίζω': 'set apart',  # Dodson "rail off" is obscure
+                'συναλίζομαι': 'meet with',  # Dodson "I am assembled together with" → unwieldy
             }
             if lemma in _GLOSS_OVERRIDE:
                 short = _GLOSS_OVERRIDE[lemma]

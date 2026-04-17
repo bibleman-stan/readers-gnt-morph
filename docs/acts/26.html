@@ -729,6 +729,13 @@ function toGerund(verb) {
   // Convert a bare English verb gloss to -ing form
   if (!verb) return verb;
   const w = verb.trim();
+  if (!w) return w;
+  // Auxiliary + past-participle phrases: "am assembled with" → "being assembled with"
+  const aux = w.match(/^(am|is|are|was|were|be)\s+(.+)$/i);
+  if (aux) return 'being ' + aux[2];
+  // Other multi-word glosses ("set apart", "call upon"): gerund the first word only
+  const sp = w.indexOf(' ');
+  if (sp > 0) return toGerund(w.slice(0, sp)) + w.slice(sp);
   if (w.endsWith('ing')) return w;            // already gerund
   if (w.endsWith('ie')) return w.slice(0,-2) + 'ying';  // die→dying
   if (w.endsWith('ee')) return w + 'ing';     // see→seeing
