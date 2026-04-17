@@ -599,6 +599,44 @@ Open items for next session:
 - Mobile polish pass — the tool works but hasn't been deliberately tuned for phone screens.
 - Deploy wiring to gnt-reader.com/analysis/morph/.
 
+### 2026-04-17 (later) — repo reorg + GitHub Pages deploy wiring
+
+Scope: scale the directory structure from "Acts at root" to "GNT-ready", and wire up the actual deploy.
+
+What landed:
+- **Directory reorg.** All 56 acts*_data.json + acts*_reader.html files were at repo root — at full GNT scale this would be ~520 files at root. Moved to a clean separation:
+  - `src/` — Python pipeline (morpheus, generate_chapter, build_html, validate_chapter)
+  - `templates/reader.html` — master HTML template (renamed from `template.html`)
+  - `build/acts/<N>.json` — per-chapter intermediate data (renamed from `acts<N>_data.json`)
+  - `docs/` — the deployable site
+    - `docs/index.html` — NEW site-level book picker (Acts live, other 26 books listed as "coming soon")
+    - `docs/about.html` — moved from root
+    - `docs/CNAME` — NEW, contains `morph.gnt-reader.com` (tells GitHub Pages which repo serves this hostname)
+    - `docs/acts/index.html` — per-book chapter grid (renamed from old `index.html`)
+    - `docs/acts/<N>.html` — chapter readers (renamed from `acts<N>_reader.html`)
+- **Path fixes for the reorg:**
+  - `src/generate_chapter.py` and `src/validate_chapter.py`: DATA path now uses `os.path.join(os.path.dirname(__file__), '..', 'data')` since they're one level deeper.
+  - `src/build_html.py`: defaults updated to new path conventions.
+  - `templates/reader.html`: about-link href changed `about.html` → `../about.html`. Added a small `←` back-link in the toolbar (CSS class `.tb-back`) pointing to `./` so users can return to the chapter index.
+  - `docs/about.html`: "Try Acts" links changed `acts1_reader.html` → `acts/1.html`, etc.
+  - `docs/acts/index.html`: chapter links changed `acts1_reader.html` → `1.html` etc., added "← All books" back link to `../`.
+  - All 28 chapter readers regenerated against the updated template.
+- **Deploy wiring (GitHub Pages, custom subdomain):**
+  - DNS: added Cloudflare CNAME record `morph` → `bibleman-stan.github.io` (DNS-only / gray cloud, matching the existing two records). This was Stan's task and is done.
+  - Repo: `docs/CNAME` file created.
+  - Pending Stan task at session end: GitHub repo settings → Pages → Source = `main` branch, folder = `/docs`. Once toggled and propagated, the site is live at `morph.gnt-reader.com`.
+  - URL choice: subdomain (`morph.gnt-reader.com`) over subpath (`gnt-reader.com/analysis/morph/`) because GitHub Pages serves one repo per custom domain natively. Subdomain = zero plumbing; subpath would have required a GitHub Action cross-repo publish or a Cloudflare Worker proxy. Future analysis tools will get their own subdomains (`syntax.gnt-reader.com`, etc.) rather than cluttering `/analysis/`.
+
+Validator state: still 99.5%+ on Acts 9 (smoke test passed on new path layout). No regression — only file paths changed, not pipeline logic.
+
+CLAUDE.md updated with new repo layout and command paths. Workflow snippets now reference `src/` and `build/<book>/<N>.json` patterns.
+
+Open items for next session:
+- Confirm `morph.gnt-reader.com` is live after Stan flips the GitHub Pages toggle.
+- Generate Romans (next book target). The pipeline is now book-ready: just need to update `MORPHGNT` constant and pass `book_code='romans'` (lowercase, matches readers-gnt sense-line dir naming) into `generate_chapter_json`.
+- Mobile polish pass.
+- v2 UX ideas (Part 6).
+
 ---
 
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**

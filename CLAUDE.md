@@ -57,29 +57,44 @@ This is the **morph analytical layer**. You are part of a family of projects; un
 
 ### Generate a new chapter (different book, e.g. Romans)
 
+Repo layout (run all commands from repo root):
+- `src/` — pipeline scripts (morpheus.py, generate_chapter.py, build_html.py, validate_chapter.py)
+- `templates/reader.html` — master HTML template (was `template.html` pre-2026-04-17)
+- `data/` — vendored corpora (MorphGNT, greek-inflexion, morphological-lexicon)
+- `build/<book>/<N>.json` — intermediate per-chapter decomposition data
+- `docs/` — the deployable site (GitHub Pages serves this folder)
+  - `docs/index.html` — site-level book picker
+  - `docs/about.html` — user-facing explainer
+  - `docs/CNAME` — custom domain pointer (`morph.gnt-reader.com`)
+  - `docs/<book>/index.html` — per-book chapter grid
+  - `docs/<book>/<N>.html` — chapter readers
+
 ```bash
 # First, ensure MorphGNT has the book file at data/morphgnt/<NN>-<BookCode>-morphgnt.txt
 # e.g. 52-Ro-morphgnt.txt for Romans
 
-# Edit generate_chapter.py: change MORPHGNT constant to the target book file
+# Edit src/generate_chapter.py: change MORPHGNT constant to the target book file
+# (and pass the appropriate book_code='romans' etc. to generate_chapter_json)
+
+mkdir -p build/<book> docs/<book>
 
 # Generate
-python generate_chapter.py <chapter-num> > <book><N>_data.json
+python src/generate_chapter.py <chapter-num> > build/<book>/<N>.json
 
 # Validate
-python validate_chapter.py <book><N>_data.json
+PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/<book>/<N>.json
 
 # If 100% or close, build the reader
-python build_html.py <book><N>_data.json template.html <book><N>_reader.html
+python src/build_html.py build/<book>/<N>.json templates/reader.html docs/<book>/<N>.html
 ```
 
 Expect 2-5 new edge-case categories when you run on Romans (dense argumentation), Hebrews (unusual perfects), or Revelation (apocalyptic lexicon, proper names). All should be fixable via the same methodology used for Acts — extend `morpheus.py` rules, re-run validator, ensure no regressions on Acts.
 
 ### Fix a bug the validator found
 
-1. Reproduce in a REPL: `import morpheus; morpheus.decompose_verb(<wd>, <stems_db>, ...)`
-2. Fix the rule in `morpheus.py` — usually a table entry or a new pattern.
-3. Re-run validator on all five stress-test chapters to check regressions.
+1. Reproduce in a REPL from `src/`: `import morpheus; morpheus.decompose_verb(<wd>, <stems_db>, ...)`
+2. Fix the rule in `src/morpheus.py` — usually a table entry or a new pattern.
+3. Re-run validator on all five stress-test chapters (`build/acts/{1,9,13,17,26}.json`) to check regressions.
 4. Only then regenerate and rebuild.
 
 ### Add a new visual layer
@@ -123,7 +138,7 @@ When Stan signals start-of-session with phrases like **"hey, let's start a new s
 3. **[NOTICE.md](NOTICE.md)** — data attribution (quick skim; reread only if you're touching vendored data).
 4. **`git log --oneline -10`** — see what's committed since the last session. Any commit you don't recognize is a state change you should understand before working.
 5. **`C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md`** — Stan's mobile-to-desktop idea bridge. Three Claudes may be reading this file (overseer + readers-gnt trench + you). **Scope rule:** items clearly about morph analysis are YOURS — claim them with `⏳ [claimed by morph-trench YYYY-MM-DD]`, work on them, then replace with `✓ YYYY-MM-DD — [disposition]. [pointer to commit/section]`. Items NOT in your scope — don't touch. Never delete; archival is overseer-only.
-6. **Run the validator** on at least one chapter to confirm the pipeline still works on your machine: `python validate_chapter.py acts9_data.json`.
+6. **Run the validator** on at least one chapter to confirm the pipeline still works on your machine: `PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`.
 
 **After reading:** send Stan a brief check-in message confirming orientation. Something like: "Checked in. Current state: [one-sentence summary]. Validator: [pass/fail on whichever chapters you ran]. Anything specific you want me to focus on, or should I continue queued work?" Keep this to 4-5 lines.
 

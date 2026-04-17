@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GNT Morpheme Reader</title>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Gentium+Plus:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1c1f24;
+  --text: #d4d0c8;
+  --muted: #8899aa;
+  --dim: #667788;
+  --accent: #7cafc2;
+  --border: rgba(255,255,255,.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  padding:48px 20px 80px; min-height:100vh; line-height:1.5;
+}
+.container { max-width:760px; margin:0 auto; }
+h1 {
+  font-family:'Literata',Georgia,serif; font-weight:600;
+  font-size:34px; margin-bottom:6px;
+}
+h1 .greek { font-family:'Gentium Plus','Literata',serif; color:var(--accent); }
+.subtitle { color:var(--muted); font-size:14px; margin-bottom:36px; }
+.about-link {
+  display:inline-block; color:var(--accent); text-decoration:none;
+  font-size:13px; margin-left:12px;
+}
+.about-link:hover { text-decoration:underline; }
+
+h2 {
+  font-family:'Literata',Georgia,serif; font-weight:600;
+  font-size:14px; text-transform:uppercase; letter-spacing:1.5px;
+  color:var(--dim); margin:32px 0 12px;
+}
+
+.book-grid {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+  gap:8px;
+}
+.book {
+  display:flex; flex-direction:column; justify-content:center;
+  padding:14px 14px; background:rgba(255,255,255,.04);
+  border:1px solid var(--border); border-radius:6px;
+  color:var(--text); text-decoration:none;
+  transition:all .15s ease;
+}
+.book.live:hover {
+  background:rgba(124,175,194,.15);
+  border-color:var(--accent); color:var(--accent);
+}
+.book.soon {
+  color:var(--dim); cursor:default;
+  background:rgba(255,255,255,.015);
+}
+.book .name { font-weight:500; font-size:14px; }
+.book .meta { font-size:11px; color:var(--dim); margin-top:2px; letter-spacing:.5px; }
+.book.live .meta { color:var(--muted); }
+
+.notes {
+  margin-top:48px; padding:16px 18px; background:rgba(255,255,255,.03);
+  border-left:3px solid var(--accent); border-radius:3px;
+  font-size:13px; line-height:1.65; color:var(--muted);
+}
+.notes strong { color:var(--text); }
+.notes a { color:var(--accent); text-decoration:none; }
+.notes a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>GNT Morpheme Reader<a class="about-link" href="about.html">about →</a></h1>
+  <p class="subtitle">A visual reader for the Greek New Testament. Toggle morphology layers, click any word for full parsing.</p>
+
+  <h2>Available now</h2>
+  <div class="book-grid">
+    <a class="book live" href="acts/">
+      <span class="name">Acts</span>
+      <span class="meta">28 ch · 18,412 wd</span>
+    </a>
+  </div>
+
+  <h2>Coming soon</h2>
+  <div class="book-grid">
+    <span class="book soon"><span class="name">Matthew</span><span class="meta">28 ch</span></span>
+    <span class="book soon"><span class="name">Mark</span><span class="meta">16 ch</span></span>
+    <span class="book soon"><span class="name">Luke</span><span class="meta">24 ch</span></span>
+    <span class="book soon"><span class="name">John</span><span class="meta">21 ch</span></span>
+    <span class="book soon"><span class="name">Romans</span><span class="meta">16 ch</span></span>
+    <span class="book soon"><span class="name">1 Corinthians</span><span class="meta">16 ch</span></span>
+    <span class="book soon"><span class="name">2 Corinthians</span><span class="meta">13 ch</span></span>
+    <span class="book soon"><span class="name">Galatians</span><span class="meta">6 ch</span></span>
+    <span class="book soon"><span class="name">Ephesians</span><span class="meta">6 ch</span></span>
+    <span class="book soon"><span class="name">Philippians</span><span class="meta">4 ch</span></span>
+    <span class="book soon"><span class="name">Colossians</span><span class="meta">4 ch</span></span>
+    <span class="book soon"><span class="name">1 Thessalonians</span><span class="meta">5 ch</span></span>
+    <span class="book soon"><span class="name">2 Thessalonians</span><span class="meta">3 ch</span></span>
+    <span class="book soon"><span class="name">1 Timothy</span><span class="meta">6 ch</span></span>
+    <span class="book soon"><span class="name">2 Timothy</span><span class="meta">4 ch</span></span>
+    <span class="book soon"><span class="name">Titus</span><span class="meta">3 ch</span></span>
+    <span class="book soon"><span class="name">Philemon</span><span class="meta">1 ch</span></span>
+    <span class="book soon"><span class="name">Hebrews</span><span class="meta">13 ch</span></span>
+    <span class="book soon"><span class="name">James</span><span class="meta">5 ch</span></span>
+    <span class="book soon"><span class="name">1 Peter</span><span class="meta">5 ch</span></span>
+    <span class="book soon"><span class="name">2 Peter</span><span class="meta">3 ch</span></span>
+    <span class="book soon"><span class="name">1 John</span><span class="meta">5 ch</span></span>
+    <span class="book soon"><span class="name">2 John</span><span class="meta">1 ch</span></span>
+    <span class="book soon"><span class="name">3 John</span><span class="meta">1 ch</span></span>
+    <span class="book soon"><span class="name">Jude</span><span class="meta">1 ch</span></span>
+    <span class="book soon"><span class="name">Revelation</span><span class="meta">22 ch</span></span>
+  </div>
+
+  <div class="notes">
+    <strong>Proof of concept.</strong> Acts is fully built and validated at 99.5%+ on automated morphological correctness. Other books will be added as the pipeline is run on each. Read <a href="about.html">about this reader</a> for what the visual layers do and how to use them.
+  </div>
+</div>
+</body>
+</html>
