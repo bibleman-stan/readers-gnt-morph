@@ -1032,6 +1032,10 @@ _GLOSS_OVERRIDE = {
     'ἐπαισχύνομαι':  'be ashamed',
     'ἀναφέρω':       'offer up',
     'μακροθυμέω':    'be patient',
+    'δικαιόω':       'justify',             # Dodson "make righteous" — NT standard is "justify"
+    'ἀληθής':        'true',                # Dodson "unconcealed" is etymological; NT use = "true"
+    'ἀληθινός':      'true',                # same etymological issue
+    'ἀλήθεια':       'truth',               # confirm clean default
 }
 
 

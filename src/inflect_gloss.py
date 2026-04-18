@@ -522,9 +522,33 @@ def inflect_gloss(bare_gloss, tvm, lemma=None):
             return rules['*']
         # Fall through to general inflection if no matching pattern
 
-    # Step 2: only inflect indicative mood for v1
-    # (subjunctive, optative, imperative, infinitive, participle keep bare)
+    # Step 2: mood dispatch.
+    # Indicative — full inflection (continues below).
+    # Non-indicative passive — still apply a voice template so "make
+    # righteous" (active bare) doesn't show up under δικαιωθῇς (aorist
+    # passive subjunctive) when the visual voice-outline screams passive.
+    # Non-indicative active/middle — keep bare (per original design:
+    # mood symbols ?, !, →, ~ carry the mood signal; avoid misleading
+    # "may VERB" over every subjunctive).
     if m != 'I':
+        if v == 'P':
+            norm = _strip_lead_article(bare_gloss)
+            cls = _classify(norm)
+            if cls[0] == 'verbal' and re.fullmatch(r'[a-zA-Z]+', cls[1]):
+                head, tail = cls[1], cls[2]
+                past_ptc = _phrasal_past_participle(head, tail)
+                if m == 'N':  # infinitive
+                    return 'to be ' + past_ptc
+                if m == 'P':  # participle — use -ing form
+                    return 'being ' + past_ptc
+                # Subjunctive / optative / imperative
+                return 'be ' + past_ptc
+            if cls[0] == 'stative':
+                if m == 'N':
+                    return 'to be ' + cls[1]
+                if m == 'P':
+                    return 'being ' + cls[1]
+                return 'be ' + cls[1]
         return bare_gloss
 
     # Step 3: classify normalized gloss
