@@ -121,11 +121,6 @@ body { background:var(--bg-deep); color:var(--text-primary); font-family:var(--f
   font-family:var(--font-ui);
 }
 .icon-btn:hover { border-color:var(--border-medium); color:var(--text-primary); }
-.icon-btn.active {
-  background:var(--bg-panel); color:var(--text-primary);
-  border-color:var(--accent); box-shadow:0 1px 4px rgba(0,0,0,.3);
-  font-weight:600;
-}
 
 /* ═══ READER ═══ */
 #reader { flex:1; padding:32px 40px 120px; scroll-behavior:smooth; }
@@ -321,10 +316,6 @@ body { background:var(--bg-deep); color:var(--text-primary); font-family:var(--f
 .mb-suf { color:var(--text-secondary); }
 .mb-stem { color:var(--text-primary); background:rgba(255,255,255,.04); }
 .mb-pfx { color:var(--text-secondary); background:rgba(255,255,255,.03); }
-
-.badge { display:inline-block; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:600;
-         font-family:var(--font-ui); letter-spacing:.5px; text-transform:uppercase; }
-.badge-poc { background:rgba(248,113,113,.15); color:#f87171; margin-left:12px; }
 
 /* ═══ LEGEND MODAL ═══ */
 #legend-scrim {
@@ -578,9 +569,8 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
 
     <div class="tb-sep"></div>
     <a class="tb-back" href="./" title="Back to chapter list">←</a>
-    <span class="tb-title">Acts 27 <span class="badge badge-poc">proof of concept</span></span>
+    <span class="tb-title">Acts 27</span>
     <div class="tb-spacer"></div>
-    <button class="icon-btn" id="bareGlossBtn" onclick="togBareGloss()" title="Show bare dictionary glosses (turn off tense/voice inflection)">ℓ</button>
     <button class="icon-btn" onclick="adjSize(-3)">A-</button>
     <button class="icon-btn" onclick="adjSize(3)">A+</button>
     <button class="icon-btn" onclick="openLegend()" title="Legend &amp; help">?</button>
@@ -644,7 +634,6 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
       <div class="lg-row"><span class="lg-name">Indicative verbs</span><span class="lg-desc">inflected for tense+voice ("chose", "was taken up", "will hear"). Perfect drops the auxiliary ("written" not "has written") — aspect is on the ◉ glyph.</span></div>
       <div class="lg-row"><span class="lg-name">Participles</span><span class="lg-desc">shown as <em>-ing</em> form ("hearing", "saying")</span></div>
       <div class="lg-row"><span class="lg-name">Other moods</span><span class="lg-desc">subjunctive, optative, imperative, infinitive show the bare dictionary form — let the morph layer carry the mood signal</span></div>
-      <div class="lg-row"><span class="lg-name"><strong>ℓ</strong> button</span><span class="lg-desc">toolbar toggle — turn off inflection and show Dodson's bare dictionary forms (for students practicing inflection themselves)</span></div>
       <div class="lg-row"><span class="lg-name">Color</span><span class="lg-desc">warmer = rarer (red=hapax, orange=rare, yellow=uncommon)</span></div>
     </details>
     <div class="lg-foot">
@@ -695,7 +684,7 @@ const TENSE_GLYPHS = {
   'plpf': {glyph:'◎', cls:'tg-plpf', title:'pluperfect'},    // double circle — past completed
 };
 
-const S = { fontSize:26, layers:new Set(), data:[], bareGloss:false };
+const S = { fontSize:26, layers:new Set(), data:[] };
 
 function updateUI() {
   const r = document.getElementById('reader');
@@ -873,12 +862,6 @@ function adjSize(d) {
   document.getElementById('verse-output').style.fontSize = S.fontSize+'px';
 }
 
-function togBareGloss() {
-  S.bareGloss = !S.bareGloss;
-  document.getElementById('bareGlossBtn').classList.toggle('active', S.bareGloss);
-  render();
-}
-
 // ═══ GLOSS HELPERS ═══
 function toGerund(verb) {
   // Convert a bare English verb gloss to -ing form
@@ -983,18 +966,12 @@ function render(data) {
     const gInfo = d.lem ? glossActive(d.lem) : null;
     // Use word-boundary match so 'ptc' doesn't match 'ptcl' (particle)
     const isPtc = d.prs && /\bptc\b/.test(d.prs);
-    // Gloss dispatch:
-    //   • bareGloss toggle on  → always show Dodson's bare lex gloss
-    //     (useful for learners practicing their own inflection, and as
-    //     insurance against engine misfires).
-    //   • Otherwise prefer build-time inflected gloss (d.igl), including
-    //     for participles when an override matched (e.g. εἰμί PAP →
-    //     "being"). Fall through to JS toGerund for participles without
-    //     overrides, then to the bare lex gloss.
+    // Prefer the build-time inflected gloss (d.igl) whenever present —
+    // that includes participles when a lemma override matched (e.g. εἰμί
+    // PAP → "being"). Fall through to JS toGerund for participles without
+    // overrides, then to the bare lex gloss for everything else.
     const glText = gInfo
-      ? (S.bareGloss
-          ? gInfo.gl
-          : (d.igl || (isPtc ? toGerund(gInfo.gl) : gInfo.gl)))
+      ? (d.igl || (isPtc ? toGerund(gInfo.gl) : gInfo.gl))
       : '';
     const glHint = gInfo ? `<span class="gl-hint gl-b${gInfo.band}">${glText}</span>` : '';
 

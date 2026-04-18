@@ -751,23 +751,28 @@ def load_sense_lines(book_code, chapter):
     Returns a list of: {'verse': N} for verse markers,
                        {'br': True} for line breaks,
                        {'word': 'text'} for words to match against MorphGNT.
+
+    readers-gnt uses short codes (rom, 1cor, heb) in directory names
+    and file prefixes. Translate from our canonical code via
+    books.py's sense_code field.
     """
-    # Map book codes: 'acts' -> '05-acts'
+    sense_code = BOOKS.get(book_code, {}).get('sense_code', book_code)
+
+    # Map short sense-codes to their NN-<code> directories
     book_dirs = {}
     if os.path.isdir(SENSE_LINES_DIR):
         for d in os.listdir(SENSE_LINES_DIR):
-            # e.g. '05-acts' -> 'acts'
             parts = d.split('-', 1)
             if len(parts) == 2:
                 book_dirs[parts[1]] = d
 
-    dir_name = book_dirs.get(book_code)
+    dir_name = book_dirs.get(sense_code)
     if not dir_name:
         return None
 
     ch_str = f'{chapter:02d}'
-    # Find the chapter file, e.g. acts-09.txt
-    ch_file = os.path.join(SENSE_LINES_DIR, dir_name, f'{book_code}-{ch_str}.txt')
+    # Files are named e.g. rom-03.txt, acts-09.txt (short code)
+    ch_file = os.path.join(SENSE_LINES_DIR, dir_name, f'{sense_code}-{ch_str}.txt')
     if not os.path.exists(ch_file):
         return None
 
