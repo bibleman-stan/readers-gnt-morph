@@ -402,6 +402,40 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
   #panel { width:calc(100% - 16px); right:8px; bottom:8px; }
 }
 
+/* ═══ MOBILE-PORTRAIT TUNING (≤600px) ═══
+ * Two fixes for issues that only appear on narrow/high-DPI screens:
+ *  1. Voice outlines: 1px borders render sub-pixel on retina and wash out
+ *     against the dark background. Bump to 1.75px so they stay visible.
+ *  2. Glosses: absolute-positioned, centered, nowrap glosses get clipped by
+ *     the viewport edge when their natural width exceeds the parent word.
+ *     Allow wrapping and clamp max-width so they stay on-screen; bump the
+ *     font-size slightly for legibility at this scale. Extra reader padding
+ *     gives gloss centerlines near the edges more room to resolve. */
+@media (max-width:600px) {
+  #reader { padding:20px 28px 100px; }
+
+  .L-voice .w.voice-act,
+  .L-voice .w.voice-mid,
+  .L-voice .w.voice-pass {
+    border-top-width:1.75px;
+    border-left-width:1.75px;
+    border-right-width:1.75px;
+  }
+  .L-voice .w.voice-act.voice-inf,
+  .L-voice .w.voice-mid.voice-inf,
+  .L-voice .w.voice-pass.voice-inf {
+    border-width:1.75px;
+  }
+
+  .gl-hint {
+    white-space:normal;
+    max-width:min(11em, 42vw);
+    line-height:1.15;
+    text-align:center;
+    font-size:0.5em;
+  }
+}
+
 /* ═══ INTER-CHAPTER NAVIGATION ═══ */
 .progress-line {
   position:fixed; top:0; left:0; height:2px;
