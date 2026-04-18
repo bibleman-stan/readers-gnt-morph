@@ -921,6 +921,160 @@ operation.
     calls per pass).
   - Mobile overflow audit.
 
+### 2026-04-18 — bulk_generate 18× speedup, mobile fixes, parse-order regression, sync_senselines, horde batch 3
+
+Continuation of the full-GNT work from the previous session. Agenda
+was scaling discipline + user-facing polish + one silent regression
+to catch.
+
+**Major wins:**
+
+1. **src/bulk_generate.py — 18× speedup on full-GNT regen.** Earlier
+   pipeline used `subprocess.run(['python', 'src/generate_chapter.py', ...])`
+   per chapter, which meant ~4 seconds of YAML re-parsing per invocation
+   (stems ~1MB, lexicon ~1.7MB, NT frequencies across all 27 books).
+   At 260 chapters, that's >1,000 CPU-seconds of pure overhead.
+   Fix: refactored `generate_chapter.py` to expose a callable
+   `build_chapter(book_code, chapter, stems, lex, freq)` that takes
+   pre-loaded data. New `bulk_generate.py` loads stems/lex/freq ONCE,
+   iterates all chapters in a thread pool, calls build_html inline.
+   **Measured: 418s → 23.3s (18.0× faster).**
+
+   Stan's intuition ("is the 6-7 min because you didn't sufficiently
+   divvy up agentic shock troops?") pointed me to a real bottleneck
+   — but the honest answer was "more workers won't help; subprocess
+   startup dominates." Fixing the architecture, not throwing more
+   parallelism at it, was the right call. His follow-up ("i just
+   don't like artificial bottlenecks") was the nudge to do it right.
+
+2. **src/sync_senselines.py — hash-based staleness detection.** When
+   Stan edits sense-line files in the sibling readers-gnt repo, the
+   morph-reader needs to know which chapters to regen. Built a
+   SHA-256-manifest-based checker: walks sense-line files, compares
+   current SHAs to stored manifest at build/sense_hashes.json, reports
+   or regens stale chapters via the in-process bulk pipeline.
+   Subsecond check; regen is per-chapter precision (no 260-file
+   commit-diff noise). Initial manifest baselined at commit d522c2c.
+
+   Chose hash-based over mtime because Windows + git resets mtimes on
+   clone/pull, which would false-flag everything as stale after any
+   fresh checkout.
+
+3. **Parse-display reorder (Koine convention per Stan's preference):**
+   - Finite verb:  "aor mid ind 3 sg"   (was: "verb 3 aor mid ind sg")
+   - Participle:   "aor pass ptc nom sg masc"
+   - Infinitive:   "aor mid inf"
+   - Nominals:     unchanged ("noun nom sg masc")
+   Dropped the redundant "verb" leading token on finite forms — the
+   mood marker already distinguishes. 'ptc' abbrev preserved (not
+   "ptcpl") so the template's isPtc regex /\\bptc\\b/ keeps working.
+
+4. **A- font-size shrink-button bug.** S.fontSize default was 26 but
+   the CSS --greek-size var starts at 22, so the first A- click
+   applied 26-3=23px → visual JUMPED UP from 22 to 23 ("shrinks" by
+   growing first). Fix: adjSize() now syncs S.fontSize from rendered
+   computed style on first use, so deltas are always relative to
+   what's actually on-screen.
+
+5. **Mobile-portrait CSS fixes.** (a) Voice outlines (3-sided bracket
+   boxes) invisible on retina mobile — 1px borders render sub-pixel
+   and accent colors (grey #94a3b8, purple #c084fc) wash out.
+   Bumped to 1.75px under ≤600px media query. (b) Absolute-positioned
+   glosses (`white-space:nowrap`, `left:50% translateX(-50%)`) got
+   clipped by the viewport edge when their natural width exceeded the
+   parent Greek word. Fix: allow wrapping, cap max-width at
+   min(11em, 42vw), bump font-size 0.42em → 0.5em for legibility,
+   12px extra reader padding as buffer.
+
+**The regression I almost missed (and didn't catch quickly enough):**
+
+6. **Voice / mood / tense glyph silently broken for two commits.** The
+   parse-order reorder dropped the "verb" leading token from prs. Three
+   renderer call sites in templates/reader.html gated verb-specific
+   class application on `d.prs.includes('verb')`:
+     - Line 1034 — tense glyph (⟨, ⟩, ∿, ◉) rendering
+     - Line 1075 — voice outlines (grey mid, purple pass)
+     - Line 1085 — mood glyphs (?, !, ~, →)
+   Became silently always-false after the reorder, so the visual
+   syntax-layer disappeared entirely. Stan caught it by eye on
+   morph.gnt-reader.com/romans/3.html — "voice frames missing on
+   desktop AND mobile" (my earlier mobile CSS commit was a red
+   herring). Fix: gate all three on `d.tvm` (the 3-char tense/voice/mood
+   code), which is only set for V- POS entries. Format-agnostic,
+   doesn't depend on English labeling of the prs string.
+
+   Lesson repeated: when changing a data shape, grep for all
+   consumers. This one: `grep "d.prs\." src/ templates/` would have
+   flagged the three call sites. Also a reminder that broken visual
+   layers are silent failures — nothing errored, the boxes just
+   weren't there.
+
+**Agent-driven work:**
+
+7. **Full GNT publication (25 new books × ~216 chapters).** After
+   Romans was verified clean in the previous session, bulk-generated
+   the remaining 25 books in parallel (8-worker thread pool via
+   subprocess) — 216 JSONs in 5.5 min. Built 216 HTMLs in 3.7s.
+   Generated 25 per-book chapter-grid index pages from a template
+   with Greek book titles in proper nominative/genitive. Rewrote
+   docs/index.html to group all 27 books into canonical sections
+   (Gospels / Acts & Pauline / Hebrews & General / Apocalypse). All
+   live at morph.gnt-reader.com.
+
+8. **42-reviewer horde across the 25 new books** — "minigun mode".
+   2 chapters per book, 3-4 for Revelation, 1 for single-chapter
+   books. Total 42 Haiku reviewers dispatched in parallel in a single
+   message. Returned over ~5 minutes. Applied findings:
+   - 3 engine bugs (behold missing from IRREGULAR; δύναμαι APS
+     producing "be canned"; ὑπερυψόω's "highly exalt" phrasal
+     inflection producing "highlied")
+   - ~40 lemma overrides (πνεῦμα "wind"→"spirit" was the highest-
+     volume fix — flagged by 5+ independent reviewers across
+     Eph 6, 2 Thess 2, Jude 19, Gal 5)
+   - Most Gal 5:22-23 fruit-of-the-Spirit names standardized to
+     modern NT English
+
+   Meta-pattern: reviewers flagged ~11 "participle not in -ing form"
+   issues in 3 John 1 that were false positives. They read the raw
+   build/*.json where bare glosses ARE stored as infinitive-style;
+   the browser's toGerund applies -ing at render time. Review
+   prompts should be clearer about "rendered output" vs. "data
+   state" next time, OR reviewers should only review rendered HTML.
+
+9. **Proof-of-concept badging dropped** — removed from every chapter
+   toolbar, the Acts chapter-grid subtitle, and the about.html
+   credits section. The toggleable "ℓ bare glosses" button from
+   Bundle 2 was also removed as UI overkill after review.
+
+**Validator state at session end:**
+  - Gloss validator: 71/71 ground-truth tests pass
+  - 0 anti-pattern hits in scans
+  - Morphology validator: 99.5%+ on Acts 9 (unchanged; no
+    morpheus.py touched this session)
+  - Coverage audit: 25/27 books at 100%; James 98.9%, Galatians
+    99.0% (Aramaic transliterations / rare particles)
+
+**Commits landed today (2026-04-18):**
+  - 5232d0b — Parse reorder, A- fix, bulk_generate.py (18× speedup)
+  - 4b53bad — HANDOFF + CLAUDE.md docs
+  - d522c2c — Mobile-portrait CSS fixes
+  - 1066c40 — src/sync_senselines.py staleness checker
+  - d9dd41e — Voice/mood/tense-glyph regression fix (the big catch)
+  - 86a3d96 — Horde batch 3 (~40 overrides + 3 engine bugs)
+
+**Open items for next session:**
+  - The ~50% of horde-batch findings I did NOT apply (rare-word
+    stylistic refinements; the perfect-active "have" debate; some
+    stylistic imperfects). Queue if Stan wants another pass.
+  - Mobile test on actual device to confirm the CSS fixes hold up.
+  - Build `src/chapter_review.py` orchestrator that codifies the
+    42-way horde dispatch (currently done by hand in a single huge
+    tool-call message).
+  - README.md path modernizations (still deferred from Bundle 3).
+  - `METHOD.md` / `CITATION.md` + CC BY 4.0 licensing for the
+    visual vocabulary + pedagogical method (Stan's paper-writing
+    thread).
+
 ---
 
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**
