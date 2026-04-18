@@ -1030,9 +1030,12 @@ function render(data) {
     // Decomposed word
     let inner = '';
 
-    // Tense glyph — before the verb
-    if (d.prs && d.prs.includes('verb')) {
-      const tenseMatch = d.prs.match(/\b(pres|impf|fut|aor|perf|plpf)\b/);
+    // Tense glyph — before the verb. Gated on d.tvm (only verbs have it).
+    // (Older code checked d.prs.includes('verb'), but the 2026-04-18 parse-
+    //  order reorder removed the "verb" leading token, which broke this
+    //  check silently. d.tvm is the explicit, format-agnostic verb flag.)
+    if (d.tvm) {
+      const tenseMatch = d.prs && d.prs.match(/\b(pres|impf|fut|aor|perf|plpf)\b/);
       if (tenseMatch) {
         const tg = TENSE_GLYPHS[tenseMatch[1]];
         if (tg) inner += `<span class="tense-glyph ${tg.cls}" title="${tg.title}">${tg.glyph}</span>`;
@@ -1071,30 +1074,30 @@ function render(data) {
     let wCls = 'w';
     if (d.cs) wCls += ' wcase-' + d.cs;
 
-    // Voice outline — active, middle, passive all get thin outlines
-    if (d.prs && d.prs.includes('verb')) {
-      if (d.prs.includes(' mid ') || d.prs.endsWith(' mid')) wCls += ' voice-mid';
-      else if (d.prs.includes(' pass ') || d.prs.endsWith(' pass')) wCls += ' voice-pass';
-      else if (d.prs.includes(' act ') || d.prs.endsWith(' act')) wCls += ' voice-act';
-      // Infinitive gets 4-sided box (full outline)
-      if (d.prs.includes(' inf')) wCls += ' voice-inf';
+    // Voice outline — active, middle, passive all get thin outlines.
+    // Gated on d.tvm (only verbs have it). Voice is tvm[1] (A/M/P).
+    // Infinitive (4-sided box) is mood = N, i.e. tvm[2] === 'N'.
+    if (d.tvm) {
+      const v = d.tvm[1];
+      if (v === 'M') wCls += ' voice-mid';
+      else if (v === 'P') wCls += ' voice-pass';
+      else if (v === 'A') wCls += ' voice-act';
+      if (d.tvm[2] === 'N') wCls += ' voice-inf';
     }
 
-    // Mood glyph — after verb (only non-indicative)
+    // Mood glyph — after verb (only non-indicative). Gated on d.tvm.
+    // Direct lookup from the MorphGNT mood code (tvm[2]): S=subj D=imp
+    // O=opt N=inf. Indicative (I) and participle (P) render no glyph.
     let moodTag = '';
-    if (d.prs && d.prs.includes('verb')) {
+    if (d.tvm) {
       const MOOD_GLYPHS = {
-        'subj': {glyph:'?', cls:'mg-subj'},
-        'imp':  {glyph:'!', cls:'mg-impv'},
-        'opt':  {glyph:'~', cls:'mg-opt'},
-        'inf':  {glyph:'→', cls:'mg-inf'},
+        'S': {glyph:'?', cls:'mg-subj'},
+        'D': {glyph:'!', cls:'mg-impv'},
+        'O': {glyph:'~', cls:'mg-opt'},
+        'N': {glyph:'→', cls:'mg-inf'},
       };
-      for (const [mood, mg] of Object.entries(MOOD_GLYPHS)) {
-        if (d.prs.includes(mood)) {
-          moodTag = `<span class="mood-glyph ${mg.cls}">${mg.glyph}</span>`;
-          break;
-        }
-      }
+      const mg = MOOD_GLYPHS[d.tvm[2]];
+      if (mg) moodTag = `<span class="mood-glyph ${mg.cls}">${mg.glyph}</span>`;
     }
 
     h += `<span class="${wCls}" onclick="showPanel(${i})">${inner}${moodTag}${glHint}</span> `;
