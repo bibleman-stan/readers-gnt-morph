@@ -166,9 +166,10 @@ TEST_SET = [
     ('λήμψεσθε',   'λαμβάνω',   '2FMI-P--', 'will take'),
     # Future passive → "will be X-ed"
     ('ἀκουσθήσεται', 'ἀκούω',  '3FPI-S--', 'will be heard'),
-    # Perfect active → "have X-ed"
-    ('γέγραπται',  'γράφω',     '3XPI-S--', 'has been written'),
-    ('ἀκήκοα',     'ἀκούω',     '1XAI-S--', 'have heard'),
+    # Perfect — B2.1 drops the auxiliary (aspect is on the ◉ glyph).
+    # Active: bare past participle. Passive: "been VERB-ed".
+    ('γέγραπται',  'γράφω',     '3XPI-S--', 'been written'),
+    ('ἀκήκοα',     'ἀκούω',     '1XAI-S--', 'heard'),
     # Stative override: εἰμί
     ('ἦν',         'εἰμί',      '3IAI-S--', 'was'),
     ('ἐστιν',      'εἰμί',      '3PAI-S--', 'is'),
@@ -183,6 +184,58 @@ TEST_SET = [
     ('ἔδει',       'δέω',       '3IAI-S--', 'it was necessary'),
     # Phrasal verb head-only inflection
     ('ἀφώρισεν',   'ἀφορίζω',   '3AAI-S--', 'set apart'),  # set is its own past
+
+    # ── Bundle 2 expansion (F1-F6 coverage) ──────────────────────────────
+    # Perfect-active (drop aux)
+    ('ἀπέσταλκεν',   'ἀποστέλλω',   '3XAI-S--', 'sent'),
+    ('Ἀπέσταλκαν',   'ἀποστέλλω',   '3XAI-P--', 'sent'),
+    ('εἴρηκεν',      'λέγω',         '3XAI-S--', 'said'),
+    ('εἰρήκασιν',    'λέγω',         '3XAI-P--', 'said'),
+    ('Ἀκηκόαμεν',    'ἀκούω',        '1XAI-P--', 'heard'),
+    ('πεπληρώκατε',  'πληρόω',       '2XAI-P--', 'fulfilled'),
+    ('γέγονεν',      'γίνομαι',      '3XAI-S--', 'become'),
+    # Perfect-passive (been VERB-ed)
+    ('σέσωσται',     'σῴζω',         '3XPI-S--', 'been saved'),
+    ('ἐκκέχυται',    'ἐκχέω',        '3XPI-S--', 'been poured out'),
+    ('ἐπικέκληται',  'ἐπικαλέω',     '3XPI-S--', 'been called upon'),
+    ('κατήχηνται',   'κατηχέω',      '3XPI-P--', 'been instructed'),
+    ('τέτακταί',     'τάσσω',        '3XPI-S--', 'been appointed'),
+    ('γεγέννημαι',   'γεννάω',       '1XPI-S--', 'been begotten'),
+    # Pluperfect (had VERB-ed)
+    ('παρειστήκεισαν', 'παρίστημι',  '3YAI-P--', 'had stood beside'),
+    ('γεγόνει',      'γίνομαι',      '3YAI-S--', 'had become'),
+    ('ἑωράκει',      'ὁράω',         '3YAI-S--', 'had seen'),
+    ('ἐληλύθει',     'ἔρχομαι',      '3YAI-S--', 'had come'),
+    ('πεπιστεύκεισαν', 'πιστεύω',    '3YAI-P--', 'had believed'),
+    # Stative-imperfect overrides
+    ('εἶχον',        'ἔχω',          '3IAI-P--', 'had'),
+    ('εἶχεν',        'ἔχω',          '3IAI-S--', 'had'),
+    # Resurrection & stance verbs
+    ('ἤγειρεν',      'ἐγείρω',       '3AAI-S--', 'raised'),
+    ('ἀνέστησεν',    'ἀνίστημι',     '3AAI-S--', 'rose'),
+    ('ἀναστήσει',    'ἀνίστημι',     '3FAI-S--', 'will raise'),
+    ('ἑστήκατε',     'ἵστημι',       '2XAI-P--', 'stand'),
+    ('ἔστη',         'ἵστημι',       '3AAI-S--', 'stood'),
+    ('εἱστήκεισαν',  'ἵστημι',       '3YAI-P--', 'were standing'),
+    # Phrasal-verb aorist (head-only inflection)
+    ('εἰσῆλθεν',     'εἰσέρχομαι',   '3AAI-S--', 'entered'),
+    ('εἰσῆλθον',     'εἰσέρχομαι',   '3AAI-P--', 'entered'),
+    ('ἐξῆλθεν',      'ἐξέρχομαι',    '3AAI-S--', 'exited'),
+    ('ἀπῆλθεν',      'ἀπέρχομαι',    '3AAI-S--', 'departed'),
+    # Non-deponent aorist passive (was VERB-ed)
+    ('ἐτάφη',        'θάπτω',        '3API-S--', 'was buried'),
+    ('ἐβαπτίσθησαν', 'βαπτίζω',      '3API-P--', 'was baptized'),
+    ('ηὐφράνθη',     'εὐφραίνω',     '3API-S--', 'was delighted'),
+    # Imperfect active extras
+    ('ἤκουον',       'ἀκούω',        '3IAI-P--', 'was hearing'),
+    ('ἔλεγον',       'λέγω',         '3IAI-P--', 'was saying'),
+    ('ἐθαύμαζον',    'θαυμάζω',      '3IAI-P--', 'was marveling'),
+    # Future extras
+    ('προφητεύσουσιν', 'προφητεύω',  '3FAI-P--', 'will prophesy'),
+    ('σωθήσεται',    'σῴζω',         '3FPI-S--', 'will be saved'),
+    ('καταλυθήσεται', 'καταλύω',     '3FPI-S--', 'will be destroyed'),
+    # Present passive
+    ('δίδοται',      'δίδωμι',       '3PPI-S--', 'is given'),
 ]
 
 
@@ -212,6 +265,34 @@ TEST_LEXICON = {
     'μέλλω':       'I am about to',
     'δέω':         'it is necessary',
     'ἀφορίζω':     'set apart',
+    # Bundle 2 expansion
+    'ἀποστέλλω':   'send',
+    'πληρόω':      'fulfill',
+    'γεννάω':      'beget',
+    'ἐκχέω':       'pour out',
+    'ἐπικαλέω':    'call upon',
+    'κατηχέω':     'instruct',
+    'τάσσω':       'appoint',
+    'σῴζω':        'save',
+    'ὁράω':        'see',
+    'ἔρχομαι':     'come',
+    'παρίστημι':   'stand beside',
+    'πιστεύω':     'believe',
+    'ἐγείρω':      'raise',
+    'ἀνίστημι':    'arise',
+    'ἵστημι':      'stand',
+    'εἰσέρχομαι':  'enter',
+    'ἐξέρχομαι':   'exit',
+    'ἀπέρχομαι':   'depart',
+    'θάπτω':       'bury',
+    'βαπτίζω':     'baptize',
+    'εὐφραίνω':    'delight',
+    'θαυμάζω':     'marvel',
+    'ἐρωτάω':      'ask',
+    'προφητεύω':   'prophesy',
+    'καταλύω':     'destroy',
+    'δίδωμι':      'give',
+    'ἔχω':         'have',
 }
 
 

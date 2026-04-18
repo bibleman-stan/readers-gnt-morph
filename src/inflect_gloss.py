@@ -278,6 +278,60 @@ LEMMA_OVERRIDES = {
         'AMP': 'beginning',
         'PMP': 'beginning',
     },
+    # ἔχω — stative; imperfect of stative = simple past, not progressive.
+    # "Was having" is not English; "had" is right.
+    'ἔχω': {
+        'IAI': 'had',
+        'IMI': 'had',
+    },
+    # ζάω — stative "live/be alive". Imperfect = "lived" not "was living".
+    'ζάω': {
+        'IAI': 'lived',
+    },
+    # ── RESURRECTION / STANCE VERBS (theologically high-stakes) ─────────
+    # ἐγείρω — active "raise/lift up"; aorist passive (ἠγέρθη) is
+    # intransitive-reflexive "rose", not truly-passive "was woken".
+    # Theological passives ("Christ was raised") use the same form
+    # but are a minority of Acts occurrences; "rose" is the better
+    # default. Transitive active AAI (ἤγειρεν "he raised her up")
+    # naturally renders as "raised" via bare-gloss inflection.
+    'ἐγείρω': {
+        'API': 'rose',            # intransitive reflexive sense dominant in Acts
+        'AAI': 'raised',           # transitive active (he raised X)
+        'XPI': 'risen',            # perfect passive stative (post-B2.1 default would be "been raised")
+        'XMI': 'risen',
+        'FAI': 'will raise',
+        'FPI': 'will rise',
+    },
+    # ἀνίστημι — 2nd aor ἀνέστη (intransitive "rose") is dominant in
+    # Acts; 1st aor ἀνέστησεν (transitive "raised up") is minority.
+    # Engine can't distinguish by tvm alone, so override to intransitive.
+    'ἀνίστημι': {
+        'AAI': 'rose',             # mostly 2nd aor intransitive in NT
+        'API': 'rose',
+        'FAI': 'will raise',       # future is usually transitive (God raises)
+        'AAD': 'arise',            # imperative: "stand up!"
+        'AAN': 'to rise',
+        'PAP': 'rising',
+        'AAP': 'rising',           # participle ἀναστάς — most common form
+        'XAI': 'risen',            # drop aux per B2.1
+        'XAP': 'risen',
+    },
+    # ἵστημι — classic perfect-with-present-meaning verb. ἕστηκα =
+    # "I stand" (not "I have stood"); εἱστήκεισαν = "they were
+    # standing" (pluperfect reads as simple past). 2nd aor ἔστη =
+    # "stood" (intransitive); 1st aor ἔστησεν = "set up" (transitive).
+    'ἵστημι': {
+        'XAI': 'stand',            # stative-perfect: present meaning
+        'XMI': 'stand',
+        'YAI': 'were standing',    # stative-pluperfect: past progressive meaning
+        'XAP': 'standing',         # perfect participle stative
+        'XMP': 'standing',
+        'AAI': 'stood',            # mostly 2nd aor intransitive
+        'API': 'stood',
+        'AAN': 'to stand',
+        'AAP': 'standing',
+    },
 }
 
 
@@ -395,11 +449,13 @@ def _inflect_indicative(t, v, m, head, tail, deponent=False):
         if effective_voice == 'A':
             return _phrasal_present(head, tail)
         return 'is ' + _phrasal_past_participle(head, tail)
-    if t == 'X':  # Perfect
+    if t == 'X':  # Perfect — drop auxiliary (aspect is on the tense glyph).
+        # Active: bare past participle. Passive: retain "been" for voice.
         if effective_voice == 'A':
-            return 'have ' + _phrasal_past_participle(head, tail)
-        return 'has been ' + _phrasal_past_participle(head, tail)
-    if t == 'Y':  # Pluperfect
+            return _phrasal_past_participle(head, tail)
+        return 'been ' + _phrasal_past_participle(head, tail)
+    if t == 'Y':  # Pluperfect — keep "had" so it's distinguishable from
+        # both simple past and perfect in English.
         if effective_voice == 'A':
             return 'had ' + _phrasal_past_participle(head, tail)
         return 'had been ' + _phrasal_past_participle(head, tail)
@@ -432,7 +488,9 @@ def _inflect_stative(t, v, m, adjpart_phrase):
     if t == 'I':  return 'was ' + adjpart_phrase
     if t == 'F':  return 'will be ' + adjpart_phrase
     if t == 'P':  return 'is ' + adjpart_phrase
-    if t == 'X':  return 'has been ' + adjpart_phrase
+    # Perfect stative: drop auxiliary (aspect on ◉ glyph). "been assembled"
+    # retains the passive/resultative feel. Pluperfect keeps "had been".
+    if t == 'X':  return 'been ' + adjpart_phrase
     if t == 'Y':  return 'had been ' + adjpart_phrase
     return 'is ' + adjpart_phrase
 
