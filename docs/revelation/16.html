@@ -720,6 +720,35 @@ const TENSE_GLYPHS = {
 
 const S = { fontSize:26, layers:new Set(), data:[] };
 
+// ═══ PREFERENCE PERSISTENCE ═══
+// Layer toggles + font size persist across chapters (and books) via
+// localStorage, so moving with ←/→ or the chapter buttons doesn't lose
+// the reader's current setup.
+const PREF_KEY = 'morph-reader-prefs';
+function loadPrefs() {
+  try {
+    const raw = localStorage.getItem(PREF_KEY);
+    if (!raw) return;
+    const p = JSON.parse(raw);
+    if (Array.isArray(p.layers)) {
+      S.layers = new Set(p.layers.filter(l => ALL_LAYERS.includes(l)));
+    }
+    if (typeof p.fontSize === 'number' && p.fontSize >= 16 && p.fontSize <= 60) {
+      S.fontSize = p.fontSize;
+      const el = document.getElementById('verse-output');
+      if (el) el.style.fontSize = p.fontSize + 'px';
+    }
+  } catch (e) { /* corrupt or unavailable — fall through to defaults */ }
+}
+function savePrefs() {
+  try {
+    localStorage.setItem(PREF_KEY, JSON.stringify({
+      layers: [...S.layers],
+      fontSize: S.fontSize,
+    }));
+  } catch (e) { /* quota or private mode — ignore */ }
+}
+
 function updateUI() {
   const r = document.getElementById('reader');
   ALL_LAYERS.forEach(l => r.classList.toggle('L-'+l, S.layers.has(l)));
@@ -747,6 +776,7 @@ function updateUI() {
   const caseActive = S.layers.has('case') || CASE_SUBS.some(l => S.layers.has(l));
   document.getElementById('caseSubs').classList.toggle('open', caseActive);
   if (S.data.length) render(S.data);
+  savePrefs();
 }
 
 function togL(l) {
@@ -900,6 +930,7 @@ function adjSize(d) {
   }
   S.fontSize = Math.max(16, Math.min(60, S.fontSize + d));
   el.style.fontSize = S.fontSize + 'px';
+  savePrefs();
 }
 
 // ═══ GLOSS HELPERS ═══
@@ -1108,6 +1139,11 @@ function render(data) {
 }
 
 // ═══ INIT ═══
+// Load saved prefs first so updateUI applies the right L-* classes and
+// dropdown states to an empty #reader (skips re-render since S.data is
+// empty), then render once with everything already in place.
+loadPrefs();
+updateUI();
 render(CH_DATA);
 </script>
 </body>
