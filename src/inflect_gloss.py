@@ -141,6 +141,8 @@ IRREGULAR = {
     'regret':     ('regretted', 'regretted'),
     'control':    ('controlled', 'controlled'),
     'begin':      ('began', 'begun'),
+    # Horde batch 3:
+    'behold':     ('beheld', 'beheld'),    # θεάομαι AMI was rendering "beholded"
 }
 
 
@@ -216,11 +218,18 @@ LEMMA_OVERRIDES = {
         'XAI': 'know', 'YAI': 'knew',
         'XAS': 'know', 'XAN': 'to know', 'XAP': 'knowing',
     },
-    # δύναμαι — stative gloss "I am able"; deponent
+    # δύναμαι — stative gloss "I am able"; deponent. Bare "can" is a
+    # modal verb that doesn't inflect regularly; naive passive gets
+    # "be canned" which reads like food-in-a-tin. Override all
+    # non-indicative forms to "be able".
     'δύναμαι': {
         'PMI': 'is able', 'IMI': 'was able',
         'API': 'was able', 'FMI': 'will be able',
-        'PMN': 'to be able', 'PMP': 'being able',
+        'PMN': 'to be able', 'AAN': 'to be able', 'AMN': 'to be able',
+        'PMP': 'being able',
+        'AAS': 'be able', 'APS': 'be able', 'PAS': 'be able',
+        'AMS': 'be able', 'PMS': 'be able',
+        'AAD': 'be able', 'APD': 'be able',
     },
     # μέλλω — gloss is already "I am about to" (a phrase)
     'μέλλω': {

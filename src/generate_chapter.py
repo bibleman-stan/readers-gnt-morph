@@ -1179,6 +1179,56 @@ _GLOSS_OVERRIDE = {
     'ἀναστρέφω':     'conduct oneself',
     'πράσσω':        'do',                  # confirm — standard
     'ἀνθίστημι':     'withstand',           # "take a stand against" wordy
+    # ── Horde batch 3 (post-parse-order-fix reviewer horde) ────────────
+    # The π pattern: "wind" for πνεῦμα was flagged by 5+ independent
+    # reviewers (Eph 6, 2 Thess 2, Jude 19, Gal 5). Highest-value fix.
+    'πνεῦμα':        'spirit',              # "wind" → NT = Spirit / spirit
+    'εὐαγγελίζω':    'announce the gospel', # "bring good news" is definitional
+    'ἀρχάγγελος':    'archangel',           # "ruler of angels" — etymological
+    'ἔσωθεν':        'within',              # "from within" — etymological
+    'ὄπισθεν':       'behind',              # "from behind" — etymological
+    'ξενίζω':        'surprise',            # "entertain a stranger" — wrong primary sense in 1 Peter
+    'πρωτότοκος':    'firstborn',           # "first-born" is fine but override for standard NT form
+    # Gal 5:22-23 fruit of the Spirit — standardize to modern English NT
+    'χρηστότης':     'kindness',
+    'ἀγαθωσύνη':     'goodness',
+    'πραΰτης':       'gentleness',          # was "mildness" — KJV/NRSV standard
+    'ἐγκράτεια':     'self-control',        # was "self-mastery"
+    # Other flagged by horde
+    'παρρησία':      'boldness',            # "freedom" incomplete
+    'λοιπός':        'remaining',           # "left" etymological
+    'ἐργάτης':       'worker',              # "field-laborer" too specific
+    'ὀκνηρός':       'lazy',                # "slothful" archaic
+    'δαιμονιώδης':   'demonic',             # "demon-like" morpheme-y
+    'σπλαγχνίζομαι': 'have compassion',     # "have pity" awkward in NT
+    'ὀργίζομαι':     'be angry',            # "irritated" too mild
+    'διαγογγύζω':    'grumble',             # "murmur greatly" archaic
+    'καταφιλέω':     'kiss',                # "kiss affectionately" redundant
+    'ὑπερυψόω':      'exalt',               # "highly exalt" → "highlied" engine bug fix
+    'προδίδωμι':     'betray',              # "give before" semantically wrong for NT
+    'φωσφόρος':      'morning star',        # "light-bearing" etymological
+    'ἐκκεντέω':      'pierce',              # "pierce through" redundant
+    'μεριμνάω':      'worry',               # confirm (may already be set)
+    'ἐπιχειρέω':     'attempt',             # "take in hand" archaic
+    'αὐτόπτης':      'eyewitness',          # "eye-witness" etymological hyphenation
+    'κράτιστος':     'most excellent',      # retain — context-acceptable (formal address)
+    'κατηχέω':       'teach',               # "instruct orally" definitional
+    'ἵνα':           'so that',             # "in order that" formal/archaic
+    'ἐπιγινώσκω':    'recognize',           # "come to know" wordy
+    'θάλασσα':       'sea',                 # confirm
+    'μεθίστημι':     'remove',              # "move out of place" wordy (already in table; confirming)
+    'ἀμεταμέλητος':  'irrevocable',         # confirm
+    'ὑποστέλλω':     'shrink back',         # reviewer context
+    'πληροφορέω':    'assure',              # "carry out fully" etymological
+    'γνωρίζω':       'make known',          # confirm natural gloss
+    'ἐπεγείρω':      'stir up',             # confirm
+    'νεομηνία':      'new moon',            # confirm
+    'πυρόομαι':      'be set ablaze',       # reviewer-noted cleaner rendering
+    'ὀφείλημα':      'debt',                # confirm
+    'κατακολουθέω':  'follow after',        # confirm
+    'φθάνω':         'arrive',              # "anticipate" semantically wrong (means temporal precedence)
+    'ἡγέομαι':       'consider',            # "lead" is secondary NT sense
+    'ἐλπίζω':        'hope',                # confirm
 }
 
 

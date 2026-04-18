@@ -1298,6 +1298,9 @@
       ]
     },
     {
+      "br": true
+    },
+    {
       "txt": "τετηρημένην",
       "lem": "τηρέω",
       "prs": "perf pass ptc acc sg fem",
@@ -1748,9 +1751,6 @@
       "txt": "ἄρτι",
       "lem": "ἄρτι",
       "prs": "adv"
-    },
-    {
-      "br": true
     },
     {
       "txt": "εἰ",
@@ -5544,9 +5544,6 @@
       "igl": "knowing"
     },
     {
-      "br": true
-    },
-    {
       "txt": "ὅτι",
       "lem": "ὅτι",
       "prs": "conj"
@@ -7867,7 +7864,7 @@
         }
       ],
       "tvm": "APP",
-      "igl": "brought good news"
+      "igl": "announced the gospel"
     },
     {
       "txt": "εἰς",
@@ -7979,7 +7976,7 @@
       "f": 10
     },
     "πνεῦμα": {
-      "gl": "wind",
+      "gl": "spirit",
       "f": 379
     },
     "εἰς": {
@@ -8163,7 +8160,7 @@
       "f": 21
     },
     "ἵνα": {
-      "gl": "in order that",
+      "gl": "so that",
       "f": 662
     },
     "δοκίμιον": {
@@ -8335,7 +8332,7 @@
       "f": 14
     },
     "εὐαγγελίζω": {
-      "gl": "bring good news",
+      "gl": "announce the gospel",
       "f": 54
     },
     "ἅγιος": {
