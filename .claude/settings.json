@@ -2,9 +2,7 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:jktauber.com)",
-      "Read(//c/Users/bibleman/repos/readers-gnt/**)",
-      "Skill(claude-api)",
-      "Skill(claude-api:*)"
+      "Read(//c/Users/bibleman/repos/readers-gnt/**)"
     ]
   }
 }
