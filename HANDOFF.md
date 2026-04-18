@@ -775,6 +775,152 @@ Open items for next session:
 - Romans generation (the pipeline is ready; expect the inflection engine to surface 5-10 new trap lemmas from Pauline vocabulary).
 - Mobile pass on overflow — the engine works but I haven't tested 3-word glosses ("had been written") on a phone screen. Audit flagged this; should mock up.
 
+### 2026-04-17 (evening marathon) — full GNT live, reviewer-horde pattern proven, 18× regen speedup
+
+Scope of this session: scaled from 2 books (Acts + Romans) to the full
+27-book GNT; formalized the agentic-horde review pattern; removed an
+architectural bottleneck that would have ballooned every future regen.
+
+**What landed:**
+
+**Full GNT published.** All 260 chapters of the Greek New Testament are
+now live at `morph.gnt-reader.com`. Bulk-generated Romans 1-16 first
+(pipeline-validated), then the remaining 25 books (Matthew, Mark, Luke,
+John, all Pauline, Hebrews, General Epistles, Revelation). Zero
+generation failures. `docs/index.html` restructured into canonical
+sections (Gospels / Acts & Pauline / Hebrews & General / Apocalypse).
+Per-book chapter-grid index pages auto-generated from a template for
+the 25 new books.
+
+**Agentic horde review pattern formalized.** The pattern has three
+tiers now, successfully executed in multiple iterations:
+  - Tier 1 (per-chapter): ~40 Haiku reviewers in parallel, each reads
+    one chapter's JSON and flags voice/tense/mood/aspect mismatches,
+    etymological leaks, awkward English. Returns in ~1-3 min total
+    wall-clock regardless of batch size.
+  - Tier 2 (per-corpus): one Sonnet etymological sweep across the
+    full `lexemes.yaml`, cross-referenced with NT frequencies,
+    producing ranked override candidates. Returns in ~5 min.
+  - Synthesis: main context aggregates findings, dedupes against
+    existing overrides, applies fixes, regens, validates, commits.
+
+Two review passes this session surfaced 150+ lemma-level override
+candidates and multiple engine bugs (consonant-doubling on polysyllabic
+verbs, missing IRREGULAR entries like break/bend/cast, phrasal-verb
+passive failures, εἰμί IMI entirely missing from override tables, and
+a too-narrow passive-participle rule I'd introduced reactively).
+`_GLOSS_OVERRIDE` is now ~215 entries; `LEMMA_OVERRIDES` handles ~25
+trap lemmas across the tense/voice grid.
+
+**The 18× regen speedup (`src/bulk_generate.py`).** Early in this
+session, full-GNT regen was taking ~400-420 seconds because each
+chapter spawned a fresh Python subprocess that re-parsed
+`morphgnt_lexicon.yaml` (~1MB), `lexemes.yaml` (~1.7MB), and the 27
+MorphGNT files for NT-wide frequency computation. That's ~4 seconds
+of data loading per chapter × 260 chapters = **>1,000 CPU-seconds of
+redundant loading alone**. With 8 parallel workers, you're still
+bound below by the slowest worker's load time, and adding more workers
+hits diminishing returns quickly (subprocess startup + YAML parsing
+dominates).
+
+Diagnosis came out of Stan asking "is the 6-7 min because you didn't
+sufficiently divvy up agentic shock troops?" — honest answer was NO,
+the bottleneck wasn't worker count, it was subprocess-per-chapter
+architecture. His response — "I just don't like artificial
+bottlenecks" — prompted a proper fix:
+
+  1. Refactored `generate_chapter.py` to expose a callable
+     `build_chapter(book_code, chapter, stems_db, lexicon, freq)`
+     function that does the per-chapter work from pre-loaded databases.
+  2. Added `src/bulk_generate.py` — loads stems/lex/freq ONCE at
+     startup, then iterates all chapters in a thread pool. Also
+     calls `build_html.py` inline.
+
+Measured result: **full-GNT regen in 23.3 seconds** (3.9s load +
+19.4s work) vs the old 418s subprocess pipeline. **~18× speedup.**
+This makes patch→regen→validate a ~30-second loop instead of a
+7-minute batch operation — tight enough that it's now the default
+for any morpheus/inflect/override change, not a special-occasion
+operation.
+
+**Other fixes landed today:**
+  - Parse-display reorder (Stan's Koine-convention preference):
+    finite verbs render as "aor mid ind 3 sg"; participles as
+    "aor pass ptc nom sg masc"; infinitives as "aor mid inf". Drops
+    the redundant "verb" lead token. The 'ptc' abbrev is preserved
+    (not "ptcpl") so the template's isPtc regex /\\bptc\\b/ still works.
+  - A- shrink-button bug: S.fontSize default was 26 but CSS
+    --greek-size starts at 22, so first A- click JUMPED visual from
+    22 to 23 ("shrinks" by growing first). Fix: adjSize() syncs
+    S.fontSize from the rendered computed style on first use.
+  - `books.py` gained a `sense_code` field for every book, mapping
+    to the readers-gnt sibling's short-code directory naming
+    (matt/rom/1cor/heb/etc.). Fixed sense-line loading across all
+    26 non-Acts books.
+  - "Proof of concept" badging removed from every chapter toolbar,
+    Acts chapter grid subtitle, and the about.html credits section
+    (it undersold the state now that the full canon is live).
+  - Bare-gloss toggle (ℓ button from Bundle 2) removed as UI
+    overkill — engine + override table are solid enough that the
+    insurance-policy toggle didn't justify the toolbar real estate.
+  - Passive-voice inflection extended to non-indicative moods
+    (subjunctive/imperative/optative/infinitive get "be X-ed" /
+    "to be X-ed"; present passive participle gets "being X-ed";
+    aorist/perfect passive participle gets bare "X-ed" — honors
+    Stan's "no anterior interpretation" policy while capturing
+    voice correctly).
+
+**Methodological memory updates:**
+  - `feedback_decompose_for_haiku.md` (from a prior session) got
+    exercised repeatedly. Paid for itself: three separate parallel
+    dispatches (12-way, 30-way, 40-way) took actions that would have
+    been serial-hours in main context.
+  - `feedback_always_commit.md` added — Stan's standing instruction:
+    commit automatically at every landing point, don't ask. Stan
+    pushes; my commits are just local staging.
+
+**Validator state at session end:**
+  - Morphology validator: unchanged at 99.5%+ on Acts 9.
+  - Gloss validator: 71/71 ground-truth tests pass.
+  - Coverage audit: 25/27 books at 100%; James 98.9%, Galatians
+    99.0% (2 Aramaic transliterations each); all pass 90% threshold.
+  - Zero anti-pattern hits across 5 Acts stress chapters + 4 Romans
+    stress samples.
+
+**Commits landed this session:**
+  - f2d5db8 Reorg repo for GNT-scale architecture (earlier)
+  - a310a3a HANDOFF log
+  - cf233cb .nojekyll for Pages
+  - 52cba69 Inter-chapter nav
+  - 69dfc77 Inflect glosses
+  - 5e92b8d ἄρχω middle
+  - e1d0ad7 Bundle 1 gloss hardening
+  - e748d0a Bundle 2 perfect-aux + resurrection verbs
+  - 1c7bbb1 Bundle 3 pipeline scales to full GNT
+  - 11955fd Romans 3 first light + toggle/badge removal
+  - 89a3451 Passive voice for non-indicative + δικαιόω + ἀληθής
+  - 152a69e Reviewer horde batch 1 (~70 overrides)
+  - 78d61e8 Romans published + reviewer batch 2
+  - 6742703 Generate and publish the full GNT
+  - 5232d0b Parse reorder, A- fix, bulk_generate.py 18× speedup
+
+**Open items for next session:**
+  - Sampled reviewer horde across the 25 new books (one or two chapters
+    each, probably 30-40 Haikus in parallel). Apply findings. This is
+    the "burn-in" pass — each new book will surface 1-5 new
+    override-worthy Dodson quirks. With the 18× bulk_generate speedup,
+    the whole fix-regen cycle is a minute.
+  - Gospels-specific concerns: direct discourse is dense, and
+    historical presents are frequent. Review prompt may want a
+    Gospels-tuned variant.
+  - Revelation was flagged by the scaling agent as having unusual
+    morphology (symbolic vocabulary, proper-name density). Worth an
+    Opus-tier adversarial pass, not just Haiku chapter reviewers.
+  - Build `src/chapter_review.py` orchestrator to codify the horde
+    pattern for future use (instead of me hand-dispatching 40 Agent
+    calls per pass).
+  - Mobile overflow audit.
+
 ---
 
 **Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>**

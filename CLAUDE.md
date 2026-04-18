@@ -71,26 +71,35 @@ Repo layout (run all commands from repo root):
 
 ```bash
 # 1. Verify the book is in the registry (src/books.py). If not, add it
-#    with display name, MorphGNT file, chapter count, canonical order.
+#    with display name, MorphGNT file, chapter count, canonical order,
+#    and sense_code (readers-gnt substrate directory key).
 
 # 2. Audit verb-stem coverage before committing to generate.
 #    Fails with list of missing lemmas if below 90%.
 PYTHONIOENCODING=utf-8 python src/audit_coverage.py <book-code>
 # e.g. python src/audit_coverage.py romans
 
-mkdir -p build/<book-code> docs/<book-code>
+# 3. Bulk-generate + build (one book, one command, ~5 seconds per book).
+#    This is the in-process orchestrator — loads stems/lex/freq ONCE
+#    and iterates all chapters. DO NOT use generate_chapter.py in a
+#    loop across chapters: each invocation re-parses ~2MB of YAML,
+#    which is the dominant cost at scale (was 400s for full-GNT;
+#    bulk_generate does the whole GNT in 23s).
+PYTHONIOENCODING=utf-8 python src/bulk_generate.py <book-code>
+# Multiple books: PYTHONIOENCODING=utf-8 python src/bulk_generate.py acts romans
+# Whole GNT:      PYTHONIOENCODING=utf-8 python src/bulk_generate.py
 
-# 3. Generate the chapter JSON
-PYTHONIOENCODING=utf-8 python src/generate_chapter.py <chapter-num> --book <book-code> \
-    > build/<book-code>/<N>.json
-
-# 4. Validate morphology
+# 4. Validate morphology (pick representative chapter(s)).
 PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/<book-code>/<N>.json
 
-# 5. Validate glosses (anti-pattern scan + ground-truth test set)
+# 5. Validate glosses (anti-pattern scan + ground-truth test set).
+PYTHONIOENCODING=utf-8 python src/validate_glosses.py --testset
 PYTHONIOENCODING=utf-8 python src/validate_glosses.py build/<book-code>/<N>.json
 
-# 6. If green, build the reader
+# Single-chapter generation (debugging / reproducing a specific case)
+# still works via the per-chapter CLI:
+PYTHONIOENCODING=utf-8 python src/generate_chapter.py <N> --book <book-code> \
+    > build/<book-code>/<N>.json
 python src/build_html.py build/<book-code>/<N>.json templates/reader.html \
     docs/<book-code>/<N>.html
 ```
