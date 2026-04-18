@@ -145,16 +145,21 @@ The origin: reactive fix-break cycles were eating time. Every feature revealed 2
 
 Canonical shared source: [`overseer-workspace/SESSION-BOOKEND-PROTOCOL.md`](../overseer-workspace/SESSION-BOOKEND-PROTOCOL.md) — CHECK-IN, WRAP-UP, context thresholds, and compaction-resume protocol. **Read it at the start of every session.**
 
-### morph-specific CHECK-IN file list (adapted from the shared protocol)
+### morph-specific CHECK-IN file list (structured as mandatory + consult-on-trigger per shared protocol)
 
+**MANDATORY (read every wake — including short "hey wake up" signals):**
 1. This CLAUDE.md in full
-2. [HANDOFF.md](HANDOFF.md) — architectural retrospective with Resumption Checklist in Part 6.5
-3. [NOTICE.md](NOTICE.md) — vendored data attribution (skim unless touching vendored data)
-4. `git log --oneline -10`
-5. `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — scope per shared protocol (morph items only)
-6. Run the validator on at least one chapter: `PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`
+2. `private/OVERSEER-DIRECTIONS.md` active-directives section (NOT the archive if/when one exists) — created 2026-04-19; carries cross-project push-FROM-HERE items + active open items + sync log
+3. [HANDOFF.md](HANDOFF.md) — architectural retrospective; Resumption Checklist in Part 6.5 is the most load-bearing section on a fresh wake
+4. `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — scope per shared protocol (morph items only)
+5. `git log --oneline -10`
 
-Note: morph's CHECK-IN does not require reading `overseer-workspace/LANDSCAPE-MAP.md` as a mandatory step (the shared protocol has it as mandatory for colometric-methodology-focused sessions); read it when cross-project state matters to today's task.
+**CONSULT-ON-TRIGGER (evaluate the trigger; do NOT silently skip):**
+- [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX / deployment work not touching vendored corpora.
+- Run the validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** first wake on a new machine, OR you suspect pipeline state has shifted. **Skip when:** recent validator run in the session log shows clean state.
+- `c:/Users/bibleman/repos/overseer-workspace/LANDSCAPE-MAP.md` — **trigger:** cross-project state matters to today's task (e.g., readers-gnt substrate change, shared-methodology discussion). **Skip when:** morph-local work with no cross-project implications.
+
+**Self-report is mandatory before your first substantive response** — see the shared protocol's SELF-REPORT section for the one-line-per-file format. A silent skip is a check-in failure.
 
 ### morph-specific WRAP-UP additions
 
