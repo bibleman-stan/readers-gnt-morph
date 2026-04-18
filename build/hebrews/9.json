@@ -1,0 +1,10158 @@
+{
+  "book": "Hebrews",
+  "chapter": 9,
+  "data": [
+    {
+      "v": 1
+    },
+    {
+      "txt": "Εἶχε",
+      "lem": "ἔχω",
+      "prs": "verb 3 impf act ind sg",
+      "aug": "Εἶ",
+      "stm": "χ",
+      "ve": "ε",
+      "segs": [
+        {
+          "t": "Εἶ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "χ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ε",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "IAI",
+      "igl": "had"
+    },
+    {
+      "txt": "μὲν",
+      "lem": "μέν",
+      "prs": "conj"
+    },
+    {
+      "txt": "οὖν",
+      "lem": "οὖν",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτη",
+      "lem": "πρῶτος",
+      "prs": "adj nom sg fem",
+      "stm": "πρώτ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δικαιώματα",
+      "lem": "δικαίωμα",
+      "prs": "noun acc pl neut",
+      "stm": "δικαιώμ",
+      "suf": "ατα",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "δικαιώμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ατα",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λατρείας",
+      "lem": "λατρεία",
+      "prs": "noun gen sg fem",
+      "stm": "λατρεί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "λατρεί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τό",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τό",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τό",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τε",
+      "lem": "τέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἅγιον",
+      "lem": "ἅγιος",
+      "prs": "adj acc sg neut",
+      "stm": "ἅγι",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κοσμικόν.",
+      "lem": "κοσμικός",
+      "prs": "adj acc sg neut",
+      "stm": "κοσμικ",
+      "suf": "όν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "κοσμικ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "όν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 2
+    },
+    {
+      "txt": "σκηνὴ",
+      "lem": "σκηνή",
+      "prs": "noun nom sg fem",
+      "stm": "σκην",
+      "suf": "ὴ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὴ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "κατεσκευάσθη",
+      "lem": "κατασκευάζω",
+      "prs": "verb 3 aor pass ind sg",
+      "pfx": "κατ",
+      "aug": "ε",
+      "stm": "σκευάσ",
+      "frm": "θη",
+      "segs": [
+        {
+          "t": "κατ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ε",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "σκευάσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "θη",
+          "ch": {
+            "morph": "frm"
+          }
+        }
+      ],
+      "tvm": "API",
+      "igl": "was built"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτη",
+      "lem": "πρῶτος",
+      "prs": "adj nom sg fem",
+      "stm": "πρώτ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἐν",
+      "lem": "ἐν",
+      "prs": "prep"
+    },
+    {
+      "txt": "ᾗ",
+      "lem": "ὅς",
+      "prs": "rel.pron dat sg fem",
+      "stm": "ᾗ",
+      "segs": [
+        {
+          "t": "ᾗ",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἥ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἥ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἥ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τε",
+      "lem": "τέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "λυχνία",
+      "lem": "λυχνία",
+      "prs": "noun nom sg fem",
+      "stm": "λυχνί",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "λυχνί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τράπεζα",
+      "lem": "τράπεζα",
+      "prs": "noun nom sg fem",
+      "stm": "τράπεζ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "τράπεζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρόθεσις",
+      "lem": "πρόθεσις",
+      "prs": "noun nom sg fem",
+      "stm": "πρόθεσ",
+      "suf": "ις",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πρόθεσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ις",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl masc",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἄρτων,",
+      "lem": "ἄρτος",
+      "prs": "noun gen pl masc",
+      "stm": "ἄρτ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἄρτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἥτις",
+      "lem": "ὅστις",
+      "prs": "rel.pron nom sg fem",
+      "stm": "ἥτ",
+      "suf": "ις",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἥτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ις",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λέγεται",
+      "lem": "λέγω",
+      "prs": "verb 3 pres pass ind sg",
+      "stm": "λέγ",
+      "ve": "εται",
+      "segs": [
+        {
+          "t": "λέγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PPI",
+      "igl": "is said"
+    },
+    {
+      "txt": "Ἅγια·",
+      "lem": "ἅγιος",
+      "prs": "adj nom pl neut",
+      "stm": "Ἅγι",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 3
+    },
+    {
+      "txt": "μετὰ",
+      "lem": "μετά",
+      "prs": "prep"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δεύτερον",
+      "lem": "δεύτερος",
+      "prs": "adj acc sg neut",
+      "stm": "δεύτερ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "δεύτερ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καταπέτασμα",
+      "lem": "καταπέτασμα",
+      "prs": "noun acc sg neut",
+      "stm": "καταπέτασμ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "καταπέτασμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκηνὴ",
+      "lem": "σκηνή",
+      "prs": "noun nom sg fem",
+      "stm": "σκην",
+      "suf": "ὴ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὴ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λεγομένη",
+      "lem": "λέγω",
+      "prs": "verb pres pass ptc nom sg fem",
+      "stm": "λεγ",
+      "ptc": "ομέν",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "λεγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ομέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PPP",
+      "igl": "being said"
+    },
+    {
+      "txt": "Ἅγια",
+      "lem": "ἅγιος",
+      "prs": "adj nom pl neut",
+      "stm": "Ἅγι",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Ἁγίων,",
+      "lem": "ἅγιος",
+      "prs": "adj gen pl neut",
+      "stm": "Ἁγί",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "Ἁγί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 4
+    },
+    {
+      "txt": "χρυσοῦν",
+      "lem": "χρυσοῦς",
+      "prs": "adj acc sg neut",
+      "stm": "χρυσο",
+      "suf": "ῦν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "χρυσο",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῦν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἔχουσα",
+      "lem": "ἔχω",
+      "prs": "verb pres act ptc nom sg fem",
+      "stm": "ἔχ",
+      "ptc": "ουσ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἔχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ουσ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "θυμιατήριον",
+      "lem": "θυμιατήριον",
+      "prs": "noun acc sg neut",
+      "stm": "θυμιατήρι",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "θυμιατήρι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κιβωτὸν",
+      "lem": "κιβωτός",
+      "prs": "noun acc sg fem",
+      "stm": "κιβωτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "κιβωτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθήκης",
+      "lem": "διαθήκη",
+      "prs": "noun gen sg fem",
+      "stm": "διαθήκ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "περικεκαλυμμένην",
+      "lem": "περικαλύπτω",
+      "prs": "verb perf pass ptc acc sg fem",
+      "pfx": "περι",
+      "rdp": "κε",
+      "stm": "καλυμ",
+      "ptc": "μέν",
+      "suf": "ην",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "περι",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "καλυμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ην",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "a"
+          }
+        }
+      ],
+      "tvm": "XPP",
+      "igl": "covered up"
+    },
+    {
+      "txt": "πάντοθεν",
+      "lem": "πάντοθεν",
+      "prs": "adv"
+    },
+    {
+      "txt": "χρυσίῳ",
+      "lem": "χρυσίον",
+      "prs": "noun dat sg neut",
+      "stm": "χρυσί",
+      "suf": "ῳ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "χρυσί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῳ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἐν",
+      "lem": "ἐν",
+      "prs": "prep"
+    },
+    {
+      "txt": "ᾗ",
+      "lem": "ὅς",
+      "prs": "rel.pron dat sg fem",
+      "stm": "ᾗ",
+      "segs": [
+        {
+          "t": "ᾗ",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "στάμνος",
+      "lem": "στάμνος",
+      "prs": "noun nom sg fem",
+      "stm": "στάμν",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "στάμν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "χρυσῆ",
+      "lem": "χρυσοῦς",
+      "prs": "adj nom sg fem",
+      "stm": "χρυσ",
+      "suf": "ῆ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "χρυσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἔχουσα",
+      "lem": "ἔχω",
+      "prs": "verb pres act ptc nom sg fem",
+      "stm": "ἔχ",
+      "ptc": "ουσ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἔχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ουσ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μάννα",
+      "lem": "μάννα",
+      "prs": "noun acc sg neut",
+      "stm": "μάνν",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "μάνν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ῥάβδος",
+      "lem": "ῥάβδος",
+      "prs": "noun nom sg fem",
+      "stm": "ῥάβδ",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ῥάβδ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Ἀαρὼν",
+      "lem": "Ἀαρών",
+      "prs": "noun gen sg masc",
+      "stm": "Ἀαρὼν",
+      "segs": [
+        {
+          "t": "Ἀαρὼν",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "βλαστήσασα",
+      "lem": "βλαστάνω",
+      "prs": "verb aor act ptc nom sg fem",
+      "stm": "βλαστή",
+      "frm": "σα",
+      "ptc": "σ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "βλαστή",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σα",
+          "ch": {
+            "morph": "frm",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "σ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "AAP"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "αἱ",
+      "lem": "ὁ",
+      "prs": "art nom pl fem",
+      "stm": "αἱ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "αἱ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πλάκες",
+      "lem": "πλάξ",
+      "prs": "noun nom pl fem",
+      "stm": "πλάκ",
+      "suf": "ες",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πλάκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ες",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθήκης,",
+      "lem": "διαθήκη",
+      "prs": "noun gen sg fem",
+      "stm": "διαθήκ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 5
+    },
+    {
+      "txt": "ὑπεράνω",
+      "lem": "ὑπεράνω",
+      "prs": "prep"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "αὐτῆς",
+      "lem": "αὐτός",
+      "prs": "pers.pron gen sg fem",
+      "stm": "αὐτ",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Χερουβὶν",
+      "lem": "Χεροῦβ",
+      "prs": "noun nom pl neut",
+      "stm": "Χερουβὶν",
+      "segs": [
+        {
+          "t": "Χερουβὶν",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δόξης",
+      "lem": "δόξα",
+      "prs": "noun gen sg fem",
+      "stm": "δόξ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "δόξ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κατασκιάζοντα",
+      "lem": "κατασκιάζω",
+      "prs": "verb pres act ptc nom pl neut",
+      "pfx": "κατα",
+      "stm": "σκιάζ",
+      "ptc": "οντ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "κατα",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "σκιάζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οντ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἱλαστήριον·",
+      "lem": "ἱλαστήριον",
+      "prs": "adj acc sg neut",
+      "stm": "ἱλαστήρι",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἱλαστήρι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "περὶ",
+      "lem": "περί",
+      "prs": "prep"
+    },
+    {
+      "txt": "ὧν",
+      "lem": "ὅς",
+      "prs": "rel.pron gen pl neut",
+      "stm": "ὧν",
+      "segs": [
+        {
+          "t": "ὧν",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὐκ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἔστιν",
+      "lem": "εἰμί",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ἔσ",
+      "ve": "τιν",
+      "segs": [
+        {
+          "t": "ἔσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "τιν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI",
+      "igl": "is"
+    },
+    {
+      "txt": "νῦν",
+      "lem": "νῦν",
+      "prs": "adv"
+    },
+    {
+      "txt": "λέγειν",
+      "lem": "λέγω",
+      "prs": "verb pres act inf",
+      "stm": "λέγ",
+      "ve": "ειν",
+      "segs": [
+        {
+          "t": "λέγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ειν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAN"
+    },
+    {
+      "txt": "κατὰ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "μέρος.",
+      "lem": "μέρος",
+      "prs": "noun acc sg neut",
+      "stm": "μέρ",
+      "suf": "ος",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "μέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 6
+    },
+    {
+      "txt": "Τούτων",
+      "lem": "οὗτος",
+      "prs": "dem.pron gen pl neut",
+      "stm": "Τούτ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "Τούτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "οὕτως",
+      "lem": "οὕτω(ς)",
+      "prs": "adv"
+    },
+    {
+      "txt": "κατεσκευασμένων,",
+      "lem": "κατασκευάζω",
+      "prs": "verb perf pass ptc gen pl neut",
+      "pfx": "κατ",
+      "stm": "εσκευασ",
+      "ptc": "μέν",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "κατ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "εσκευασ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "XPP",
+      "igl": "built"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "μὲν",
+      "lem": "μέν",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτην",
+      "lem": "πρῶτος",
+      "prs": "adj acc sg fem",
+      "stm": "πρώτ",
+      "suf": "ην",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ην",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκηνὴν",
+      "lem": "σκηνή",
+      "prs": "noun acc sg fem",
+      "stm": "σκην",
+      "suf": "ὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "παντὸς",
+      "lem": "πᾶς",
+      "prs": "adj gen sg masc",
+      "stm": "παντ",
+      "suf": "ὸς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "παντ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "εἰσίασιν",
+      "lem": "εἴσειμι",
+      "prs": "verb 3 pres act ind pl",
+      "pfx": "εἰσ",
+      "stm": "ίασιν",
+      "segs": [
+        {
+          "t": "εἰσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ίασιν",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ],
+      "tvm": "PAI"
+    },
+    {
+      "txt": "οἱ",
+      "lem": "ὁ",
+      "prs": "art nom pl masc",
+      "stm": "οἱ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "οἱ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἱερεῖς",
+      "lem": "ἱερεύς",
+      "prs": "noun nom pl masc",
+      "stm": "ἱερ",
+      "suf": "εῖς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἱερ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "τὰς",
+      "lem": "ὁ",
+      "prs": "art acc pl fem",
+      "stm": "τὰς",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰς",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λατρείας",
+      "lem": "λατρεία",
+      "prs": "noun acc pl fem",
+      "stm": "λατρεί",
+      "suf": "ας",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "λατρεί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπιτελοῦντες,",
+      "lem": "ἐπιτελέω",
+      "prs": "verb pres act ptc nom pl masc",
+      "pfx": "ἐπι",
+      "stm": "τελ",
+      "ptc": "οῦντ",
+      "suf": "ες",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἐπι",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "τελ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦντ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ες",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 7
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δευτέραν",
+      "lem": "δεύτερος",
+      "prs": "adj acc sg fem",
+      "stm": "δευτέρ",
+      "suf": "αν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "δευτέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἅπαξ",
+      "lem": "ἅπαξ",
+      "prs": "adv"
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg masc",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐνιαυτοῦ",
+      "lem": "ἐνιαυτός",
+      "prs": "noun gen sg masc",
+      "stm": "ἐνιαυτ",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἐνιαυτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μόνος",
+      "lem": "μόνος",
+      "prs": "adj nom sg masc",
+      "stm": "μόν",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "μόν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὁ",
+      "lem": "ὁ",
+      "prs": "art nom sg masc",
+      "stm": "ὁ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὁ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀρχιερεύς,",
+      "lem": "ἀρχιερεύς",
+      "prs": "noun nom sg masc",
+      "stm": "ἀρχιερ",
+      "suf": "εύς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἀρχιερ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εύς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "οὐ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "χωρὶς",
+      "lem": "χωρίς",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἵματος",
+      "lem": "αἷμα",
+      "prs": "noun gen sg neut",
+      "stm": "αἵματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὃ",
+      "lem": "ὅς",
+      "prs": "rel.pron acc sg neut",
+      "stm": "ὃ",
+      "segs": [
+        {
+          "t": "ὃ",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "προσφέρει",
+      "lem": "προσφέρω",
+      "prs": "verb 3 pres act ind sg",
+      "pfx": "προσ",
+      "stm": "φέρ",
+      "ve": "ει",
+      "segs": [
+        {
+          "t": "προσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "φέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ει",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI"
+    },
+    {
+      "txt": "ὑπὲρ",
+      "lem": "ὑπέρ",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἑαυτοῦ",
+      "lem": "ἑαυτοῦ",
+      "prs": "pers.pron gen sg masc",
+      "stm": "ἑαυτ",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἑαυτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl neut",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg masc",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λαοῦ",
+      "lem": "λαός",
+      "prs": "noun gen sg masc",
+      "stm": "λα",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "λα",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀγνοημάτων,",
+      "lem": "ἀγνόημα",
+      "prs": "noun gen pl neut",
+      "stm": "ἀγνοημάτ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἀγνοημάτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 8
+    },
+    {
+      "txt": "τοῦτο",
+      "lem": "οὗτος",
+      "prs": "dem.pron acc sg neut",
+      "stm": "τοῦτο",
+      "segs": [
+        {
+          "t": "τοῦτο",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δηλοῦντος",
+      "lem": "δηλόω",
+      "prs": "verb pres act ptc gen sg neut",
+      "stm": "δηλ",
+      "ptc": "οῦντ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "δηλ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦντ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg neut",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πνεύματος",
+      "lem": "πνεῦμα",
+      "prs": "noun gen sg neut",
+      "stm": "πνεύματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "πνεύματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg neut",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἁγίου,",
+      "lem": "ἅγιος",
+      "prs": "adj gen sg neut",
+      "stm": "ἁγί",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἁγί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "μήπω",
+      "lem": "μήπω",
+      "prs": "adv"
+    },
+    {
+      "txt": "πεφανερῶσθαι",
+      "lem": "φανερόω",
+      "prs": "verb perf pass inf",
+      "rdp": "πε",
+      "stm": "φανερῶ",
+      "ve": "σθαι",
+      "segs": [
+        {
+          "t": "πε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "φανερῶ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σθαι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "XPN",
+      "igl": "to be revealed"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl neut",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἁγίων",
+      "lem": "ἅγιος",
+      "prs": "adj gen pl neut",
+      "stm": "ἁγί",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἁγί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὁδὸν",
+      "lem": "ὁδός",
+      "prs": "noun acc sg fem",
+      "stm": "ὁδ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ὁδ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἔτι",
+      "lem": "ἔτι",
+      "prs": "adv"
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτης",
+      "lem": "πρῶτος",
+      "prs": "adj gen sg fem",
+      "stm": "πρώτ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκηνῆς",
+      "lem": "σκηνή",
+      "prs": "noun gen sg fem",
+      "stm": "σκην",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐχούσης",
+      "lem": "ἔχω",
+      "prs": "verb pres act ptc gen sg fem",
+      "stm": "ἐχ",
+      "ptc": "ούσ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἐχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ούσ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "στάσιν,",
+      "lem": "στάσις",
+      "prs": "noun acc sg fem",
+      "stm": "στάσ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "στάσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 9
+    },
+    {
+      "txt": "ἥτις",
+      "lem": "ὅστις",
+      "prs": "rel.pron nom sg fem",
+      "stm": "ἥτ",
+      "suf": "ις",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἥτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ις",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "παραβολὴ",
+      "lem": "παραβολή",
+      "prs": "noun nom sg fem",
+      "stm": "παραβολ",
+      "suf": "ὴ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "παραβολ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὴ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καιρὸν",
+      "lem": "καιρός",
+      "prs": "noun acc sg masc",
+      "stm": "καιρ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "καιρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐνεστηκότα,",
+      "lem": "ἐνίστημι",
+      "prs": "verb perf act ptc acc sg masc",
+      "pfx": "ἐν",
+      "stm": "εστη",
+      "ptc": "κότ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἐν",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "εστη",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "κότ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "a"
+          }
+        }
+      ],
+      "tvm": "XAP"
+    },
+    {
+      "txt": "καθʼ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἣν",
+      "lem": "ὅς",
+      "prs": "rel.pron acc sg fem",
+      "stm": "ἣ",
+      "suf": "ν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἣ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δῶρά",
+      "lem": "δῶρον",
+      "prs": "noun nom pl neut",
+      "stm": "δῶρ",
+      "suf": "ά",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "δῶρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ά",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τε",
+      "lem": "τέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "θυσίαι",
+      "lem": "θυσία",
+      "prs": "noun nom pl fem",
+      "stm": "θυσί",
+      "suf": "αι",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "θυσί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αι",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "προσφέρονται",
+      "lem": "προσφέρω",
+      "prs": "verb 3 pres pass ind pl",
+      "pfx": "προσ",
+      "stm": "φέρ",
+      "ve": "ονται",
+      "segs": [
+        {
+          "t": "προσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "φέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ονται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PPI",
+      "igl": "is brought to"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "μὴ",
+      "lem": "μή",
+      "prs": "adv"
+    },
+    {
+      "txt": "δυνάμεναι",
+      "lem": "δύναμαι",
+      "prs": "verb pres mid ptc nom pl fem",
+      "stm": "δυνά",
+      "ptc": "μεν",
+      "suf": "αι",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "δυνά",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "αι",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PMP",
+      "igl": "being able"
+    },
+    {
+      "txt": "κατὰ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "συνείδησιν",
+      "lem": "συνείδησις",
+      "prs": "noun acc sg fem",
+      "stm": "συνείδησ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "συνείδησ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τελειῶσαι",
+      "lem": "τελειόω",
+      "prs": "verb aor act inf",
+      "stm": "τελειῶ",
+      "frm": "σα",
+      "ve": "ι",
+      "segs": [
+        {
+          "t": "τελειῶ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σα",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAN"
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λατρεύοντα,",
+      "lem": "λατρεύω",
+      "prs": "verb pres act ptc acc sg masc",
+      "stm": "λατρεύ",
+      "ptc": "οντ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "λατρεύ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οντ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "a"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 10
+    },
+    {
+      "txt": "μόνον",
+      "lem": "μόνος",
+      "prs": "adj acc sg neut",
+      "stm": "μόν",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "μόν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπὶ",
+      "lem": "ἐπί",
+      "prs": "prep"
+    },
+    {
+      "txt": "βρώμασιν",
+      "lem": "βρῶμα",
+      "prs": "noun dat pl neut",
+      "stm": "βρώμα",
+      "suf": "σιν",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "βρώμα",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σιν",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "πόμασιν",
+      "lem": "πόμα",
+      "prs": "noun dat pl neut",
+      "stm": "πόμα",
+      "suf": "σιν",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "πόμα",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σιν",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "διαφόροις",
+      "lem": "διάφορος",
+      "prs": "adj dat pl masc",
+      "stm": "διαφόρ",
+      "suf": "οις",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "διαφόρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οις",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "βαπτισμοῖς,",
+      "lem": "βαπτισμός",
+      "prs": "noun dat pl masc",
+      "stm": "βαπτισμ",
+      "suf": "οῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "βαπτισμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "δικαιώματα",
+      "lem": "δικαίωμα",
+      "prs": "noun nom pl neut",
+      "stm": "δικαιώμ",
+      "suf": "ατα",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "δικαιώμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ατα",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σαρκὸς",
+      "lem": "σάρξ",
+      "prs": "noun gen sg fem",
+      "stm": "σαρκ",
+      "suf": "ὸς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "σαρκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μέχρι",
+      "lem": "μέχρι(ς)",
+      "prs": "prep"
+    },
+    {
+      "txt": "καιροῦ",
+      "lem": "καιρός",
+      "prs": "noun gen sg masc",
+      "stm": "καιρ",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "καιρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διορθώσεως",
+      "lem": "διόρθωσις",
+      "prs": "noun gen sg fem",
+      "stm": "διορθώσ",
+      "suf": "εως",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "διορθώσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εως",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπικείμενα.",
+      "lem": "ἐπίκειμαι",
+      "prs": "verb pres mid ptc nom pl neut",
+      "pfx": "ἐπι",
+      "stm": "κεί",
+      "ptc": "μεν",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἐπι",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "κεί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PMP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 11
+    },
+    {
+      "txt": "Χριστὸς",
+      "lem": "Χριστός",
+      "prs": "noun nom sg masc",
+      "stm": "Χριστ",
+      "suf": "ὸς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Χριστ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "παραγενόμενος",
+      "lem": "παραγίνομαι",
+      "prs": "verb aor mid ptc nom sg masc",
+      "pfx": "παρα",
+      "stm": "γεν",
+      "ptc": "όμεν",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "παρα",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "γεν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "όμεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "AMP"
+    },
+    {
+      "txt": "ἀρχιερεὺς",
+      "lem": "ἀρχιερεύς",
+      "prs": "noun nom sg masc",
+      "stm": "ἀρχιερ",
+      "suf": "εὺς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἀρχιερ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εὺς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl neut",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "γενομένων",
+      "lem": "γίνομαι",
+      "prs": "verb aor mid ptc gen pl neut",
+      "stm": "γεν",
+      "ptc": "ομέν",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "γεν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ομέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "AMP",
+      "igl": "becoming"
+    },
+    {
+      "txt": "ἀγαθῶν",
+      "lem": "ἀγαθός",
+      "prs": "adj gen pl neut",
+      "stm": "ἀγαθ",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἀγαθ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μείζονος",
+      "lem": "μέγας",
+      "prs": "adj gen sg fem",
+      "stm": "μείζον",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "μείζον",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "τελειοτέρας",
+      "lem": "τέλειος",
+      "prs": "adj gen sg fem",
+      "stm": "τελειοτέρ",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τελειοτέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκηνῆς",
+      "lem": "σκηνή",
+      "prs": "noun gen sg fem",
+      "stm": "σκην",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὐ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "χειροποιήτου,",
+      "lem": "χειροποίητος",
+      "prs": "adj gen sg fem",
+      "stm": "χειροποιήτ",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "χειροποιήτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "τοῦτʼ",
+      "lem": "οὗτος",
+      "prs": "dem.pron nom sg neut",
+      "stm": "τοῦτ’",
+      "segs": [
+        {
+          "t": "τοῦτ’",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἔστιν",
+      "lem": "εἰμί",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ἔσ",
+      "ve": "τιν",
+      "segs": [
+        {
+          "t": "ἔσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "τιν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI",
+      "igl": "is"
+    },
+    {
+      "txt": "οὐ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "ταύτης",
+      "lem": "οὗτος",
+      "prs": "dem.pron gen sg fem",
+      "stm": "ταύτ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ταύτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κτίσεως,",
+      "lem": "κτίσις",
+      "prs": "noun gen sg fem",
+      "stm": "κτίσ",
+      "suf": "εως",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "κτίσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εως",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 12
+    },
+    {
+      "txt": "οὐδὲ",
+      "lem": "οὐδέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "διʼ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἵματος",
+      "lem": "αἷμα",
+      "prs": "noun gen sg neut",
+      "stm": "αἵματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τράγων",
+      "lem": "τράγος",
+      "prs": "noun gen pl masc",
+      "stm": "τράγ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τράγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "μόσχων",
+      "lem": "μόσχος",
+      "prs": "noun gen pl masc",
+      "stm": "μόσχ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "μόσχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg neut",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἰδίου",
+      "lem": "ἴδιος",
+      "prs": "adj gen sg neut",
+      "stm": "ἰδί",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἰδί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἵματος",
+      "lem": "αἷμα",
+      "prs": "noun gen sg neut",
+      "stm": "αἵματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "εἰσῆλθεν",
+      "lem": "εἰσέρχομαι",
+      "prs": "verb 3 aor act ind sg",
+      "pfx": "εἰσ",
+      "aug": "ῆ",
+      "stm": "λθ",
+      "ve": "εν",
+      "segs": [
+        {
+          "t": "εἰσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ῆ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "λθ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAI",
+      "igl": "went in"
+    },
+    {
+      "txt": "ἐφάπαξ",
+      "lem": "ἐφάπαξ",
+      "prs": "adv"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὰ",
+      "lem": "ὁ",
+      "prs": "art acc pl neut",
+      "stm": "τὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἅγια,",
+      "lem": "ἅγιος",
+      "prs": "adj acc pl neut",
+      "stm": "ἅγι",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "αἰωνίαν",
+      "lem": "αἰώνιος",
+      "prs": "adj acc sg fem",
+      "stm": "αἰωνί",
+      "suf": "αν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αἰωνί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λύτρωσιν",
+      "lem": "λύτρωσις",
+      "prs": "noun acc sg fem",
+      "stm": "λύτρωσ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "λύτρωσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "εὑράμενος.",
+      "lem": "εὑρίσκω",
+      "prs": "verb aor mid ptc nom sg masc",
+      "stm": "εὑρ",
+      "ptc": "άμεν",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "εὑρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "άμεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "AMP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 13
+    },
+    {
+      "txt": "εἰ",
+      "lem": "εἰ",
+      "prs": "conj"
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art nom sg neut",
+      "stm": "τὸ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἷμα",
+      "lem": "αἷμα",
+      "prs": "noun nom sg neut",
+      "stm": "αἷμ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "αἷμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τράγων",
+      "lem": "τράγος",
+      "prs": "noun gen pl masc",
+      "stm": "τράγ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τράγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ταύρων",
+      "lem": "ταῦρος",
+      "prs": "noun gen pl masc",
+      "stm": "ταύρ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ταύρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "σποδὸς",
+      "lem": "σποδός",
+      "prs": "noun nom sg fem",
+      "stm": "σποδ",
+      "suf": "ὸς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "σποδ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δαμάλεως",
+      "lem": "δάμαλις",
+      "prs": "noun gen sg fem",
+      "stm": "δαμάλ",
+      "suf": "εως",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "δαμάλ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εως",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ῥαντίζουσα",
+      "lem": "ῥαντίζω",
+      "prs": "verb pres act ptc nom sg fem",
+      "stm": "ῥαντίζ",
+      "ptc": "ουσ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ῥαντίζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ουσ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "txt": "τοὺς",
+      "lem": "ὁ",
+      "prs": "art acc pl masc",
+      "stm": "τοὺς",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τοὺς",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κεκοινωμένους",
+      "lem": "κοινόω",
+      "prs": "verb perf pass ptc acc pl masc",
+      "rdp": "κε",
+      "stm": "κοινω",
+      "ptc": "μέν",
+      "suf": "ους",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "κοινω",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ους",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "a"
+          }
+        }
+      ],
+      "tvm": "XPP",
+      "igl": "made unclean"
+    },
+    {
+      "txt": "ἁγιάζει",
+      "lem": "ἁγιάζω",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ἁγιάζ",
+      "ve": "ει",
+      "segs": [
+        {
+          "t": "ἁγιάζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ει",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI"
+    },
+    {
+      "txt": "πρὸς",
+      "lem": "πρός",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σαρκὸς",
+      "lem": "σάρξ",
+      "prs": "noun gen sg fem",
+      "stm": "σαρκ",
+      "suf": "ὸς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "σαρκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καθαρότητα,",
+      "lem": "καθαρότης",
+      "prs": "noun acc sg fem",
+      "stm": "καθαρότητ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "καθαρότητ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 14
+    },
+    {
+      "txt": "πόσῳ",
+      "lem": "πόσος",
+      "prs": "inter.pron dat sg neut",
+      "stm": "πόσ",
+      "suf": "ῳ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "πόσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῳ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μᾶλλον",
+      "lem": "μᾶλλον",
+      "prs": "adv"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art nom sg neut",
+      "stm": "τὸ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἷμα",
+      "lem": "αἷμα",
+      "prs": "noun nom sg neut",
+      "stm": "αἷμ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "αἷμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg masc",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Χριστοῦ,",
+      "lem": "Χριστός",
+      "prs": "noun gen sg masc",
+      "stm": "Χριστ",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "Χριστ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ὃς",
+      "lem": "ὅς",
+      "prs": "rel.pron nom sg masc",
+      "stm": "ὃ",
+      "suf": "ς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὃ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "πνεύματος",
+      "lem": "πνεῦμα",
+      "prs": "noun gen sg neut",
+      "stm": "πνεύματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "πνεύματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἰωνίου",
+      "lem": "αἰώνιος",
+      "prs": "adj gen sg neut",
+      "stm": "αἰωνί",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἰωνί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἑαυτὸν",
+      "lem": "ἑαυτοῦ",
+      "prs": "pers.pron acc sg masc",
+      "stm": "ἑαυτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἑαυτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "προσήνεγκεν",
+      "lem": "προσφέρω",
+      "prs": "verb 3 aor act ind sg",
+      "pfx": "προσ",
+      "aug": "ή",
+      "stm": "νεγ",
+      "frm": "κε",
+      "ve": "ν",
+      "segs": [
+        {
+          "t": "προσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ή",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "νεγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAI",
+      "igl": "brought to"
+    },
+    {
+      "txt": "ἄμωμον",
+      "lem": "ἄμωμος",
+      "prs": "adj acc sg masc",
+      "stm": "ἄμωμ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἄμωμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῷ",
+      "lem": "ὁ",
+      "prs": "art dat sg masc",
+      "stm": "τῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "θεῷ,",
+      "lem": "θεός",
+      "prs": "noun dat sg masc",
+      "stm": "θε",
+      "suf": "ῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καθαριεῖ",
+      "lem": "καθαρίζω",
+      "prs": "verb 3 fut act ind sg",
+      "pfx": "καθ",
+      "stm": "αρι",
+      "ve": "εῖ",
+      "segs": [
+        {
+          "t": "καθ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "αρι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εῖ",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "FAI",
+      "igl": "will make clean"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "συνείδησιν",
+      "lem": "συνείδησις",
+      "prs": "noun acc sg fem",
+      "stm": "συνείδησ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "συνείδησ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἡμῶν",
+      "lem": "ἐγώ",
+      "prs": "pers.pron gen pl",
+      "stm": "ἡμ",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἡμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀπὸ",
+      "lem": "ἀπό",
+      "prs": "prep"
+    },
+    {
+      "txt": "νεκρῶν",
+      "lem": "νεκρός",
+      "prs": "adj gen pl neut",
+      "stm": "νεκρ",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "νεκρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἔργων",
+      "lem": "ἔργον",
+      "prs": "noun gen pl neut",
+      "stm": "ἔργ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἔργ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λατρεύειν",
+      "lem": "λατρεύω",
+      "prs": "verb pres act inf",
+      "stm": "λατρεύ",
+      "ve": "ειν",
+      "segs": [
+        {
+          "t": "λατρεύ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ειν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAN"
+    },
+    {
+      "txt": "θεῷ",
+      "lem": "θεός",
+      "prs": "noun dat sg masc",
+      "stm": "θε",
+      "suf": "ῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ζῶντι.",
+      "lem": "ζάω",
+      "prs": "verb pres act ptc dat sg masc",
+      "stm": "ζ",
+      "ptc": "ῶντ",
+      "suf": "ι",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "ζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶντ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "d"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 15
+    },
+    {
+      "txt": "Καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "τοῦτο",
+      "lem": "οὗτος",
+      "prs": "dem.pron acc sg neut",
+      "stm": "τοῦτο",
+      "segs": [
+        {
+          "t": "τοῦτο",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθήκης",
+      "lem": "διαθήκη",
+      "prs": "noun gen sg fem",
+      "stm": "διαθήκ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καινῆς",
+      "lem": "καινός",
+      "prs": "adj gen sg fem",
+      "stm": "καιν",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "καιν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μεσίτης",
+      "lem": "μεσίτης",
+      "prs": "noun nom sg masc",
+      "stm": "μεσίτ",
+      "suf": "ης",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "μεσίτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐστίν,",
+      "lem": "εἰμί",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ἐσ",
+      "ve": "τίν",
+      "segs": [
+        {
+          "t": "ἐσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "τίν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI",
+      "igl": "is"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ὅπως",
+      "lem": "ὅπως",
+      "prs": "conj"
+    },
+    {
+      "txt": "θανάτου",
+      "lem": "θάνατος",
+      "prs": "noun gen sg masc",
+      "stm": "θανάτ",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "θανάτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "γενομένου",
+      "lem": "γίνομαι",
+      "prs": "verb aor mid ptc gen sg masc",
+      "stm": "γεν",
+      "ptc": "ομέν",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "γεν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ομέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "AMP",
+      "igl": "becoming"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἀπολύτρωσιν",
+      "lem": "ἀπολύτρωσις",
+      "prs": "noun acc sg fem",
+      "stm": "ἀπολύτρωσ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἀπολύτρωσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl fem",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπὶ",
+      "lem": "ἐπί",
+      "prs": "prep"
+    },
+    {
+      "txt": "τῇ",
+      "lem": "ὁ",
+      "prs": "art dat sg fem",
+      "stm": "τῇ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τῇ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτῃ",
+      "lem": "πρῶτος",
+      "prs": "adj dat sg fem",
+      "stm": "πρώτ",
+      "suf": "ῃ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῃ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθήκῃ",
+      "lem": "διαθήκη",
+      "prs": "noun dat sg fem",
+      "stm": "διαθήκ",
+      "suf": "ῃ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῃ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "παραβάσεων",
+      "lem": "παράβασις",
+      "prs": "noun gen pl fem",
+      "stm": "παραβάσε",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "παραβάσε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπαγγελίαν",
+      "lem": "ἐπαγγελία",
+      "prs": "noun acc sg fem",
+      "stm": "ἐπαγγελί",
+      "suf": "αν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἐπαγγελί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λάβωσιν",
+      "lem": "λαμβάνω",
+      "prs": "verb 3 aor act subj pl",
+      "stm": "λάβ",
+      "ve": "ωσιν",
+      "segs": [
+        {
+          "t": "λάβ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ωσιν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAS"
+    },
+    {
+      "txt": "οἱ",
+      "lem": "ὁ",
+      "prs": "art nom pl masc",
+      "stm": "οἱ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "οἱ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κεκλημένοι",
+      "lem": "καλέω",
+      "prs": "verb perf pass ptc nom pl masc",
+      "rdp": "κε",
+      "stm": "κλη",
+      "ptc": "μέν",
+      "suf": "οι",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "κλη",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "οι",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "XPP",
+      "igl": "called"
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἰωνίου",
+      "lem": "αἰώνιος",
+      "prs": "adj gen sg fem",
+      "stm": "αἰωνί",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἰωνί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κληρονομίας.",
+      "lem": "κληρονομία",
+      "prs": "noun gen sg fem",
+      "stm": "κληρονομί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "κληρονομί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 16
+    },
+    {
+      "txt": "ὅπου",
+      "lem": "ὅπου",
+      "prs": "conj"
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "διαθήκη,",
+      "lem": "διαθήκη",
+      "prs": "noun nom sg fem",
+      "stm": "διαθήκ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "θάνατον",
+      "lem": "θάνατος",
+      "prs": "noun acc sg masc",
+      "stm": "θάνατ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "θάνατ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀνάγκη",
+      "lem": "ἀνάγκη",
+      "prs": "noun nom sg fem",
+      "stm": "ἀνάγκ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἀνάγκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "φέρεσθαι",
+      "lem": "φέρω",
+      "prs": "verb pres pass inf",
+      "stm": "φέρ",
+      "ve": "εσθαι",
+      "segs": [
+        {
+          "t": "φέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εσθαι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PPN",
+      "igl": "to be carried"
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg masc",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθεμένου·",
+      "lem": "διατίθεμαι",
+      "prs": "verb aor mid ptc gen sg masc",
+      "pfx": "δια",
+      "stm": "θε",
+      "ptc": "μέν",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "δια",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "AMP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 17
+    },
+    {
+      "txt": "διαθήκη",
+      "lem": "διαθήκη",
+      "prs": "noun nom sg fem",
+      "stm": "διαθήκ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἐπὶ",
+      "lem": "ἐπί",
+      "prs": "prep"
+    },
+    {
+      "txt": "νεκροῖς",
+      "lem": "νεκρός",
+      "prs": "adj dat pl masc",
+      "stm": "νεκρ",
+      "suf": "οῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "νεκρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "βεβαία,",
+      "lem": "βέβαιος",
+      "prs": "adj nom sg fem",
+      "stm": "βεβαί",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "βεβαί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἐπεὶ",
+      "lem": "ἐπεί",
+      "prs": "conj"
+    },
+    {
+      "txt": "μήποτε",
+      "lem": "μήποτε",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἰσχύει",
+      "lem": "ἰσχύω",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ἰσχύ",
+      "ve": "ει",
+      "segs": [
+        {
+          "t": "ἰσχύ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ει",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAI",
+      "igl": "is able"
+    },
+    {
+      "txt": "ὅτε",
+      "lem": "ὅτε",
+      "prs": "conj"
+    },
+    {
+      "txt": "ζῇ",
+      "lem": "ζάω",
+      "prs": "verb 3 pres act ind sg",
+      "stm": "ζῇ",
+      "segs": [
+        {
+          "t": "ζῇ",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ],
+      "tvm": "PAI"
+    },
+    {
+      "txt": "ὁ",
+      "lem": "ὁ",
+      "prs": "art nom sg masc",
+      "stm": "ὁ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὁ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθέμενος.",
+      "lem": "διατίθεμαι",
+      "prs": "verb aor mid ptc nom sg masc",
+      "pfx": "δια",
+      "stm": "θέ",
+      "ptc": "μεν",
+      "suf": "ος",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "δια",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "θέ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "μεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "n"
+          }
+        }
+      ],
+      "tvm": "AMP"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 18
+    },
+    {
+      "txt": "ὅθεν",
+      "lem": "ὅθεν",
+      "prs": "conj"
+    },
+    {
+      "txt": "οὐδὲ",
+      "lem": "οὐδέ",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἡ",
+      "lem": "ὁ",
+      "prs": "art nom sg fem",
+      "stm": "ἡ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἡ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πρώτη",
+      "lem": "πρῶτος",
+      "prs": "adj nom sg fem",
+      "stm": "πρώτ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πρώτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "χωρὶς",
+      "lem": "χωρίς",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἵματος",
+      "lem": "αἷμα",
+      "prs": "noun gen sg neut",
+      "stm": "αἵματ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐγκεκαίνισται·",
+      "lem": "ἐγκαινίζω",
+      "prs": "verb 3 perf pass ind sg",
+      "pfx": "ἐγ",
+      "rdp": "κε",
+      "stm": "καίνισ",
+      "ve": "ται",
+      "segs": [
+        {
+          "t": "ἐγ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "καίνισ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "XPI",
+      "igl": "been consecrated"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 19
+    },
+    {
+      "txt": "λαληθείσης",
+      "lem": "λαλέω",
+      "prs": "verb aor pass ptc gen sg fem",
+      "stm": "λαλη",
+      "frm": "θε",
+      "ptc": "ίσ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "λαλη",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "frm",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ίσ",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "g"
+          }
+        }
+      ],
+      "tvm": "APP",
+      "igl": "spoken"
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "πάσης",
+      "lem": "πᾶς",
+      "prs": "adj gen sg fem",
+      "stm": "πάσ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "πάσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐντολῆς",
+      "lem": "ἐντολή",
+      "prs": "noun gen sg fem",
+      "stm": "ἐντολ",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἐντολ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κατὰ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "νόμον",
+      "lem": "νόμος",
+      "prs": "noun acc sg masc",
+      "stm": "νόμ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "νόμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὑπὸ",
+      "lem": "ὑπό",
+      "prs": "prep"
+    },
+    {
+      "txt": "Μωϋσέως",
+      "lem": "Μωϋσῆς",
+      "prs": "noun gen sg masc",
+      "stm": "Μωϋσ",
+      "suf": "έως",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "Μωϋσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "έως",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "παντὶ",
+      "lem": "πᾶς",
+      "prs": "adj dat sg masc",
+      "stm": "παντ",
+      "suf": "ὶ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "παντ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὶ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῷ",
+      "lem": "ὁ",
+      "prs": "art dat sg masc",
+      "stm": "τῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λαῷ,",
+      "lem": "λαός",
+      "prs": "noun dat sg masc",
+      "stm": "λα",
+      "suf": "ῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "λα",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "λαβὼν",
+      "lem": "λαμβάνω",
+      "prs": "verb aor act ptc nom sg masc",
+      "stm": "λαβ",
+      "ptc": "ὼν",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "λαβ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὼν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        }
+      ],
+      "tvm": "AAP"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἷμα",
+      "lem": "αἷμα",
+      "prs": "noun acc sg neut",
+      "stm": "αἷμ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αἷμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl masc",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μόσχων",
+      "lem": "μόσχος",
+      "prs": "noun gen pl masc",
+      "stm": "μόσχ",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "μόσχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "μετὰ",
+      "lem": "μετά",
+      "prs": "prep"
+    },
+    {
+      "txt": "ὕδατος",
+      "lem": "ὕδωρ",
+      "prs": "noun gen sg neut",
+      "stm": "ὕδατ",
+      "suf": "ος",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ὕδατ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ος",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἐρίου",
+      "lem": "ἔριον",
+      "prs": "noun gen sg neut",
+      "stm": "ἐρί",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἐρί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κοκκίνου",
+      "lem": "κόκκινος",
+      "prs": "adj gen sg neut",
+      "stm": "κοκκίν",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "κοκκίν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ὑσσώπου",
+      "lem": "ὕσσωπος",
+      "prs": "noun gen sg fem",
+      "stm": "ὑσσώπ",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ὑσσώπ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "αὐτό",
+      "lem": "αὐτός",
+      "prs": "pers.pron acc sg neut",
+      "stm": "αὐτό",
+      "segs": [
+        {
+          "t": "αὐτό",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τε",
+      "lem": "τέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "βιβλίον",
+      "lem": "βιβλίον",
+      "prs": "noun acc sg neut",
+      "stm": "βιβλί",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "βιβλί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "πάντα",
+      "lem": "πᾶς",
+      "prs": "adj acc sg masc",
+      "stm": "πάντ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "πάντ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λαὸν",
+      "lem": "λαός",
+      "prs": "noun acc sg masc",
+      "stm": "λα",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "λα",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐράντισεν,",
+      "lem": "ῥαντίζω",
+      "prs": "verb 3 aor act ind sg",
+      "aug": "ἐ",
+      "stm": "ράντι",
+      "frm": "σε",
+      "ve": "ν",
+      "segs": [
+        {
+          "t": "ἐ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "ράντι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σε",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAI",
+      "igl": "sprinkled"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 20
+    },
+    {
+      "txt": "λέγων·",
+      "lem": "λέγω",
+      "prs": "verb pres act ptc nom sg masc",
+      "stm": "λέγ",
+      "ptc": "ων",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "λέγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        }
+      ],
+      "tvm": "PAP"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "Τοῦτο",
+      "lem": "οὗτος",
+      "prs": "dem.pron nom sg neut",
+      "stm": "Τοῦτο",
+      "segs": [
+        {
+          "t": "Τοῦτο",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art nom sg neut",
+      "stm": "τὸ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἷμα",
+      "lem": "αἷμα",
+      "prs": "noun nom sg neut",
+      "stm": "αἷμ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "αἷμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διαθήκης",
+      "lem": "διαθήκη",
+      "prs": "noun gen sg fem",
+      "stm": "διαθήκ",
+      "suf": "ης",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "διαθήκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ης",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἧς",
+      "lem": "ὅς",
+      "prs": "rel.pron gen sg fem",
+      "stm": "ἧς",
+      "segs": [
+        {
+          "t": "ἧς",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐνετείλατο",
+      "lem": "ἐντέλλομαι",
+      "prs": "verb 3 aor mid ind sg",
+      "pfx": "ἐν",
+      "aug": "ε",
+      "stm": "τείλ",
+      "ve": "ατο",
+      "segs": [
+        {
+          "t": "ἐν",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ε",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "τείλ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ατο",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AMI",
+      "igl": "gave orders"
+    },
+    {
+      "txt": "πρὸς",
+      "lem": "πρός",
+      "prs": "prep"
+    },
+    {
+      "txt": "ὑμᾶς",
+      "lem": "σύ",
+      "prs": "pers.pron acc pl",
+      "stm": "ὑμ",
+      "suf": "ᾶς",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ὑμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ᾶς",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὁ",
+      "lem": "ὁ",
+      "prs": "art nom sg masc",
+      "stm": "ὁ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὁ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "θεός·",
+      "lem": "θεός",
+      "prs": "noun nom sg masc",
+      "stm": "θε",
+      "suf": "ός",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ός",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 21
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὴν",
+      "lem": "ὁ",
+      "prs": "art acc sg fem",
+      "stm": "τὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκηνὴν",
+      "lem": "σκηνή",
+      "prs": "noun acc sg fem",
+      "stm": "σκην",
+      "suf": "ὴν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "σκην",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὴν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "πάντα",
+      "lem": "πᾶς",
+      "prs": "adj acc pl neut",
+      "stm": "πάντ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "πάντ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τὰ",
+      "lem": "ὁ",
+      "prs": "art acc pl neut",
+      "stm": "τὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "σκεύη",
+      "lem": "σκεῦος",
+      "prs": "noun acc pl neut",
+      "stm": "σκεύ",
+      "suf": "η",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "σκεύ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "λειτουργίας",
+      "lem": "λειτουργία",
+      "prs": "noun gen sg fem",
+      "stm": "λειτουργί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "λειτουργί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "τῷ",
+      "lem": "ὁ",
+      "prs": "art dat sg neut",
+      "stm": "τῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἵματι",
+      "lem": "αἷμα",
+      "prs": "noun dat sg neut",
+      "stm": "αἵματ",
+      "suf": "ι",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὁμοίως",
+      "lem": "ὁμοίως",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἐράντισεν.",
+      "lem": "ῥαντίζω",
+      "prs": "verb 3 aor act ind sg",
+      "aug": "ἐ",
+      "stm": "ράντι",
+      "frm": "σε",
+      "ve": "ν",
+      "segs": [
+        {
+          "t": "ἐ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "ράντι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σε",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAI",
+      "igl": "sprinkled"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 22
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "σχεδὸν",
+      "lem": "σχεδόν",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἐν",
+      "lem": "ἐν",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἵματι",
+      "lem": "αἷμα",
+      "prs": "noun dat sg neut",
+      "stm": "αἵματ",
+      "suf": "ι",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πάντα",
+      "lem": "πᾶς",
+      "prs": "adj nom pl neut",
+      "stm": "πάντ",
+      "suf": "α",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "πάντ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καθαρίζεται",
+      "lem": "καθαρίζω",
+      "prs": "verb 3 pres pass ind sg",
+      "pfx": "καθ",
+      "stm": "αρίζ",
+      "ve": "εται",
+      "segs": [
+        {
+          "t": "καθ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "αρίζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PPI",
+      "igl": "is made clean"
+    },
+    {
+      "txt": "κατὰ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "νόμον,",
+      "lem": "νόμος",
+      "prs": "noun acc sg masc",
+      "stm": "νόμ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "νόμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "χωρὶς",
+      "lem": "χωρίς",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἱματεκχυσίας",
+      "lem": "αἱματεκχυσία",
+      "prs": "noun gen sg fem",
+      "stm": "αἱματεκχυσί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἱματεκχυσί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὐ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "γίνεται",
+      "lem": "γίνομαι",
+      "prs": "verb 3 pres mid ind sg",
+      "stm": "γίν",
+      "ve": "εται",
+      "segs": [
+        {
+          "t": "γίν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PMI"
+    },
+    {
+      "txt": "ἄφεσις.",
+      "lem": "ἄφεσις",
+      "prs": "noun nom sg fem",
+      "stm": "ἄφεσ",
+      "suf": "ις",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἄφεσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ις",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 23
+    },
+    {
+      "txt": "Ἀνάγκη",
+      "lem": "ἀνάγκη",
+      "prs": "noun nom sg fem",
+      "stm": "Ἀνάγκ",
+      "suf": "η",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Ἀνάγκ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "η",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὖν",
+      "lem": "οὖν",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὰ",
+      "lem": "ὁ",
+      "prs": "art acc pl neut",
+      "stm": "τὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "μὲν",
+      "lem": "μέν",
+      "prs": "conj"
+    },
+    {
+      "txt": "ὑποδείγματα",
+      "lem": "ὑπόδειγμα",
+      "prs": "noun acc pl neut",
+      "stm": "ὑποδείγμ",
+      "suf": "ατα",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ὑποδείγμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ατα",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl neut",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐν",
+      "lem": "ἐν",
+      "prs": "prep"
+    },
+    {
+      "txt": "τοῖς",
+      "lem": "ὁ",
+      "prs": "art dat pl masc",
+      "stm": "τοῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τοῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὐρανοῖς",
+      "lem": "οὐρανός",
+      "prs": "noun dat pl masc",
+      "stm": "οὐραν",
+      "suf": "οῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "οὐραν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τούτοις",
+      "lem": "οὗτος",
+      "prs": "dem.pron dat pl neut",
+      "stm": "τούτ",
+      "suf": "οις",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τούτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οις",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "καθαρίζεσθαι,",
+      "lem": "καθαρίζω",
+      "prs": "verb pres pass inf",
+      "pfx": "καθ",
+      "stm": "αρίζ",
+      "ve": "εσθαι",
+      "segs": [
+        {
+          "t": "καθ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "αρίζ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εσθαι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PPN",
+      "igl": "to be made clean"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "αὐτὰ",
+      "lem": "αὐτός",
+      "prs": "pers.pron acc pl neut",
+      "stm": "αὐτ",
+      "suf": "ὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τὰ",
+      "lem": "ὁ",
+      "prs": "art acc pl neut",
+      "stm": "τὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐπουράνια",
+      "lem": "ἐπουράνιος",
+      "prs": "adj acc pl neut",
+      "stm": "ἐπουράνι",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἐπουράνι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κρείττοσι",
+      "lem": "κρείττων",
+      "prs": "adj dat pl fem",
+      "stm": "κρείττο",
+      "suf": "σι",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "κρείττο",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "σι",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "θυσίαις",
+      "lem": "θυσία",
+      "prs": "noun dat pl fem",
+      "stm": "θυσί",
+      "suf": "αις",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "θυσί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αις",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "παρὰ",
+      "lem": "παρά",
+      "prs": "prep"
+    },
+    {
+      "txt": "ταύτας.",
+      "lem": "οὗτος",
+      "prs": "dem.pron acc pl fem",
+      "stm": "ταύτ",
+      "suf": "ας",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ταύτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 24
+    },
+    {
+      "txt": "οὐ",
+      "lem": "οὐ",
+      "prs": "adv"
+    },
+    {
+      "txt": "γὰρ",
+      "lem": "γάρ",
+      "prs": "conj"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "χειροποίητα",
+      "lem": "χειροποίητος",
+      "prs": "adj acc pl neut",
+      "stm": "χειροποίητ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "χειροποίητ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "εἰσῆλθεν",
+      "lem": "εἰσέρχομαι",
+      "prs": "verb 3 aor act ind sg",
+      "pfx": "εἰσ",
+      "aug": "ῆ",
+      "stm": "λθ",
+      "ve": "εν",
+      "segs": [
+        {
+          "t": "εἰσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ῆ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "λθ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAI",
+      "igl": "went in"
+    },
+    {
+      "txt": "ἅγια",
+      "lem": "ἅγιος",
+      "prs": "adj acc pl neut",
+      "stm": "ἅγι",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Χριστός,",
+      "lem": "Χριστός",
+      "prs": "noun nom sg masc",
+      "stm": "Χριστ",
+      "suf": "ός",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Χριστ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ός",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀντίτυπα",
+      "lem": "ἀντίτυπος",
+      "prs": "adj acc pl neut",
+      "stm": "ἀντίτυπ",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἀντίτυπ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl neut",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀληθινῶν,",
+      "lem": "ἀληθινός",
+      "prs": "adj gen pl neut",
+      "stm": "ἀληθιν",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἀληθιν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀλλʼ",
+      "lem": "ἀλλά",
+      "prs": "conj"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "αὐτὸν",
+      "lem": "αὐτός",
+      "prs": "pers.pron acc sg masc",
+      "stm": "αὐτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τὸν",
+      "lem": "ὁ",
+      "prs": "art acc sg masc",
+      "stm": "τὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "οὐρανόν,",
+      "lem": "οὐρανός",
+      "prs": "noun acc sg masc",
+      "stm": "οὐραν",
+      "suf": "όν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "οὐραν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "όν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "νῦν",
+      "lem": "νῦν",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἐμφανισθῆναι",
+      "lem": "ἐμφανίζω",
+      "prs": "verb aor pass inf",
+      "pfx": "ἐμ",
+      "stm": "φανισ",
+      "frm": "θῆ",
+      "ve": "ναι",
+      "segs": [
+        {
+          "t": "ἐμ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "φανισ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "θῆ",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ναι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "APN",
+      "igl": "to be revealed"
+    },
+    {
+      "txt": "τῷ",
+      "lem": "ὁ",
+      "prs": "art dat sg neut",
+      "stm": "τῷ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "προσώπῳ",
+      "lem": "πρόσωπον",
+      "prs": "noun dat sg neut",
+      "stm": "προσώπ",
+      "suf": "ῳ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "προσώπ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῳ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τοῦ",
+      "lem": "ὁ",
+      "prs": "art gen sg masc",
+      "stm": "τοῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τοῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "θεοῦ",
+      "lem": "θεός",
+      "prs": "noun gen sg masc",
+      "stm": "θε",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὑπὲρ",
+      "lem": "ὑπέρ",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἡμῶν·",
+      "lem": "ἐγώ",
+      "prs": "pers.pron gen pl",
+      "stm": "ἡμ",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἡμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 25
+    },
+    {
+      "txt": "οὐδʼ",
+      "lem": "οὐδέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἵνα",
+      "lem": "ἵνα",
+      "prs": "conj"
+    },
+    {
+      "txt": "πολλάκις",
+      "lem": "πολλάκις",
+      "prs": "adv"
+    },
+    {
+      "txt": "προσφέρῃ",
+      "lem": "προσφέρω",
+      "prs": "verb 3 pres act subj sg",
+      "pfx": "προσ",
+      "stm": "φέρ",
+      "ve": "ῃ",
+      "segs": [
+        {
+          "t": "προσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "φέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῃ",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PAS"
+    },
+    {
+      "txt": "ἑαυτόν,",
+      "lem": "ἑαυτοῦ",
+      "prs": "pers.pron acc sg masc",
+      "stm": "ἑαυτ",
+      "suf": "όν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἑαυτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "όν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ὥσπερ",
+      "lem": "ὥσπερ",
+      "prs": "conj"
+    },
+    {
+      "txt": "ὁ",
+      "lem": "ὁ",
+      "prs": "art nom sg masc",
+      "stm": "ὁ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὁ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀρχιερεὺς",
+      "lem": "ἀρχιερεύς",
+      "prs": "noun nom sg masc",
+      "stm": "ἀρχιερ",
+      "suf": "εὺς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ἀρχιερ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εὺς",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "εἰσέρχεται",
+      "lem": "εἰσέρχομαι",
+      "prs": "verb 3 pres mid ind sg",
+      "pfx": "εἰσ",
+      "stm": "έρχ",
+      "ve": "εται",
+      "segs": [
+        {
+          "t": "εἰσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "έρχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PMI"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὰ",
+      "lem": "ὁ",
+      "prs": "art acc pl neut",
+      "stm": "τὰ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὰ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἅγια",
+      "lem": "ἅγιος",
+      "prs": "adj acc pl neut",
+      "stm": "ἅγι",
+      "suf": "α",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἅγι",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "α",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "κατʼ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἐνιαυτὸν",
+      "lem": "ἐνιαυτός",
+      "prs": "noun acc sg masc",
+      "stm": "ἐνιαυτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἐνιαυτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἐν",
+      "lem": "ἐν",
+      "prs": "prep"
+    },
+    {
+      "txt": "αἵματι",
+      "lem": "αἷμα",
+      "prs": "noun dat sg neut",
+      "stm": "αἵματ",
+      "suf": "ι",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "αἵματ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀλλοτρίῳ,",
+      "lem": "ἀλλότριος",
+      "prs": "adj dat sg neut",
+      "stm": "ἀλλοτρί",
+      "suf": "ῳ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "ἀλλοτρί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῳ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 26
+    },
+    {
+      "txt": "ἐπεὶ",
+      "lem": "ἐπεί",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἔδει",
+      "lem": "δέω",
+      "prs": "verb 3 impf act ind sg",
+      "aug": "ἔ",
+      "stm": "δε",
+      "ve": "ι",
+      "segs": [
+        {
+          "t": "ἔ",
+          "ch": {
+            "morph": "aug"
+          }
+        },
+        {
+          "t": "δε",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ι",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "IAI",
+      "igl": "it was necessary"
+    },
+    {
+      "txt": "αὐτὸν",
+      "lem": "αὐτός",
+      "prs": "pers.pron acc sg masc",
+      "stm": "αὐτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πολλάκις",
+      "lem": "πολλάκις",
+      "prs": "adv"
+    },
+    {
+      "txt": "παθεῖν",
+      "lem": "πάσχω",
+      "prs": "verb aor act inf",
+      "stm": "παθ",
+      "ve": "εῖν",
+      "segs": [
+        {
+          "t": "παθ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εῖν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAN"
+    },
+    {
+      "txt": "ἀπὸ",
+      "lem": "ἀπό",
+      "prs": "prep"
+    },
+    {
+      "txt": "καταβολῆς",
+      "lem": "καταβολή",
+      "prs": "noun gen sg fem",
+      "stm": "καταβολ",
+      "suf": "ῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "καταβολ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κόσμου·",
+      "lem": "κόσμος",
+      "prs": "noun gen sg masc",
+      "stm": "κόσμ",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "κόσμ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "νυνὶ",
+      "lem": "νυνί",
+      "prs": "adv"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "ἅπαξ",
+      "lem": "ἅπαξ",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἐπὶ",
+      "lem": "ἐπί",
+      "prs": "prep"
+    },
+    {
+      "txt": "συντελείᾳ",
+      "lem": "συντέλεια",
+      "prs": "noun dat sg fem",
+      "stm": "συντελεί",
+      "suf": "ᾳ",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "συντελεί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ᾳ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "τῶν",
+      "lem": "ὁ",
+      "prs": "art gen pl masc",
+      "stm": "τῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αἰώνων",
+      "lem": "αἰών",
+      "prs": "noun gen pl masc",
+      "stm": "αἰών",
+      "suf": "ων",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αἰών",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἀθέτησιν",
+      "lem": "ἀθέτησις",
+      "prs": "noun acc sg fem",
+      "stm": "ἀθέτησ",
+      "suf": "ιν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἀθέτησ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ιν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἁμαρτίας",
+      "lem": "ἁμαρτία",
+      "prs": "noun gen sg fem",
+      "stm": "ἁμαρτί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἁμαρτί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "διὰ",
+      "lem": "διά",
+      "prs": "prep"
+    },
+    {
+      "txt": "τῆς",
+      "lem": "ὁ",
+      "prs": "art gen sg fem",
+      "stm": "τῆς",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "τῆς",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "θυσίας",
+      "lem": "θυσία",
+      "prs": "noun gen sg fem",
+      "stm": "θυσί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "θυσί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αὐτοῦ",
+      "lem": "αὐτός",
+      "prs": "pers.pron gen sg masc",
+      "stm": "αὐτ",
+      "suf": "οῦ",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πεφανέρωται.",
+      "lem": "φανερόω",
+      "prs": "verb 3 perf pass ind sg",
+      "rdp": "πε",
+      "stm": "φανέρω",
+      "ve": "ται",
+      "segs": [
+        {
+          "t": "πε",
+          "ch": {
+            "morph": "rdp"
+          }
+        },
+        {
+          "t": "φανέρω",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "XPI",
+      "igl": "been revealed"
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 27
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "conj"
+    },
+    {
+      "txt": "καθʼ",
+      "lem": "κατά",
+      "prs": "prep"
+    },
+    {
+      "txt": "ὅσον",
+      "lem": "ὅσος",
+      "prs": "rel.pron acc sg neut",
+      "stm": "ὅσ",
+      "suf": "ον",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ὅσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ον",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀπόκειται",
+      "lem": "ἀπόκειμαι",
+      "prs": "verb 3 pres mid ind sg",
+      "pfx": "ἀπό",
+      "stm": "κει",
+      "ve": "ται",
+      "segs": [
+        {
+          "t": "ἀπό",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "κει",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "PMI"
+    },
+    {
+      "txt": "τοῖς",
+      "lem": "ὁ",
+      "prs": "art dat pl masc",
+      "stm": "τοῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τοῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀνθρώποις",
+      "lem": "ἄνθρωπος",
+      "prs": "noun dat pl masc",
+      "stm": "ἀνθρώπ",
+      "suf": "οις",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "ἀνθρώπ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "οις",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἅπαξ",
+      "lem": "ἅπαξ",
+      "prs": "adv"
+    },
+    {
+      "txt": "ἀποθανεῖν,",
+      "lem": "ἀποθνῄσκω",
+      "prs": "verb aor act inf",
+      "pfx": "ἀπο",
+      "stm": "θαν",
+      "ve": "εῖν",
+      "segs": [
+        {
+          "t": "ἀπο",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "θαν",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "εῖν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAN"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "μετὰ",
+      "lem": "μετά",
+      "prs": "prep"
+    },
+    {
+      "txt": "δὲ",
+      "lem": "δέ",
+      "prs": "conj"
+    },
+    {
+      "txt": "τοῦτο",
+      "lem": "οὗτος",
+      "prs": "dem.pron acc sg neut",
+      "stm": "τοῦτο",
+      "segs": [
+        {
+          "t": "τοῦτο",
+          "ch": {
+            "morph": "stm"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "κρίσις,",
+      "lem": "κρίσις",
+      "prs": "noun nom sg fem",
+      "stm": "κρίσ",
+      "suf": "ις",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "κρίσ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ις",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "v": 28
+    },
+    {
+      "txt": "οὕτως",
+      "lem": "οὕτω(ς)",
+      "prs": "adv"
+    },
+    {
+      "txt": "καὶ",
+      "lem": "καί",
+      "prs": "adv"
+    },
+    {
+      "txt": "ὁ",
+      "lem": "ὁ",
+      "prs": "art nom sg masc",
+      "stm": "ὁ",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "ὁ",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "Χριστός,",
+      "lem": "Χριστός",
+      "prs": "noun nom sg masc",
+      "stm": "Χριστ",
+      "suf": "ός",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "Χριστ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ός",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἅπαξ",
+      "lem": "ἅπαξ",
+      "prs": "adv"
+    },
+    {
+      "txt": "προσενεχθεὶς",
+      "lem": "προσφέρω",
+      "prs": "verb aor pass ptc nom sg masc",
+      "pfx": "προσ",
+      "stm": "ενεχ",
+      "frm": "θε",
+      "ptc": "ὶς",
+      "cs": "n",
+      "segs": [
+        {
+          "t": "προσ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ενεχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "θε",
+          "ch": {
+            "morph": "frm",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "ὶς",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        }
+      ],
+      "tvm": "APP",
+      "igl": "brought to"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "τὸ",
+      "lem": "ὁ",
+      "prs": "art acc sg neut",
+      "stm": "τὸ",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "τὸ",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "πολλῶν",
+      "lem": "πολύς",
+      "prs": "adj gen pl masc",
+      "stm": "πολλ",
+      "suf": "ῶν",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "πολλ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀνενεγκεῖν",
+      "lem": "ἀναφέρω",
+      "prs": "verb aor act inf",
+      "pfx": "ἀν",
+      "stm": "ενεγ",
+      "frm": "κε",
+      "ve": "ῖν",
+      "segs": [
+        {
+          "t": "ἀν",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "ενεγ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "κε",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ῖν",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "AAN"
+    },
+    {
+      "txt": "ἁμαρτίας,",
+      "lem": "ἁμαρτία",
+      "prs": "noun acc pl fem",
+      "stm": "ἁμαρτί",
+      "suf": "ας",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "ἁμαρτί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "ἐκ",
+      "lem": "ἐκ",
+      "prs": "prep"
+    },
+    {
+      "txt": "δευτέρου",
+      "lem": "δεύτερος",
+      "prs": "adj gen sg masc",
+      "stm": "δευτέρ",
+      "suf": "ου",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "δευτέρ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ου",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "χωρὶς",
+      "lem": "χωρίς",
+      "prs": "prep"
+    },
+    {
+      "txt": "ἁμαρτίας",
+      "lem": "ἁμαρτία",
+      "prs": "noun gen sg fem",
+      "stm": "ἁμαρτί",
+      "suf": "ας",
+      "cs": "g",
+      "segs": [
+        {
+          "t": "ἁμαρτί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ας",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ὀφθήσεται",
+      "lem": "ὁράω",
+      "prs": "verb 3 fut pass ind sg",
+      "stm": "ὀφ",
+      "frm": "θήσε",
+      "ve": "ται",
+      "segs": [
+        {
+          "t": "ὀφ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "θήσε",
+          "ch": {
+            "morph": "frm"
+          }
+        },
+        {
+          "t": "ται",
+          "ch": {
+            "morph": "ve"
+          }
+        }
+      ],
+      "tvm": "FPI",
+      "igl": "will be seen"
+    },
+    {
+      "br": true
+    },
+    {
+      "txt": "τοῖς",
+      "lem": "ὁ",
+      "prs": "art dat pl masc",
+      "stm": "τοῖς",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "τοῖς",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "αὐτὸν",
+      "lem": "αὐτός",
+      "prs": "pers.pron acc sg masc",
+      "stm": "αὐτ",
+      "suf": "ὸν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "αὐτ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ὸν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "txt": "ἀπεκδεχομένοις",
+      "lem": "ἀπεκδέχομαι",
+      "prs": "verb pres mid ptc dat pl masc",
+      "pfx": "ἀπεκ",
+      "stm": "δεχ",
+      "ptc": "ομέν",
+      "suf": "οις",
+      "cs": "d",
+      "segs": [
+        {
+          "t": "ἀπεκ",
+          "ch": {
+            "morph": "pfx"
+          }
+        },
+        {
+          "t": "δεχ",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "ομέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "οις",
+          "ch": {
+            "morph": "suf",
+            "ptc": "marker",
+            "case": "d"
+          }
+        }
+      ],
+      "tvm": "PMP"
+    },
+    {
+      "txt": "εἰς",
+      "lem": "εἰς",
+      "prs": "prep"
+    },
+    {
+      "txt": "σωτηρίαν.",
+      "lem": "σωτηρία",
+      "prs": "noun acc sg fem",
+      "stm": "σωτηρί",
+      "suf": "αν",
+      "cs": "a",
+      "segs": [
+        {
+          "t": "σωτηρί",
+          "ch": {
+            "morph": "stm"
+          }
+        },
+        {
+          "t": "αν",
+          "ch": {
+            "morph": "suf",
+            "case": "a"
+          }
+        }
+      ]
+    },
+    {
+      "br": true
+    }
+  ],
+  "lex": {
+    "ἔχω": {
+      "gl": "have",
+      "f": 706
+    },
+    "μέν": {
+      "gl": "indeed",
+      "f": 178
+    },
+    "οὖν": {
+      "gl": "therefore",
+      "f": 494
+    },
+    "ὁ": {
+      "gl": "the",
+      "f": 19769
+    },
+    "πρῶτος": {
+      "gl": "first",
+      "f": 153
+    },
+    "δικαίωμα": {
+      "gl": "righteous act",
+      "f": 10
+    },
+    "λατρεία": {
+      "gl": "service",
+      "f": 5
+    },
+    "τέ": {
+      "gl": "and",
+      "f": 213
+    },
+    "ἅγιος": {
+      "gl": "holy",
+      "f": 233
+    },
+    "κοσμικός": {
+      "gl": "earthly",
+      "f": 2
+    },
+    "σκηνή": {
+      "gl": "tent",
+      "f": 20
+    },
+    "γάρ": {
+      "gl": "for",
+      "f": 1039
+    },
+    "κατασκευάζω": {
+      "gl": "build",
+      "f": 11
+    },
+    "ἐν": {
+      "gl": "in",
+      "f": 2733
+    },
+    "ὅς": {
+      "gl": "who",
+      "f": 1408
+    },
+    "λυχνία": {
+      "gl": "lamp-stand",
+      "f": 12
+    },
+    "καί": {
+      "gl": "and",
+      "f": 8973
+    },
+    "τράπεζα": {
+      "gl": "table",
+      "f": 15
+    },
+    "πρόθεσις": {
+      "gl": "purpose",
+      "f": 12
+    },
+    "ἄρτος": {
+      "gl": "bread",
+      "f": 97
+    },
+    "ὅστις": {
+      "gl": "whosoever",
+      "f": 144
+    },
+    "λέγω": {
+      "gl": "say",
+      "f": 2345
+    },
+    "μετά": {
+      "gl": "with",
+      "f": 470
+    },
+    "δέ": {
+      "gl": "but",
+      "f": 2766
+    },
+    "δεύτερος": {
+      "gl": "second",
+      "f": 44
+    },
+    "καταπέτασμα": {
+      "gl": "veil",
+      "f": 6
+    },
+    "χρυσοῦς": {
+      "gl": "golden",
+      "f": 17
+    },
+    "θυμιατήριον": {
+      "gl": "altar of incense",
+      "f": 1
+    },
+    "κιβωτός": {
+      "gl": "ark",
+      "f": 6
+    },
+    "διαθήκη": {
+      "gl": "covenant",
+      "f": 33
+    },
+    "περικαλύπτω": {
+      "gl": "cover up",
+      "f": 3
+    },
+    "πάντοθεν": {
+      "gl": "from all sides",
+      "f": 3
+    },
+    "χρυσίον": {
+      "gl": "golden ornament",
+      "f": 12
+    },
+    "στάμνος": {
+      "gl": "jar",
+      "f": 1
+    },
+    "μάννα": {
+      "gl": "manna",
+      "f": 4
+    },
+    "ῥάβδος": {
+      "gl": "rod",
+      "f": 12
+    },
+    "Ἀαρών": {
+      "gl": "Aaron",
+      "f": 5
+    },
+    "βλαστάνω": {
+      "gl": "sprout",
+      "f": 4
+    },
+    "πλάξ": {
+      "gl": "tablet",
+      "f": 3
+    },
+    "ὑπεράνω": {
+      "gl": "far above",
+      "f": 3
+    },
+    "αὐτός": {
+      "gl": "he",
+      "f": 5546
+    },
+    "Χεροῦβ": {
+      "gl": "Cherubim",
+      "f": 1
+    },
+    "δόξα": {
+      "gl": "glory",
+      "f": 165
+    },
+    "κατασκιάζω": {
+      "gl": "overshadow",
+      "f": 1
+    },
+    "ἱλαστήριον": {
+      "gl": "sin offering",
+      "f": 2
+    },
+    "περί": {
+      "gl": "about",
+      "f": 332
+    },
+    "οὐ": {
+      "gl": "no",
+      "f": 1605
+    },
+    "εἰμί": {
+      "gl": "be",
+      "f": 2456
+    },
+    "νῦν": {
+      "gl": "now",
+      "f": 145
+    },
+    "κατά": {
+      "gl": "according to",
+      "f": 469
+    },
+    "μέρος": {
+      "gl": "part",
+      "f": 42
+    },
+    "οὗτος": {
+      "gl": "this",
+      "f": 1385
+    },
+    "οὕτω(ς)": {
+      "gl": "thus",
+      "f": 207
+    },
+    "εἰς": {
+      "gl": "into",
+      "f": 1754
+    },
+    "διά": {
+      "gl": "through",
+      "f": 666
+    },
+    "πᾶς": {
+      "gl": "all",
+      "f": 1244
+    },
+    "εἴσειμι": {
+      "gl": "go in",
+      "f": 4
+    },
+    "ἱερεύς": {
+      "gl": "priest",
+      "f": 31
+    },
+    "ἐπιτελέω": {
+      "gl": "complete",
+      "f": 10
+    },
+    "ἅπαξ": {
+      "gl": "once",
+      "f": 14
+    },
+    "ἐνιαυτός": {
+      "gl": "year",
+      "f": 14
+    },
+    "μόνος": {
+      "gl": "only",
+      "f": 110
+    },
+    "ἀρχιερεύς": {
+      "gl": "high priest",
+      "f": 122
+    },
+    "χωρίς": {
+      "gl": "apart from",
+      "f": 42
+    },
+    "αἷμα": {
+      "gl": "blood",
+      "f": 97
+    },
+    "προσφέρω": {
+      "gl": "bring to",
+      "f": 47
+    },
+    "ὑπέρ": {
+      "gl": "for",
+      "f": 150
+    },
+    "ἑαυτοῦ": {
+      "gl": "himself",
+      "f": 333
+    },
+    "λαός": {
+      "gl": "people",
+      "f": 141
+    },
+    "ἀγνόημα": {
+      "gl": "offence committed through ignorance",
+      "f": 1
+    },
+    "δηλόω": {
+      "gl": "show",
+      "f": 7
+    },
+    "πνεῦμα": {
+      "gl": "wind",
+      "f": 379
+    },
+    "μήπω": {
+      "gl": "not yet",
+      "f": 2
+    },
+    "φανερόω": {
+      "gl": "reveal",
+      "f": 48
+    },
+    "ὁδός": {
+      "gl": "way",
+      "f": 101
+    },
+    "ἔτι": {
+      "gl": "still",
+      "f": 93
+    },
+    "στάσις": {
+      "gl": "standing",
+      "f": 9
+    },
+    "παραβολή": {
+      "gl": "parable",
+      "f": 50
+    },
+    "καιρός": {
+      "gl": "fitting season",
+      "f": 85
+    },
+    "ἐνίστημι": {
+      "gl": "place in",
+      "f": 7
+    },
+    "δῶρον": {
+      "gl": "gift",
+      "f": 19
+    },
+    "θυσία": {
+      "gl": "sacrifice",
+      "f": 28
+    },
+    "μή": {
+      "gl": "not",
+      "f": 1036
+    },
+    "δύναμαι": {
+      "gl": "can",
+      "f": 209
+    },
+    "συνείδησις": {
+      "gl": "conscience",
+      "f": 30
+    },
+    "τελειόω": {
+      "gl": "complete",
+      "f": 23
+    },
+    "λατρεύω": {
+      "gl": "serve",
+      "f": 21
+    },
+    "ἐπί": {
+      "gl": "upon",
+      "f": 885
+    },
+    "βρῶμα": {
+      "gl": "food of any kind",
+      "f": 17
+    },
+    "πόμα": {
+      "gl": "drink",
+      "f": 2
+    },
+    "διάφορος": {
+      "gl": "differing",
+      "f": 4
+    },
+    "βαπτισμός": {
+      "gl": "dipping",
+      "f": 4
+    },
+    "σάρξ": {
+      "gl": "flesh",
+      "f": 147
+    },
+    "μέχρι(ς)": {
+      "gl": "as far as",
+      "f": 18
+    },
+    "διόρθωσις": {
+      "gl": "improvement",
+      "f": 1
+    },
+    "ἐπίκειμαι": {
+      "gl": "lie upon",
+      "f": 7
+    },
+    "Χριστός": {
+      "gl": "Christ",
+      "f": 528
+    },
+    "παραγίνομαι": {
+      "gl": "appear",
+      "f": 36
+    },
+    "γίνομαι": {
+      "gl": "become",
+      "f": 667
+    },
+    "ἀγαθός": {
+      "gl": "good",
+      "f": 101
+    },
+    "μέγας": {
+      "gl": "large",
+      "f": 240
+    },
+    "τέλειος": {
+      "gl": "perfect",
+      "f": 19
+    },
+    "χειροποίητος": {
+      "gl": "hand-made",
+      "f": 6
+    },
+    "κτίσις": {
+      "gl": "creation",
+      "f": 19
+    },
+    "οὐδέ": {
+      "gl": "neither",
+      "f": 142
+    },
+    "τράγος": {
+      "gl": "he-goat",
+      "f": 3
+    },
+    "μόσχος": {
+      "gl": "calf",
+      "f": 6
+    },
+    "ἴδιος": {
+      "gl": "one's own",
+      "f": 114
+    },
+    "εἰσέρχομαι": {
+      "gl": "go in",
+      "f": 193
+    },
+    "ἐφάπαξ": {
+      "gl": "once",
+      "f": 5
+    },
+    "αἰώνιος": {
+      "gl": "eternal",
+      "f": 69
+    },
+    "λύτρωσις": {
+      "gl": "liberation",
+      "f": 3
+    },
+    "εὑρίσκω": {
+      "gl": "find",
+      "f": 176
+    },
+    "εἰ": {
+      "gl": "if",
+      "f": 502
+    },
+    "ταῦρος": {
+      "gl": "bull",
+      "f": 4
+    },
+    "σποδός": {
+      "gl": "ashes",
+      "f": 3
+    },
+    "δάμαλις": {
+      "gl": "heifer",
+      "f": 1
+    },
+    "ῥαντίζω": {
+      "gl": "sprinkle",
+      "f": 4
+    },
+    "κοινόω": {
+      "gl": "make unclean",
+      "f": 14
+    },
+    "ἁγιάζω": {
+      "gl": "make holy",
+      "f": 28
+    },
+    "πρός": {
+      "gl": "to",
+      "f": 696
+    },
+    "καθαρότης": {
+      "gl": "cleanness",
+      "f": 1
+    },
+    "πόσος": {
+      "gl": "how much",
+      "f": 27
+    },
+    "μᾶλλον": {
+      "gl": "more",
+      "f": 81
+    },
+    "ἄμωμος": {
+      "gl": "blameless",
+      "f": 8
+    },
+    "θεός": {
+      "gl": "God",
+      "f": 1307
+    },
+    "καθαρίζω": {
+      "gl": "make clean",
+      "f": 31
+    },
+    "ἐγώ": {
+      "gl": "I",
+      "f": 2572
+    },
+    "ἀπό": {
+      "gl": "from",
+      "f": 644
+    },
+    "νεκρός": {
+      "gl": "dead",
+      "f": 128
+    },
+    "ἔργον": {
+      "gl": "work",
+      "f": 169
+    },
+    "ζάω": {
+      "gl": "live",
+      "f": 140
+    },
+    "καινός": {
+      "gl": "fresh",
+      "f": 42
+    },
+    "μεσίτης": {
+      "gl": "mediator",
+      "f": 6
+    },
+    "ὅπως": {
+      "gl": "how",
+      "f": 53
+    },
+    "θάνατος": {
+      "gl": "death",
+      "f": 120
+    },
+    "ἀπολύτρωσις": {
+      "gl": "redemption",
+      "f": 10
+    },
+    "παράβασις": {
+      "gl": "transgression",
+      "f": 7
+    },
+    "ἐπαγγελία": {
+      "gl": "promise",
+      "f": 52
+    },
+    "λαμβάνω": {
+      "gl": "receive",
+      "f": 258
+    },
+    "καλέω": {
+      "gl": "call",
+      "f": 148
+    },
+    "κληρονομία": {
+      "gl": "inheritance",
+      "f": 14
+    },
+    "ὅπου": {
+      "gl": "where",
+      "f": 81
+    },
+    "ἀνάγκη": {
+      "gl": "necessity",
+      "f": 17
+    },
+    "φέρω": {
+      "gl": "carry",
+      "f": 66
+    },
+    "διατίθεμαι": {
+      "gl": "appoint",
+      "f": 7
+    },
+    "βέβαιος": {
+      "gl": "firm",
+      "f": 8
+    },
+    "ἐπεί": {
+      "gl": "after",
+      "f": 26
+    },
+    "μήποτε": {
+      "gl": "lest at any time",
+      "f": 25
+    },
+    "ἰσχύω": {
+      "gl": "be able",
+      "f": 28
+    },
+    "ὅτε": {
+      "gl": "when",
+      "f": 102
+    },
+    "ὅθεν": {
+      "gl": "therefore",
+      "f": 15
+    },
+    "ἐγκαινίζω": {
+      "gl": "consecrate",
+      "f": 2
+    },
+    "λαλέω": {
+      "gl": "speak",
+      "f": 297
+    },
+    "ἐντολή": {
+      "gl": "ordinance",
+      "f": 66
+    },
+    "νόμος": {
+      "gl": "law",
+      "f": 193
+    },
+    "ὑπό": {
+      "gl": "by",
+      "f": 220
+    },
+    "Μωϋσῆς": {
+      "gl": "Moses",
+      "f": 79
+    },
+    "ὕδωρ": {
+      "gl": "water",
+      "f": 76
+    },
+    "ἔριον": {
+      "gl": "wool",
+      "f": 2
+    },
+    "κόκκινος": {
+      "gl": "crimson",
+      "f": 6
+    },
+    "ὕσσωπος": {
+      "gl": "hyssop",
+      "f": 2
+    },
+    "βιβλίον": {
+      "gl": "papyrus roll",
+      "f": 34
+    },
+    "ἐντέλλομαι": {
+      "gl": "give orders",
+      "f": 14
+    },
+    "σύ": {
+      "gl": "you",
+      "f": 2894
+    },
+    "σκεῦος": {
+      "gl": "vessel",
+      "f": 23
+    },
+    "λειτουργία": {
+      "gl": "charitable gift",
+      "f": 6
+    },
+    "ὁμοίως": {
+      "gl": "in like manner",
+      "f": 31
+    },
+    "σχεδόν": {
+      "gl": "nearly",
+      "f": 3
+    },
+    "αἱματεκχυσία": {
+      "gl": "shedding of blood",
+      "f": 1
+    },
+    "ἄφεσις": {
+      "gl": "forgiveness",
+      "f": 17
+    },
+    "ὑπόδειγμα": {
+      "gl": "figure",
+      "f": 6
+    },
+    "οὐρανός": {
+      "gl": "heaven",
+      "f": 273
+    },
+    "ἐπουράνιος": {
+      "gl": "heavenly",
+      "f": 19
+    },
+    "κρείττων": {
+      "gl": "stronger",
+      "f": 19
+    },
+    "παρά": {
+      "gl": "from",
+      "f": 193
+    },
+    "ἀντίτυπος": {
+      "gl": "typical of",
+      "f": 2
+    },
+    "ἀληθινός": {
+      "gl": "true",
+      "f": 28
+    },
+    "ἀλλά": {
+      "gl": "but",
+      "f": 638
+    },
+    "ἐμφανίζω": {
+      "gl": "reveal",
+      "f": 10
+    },
+    "πρόσωπον": {
+      "gl": "face",
+      "f": 76
+    },
+    "ἵνα": {
+      "gl": "in order that",
+      "f": 662
+    },
+    "πολλάκις": {
+      "gl": "many times",
+      "f": 18
+    },
+    "ὥσπερ": {
+      "gl": "just as",
+      "f": 36
+    },
+    "ἀλλότριος": {
+      "gl": "belonging to another person",
+      "f": 14
+    },
+    "δέω": {
+      "gl": "bind",
+      "f": 154
+    },
+    "πάσχω": {
+      "gl": "suffer",
+      "f": 42
+    },
+    "καταβολή": {
+      "gl": "foundation",
+      "f": 11
+    },
+    "κόσμος": {
+      "gl": "world",
+      "f": 185
+    },
+    "νυνί": {
+      "gl": "now",
+      "f": 20
+    },
+    "συντέλεια": {
+      "gl": "completion",
+      "f": 6
+    },
+    "αἰών": {
+      "gl": "age",
+      "f": 122
+    },
+    "ἀθέτησις": {
+      "gl": "nullification",
+      "f": 2
+    },
+    "ἁμαρτία": {
+      "gl": "sin",
+      "f": 172
+    },
+    "ὅσος": {
+      "gl": "how much",
+      "f": 111
+    },
+    "ἀπόκειμαι": {
+      "gl": "have been put away",
+      "f": 4
+    },
+    "ἄνθρωπος": {
+      "gl": "man",
+      "f": 550
+    },
+    "ἀποθνῄσκω": {
+      "gl": "die",
+      "f": 111
+    },
+    "κρίσις": {
+      "gl": "judgment",
+      "f": 47
+    },
+    "πολύς": {
+      "gl": "much",
+      "f": 415
+    },
+    "ἀναφέρω": {
+      "gl": "offer up",
+      "f": 10
+    },
+    "ἐκ": {
+      "gl": "from out",
+      "f": 913
+    },
+    "ὁράω": {
+      "gl": "see",
+      "f": 476
+    },
+    "ἀπεκδέχομαι": {
+      "gl": "expect eagerly",
+      "f": 8
+    },
+    "σωτηρία": {
+      "gl": "salvation",
+      "f": 46
+    }
+  }
+}
