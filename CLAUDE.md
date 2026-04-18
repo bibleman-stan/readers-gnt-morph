@@ -141,52 +141,28 @@ The origin: reactive fix-break cycles were eating time. Every feature revealed 2
 
 ---
 
-## Session Bookend Protocol
+## Session bookend protocol
 
-**Sessions have two mandatory bookends: a check-in at the start, a report at the end.** This is how you and future-you stay oriented across sessions without Stan having to re-explain context.
+Canonical shared source: [`overseer-workspace/SESSION-BOOKEND-PROTOCOL.md`](../overseer-workspace/SESSION-BOOKEND-PROTOCOL.md) — CHECK-IN, WRAP-UP, context thresholds, and compaction-resume protocol. **Read it at the start of every session.**
 
-### CHECK-IN at session start
+### morph-specific CHECK-IN file list (adapted from the shared protocol)
 
-When Stan signals start-of-session with phrases like **"hey, let's start a new session," "new session," "fresh start," "let's begin," "let's kick off,"** or any similar opening language — before any substantive work, read these files in this order:
+1. This CLAUDE.md in full
+2. [HANDOFF.md](HANDOFF.md) — architectural retrospective with Resumption Checklist in Part 6.5
+3. [NOTICE.md](NOTICE.md) — vendored data attribution (skim unless touching vendored data)
+4. `git log --oneline -10`
+5. `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — scope per shared protocol (morph items only)
+6. Run the validator on at least one chapter: `PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`
 
-1. **This CLAUDE.md in full** — confirm orientation.
-2. **[HANDOFF.md](HANDOFF.md)** — the complete project retrospective. On a fresh session especially, read Parts 0 (Trajectory), 1.5 (Validator), 2 (Folder Contents), 3 (Architecture), and Part 6.5 (Resumption Checklist written specifically for you).
-3. **[NOTICE.md](NOTICE.md)** — data attribution (quick skim; reread only if you're touching vendored data).
-4. **`git log --oneline -10`** — see what's committed since the last session. Any commit you don't recognize is a state change you should understand before working.
-5. **`C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md`** — Stan's mobile-to-desktop idea bridge. Three Claudes may be reading this file (overseer + readers-gnt trench + you). **Scope rule:** items clearly about morph analysis are YOURS — claim them with `⏳ [claimed by morph-trench YYYY-MM-DD]`, work on them, then replace with `✓ YYYY-MM-DD — [disposition]. [pointer to commit/section]`. Items NOT in your scope — don't touch. Never delete; archival is overseer-only.
-6. **Run the validator** on at least one chapter to confirm the pipeline still works on your machine: `PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`.
+Note: morph's CHECK-IN does not require reading `overseer-workspace/LANDSCAPE-MAP.md` as a mandatory step (the shared protocol has it as mandatory for colometric-methodology-focused sessions); read it when cross-project state matters to today's task.
 
-**After reading:** send Stan a brief check-in message confirming orientation. Something like: "Checked in. Current state: [one-sentence summary]. Validator: [pass/fail on whichever chapters you ran]. Anything specific you want me to focus on, or should I continue queued work?" Keep this to 4-5 lines.
+### morph-specific WRAP-UP additions
 
-### WRAP-UP at session end
+Session notes go to `private/03-sessions/[YYYY-MM-DD]-[topic-slug]/session-notes.md`. The "What the notes should contain" bullet list from the shared protocol applies in full. HANDOFF.md updates ONLY for architectural retrospective additions (trajectory, lessons learned, resumption-checklist), not per-session run-downs.
 
-When Stan signals end-of-session with phrases like **"let's wrap it up for now," "wrap it up," "let's stop here," "that's enough for today," "commit and wrap,"** or any similar winding-down language — do these things BEFORE you commit or stop:
+### Context-threshold and compaction-resume — see shared protocol
 
-1. **If substantive work happened** (new features, new book generated, morpheus.py changes, validator rule additions, UX changes, architecture changes), **write a session note** at `private/03-sessions/[YYYY-MM-DD]-[topic-slug]/session-notes.md`. **Date by the calendar day of the first commit in the session** — if a session spans midnight and commits land on the next day, label the folder with the commit date, not the session-start date. This keeps the folder name aligned with `git log` for the overseer walking in cold. The note should cover:
-   - What you built or fixed
-   - What the validator said before and after
-   - Any new edge cases surfaced
-   - Any decisions Stan made during the session — preserve load-bearing quotes verbatim
-
-   Also include, when applicable:
-   - **Self-log of discipline failures Stan caught this session** — name each one, and if two or more share a common underlying failure mode (pattern-matching over diagnostic, over-claiming, imposing-vs-revealing, aesthetic reasoning), say so explicitly. This is how the next session avoids repeating the same class of mistake.
-   - **Any proposed rule, framing, or claim that was walked back** — with the reason. Logging withdrawals is anti-over-claim discipline.
-   - **Workflow use-count** — if a recurring workflow (scan + adversarial audit, cross-lens convergence, horde dispatch, verdict-render, etc.) was used 3+ times this session, note the count. Repeated use under different conditions = validation that the workflow generalizes.
-
-   **HANDOFF.md is reserved for architectural retrospective additions** — trajectory changes, new lessons learned, resumption-checklist updates. Per-session run-downs belong in `private/03-sessions/`, not HANDOFF.md.
-2. **Commit** with a message that tells the "why," not just the "what." Include what the validator coverage looked like after, especially if morpheus.py changed.
-3. **If the session changed methodology discipline or surfaced a new feedback pattern**, consider writing or updating a memory file at `C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\memory\`.
-4. **Send Stan a wrap-up report** before committing. Something like: "Session wrap-up. Commits landing: [hashes]. Files touched: [list]. Validator state: [coverage summary]. Items closed: [list]. New items opened: [list]. Anything I should flag that we didn't address?" 4-8 lines.
-
-### Context-aware self-discipline — watch your own context usage
-
-Compaction is your equivalent of Stan saying "wrap it up" — but unlike Stan's verbal signal, compaction is gradual and doesn't announce itself. The cost of hitting compaction mid-operation is real: aggregation steps get lost, in-flight batch state evaporates.
-
-- **At ~50% context remaining — informal checkpoint.** Don't stop working, but: commit any WIP code changes (even incomplete), save any in-flight batch state to a file, note session-so-far in a comment or memory file.
-- **At ~40% context remaining — defensive wrap-up, proactively.** Treat this as equivalent to Stan saying "wrap it up," even if he hasn't. Execute the full WRAP-UP protocol. Don't start new major operations. **Tell Stan you've hit 40% and are wrapping up** so he can decide whether to continue in a fresh session.
-- **At ~30% context remaining — hard stop.** Finish ONLY the wrap-up. No new work. The runway between 30% and auto-compact is your margin for error — preserve it.
-
-**When in doubt, write it down.** Files survive compaction; working memory does not.
+Threshold discipline and compaction-resume rules live in the shared protocol (revised 2026-04-19 so execution-heavy sessions like full-GNT regens or horde dispatches aren't interrupted at 40%).
 
 ---
 
