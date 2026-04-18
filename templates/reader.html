@@ -858,8 +858,14 @@ document.addEventListener('touchend', e => {
 initNav();
 
 function adjSize(d) {
-  S.fontSize = Math.max(16, Math.min(60, S.fontSize+d));
-  document.getElementById('verse-output').style.fontSize = S.fontSize+'px';
+  const el = document.getElementById('verse-output');
+  // Sync state from rendered font-size on first use so the first click
+  // doesn't jump (S.fontSize default was out of sync with the CSS var).
+  if (!el.style.fontSize) {
+    S.fontSize = parseInt(getComputedStyle(el).fontSize, 10) || S.fontSize;
+  }
+  S.fontSize = Math.max(16, Math.min(60, S.fontSize + d));
+  el.style.fontSize = S.fontSize + 'px';
 }
 
 // ═══ GLOSS HELPERS ═══

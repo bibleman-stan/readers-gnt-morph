@@ -27,7 +27,7 @@
     {
       "txt": "λάλει",
       "lem": "λαλέω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "stm": "λάλε",
       "ve": "ι",
       "segs": [
@@ -63,7 +63,7 @@
     {
       "txt": "πρέπει",
       "lem": "πρέπω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "πρέπ",
       "ve": "ει",
       "segs": [
@@ -101,7 +101,7 @@
     {
       "txt": "ὑγιαινούσῃ",
       "lem": "ὑγιαίνω",
-      "prs": "verb pres act ptc dat sg fem",
+      "prs": "pres act ptc dat sg fem",
       "stm": "ὑγιαιν",
       "ptc": "ούσ",
       "suf": "ῃ",
@@ -209,7 +209,7 @@
     {
       "txt": "εἶναι,",
       "lem": "εἰμί",
-      "prs": "verb pres act inf",
+      "prs": "pres act inf",
       "stm": "εἶναι",
       "segs": [
         {
@@ -274,7 +274,7 @@
     {
       "txt": "ὑγιαίνοντας",
       "lem": "ὑγιαίνω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "stm": "ὑγιαίν",
       "ptc": "οντ",
       "suf": "ας",
@@ -591,7 +591,7 @@
     {
       "txt": "δεδουλωμένας,",
       "lem": "δουλόω",
-      "prs": "verb perf pass ptc acc pl fem",
+      "prs": "perf pass ptc acc pl fem",
       "rdp": "δε",
       "stm": "δουλω",
       "ptc": "μέν",
@@ -666,7 +666,7 @@
     {
       "txt": "σωφρονίζωσι",
       "lem": "σωφρονίζω",
-      "prs": "verb 3 pres act subj pl",
+      "prs": "pres act subj 3 pl",
       "stm": "σωφρονίζ",
       "ve": "ωσι",
       "segs": [
@@ -750,7 +750,7 @@
     {
       "txt": "εἶναι,",
       "lem": "εἰμί",
-      "prs": "verb pres act inf",
+      "prs": "pres act inf",
       "stm": "εἶναι",
       "segs": [
         {
@@ -887,7 +887,7 @@
     {
       "txt": "ὑποτασσομένας",
       "lem": "ὑποτάσσω",
-      "prs": "verb pres pass ptc acc pl fem",
+      "prs": "pres pass ptc acc pl fem",
       "pfx": "ὑπο",
       "stm": "τασσ",
       "ptc": "ομέν",
@@ -1078,7 +1078,7 @@
     {
       "txt": "βλασφημῆται.",
       "lem": "βλασφημέω",
-      "prs": "verb 3 pres pass subj sg",
+      "prs": "pres pass subj 3 sg",
       "stm": "βλασφημῆται",
       "segs": [
         {
@@ -1144,7 +1144,7 @@
     {
       "txt": "παρακάλει",
       "lem": "παρακαλέω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "pfx": "παρα",
       "stm": "κάλε",
       "ve": "ι",
@@ -1173,7 +1173,7 @@
     {
       "txt": "σωφρονεῖν·",
       "lem": "σωφρονέω",
-      "prs": "verb pres act inf",
+      "prs": "pres act inf",
       "stm": "σωφρονε",
       "ve": "ῖν",
       "segs": [
@@ -1252,7 +1252,7 @@
     {
       "txt": "παρεχόμενος",
       "lem": "παρέχω",
-      "prs": "verb pres mid ptc nom sg masc",
+      "prs": "pres mid ptc nom sg masc",
       "pfx": "παρ",
       "stm": "εχ",
       "ptc": "όμεν",
@@ -1569,7 +1569,7 @@
     {
       "txt": "ἐντραπῇ",
       "lem": "ἐντρέπω",
-      "prs": "verb 3 aor pass subj sg",
+      "prs": "aor pass subj 3 sg",
       "pfx": "ἐν",
       "stm": "τραπ",
       "ve": "ῇ",
@@ -1625,7 +1625,7 @@
     {
       "txt": "ἔχων",
       "lem": "ἔχω",
-      "prs": "verb pres act ptc nom sg masc",
+      "prs": "pres act ptc nom sg masc",
       "stm": "ἔχ",
       "ptc": "ων",
       "cs": "n",
@@ -1649,7 +1649,7 @@
     {
       "txt": "λέγειν",
       "lem": "λέγω",
-      "prs": "verb pres act inf",
+      "prs": "pres act inf",
       "stm": "λέγ",
       "ve": "ειν",
       "segs": [
@@ -1797,7 +1797,7 @@
     {
       "txt": "ὑποτάσσεσθαι",
       "lem": "ὑποτάσσω",
-      "prs": "verb pres pass inf",
+      "prs": "pres pass inf",
       "pfx": "ὑπο",
       "stm": "τάσσ",
       "ve": "εσθαι",
@@ -1878,7 +1878,7 @@
     {
       "txt": "εἶναι,",
       "lem": "εἰμί",
-      "prs": "verb pres act inf",
+      "prs": "pres act inf",
       "stm": "εἶναι",
       "segs": [
         {
@@ -1899,7 +1899,7 @@
     {
       "txt": "ἀντιλέγοντας,",
       "lem": "ἀντιλέγω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "pfx": "ἀντι",
       "stm": "λέγ",
       "ptc": "οντ",
@@ -1950,7 +1950,7 @@
     {
       "txt": "νοσφιζομένους,",
       "lem": "νοσφίζομαι",
-      "prs": "verb pres mid ptc acc pl masc",
+      "prs": "pres mid ptc acc pl masc",
       "stm": "νοσφιζ",
       "ptc": "ομέν",
       "suf": "ους",
@@ -2037,7 +2037,7 @@
     {
       "txt": "ἐνδεικνυμένους",
       "lem": "ἐνδείκνυμι",
-      "prs": "verb pres mid ptc acc pl masc",
+      "prs": "pres mid ptc acc pl masc",
       "pfx": "ἐν",
       "stm": "δεικνυ",
       "ptc": "μέν",
@@ -2245,7 +2245,7 @@
     {
       "txt": "κοσμῶσιν",
       "lem": "κοσμέω",
-      "prs": "verb 3 pres act subj pl",
+      "prs": "pres act subj 3 pl",
       "stm": "κοσμῶσιν",
       "segs": [
         {
@@ -2294,7 +2294,7 @@
     {
       "txt": "Ἐπεφάνη",
       "lem": "ἐπιφαίνω",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "pfx": "Ἐπ",
       "aug": "ε",
       "stm": "φάν",
@@ -2489,7 +2489,7 @@
     {
       "txt": "παιδεύουσα",
       "lem": "παιδεύω",
-      "prs": "verb pres act ptc nom sg fem",
+      "prs": "pres act ptc nom sg fem",
       "stm": "παιδεύ",
       "ptc": "ουσ",
       "suf": "α",
@@ -2550,7 +2550,7 @@
     {
       "txt": "ἀρνησάμενοι",
       "lem": "ἀρνέομαι",
-      "prs": "verb aor mid ptc nom pl masc",
+      "prs": "aor mid ptc nom pl masc",
       "stm": "ἀρνη",
       "frm": "σά",
       "ptc": "μεν",
@@ -2722,7 +2722,7 @@
     {
       "txt": "ζήσωμεν",
       "lem": "ζάω",
-      "prs": "verb 1 aor act subj pl",
+      "prs": "aor act subj 1 pl",
       "stm": "ζή",
       "frm": "σω",
       "ve": "μεν",
@@ -2806,7 +2806,7 @@
     {
       "txt": "προσδεχόμενοι",
       "lem": "προσδέχομαι",
-      "prs": "verb pres mid ptc nom pl masc",
+      "prs": "pres mid ptc nom pl masc",
       "pfx": "προσ",
       "stm": "δεχ",
       "ptc": "όμεν",
@@ -3163,7 +3163,7 @@
     {
       "txt": "ἔδωκεν",
       "lem": "δίδωμι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἔ",
       "stm": "δω",
       "frm": "κε",
@@ -3259,7 +3259,7 @@
     {
       "txt": "λυτρώσηται",
       "lem": "λυτρόομαι",
-      "prs": "verb 3 aor mid subj sg",
+      "prs": "aor mid subj 3 sg",
       "stm": "λυτρώ",
       "frm": "ση",
       "ve": "ται",
@@ -3370,7 +3370,7 @@
     {
       "txt": "καθαρίσῃ",
       "lem": "καθαρίζω",
-      "prs": "verb 3 aor act subj sg",
+      "prs": "aor act subj 3 sg",
       "pfx": "καθ",
       "stm": "αρί",
       "frm": "σῃ",
@@ -3566,7 +3566,7 @@
     {
       "txt": "λάλει",
       "lem": "λαλέω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "stm": "λάλε",
       "ve": "ι",
       "segs": [
@@ -3593,7 +3593,7 @@
     {
       "txt": "παρακάλει",
       "lem": "παρακαλέω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "pfx": "παρα",
       "stm": "κάλε",
       "ve": "ι",
@@ -3630,7 +3630,7 @@
     {
       "txt": "ἔλεγχε",
       "lem": "ἐλέγχω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "stm": "ἔλεγχ",
       "ve": "ε",
       "segs": [
@@ -3752,7 +3752,7 @@
     {
       "txt": "περιφρονείτω.",
       "lem": "περιφρονέω",
-      "prs": "verb 3 pres act imp sg",
+      "prs": "pres act imp 3 sg",
       "pfx": "περι",
       "stm": "φρονε",
       "ve": "ίτω",

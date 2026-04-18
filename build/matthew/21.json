@@ -18,7 +18,7 @@
     {
       "txt": "ἤγγισαν",
       "lem": "ἐγγίζω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἤ",
       "stm": "γγι",
       "frm": "σα",
@@ -91,7 +91,7 @@
     {
       "txt": "ἦλθον",
       "lem": "ἔρχομαι",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἦ",
       "stm": "λθ",
       "ve": "ον",
@@ -254,7 +254,7 @@
     {
       "txt": "ἀπέστειλεν",
       "lem": "ἀποστέλλω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "στειλ",
@@ -334,7 +334,7 @@
     {
       "txt": "λέγων",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom sg masc",
+      "prs": "pres act ptc nom sg masc",
       "stm": "λέγ",
       "ptc": "ων",
       "cs": "n",
@@ -384,7 +384,7 @@
     {
       "txt": "Πορεύεσθε",
       "lem": "πορεύομαι",
-      "prs": "verb 2 pres mid imp pl",
+      "prs": "pres mid imp 2 pl",
       "stm": "Πορεύ",
       "ve": "εσθε",
       "segs": [
@@ -507,7 +507,7 @@
     {
       "txt": "εὑρήσετε",
       "lem": "εὑρίσκω",
-      "prs": "verb 2 fut act ind pl",
+      "prs": "fut act ind 2 pl",
       "stm": "εὑρή",
       "frm": "σε",
       "ve": "τε",
@@ -560,7 +560,7 @@
     {
       "txt": "δεδεμένην",
       "lem": "δέω",
-      "prs": "verb perf pass ptc acc sg fem",
+      "prs": "perf pass ptc acc sg fem",
       "rdp": "δε",
       "stm": "δε",
       "ptc": "μέν",
@@ -660,7 +660,7 @@
     {
       "txt": "λύσαντες",
       "lem": "λύω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "λύ",
       "frm": "σα",
       "ptc": "ντ",
@@ -701,7 +701,7 @@
     {
       "txt": "ἀγάγετέ",
       "lem": "ἄγω",
-      "prs": "verb 2 aor act imp pl",
+      "prs": "aor act imp 2 pl",
       "stm": "ἀγάγ",
       "ve": "ετέ",
       "segs": [
@@ -799,7 +799,7 @@
     {
       "txt": "εἴπῃ",
       "lem": "λέγω",
-      "prs": "verb 3 aor act subj sg",
+      "prs": "aor act subj 3 sg",
       "stm": "εἴπ",
       "ve": "ῃ",
       "segs": [
@@ -838,7 +838,7 @@
     {
       "txt": "ἐρεῖτε",
       "lem": "λέγω",
-      "prs": "verb 2 fut act ind pl",
+      "prs": "fut act ind 2 pl",
       "stm": "ἐρ",
       "ve": "εῖτε",
       "segs": [
@@ -951,7 +951,7 @@
     {
       "txt": "ἔχει·",
       "lem": "ἔχω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "ἔχ",
       "ve": "ει",
       "segs": [
@@ -1004,7 +1004,7 @@
     {
       "txt": "ἀποστελεῖ",
       "lem": "ἀποστέλλω",
-      "prs": "verb 3 fut act ind sg",
+      "prs": "fut act ind 3 sg",
       "pfx": "ἀπο",
       "stm": "στελ",
       "ve": "εῖ",
@@ -1082,7 +1082,7 @@
     {
       "txt": "γέγονεν",
       "lem": "γίνομαι",
-      "prs": "verb 3 perf act ind sg",
+      "prs": "perf act ind 3 sg",
       "rdp": "γέ",
       "stm": "γον",
       "ve": "εν",
@@ -1119,7 +1119,7 @@
     {
       "txt": "πληρωθῇ",
       "lem": "πληρόω",
-      "prs": "verb 3 aor pass subj sg",
+      "prs": "aor pass subj 3 sg",
       "stm": "πληρω",
       "frm": "θῇ",
       "segs": [
@@ -1158,7 +1158,7 @@
     {
       "txt": "ῥηθὲν",
       "lem": "λέγω",
-      "prs": "verb aor pass ptc nom sg neut",
+      "prs": "aor pass ptc nom sg neut",
       "stm": "ῥη",
       "frm": "θὲ",
       "ptc": "ν",
@@ -1235,7 +1235,7 @@
     {
       "txt": "λέγοντος·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc gen sg masc",
+      "prs": "pres act ptc gen sg masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ος",
@@ -1274,7 +1274,7 @@
     {
       "txt": "Εἴπατε",
       "lem": "λέγω",
-      "prs": "verb 2 aor act imp pl",
+      "prs": "aor act imp 2 pl",
       "stm": "Εἴπ",
       "ve": "ατε",
       "segs": [
@@ -1419,7 +1419,7 @@
     {
       "txt": "ἔρχεταί",
       "lem": "ἔρχομαι",
-      "prs": "verb 3 pres mid ind sg",
+      "prs": "pres mid ind 3 sg",
       "stm": "ἔρχ",
       "ve": "εταί",
       "segs": [
@@ -1495,7 +1495,7 @@
     {
       "txt": "ἐπιβεβηκὼς",
       "lem": "ἐπιβαίνω",
-      "prs": "verb perf act ptc nom sg masc",
+      "prs": "perf act ptc nom sg masc",
       "pfx": "ἐπι",
       "rdp": "βε",
       "stm": "βη",
@@ -1654,7 +1654,7 @@
     {
       "txt": "πορευθέντες",
       "lem": "πορεύομαι",
-      "prs": "verb aor pass ptc nom pl masc",
+      "prs": "aor pass ptc nom pl masc",
       "stm": "πορευ",
       "frm": "θέ",
       "ptc": "ντ",
@@ -1745,7 +1745,7 @@
     {
       "txt": "ποιήσαντες",
       "lem": "ποιέω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ποιή",
       "frm": "σα",
       "ptc": "ντ",
@@ -1791,7 +1791,7 @@
     {
       "txt": "συνέταξεν",
       "lem": "συντάσσω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "συν",
       "aug": "έ",
       "stm": "τα",
@@ -1903,7 +1903,7 @@
     {
       "txt": "ἤγαγον",
       "lem": "ἄγω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἤ",
       "stm": "γαγ",
       "ve": "ον",
@@ -2024,7 +2024,7 @@
     {
       "txt": "ἐπέθηκαν",
       "lem": "ἐπιτίθημι",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "ἐπ",
       "aug": "έ",
       "stm": "θη",
@@ -2142,7 +2142,7 @@
     {
       "txt": "ἐπεκάθισεν",
       "lem": "ἐπικαθίζω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἐπ",
       "aug": "ε",
       "stm": "κάθι",
@@ -2287,7 +2287,7 @@
     {
       "txt": "ἔστρωσαν",
       "lem": "στρώννυμι",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἔ",
       "stm": "στρω",
       "frm": "σα",
@@ -2460,7 +2460,7 @@
     {
       "txt": "ἔκοπτον",
       "lem": "κόπτω",
-      "prs": "verb 3 impf act ind pl",
+      "prs": "impf act ind 3 pl",
       "aug": "ἔ",
       "stm": "κοπτ",
       "ve": "ον",
@@ -2565,7 +2565,7 @@
     {
       "txt": "ἐστρώννυον",
       "lem": "στρώννυμι",
-      "prs": "verb 3 impf act ind pl",
+      "prs": "impf act ind 3 pl",
       "aug": "ἐ",
       "stm": "στρώννυ",
       "ve": "ον",
@@ -2705,7 +2705,7 @@
     {
       "txt": "προάγοντες",
       "lem": "προάγω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "pfx": "προ",
       "stm": "άγ",
       "ptc": "οντ",
@@ -2789,7 +2789,7 @@
     {
       "txt": "ἀκολουθοῦντες",
       "lem": "ἀκολουθέω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "ἀκολουθ",
       "ptc": "οῦντ",
       "suf": "ες",
@@ -2822,7 +2822,7 @@
     {
       "txt": "ἔκραζον",
       "lem": "κράζω",
-      "prs": "verb 3 impf act ind pl",
+      "prs": "impf act ind 3 pl",
       "aug": "ἔ",
       "stm": "κραζ",
       "ve": "ον",
@@ -2852,7 +2852,7 @@
     {
       "txt": "λέγοντες·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ες",
@@ -2949,7 +2949,7 @@
     {
       "txt": "Εὐλογημένος",
       "lem": "εὐλογέω",
-      "prs": "verb perf pass ptc nom sg masc",
+      "prs": "perf pass ptc nom sg masc",
       "stm": "Εὐλογη",
       "ptc": "μέν",
       "suf": "ος",
@@ -2999,7 +2999,7 @@
     {
       "txt": "ἐρχόμενος",
       "lem": "ἔρχομαι",
-      "prs": "verb pres mid ptc nom sg masc",
+      "prs": "pres mid ptc nom sg masc",
       "stm": "ἐρχ",
       "ptc": "όμεν",
       "suf": "ος",
@@ -3143,7 +3143,7 @@
     {
       "txt": "εἰσελθόντος",
       "lem": "εἰσέρχομαι",
-      "prs": "verb aor act ptc gen sg masc",
+      "prs": "aor act ptc gen sg masc",
       "pfx": "εἰσ",
       "stm": "ελθ",
       "ptc": "όντ",
@@ -3234,7 +3234,7 @@
     {
       "txt": "ἐσείσθη",
       "lem": "σείω",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "aug": "ἐ",
       "stm": "σείσ",
       "frm": "θη",
@@ -3326,7 +3326,7 @@
     {
       "txt": "λέγουσα·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom sg fem",
+      "prs": "pres act ptc nom sg fem",
       "stm": "λέγ",
       "ptc": "ουσ",
       "suf": "α",
@@ -3385,7 +3385,7 @@
     {
       "txt": "ἐστιν",
       "lem": "εἰμί",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "ἐσ",
       "ve": "τιν",
       "segs": [
@@ -3481,7 +3481,7 @@
     {
       "txt": "ἔλεγον·",
       "lem": "λέγω",
-      "prs": "verb 3 impf act ind pl",
+      "prs": "impf act ind 3 pl",
       "aug": "ἔ",
       "stm": "λεγ",
       "ve": "ον",
@@ -3537,7 +3537,7 @@
     {
       "txt": "ἐστιν",
       "lem": "εἰμί",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "ἐσ",
       "ve": "τιν",
       "segs": [
@@ -3707,7 +3707,7 @@
     {
       "txt": "εἰσῆλθεν",
       "lem": "εἰσέρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "εἰσ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -3819,7 +3819,7 @@
     {
       "txt": "ἐξέβαλεν",
       "lem": "ἐκβάλλω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἐξ",
       "aug": "έ",
       "stm": "βαλ",
@@ -3894,7 +3894,7 @@
     {
       "txt": "πωλοῦντας",
       "lem": "πωλέω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "stm": "πωλ",
       "ptc": "οῦντ",
       "suf": "ας",
@@ -3932,7 +3932,7 @@
     {
       "txt": "ἀγοράζοντας",
       "lem": "ἀγοράζω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "stm": "ἀγοράζ",
       "ptc": "οντ",
       "suf": "ας",
@@ -4095,7 +4095,7 @@
     {
       "txt": "κατέστρεψεν",
       "lem": "καταστρέφω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "κατ",
       "aug": "έ",
       "stm": "στρε",
@@ -4202,7 +4202,7 @@
     {
       "txt": "πωλούντων",
       "lem": "πωλέω",
-      "prs": "verb pres act ptc gen pl masc",
+      "prs": "pres act ptc gen pl masc",
       "stm": "πωλ",
       "ptc": "ούντ",
       "suf": "ων",
@@ -4285,7 +4285,7 @@
     {
       "txt": "λέγει",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "λέγ",
       "ve": "ει",
       "segs": [
@@ -4333,7 +4333,7 @@
     {
       "txt": "Γέγραπται·",
       "lem": "γράφω",
-      "prs": "verb 3 perf pass ind sg",
+      "prs": "perf pass ind 3 sg",
       "rdp": "Γέ",
       "stm": "γραπ",
       "ve": "ται",
@@ -4474,7 +4474,7 @@
     {
       "txt": "κληθήσεται,",
       "lem": "καλέω",
-      "prs": "verb 3 fut pass ind sg",
+      "prs": "fut pass ind 3 sg",
       "stm": "κλη",
       "frm": "θήσε",
       "ve": "ται",
@@ -4558,7 +4558,7 @@
     {
       "txt": "ποιεῖτε",
       "lem": "ποιέω",
-      "prs": "verb 2 pres act ind pl",
+      "prs": "pres act ind 2 pl",
       "stm": "ποιε",
       "ve": "ῖτε",
       "segs": [
@@ -4637,7 +4637,7 @@
     {
       "txt": "προσῆλθον",
       "lem": "προσέρχομαι",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "προσ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -4800,7 +4800,7 @@
     {
       "txt": "ἐθεράπευσεν",
       "lem": "θεραπεύω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἐ",
       "stm": "θεράπευ",
       "frm": "σε",
@@ -4866,7 +4866,7 @@
     {
       "txt": "ἰδόντες",
       "lem": "ὁράω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ἰδ",
       "ptc": "όντ",
       "suf": "ες",
@@ -5040,7 +5040,7 @@
     {
       "txt": "ἐποίησεν",
       "lem": "ποιέω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἐ",
       "stm": "ποίη",
       "frm": "σε",
@@ -5140,7 +5140,7 @@
     {
       "txt": "κράζοντας",
       "lem": "κράζω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "stm": "κράζ",
       "ptc": "οντ",
       "suf": "ας",
@@ -5222,7 +5222,7 @@
     {
       "txt": "λέγοντας·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc acc pl masc",
+      "prs": "pres act ptc acc pl masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ας",
@@ -5319,7 +5319,7 @@
     {
       "txt": "ἠγανάκτησαν",
       "lem": "ἀγανακτέω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἠ",
       "stm": "γανάκτη",
       "frm": "σα",
@@ -5367,7 +5367,7 @@
     {
       "txt": "εἶπαν",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "εἶ",
       "stm": "π",
       "ve": "αν",
@@ -5423,7 +5423,7 @@
     {
       "txt": "Ἀκούεις",
       "lem": "ἀκούω",
-      "prs": "verb 2 pres act ind sg",
+      "prs": "pres act ind 2 sg",
       "stm": "Ἀκού",
       "ve": "εις",
       "segs": [
@@ -5482,7 +5482,7 @@
     {
       "txt": "λέγουσιν;",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind pl",
+      "prs": "pres act ind 3 pl",
       "stm": "λέγ",
       "ve": "ουσιν",
       "segs": [
@@ -5551,7 +5551,7 @@
     {
       "txt": "λέγει",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "λέγ",
       "ve": "ει",
       "segs": [
@@ -5609,7 +5609,7 @@
     {
       "txt": "ἀνέγνωτε",
       "lem": "ἀναγινώσκω",
-      "prs": "verb 2 aor act ind pl",
+      "prs": "aor act ind 2 pl",
       "pfx": "ἀν",
       "aug": "έ",
       "stm": "γνω",
@@ -5709,7 +5709,7 @@
     {
       "txt": "θηλαζόντων",
       "lem": "θηλάζω",
-      "prs": "verb pres act ptc gen pl masc",
+      "prs": "pres act ptc gen pl masc",
       "stm": "θηλαζ",
       "ptc": "όντ",
       "suf": "ων",
@@ -5742,7 +5742,7 @@
     {
       "txt": "κατηρτίσω",
       "lem": "καταρτίζω",
-      "prs": "verb 2 aor mid ind sg",
+      "prs": "aor mid ind 2 sg",
       "pfx": "κατ",
       "aug": "η",
       "stm": "ρτί",
@@ -5813,7 +5813,7 @@
     {
       "txt": "καταλιπὼν",
       "lem": "καταλείπω",
-      "prs": "verb aor act ptc nom sg masc",
+      "prs": "aor act ptc nom sg masc",
       "pfx": "κατα",
       "stm": "λιπ",
       "ptc": "ὼν",
@@ -5867,7 +5867,7 @@
     {
       "txt": "ἐξῆλθεν",
       "lem": "ἐξέρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἐξ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -5984,7 +5984,7 @@
     {
       "txt": "ηὐλίσθη",
       "lem": "αὐλίζομαι",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "aug": "η",
       "stm": "ὐλίσ",
       "frm": "θη",
@@ -6035,7 +6035,7 @@
     {
       "txt": "ἐπανάγων",
       "lem": "ἐπανάγω",
-      "prs": "verb pres act ptc nom sg masc",
+      "prs": "pres act ptc nom sg masc",
       "pfx": "ἐπανά",
       "stm": "γ",
       "ptc": "ων",
@@ -6110,7 +6110,7 @@
     {
       "txt": "ἐπείνασεν.",
       "lem": "πεινάω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἐ",
       "stm": "πείνα",
       "frm": "σε",
@@ -6158,7 +6158,7 @@
     {
       "txt": "ἰδὼν",
       "lem": "ὁράω",
-      "prs": "verb aor act ptc nom sg masc",
+      "prs": "aor act ptc nom sg masc",
       "stm": "ἰδ",
       "ptc": "ὼν",
       "cs": "n",
@@ -6272,7 +6272,7 @@
     {
       "txt": "ἦλθεν",
       "lem": "ἔρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἦ",
       "stm": "λθ",
       "ve": "εν",
@@ -6361,7 +6361,7 @@
     {
       "txt": "εὗρεν",
       "lem": "εὑρίσκω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "stm": "εὗρ",
       "ve": "εν",
       "segs": [
@@ -6476,7 +6476,7 @@
     {
       "txt": "λέγει",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "λέγ",
       "ve": "ει",
       "segs": [
@@ -6580,7 +6580,7 @@
     {
       "txt": "γένηται",
       "lem": "γίνομαι",
-      "prs": "verb 3 aor mid subj sg",
+      "prs": "aor mid subj 3 sg",
       "stm": "γέν",
       "ve": "ηται",
       "segs": [
@@ -6654,7 +6654,7 @@
     {
       "txt": "ἐξηράνθη",
       "lem": "ξηραίνω",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "aug": "ἐ",
       "stm": "ξηράν",
       "frm": "θη",
@@ -6739,7 +6739,7 @@
     {
       "txt": "ἰδόντες",
       "lem": "ὁράω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ἰδ",
       "ptc": "όντ",
       "suf": "ες",
@@ -6811,7 +6811,7 @@
     {
       "txt": "ἐθαύμασαν",
       "lem": "θαυμάζω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἐ",
       "stm": "θαύμα",
       "frm": "σα",
@@ -6848,7 +6848,7 @@
     {
       "txt": "λέγοντες·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ες",
@@ -6894,7 +6894,7 @@
     {
       "txt": "ἐξηράνθη",
       "lem": "ξηραίνω",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "aug": "ἐ",
       "stm": "ξηράν",
       "frm": "θη",
@@ -6969,7 +6969,7 @@
     {
       "txt": "ἀποκριθεὶς",
       "lem": "ἀποκρίνομαι",
-      "prs": "verb aor pass ptc nom sg masc",
+      "prs": "aor pass ptc nom sg masc",
       "pfx": "ἀπο",
       "stm": "κρι",
       "frm": "θε",
@@ -7053,7 +7053,7 @@
     {
       "txt": "εἶπεν",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -7114,7 +7114,7 @@
     {
       "txt": "λέγω",
       "lem": "λέγω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "λέγ",
       "ve": "ω",
       "segs": [
@@ -7158,7 +7158,7 @@
     {
       "txt": "ἔχητε",
       "lem": "ἔχω",
-      "prs": "verb 2 pres act subj pl",
+      "prs": "pres act subj 2 pl",
       "stm": "ἔχ",
       "ve": "ητε",
       "segs": [
@@ -7213,7 +7213,7 @@
     {
       "txt": "διακριθῆτε,",
       "lem": "διακρίνω",
-      "prs": "verb 2 aor pass subj pl",
+      "prs": "aor pass subj 2 pl",
       "pfx": "δια",
       "stm": "κρι",
       "frm": "θῆ",
@@ -7336,7 +7336,7 @@
     {
       "txt": "ποιήσετε,",
       "lem": "ποιέω",
-      "prs": "verb 2 fut act ind pl",
+      "prs": "fut act ind 2 pl",
       "stm": "ποιή",
       "frm": "σε",
       "ve": "τε",
@@ -7441,7 +7441,7 @@
     {
       "txt": "εἴπητε·",
       "lem": "λέγω",
-      "prs": "verb 2 aor act subj pl",
+      "prs": "aor act subj 2 pl",
       "stm": "εἴπ",
       "ve": "ητε",
       "segs": [
@@ -7466,7 +7466,7 @@
     {
       "txt": "Ἄρθητι",
       "lem": "αἴρω",
-      "prs": "verb 2 aor pass imp sg",
+      "prs": "aor pass imp 2 sg",
       "stm": "Ἄρ",
       "frm": "θη",
       "ve": "τι",
@@ -7501,7 +7501,7 @@
     {
       "txt": "βλήθητι",
       "lem": "βάλλω",
-      "prs": "verb 2 aor pass imp sg",
+      "prs": "aor pass imp 2 sg",
       "stm": "βλή",
       "frm": "θη",
       "ve": "τι",
@@ -7578,7 +7578,7 @@
     {
       "txt": "γενήσεται·",
       "lem": "γίνομαι",
-      "prs": "verb 3 fut mid ind sg",
+      "prs": "fut mid ind 3 sg",
       "stm": "γενή",
       "frm": "σε",
       "ve": "ται",
@@ -7670,7 +7670,7 @@
     {
       "txt": "αἰτήσητε",
       "lem": "αἰτέω",
-      "prs": "verb 2 aor act subj pl",
+      "prs": "aor act subj 2 pl",
       "stm": "αἰτή",
       "frm": "ση",
       "ve": "τε",
@@ -7743,7 +7743,7 @@
     {
       "txt": "πιστεύοντες",
       "lem": "πιστεύω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "πιστεύ",
       "ptc": "οντ",
       "suf": "ες",
@@ -7776,7 +7776,7 @@
     {
       "txt": "λήμψεσθε.",
       "lem": "λαμβάνω",
-      "prs": "verb 2 fut mid ind pl",
+      "prs": "fut mid ind 2 pl",
       "stm": "λήμψ",
       "ve": "εσθε",
       "segs": [
@@ -7810,7 +7810,7 @@
     {
       "txt": "ἐλθόντος",
       "lem": "ἔρχομαι",
-      "prs": "verb aor act ptc gen sg masc",
+      "prs": "aor act ptc gen sg masc",
       "stm": "ἐλθ",
       "ptc": "όντ",
       "suf": "ος",
@@ -7913,7 +7913,7 @@
     {
       "txt": "προσῆλθον",
       "lem": "προσέρχομαι",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "προσ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -7973,7 +7973,7 @@
     {
       "txt": "διδάσκοντι",
       "lem": "διδάσκω",
-      "prs": "verb pres act ptc dat sg masc",
+      "prs": "pres act ptc dat sg masc",
       "pfx": "δι",
       "stm": "δάσκ",
       "ptc": "οντ",
@@ -8135,7 +8135,7 @@
     {
       "txt": "λέγοντες·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ες",
@@ -8245,7 +8245,7 @@
     {
       "txt": "ποιεῖς;",
       "lem": "ποιέω",
-      "prs": "verb 2 pres act ind sg",
+      "prs": "pres act ind 2 sg",
       "stm": "ποιε",
       "ve": "ῖς",
       "segs": [
@@ -8321,7 +8321,7 @@
     {
       "txt": "ἔδωκεν",
       "lem": "δίδωμι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἔ",
       "stm": "δω",
       "frm": "κε",
@@ -8426,7 +8426,7 @@
     {
       "txt": "ἀποκριθεὶς",
       "lem": "ἀποκρίνομαι",
-      "prs": "verb aor pass ptc nom sg masc",
+      "prs": "aor pass ptc nom sg masc",
       "pfx": "ἀπο",
       "stm": "κρι",
       "frm": "θε",
@@ -8510,7 +8510,7 @@
     {
       "txt": "εἶπεν",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -8566,7 +8566,7 @@
     {
       "txt": "Ἐρωτήσω",
       "lem": "ἐρωτάω",
-      "prs": "verb 1 fut act ind sg",
+      "prs": "fut act ind 1 sg",
       "stm": "Ἐρωτή",
       "frm": "σω",
       "segs": [
@@ -8703,7 +8703,7 @@
     {
       "txt": "εἴπητέ",
       "lem": "λέγω",
-      "prs": "verb 2 aor act subj pl",
+      "prs": "aor act subj 2 pl",
       "stm": "εἴπ",
       "ve": "ητέ",
       "segs": [
@@ -8776,7 +8776,7 @@
     {
       "txt": "ἐρῶ",
       "lem": "λέγω",
-      "prs": "verb 1 fut act ind sg",
+      "prs": "fut act ind 1 sg",
       "stm": "ἐρ",
       "ve": "ῶ",
       "segs": [
@@ -8873,7 +8873,7 @@
     {
       "txt": "ποιῶ·",
       "lem": "ποιέω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "ποιῶ",
       "segs": [
         {
@@ -8977,7 +8977,7 @@
     {
       "txt": "ἦν;",
       "lem": "εἰμί",
-      "prs": "verb 3 impf act ind sg",
+      "prs": "impf act ind 3 sg",
       "aug": "ἦ",
       "stm": "ν",
       "segs": [
@@ -9085,7 +9085,7 @@
     {
       "txt": "διελογίζοντο",
       "lem": "διαλογίζομαι",
-      "prs": "verb 3 impf mid ind pl",
+      "prs": "impf mid ind 3 pl",
       "pfx": "δι",
       "aug": "ε",
       "stm": "λογίζ",
@@ -9150,7 +9150,7 @@
     {
       "txt": "λέγοντες·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "λέγ",
       "ptc": "οντ",
       "suf": "ες",
@@ -9191,7 +9191,7 @@
     {
       "txt": "εἴπωμεν·",
       "lem": "λέγω",
-      "prs": "verb 1 aor act subj pl",
+      "prs": "aor act subj 1 pl",
       "stm": "εἴπ",
       "ve": "ωμεν",
       "segs": [
@@ -9244,7 +9244,7 @@
     {
       "txt": "ἐρεῖ",
       "lem": "λέγω",
-      "prs": "verb 3 fut act ind sg",
+      "prs": "fut act ind 3 sg",
       "stm": "ἐρ",
       "ve": "εῖ",
       "segs": [
@@ -9310,7 +9310,7 @@
     {
       "txt": "ἐπιστεύσατε",
       "lem": "πιστεύω",
-      "prs": "verb 2 aor act ind pl",
+      "prs": "aor act ind 2 pl",
       "aug": "ἐ",
       "stm": "πιστεύ",
       "frm": "σα",
@@ -9386,7 +9386,7 @@
     {
       "txt": "εἴπωμεν·",
       "lem": "λέγω",
-      "prs": "verb 1 aor act subj pl",
+      "prs": "aor act subj 1 pl",
       "stm": "εἴπ",
       "ve": "ωμεν",
       "segs": [
@@ -9439,7 +9439,7 @@
     {
       "txt": "φοβούμεθα",
       "lem": "φοβέομαι",
-      "prs": "verb 1 pres mid ind pl",
+      "prs": "pres mid ind 1 pl",
       "stm": "φοβούμεθα",
       "segs": [
         {
@@ -9552,7 +9552,7 @@
     {
       "txt": "ἔχουσιν",
       "lem": "ἔχω",
-      "prs": "verb 3 pres act ind pl",
+      "prs": "pres act ind 3 pl",
       "stm": "ἔχ",
       "ve": "ουσιν",
       "segs": [
@@ -9624,7 +9624,7 @@
     {
       "txt": "ἀποκριθέντες",
       "lem": "ἀποκρίνομαι",
-      "prs": "verb aor pass ptc nom pl masc",
+      "prs": "aor pass ptc nom pl masc",
       "pfx": "ἀπο",
       "stm": "κρι",
       "frm": "θέ",
@@ -9703,7 +9703,7 @@
     {
       "txt": "εἶπαν·",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "εἶ",
       "stm": "π",
       "ve": "αν",
@@ -9741,7 +9741,7 @@
     {
       "txt": "οἴδαμεν.",
       "lem": "οἶδα",
-      "prs": "verb 1 perf act ind pl",
+      "prs": "perf act ind 1 pl",
       "stm": "οἴδ",
       "ve": "αμεν",
       "segs": [
@@ -9766,7 +9766,7 @@
     {
       "txt": "ἔφη",
       "lem": "φημί",
-      "prs": "verb 3 impf act ind sg",
+      "prs": "impf act ind 3 sg",
       "aug": "ἔ",
       "stm": "φη",
       "segs": [
@@ -9862,7 +9862,7 @@
     {
       "txt": "λέγω",
       "lem": "λέγω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "λέγ",
       "ve": "ω",
       "segs": [
@@ -9972,7 +9972,7 @@
     {
       "txt": "ποιῶ.",
       "lem": "ποιέω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "ποιῶ",
       "segs": [
         {
@@ -10026,7 +10026,7 @@
     {
       "txt": "δοκεῖ;",
       "lem": "δοκέω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "δοκε",
       "ve": "ῖ",
       "segs": [
@@ -10074,7 +10074,7 @@
     {
       "txt": "εἶχεν",
       "lem": "ἔχω",
-      "prs": "verb 3 impf act ind sg",
+      "prs": "impf act ind 3 sg",
       "aug": "εἶ",
       "stm": "χ",
       "ve": "εν",
@@ -10144,7 +10144,7 @@
     {
       "txt": "προσελθὼν",
       "lem": "προσέρχομαι",
-      "prs": "verb aor act ptc nom sg masc",
+      "prs": "aor act ptc nom sg masc",
       "pfx": "προσ",
       "stm": "ελθ",
       "ptc": "ὼν",
@@ -10214,7 +10214,7 @@
     {
       "txt": "εἶπεν·",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -10261,7 +10261,7 @@
     {
       "txt": "ὕπαγε",
       "lem": "ὑπάγω",
-      "prs": "verb 2 pres act imp sg",
+      "prs": "pres act imp 2 sg",
       "pfx": "ὕπ",
       "stm": "αγ",
       "ve": "ε",
@@ -10295,7 +10295,7 @@
     {
       "txt": "ἐργάζου",
       "lem": "ἐργάζομαι",
-      "prs": "verb 2 pres mid imp sg",
+      "prs": "pres mid imp 2 sg",
       "stm": "ἐργάζ",
       "ve": "ου",
       "segs": [
@@ -10388,7 +10388,7 @@
     {
       "txt": "ἀποκριθεὶς",
       "lem": "ἀποκρίνομαι",
-      "prs": "verb aor pass ptc nom sg masc",
+      "prs": "aor pass ptc nom sg masc",
       "pfx": "ἀπο",
       "stm": "κρι",
       "frm": "θε",
@@ -10428,7 +10428,7 @@
     {
       "txt": "εἶπεν·",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -10466,7 +10466,7 @@
     {
       "txt": "θέλω·",
       "lem": "θέλω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "θέλ",
       "ve": "ω",
       "segs": [
@@ -10519,7 +10519,7 @@
     {
       "txt": "μεταμεληθεὶς",
       "lem": "μεταμέλομαι",
-      "prs": "verb aor pass ptc nom sg masc",
+      "prs": "aor pass ptc nom sg masc",
       "pfx": "μετα",
       "stm": "μελη",
       "frm": "θε",
@@ -10559,7 +10559,7 @@
     {
       "txt": "ἀπῆλθεν.",
       "lem": "ἀπέρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -10602,7 +10602,7 @@
     {
       "txt": "προσελθὼν",
       "lem": "προσέρχομαι",
-      "prs": "verb aor act ptc nom sg masc",
+      "prs": "aor act ptc nom sg masc",
       "pfx": "προσ",
       "stm": "ελθ",
       "ptc": "ὼν",
@@ -10677,7 +10677,7 @@
     {
       "txt": "εἶπεν",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -10736,7 +10736,7 @@
     {
       "txt": "ἀποκριθεὶς",
       "lem": "ἀποκρίνομαι",
-      "prs": "verb aor pass ptc nom sg masc",
+      "prs": "aor pass ptc nom sg masc",
       "pfx": "ἀπο",
       "stm": "κρι",
       "frm": "θε",
@@ -10776,7 +10776,7 @@
     {
       "txt": "εἶπεν·",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "εἶ",
       "stm": "π",
       "ve": "εν",
@@ -10859,7 +10859,7 @@
     {
       "txt": "ἀπῆλθεν.",
       "lem": "ἀπέρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "ῆ",
       "stm": "λθ",
@@ -10960,7 +10960,7 @@
     {
       "txt": "ἐποίησεν",
       "lem": "ποιέω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἐ",
       "stm": "ποίη",
       "frm": "σε",
@@ -11078,7 +11078,7 @@
     {
       "txt": "λέγουσιν·",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind pl",
+      "prs": "pres act ind 3 pl",
       "stm": "λέγ",
       "ve": "ουσιν",
       "segs": [
@@ -11145,7 +11145,7 @@
     {
       "txt": "λέγει",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "λέγ",
       "ve": "ει",
       "segs": [
@@ -11237,7 +11237,7 @@
     {
       "txt": "λέγω",
       "lem": "λέγω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "λέγ",
       "ve": "ω",
       "segs": [
@@ -11364,7 +11364,7 @@
     {
       "txt": "προάγουσιν",
       "lem": "προάγω",
-      "prs": "verb 3 pres act ind pl",
+      "prs": "pres act ind 3 pl",
       "pfx": "προ",
       "stm": "άγ",
       "ve": "ουσιν",
@@ -11505,7 +11505,7 @@
     {
       "txt": "ἦλθεν",
       "lem": "ἔρχομαι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἦ",
       "stm": "λθ",
       "ve": "εν",
@@ -11655,7 +11655,7 @@
     {
       "txt": "ἐπιστεύσατε",
       "lem": "πιστεύω",
-      "prs": "verb 2 aor act ind pl",
+      "prs": "aor act ind 2 pl",
       "aug": "ἐ",
       "stm": "πιστεύ",
       "frm": "σα",
@@ -11806,7 +11806,7 @@
     {
       "txt": "ἐπίστευσαν",
       "lem": "πιστεύω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἐ",
       "stm": "πίστευ",
       "frm": "σα",
@@ -11897,7 +11897,7 @@
     {
       "txt": "ἰδόντες",
       "lem": "ὁράω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ἰδ",
       "ptc": "όντ",
       "suf": "ες",
@@ -11935,7 +11935,7 @@
     {
       "txt": "μετεμελήθητε",
       "lem": "μεταμέλομαι",
-      "prs": "verb 2 aor pass ind pl",
+      "prs": "aor pass ind 2 pl",
       "pfx": "μετ",
       "aug": "ε",
       "stm": "μελή",
@@ -12018,7 +12018,7 @@
     {
       "txt": "πιστεῦσαι",
       "lem": "πιστεύω",
-      "prs": "verb aor act inf",
+      "prs": "aor act inf",
       "stm": "πιστεῦ",
       "frm": "σα",
       "ve": "ι",
@@ -12122,7 +12122,7 @@
     {
       "txt": "ἀκούσατε.",
       "lem": "ἀκούω",
-      "prs": "verb 2 aor act imp pl",
+      "prs": "aor act imp 2 pl",
       "stm": "ἀκού",
       "frm": "σα",
       "ve": "τε",
@@ -12177,7 +12177,7 @@
     {
       "txt": "ἦν",
       "lem": "εἰμί",
-      "prs": "verb 3 impf act ind sg",
+      "prs": "impf act ind 3 sg",
       "aug": "ἦ",
       "stm": "ν",
       "segs": [
@@ -12249,7 +12249,7 @@
     {
       "txt": "ἐφύτευσεν",
       "lem": "φυτεύω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἐ",
       "stm": "φύτευ",
       "frm": "σε",
@@ -12363,7 +12363,7 @@
     {
       "txt": "περιέθηκεν",
       "lem": "περιτίθημι",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "περι",
       "aug": "έ",
       "stm": "θη",
@@ -12414,7 +12414,7 @@
     {
       "txt": "ὤρυξεν",
       "lem": "ὀρύσσω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ὤ",
       "stm": "ρυ",
       "frm": "ξε",
@@ -12510,7 +12510,7 @@
     {
       "txt": "ᾠκοδόμησεν",
       "lem": "οἰκοδομέω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ᾠ",
       "stm": "κοδόμη",
       "frm": "σε",
@@ -12578,7 +12578,7 @@
     {
       "txt": "ἐξέδετο",
       "lem": "ἐκδίδωμι",
-      "prs": "verb 3 aor mid ind sg",
+      "prs": "aor mid ind 3 sg",
       "pfx": "ἐξ",
       "aug": "έ",
       "stm": "δ",
@@ -12669,7 +12669,7 @@
     {
       "txt": "ἀπεδήμησεν.",
       "lem": "ἀποδημέω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "ε",
       "stm": "δήμη",
@@ -12729,7 +12729,7 @@
     {
       "txt": "ἤγγισεν",
       "lem": "ἐγγίζω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "aug": "ἤ",
       "stm": "γγι",
       "frm": "σε",
@@ -12847,7 +12847,7 @@
     {
       "txt": "ἀπέστειλεν",
       "lem": "ἀποστέλλω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "στειλ",
@@ -12990,7 +12990,7 @@
     {
       "txt": "λαβεῖν",
       "lem": "λαμβάνω",
-      "prs": "verb aor act inf",
+      "prs": "aor act inf",
       "stm": "λαβ",
       "ve": "εῖν",
       "segs": [
@@ -13085,7 +13085,7 @@
     {
       "txt": "λαβόντες",
       "lem": "λαμβάνω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "λαβ",
       "ptc": "όντ",
       "suf": "ες",
@@ -13247,7 +13247,7 @@
     {
       "txt": "ἔδειραν,",
       "lem": "δέρω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἔ",
       "stm": "δειρ",
       "ve": "αν",
@@ -13308,7 +13308,7 @@
     {
       "txt": "ἀπέκτειναν,",
       "lem": "ἀποκτείνω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "κτειν",
@@ -13376,7 +13376,7 @@
     {
       "txt": "ἐλιθοβόλησαν.",
       "lem": "λιθοβολέω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἐ",
       "stm": "λιθοβόλη",
       "frm": "σα",
@@ -13424,7 +13424,7 @@
     {
       "txt": "ἀπέστειλεν",
       "lem": "ἀποστέλλω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "στειλ",
@@ -13577,7 +13577,7 @@
     {
       "txt": "ἐποίησαν",
       "lem": "ποιέω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἐ",
       "stm": "ποίη",
       "frm": "σα",
@@ -13676,7 +13676,7 @@
     {
       "txt": "ἀπέστειλεν",
       "lem": "ἀποστέλλω",
-      "prs": "verb 3 aor act ind sg",
+      "prs": "aor act ind 3 sg",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "στειλ",
@@ -13803,7 +13803,7 @@
     {
       "txt": "λέγων·",
       "lem": "λέγω",
-      "prs": "verb pres act ptc nom sg masc",
+      "prs": "pres act ptc nom sg masc",
       "stm": "λέγ",
       "ptc": "ων",
       "cs": "n",
@@ -13830,7 +13830,7 @@
     {
       "txt": "Ἐντραπήσονται",
       "lem": "ἐντρέπω",
-      "prs": "verb 3 fut pass ind pl",
+      "prs": "fut pass ind 3 pl",
       "pfx": "Ἐν",
       "stm": "τραπήσ",
       "ve": "ονται",
@@ -13972,7 +13972,7 @@
     {
       "txt": "ἰδόντες",
       "lem": "ὁράω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ἰδ",
       "ptc": "όντ",
       "suf": "ες",
@@ -14044,7 +14044,7 @@
     {
       "txt": "εἶπον",
       "lem": "λέγω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "εἶ",
       "stm": "π",
       "ve": "ον",
@@ -14128,7 +14128,7 @@
     {
       "txt": "ἐστιν",
       "lem": "εἰμί",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "ἐσ",
       "ve": "τιν",
       "segs": [
@@ -14198,7 +14198,7 @@
     {
       "txt": "ἀποκτείνωμεν",
       "lem": "ἀποκτείνω",
-      "prs": "verb 1 aor act subj pl",
+      "prs": "aor act subj 1 pl",
       "pfx": "ἀπο",
       "stm": "κτείν",
       "ve": "ωμεν",
@@ -14258,7 +14258,7 @@
     {
       "txt": "σχῶμεν",
       "lem": "ἔχω",
-      "prs": "verb 1 aor act subj pl",
+      "prs": "aor act subj 1 pl",
       "stm": "σχ",
       "ve": "ῶμεν",
       "segs": [
@@ -14353,7 +14353,7 @@
     {
       "txt": "λαβόντες",
       "lem": "λαμβάνω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "λαβ",
       "ptc": "όντ",
       "suf": "ες",
@@ -14409,7 +14409,7 @@
     {
       "txt": "ἐξέβαλον",
       "lem": "ἐκβάλλω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "ἐξ",
       "aug": "έ",
       "stm": "βαλ",
@@ -14497,7 +14497,7 @@
     {
       "txt": "ἀπέκτειναν.",
       "lem": "ἀποκτείνω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "ἀπ",
       "aug": "έ",
       "stm": "κτειν",
@@ -14550,7 +14550,7 @@
     {
       "txt": "ἔλθῃ",
       "lem": "ἔρχομαι",
-      "prs": "verb 3 aor act subj sg",
+      "prs": "aor act subj 3 sg",
       "stm": "ἔλθ",
       "ve": "ῃ",
       "segs": [
@@ -14667,7 +14667,7 @@
     {
       "txt": "ποιήσει",
       "lem": "ποιέω",
-      "prs": "verb 3 fut act ind sg",
+      "prs": "fut act ind 3 sg",
       "stm": "ποιή",
       "frm": "σε",
       "ve": "ι",
@@ -14765,7 +14765,7 @@
     {
       "txt": "λέγουσιν",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind pl",
+      "prs": "pres act ind 3 pl",
       "stm": "λέγ",
       "ve": "ουσιν",
       "segs": [
@@ -14841,7 +14841,7 @@
     {
       "txt": "ἀπολέσει",
       "lem": "ἀπόλλυμι",
-      "prs": "verb 3 fut act ind sg",
+      "prs": "fut act ind 3 sg",
       "pfx": "ἀπο",
       "stm": "λέ",
       "frm": "σε",
@@ -14948,7 +14948,7 @@
     {
       "txt": "ἐκδώσεται",
       "lem": "ἐκδίδωμι",
-      "prs": "verb 3 fut mid ind sg",
+      "prs": "fut mid ind 3 sg",
       "pfx": "ἐκ",
       "stm": "δώ",
       "frm": "σε",
@@ -15057,7 +15057,7 @@
     {
       "txt": "ἀποδώσουσιν",
       "lem": "ἀποδίδωμι",
-      "prs": "verb 3 fut act ind pl",
+      "prs": "fut act ind 3 pl",
       "pfx": "ἀπο",
       "stm": "δώ",
       "frm": "σο",
@@ -15229,7 +15229,7 @@
     {
       "txt": "Λέγει",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "Λέγ",
       "ve": "ει",
       "segs": [
@@ -15321,7 +15321,7 @@
     {
       "txt": "ἀνέγνωτε",
       "lem": "ἀναγινώσκω",
-      "prs": "verb 2 aor act ind pl",
+      "prs": "aor act ind 2 pl",
       "pfx": "ἀν",
       "aug": "έ",
       "stm": "γνω",
@@ -15450,7 +15450,7 @@
     {
       "txt": "ἀπεδοκίμασαν",
       "lem": "ἀποδοκιμάζω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "pfx": "ἀπ",
       "aug": "ε",
       "stm": "δοκίμα",
@@ -15510,7 +15510,7 @@
     {
       "txt": "οἰκοδομοῦντες,",
       "lem": "οἰκοδομέω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "οἰκοδομ",
       "ptc": "οῦντ",
       "suf": "ες",
@@ -15569,7 +15569,7 @@
     {
       "txt": "ἐγενήθη",
       "lem": "γίνομαι",
-      "prs": "verb 3 aor pass ind sg",
+      "prs": "aor pass ind 3 sg",
       "aug": "ἐ",
       "stm": "γενή",
       "frm": "θη",
@@ -15681,7 +15681,7 @@
     {
       "txt": "ἐγένετο",
       "lem": "γίνομαι",
-      "prs": "verb 3 aor mid ind sg",
+      "prs": "aor mid ind 3 sg",
       "aug": "ἐ",
       "stm": "γέν",
       "ve": "ετο",
@@ -15742,7 +15742,7 @@
     {
       "txt": "ἔστιν",
       "lem": "εἰμί",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "ἔσ",
       "ve": "τιν",
       "segs": [
@@ -15864,7 +15864,7 @@
     {
       "txt": "λέγω",
       "lem": "λέγω",
-      "prs": "verb 1 pres act ind sg",
+      "prs": "pres act ind 1 sg",
       "stm": "λέγ",
       "ve": "ω",
       "segs": [
@@ -15908,7 +15908,7 @@
     {
       "txt": "ἀρθήσεται",
       "lem": "αἴρω",
-      "prs": "verb 3 fut pass ind sg",
+      "prs": "fut pass ind 3 sg",
       "stm": "ἀρ",
       "frm": "θήσε",
       "ve": "ται",
@@ -16052,7 +16052,7 @@
     {
       "txt": "δοθήσεται",
       "lem": "δίδωμι",
-      "prs": "verb 3 fut pass ind sg",
+      "prs": "fut pass ind 3 sg",
       "stm": "δο",
       "frm": "θήσε",
       "ve": "ται",
@@ -16105,7 +16105,7 @@
     {
       "txt": "ποιοῦντι",
       "lem": "ποιέω",
-      "prs": "verb pres act ptc dat sg neut",
+      "prs": "pres act ptc dat sg neut",
       "stm": "ποι",
       "ptc": "οῦντ",
       "suf": "ι",
@@ -16227,7 +16227,7 @@
     {
       "txt": "πεσὼν",
       "lem": "πίπτω",
-      "prs": "verb aor act ptc nom sg masc",
+      "prs": "aor act ptc nom sg masc",
       "stm": "πε",
       "frm": "σὼ",
       "ptc": "ν",
@@ -16326,7 +16326,7 @@
     {
       "txt": "συνθλασθήσεται·",
       "lem": "συνθλάομαι",
-      "prs": "verb 3 fut pass ind sg",
+      "prs": "fut pass ind 3 sg",
       "pfx": "συν",
       "stm": "θλασ",
       "frm": "θήσε",
@@ -16404,7 +16404,7 @@
     {
       "txt": "πέσῃ",
       "lem": "πίπτω",
-      "prs": "verb 3 aor act subj sg",
+      "prs": "aor act subj 3 sg",
       "stm": "πέ",
       "frm": "σῃ",
       "segs": [
@@ -16426,7 +16426,7 @@
     {
       "txt": "λικμήσει",
       "lem": "λικμάω",
-      "prs": "verb 3 fut act ind sg",
+      "prs": "fut act ind 3 sg",
       "stm": "λικμή",
       "frm": "σε",
       "ve": "ι",
@@ -16490,7 +16490,7 @@
     {
       "txt": "ἀκούσαντες",
       "lem": "ἀκούω",
-      "prs": "verb aor act ptc nom pl masc",
+      "prs": "aor act ptc nom pl masc",
       "stm": "ἀκού",
       "frm": "σα",
       "ptc": "ντ",
@@ -16676,7 +16676,7 @@
     {
       "txt": "ἔγνωσαν",
       "lem": "γινώσκω",
-      "prs": "verb 3 aor act ind pl",
+      "prs": "aor act ind 3 pl",
       "aug": "ἔ",
       "stm": "γνω",
       "ve": "σαν",
@@ -16739,7 +16739,7 @@
     {
       "txt": "λέγει·",
       "lem": "λέγω",
-      "prs": "verb 3 pres act ind sg",
+      "prs": "pres act ind 3 sg",
       "stm": "λέγ",
       "ve": "ει",
       "segs": [
@@ -16772,7 +16772,7 @@
     {
       "txt": "ζητοῦντες",
       "lem": "ζητέω",
-      "prs": "verb pres act ptc nom pl masc",
+      "prs": "pres act ptc nom pl masc",
       "stm": "ζητ",
       "ptc": "οῦντ",
       "suf": "ες",
@@ -16828,7 +16828,7 @@
     {
       "txt": "κρατῆσαι",
       "lem": "κρατέω",
-      "prs": "verb aor act inf",
+      "prs": "aor act inf",
       "stm": "κρατῆ",
       "frm": "σα",
       "ve": "ι",
@@ -16857,7 +16857,7 @@
     {
       "txt": "ἐφοβήθησαν",
       "lem": "φοβέομαι",
-      "prs": "verb 3 aor pass ind pl",
+      "prs": "aor pass ind 3 pl",
       "aug": "ἐ",
       "stm": "φοβή",
       "frm": "θη",
@@ -16992,7 +16992,7 @@
     {
       "txt": "εἶχον.",
       "lem": "ἔχω",
-      "prs": "verb 3 impf act ind pl",
+      "prs": "impf act ind 3 pl",
       "aug": "εἶ",
       "stm": "χ",
       "ve": "ον",

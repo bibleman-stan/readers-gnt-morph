@@ -696,7 +696,17 @@ def strip_accents(s):
 
 
 def format_parsing(parsing, pos):
-    """Convert MorphGNT parsing code to human-readable string."""
+    """Convert MorphGNT parsing code to human-readable string.
+
+    Display order by word class (Stan's preferred order, 2026-04-17):
+      • Finite verb:   tense voice mood person number
+      • Participle:    tense voice ptc case number gender
+      • Infinitive:    tense voice inf
+      • Nominal:       pos case number gender
+
+    The 'ptc' mood label is preserved (not "ptcpl") so the template's
+    isPtc regex (/\\bptc\\b/) keeps working.
+    """
     pos_names = {
         'N-': 'noun', 'V-': 'verb', 'A-': 'adj', 'RA': 'art',
         'C-': 'conj', 'P-': 'prep', 'D-': 'adv', 'X-': 'ptcl',
@@ -712,23 +722,31 @@ def format_parsing(parsing, pos):
     numbers = {'S': 'sg', 'P': 'pl'}
     genders = {'M': 'masc', 'F': 'fem', 'N': 'neut'}
 
+    # Verbs have their own display order based on mood
+    if pos == 'V-':
+        mood = parsing[3]
+        parts = []
+        if parsing[1] in tenses: parts.append(tenses[parsing[1]])
+        if parsing[2] in voices: parts.append(voices[parsing[2]])
+        if mood in moods: parts.append(moods[mood])
+
+        if mood == 'P':  # participle: + case number gender
+            if parsing[4] in cases: parts.append(cases[parsing[4]])
+            if parsing[5] in numbers: parts.append(numbers[parsing[5]])
+            if parsing[6] in genders: parts.append(genders[parsing[6]])
+        elif mood == 'N':  # infinitive: stops at mood
+            pass
+        else:  # finite (ind, subj, opt, imp): + person number
+            if parsing[0] in persons: parts.append(persons[parsing[0]])
+            if parsing[5] in numbers: parts.append(numbers[parsing[5]])
+
+        return ' '.join(parts)
+
+    # Nominals and everything else: pos-first then agreement features
     parts = [pos_names.get(pos, pos)]
-
-    if parsing[0] in persons:
-        parts.append(persons[parsing[0]])
-    if parsing[1] in tenses:
-        parts.append(tenses[parsing[1]])
-    if parsing[2] in voices:
-        parts.append(voices[parsing[2]])
-    if parsing[3] in moods:
-        parts.append(moods[parsing[3]])
-    if parsing[4] in cases:
-        parts.append(cases[parsing[4]])
-    if parsing[5] in numbers:
-        parts.append(numbers[parsing[5]])
-    if parsing[6] in genders:
-        parts.append(genders[parsing[6]])
-
+    if parsing[4] in cases: parts.append(cases[parsing[4]])
+    if parsing[5] in numbers: parts.append(numbers[parsing[5]])
+    if parsing[6] in genders: parts.append(genders[parsing[6]])
     return ' '.join(parts)
 
 
@@ -1241,6 +1259,29 @@ def generate_lexicon_json(words, lexicon, freq):
     return lex
 
 
+def build_chapter(book_code, chapter, stems_db, lexicon, freq):
+    """Build the full per-chapter output dict, using pre-loaded databases.
+
+    This is the reusable in-process entry point — callers load
+    stems/lexicon/freq ONCE and reuse across many chapters to avoid
+    ~4s of redundant YAML parsing per chapter.
+    """
+    if book_code not in BOOKS:
+        raise ValueError(f'unknown book code: {book_code!r}')
+    book_display = BOOKS[book_code]['display']
+    morphgnt_file = morphgnt_path_for(book_code)
+    words = load_morphgnt_chapter(morphgnt_file, chapter)
+    data = generate_chapter_json(morphgnt_file, chapter, stems_db, lexicon, freq,
+                                 book_code=book_code)
+    lex = generate_lexicon_json(words, lexicon, freq)
+    return {
+        'book': book_display,
+        'chapter': chapter,
+        'data': data,
+        'lex': lex,
+    }
+
+
 def main():
     # Backwards-compat: `python generate_chapter.py 9` still works for Acts.
     # New form: `python generate_chapter.py --book romans 3`.
@@ -1258,7 +1299,6 @@ def main():
               f'{", ".join(sorted(BOOKS.keys()))}', file=sys.stderr)
         sys.exit(2)
     book_display = BOOKS[book_code]['display']
-    morphgnt_file = morphgnt_path_for(book_code)
 
     print(f"Loading stems...", file=sys.stderr)
     stems_db = load_stems()
@@ -1273,21 +1313,10 @@ def main():
     print(f"  {len(freq)} lemmas", file=sys.stderr)
 
     print(f"Processing {book_display} {chapter}...", file=sys.stderr)
-    words = load_morphgnt_chapter(morphgnt_file, chapter)
-
-    data = generate_chapter_json(morphgnt_file, chapter, stems_db, lexicon, freq,
-                                 book_code=book_code)
-    lex = generate_lexicon_json(words, lexicon, freq)
-
-    output = {
-        'book': book_display,
-        'chapter': chapter,
-        'data': data,
-        'lex': lex,
-    }
+    output = build_chapter(book_code, chapter, stems_db, lexicon, freq)
 
     print(json.dumps(output, ensure_ascii=False, indent=2))
-    print(f"Done: {len(data)} entries ({len(words)} words)", file=sys.stderr)
+    print(f"Done: {len(output['data'])} entries", file=sys.stderr)
 
 
 if __name__ == '__main__':
