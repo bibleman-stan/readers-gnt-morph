@@ -179,8 +179,8 @@ TEST_SET = [
     # μέλλω override (already a phrase)
     ('ἔμελλεν',    'μέλλω',     '3IAI-S--', 'was about to'),
     # δεῖ override (impersonal)
-    ('δεῖ',        'δεῖ',       '3PAI-S--', 'it is necessary'),
-    ('ἔδει',       'δεῖ',       '3IAI-S--', 'it was necessary'),
+    ('δέω',        'δέω',       '3PAI-S--', 'it is necessary'),
+    ('ἔδει',       'δέω',       '3IAI-S--', 'it was necessary'),
     # Phrasal verb head-only inflection
     ('ἀφώρισεν',   'ἀφορίζω',   '3AAI-S--', 'set apart'),  # set is its own past
 ]
@@ -210,7 +210,7 @@ TEST_LEXICON = {
     'εἰμί':        'I am',
     'οἶδα':        'know',
     'μέλλω':       'I am about to',
-    'δεῖ':         'it is necessary',
+    'δέω':         'it is necessary',
     'ἀφορίζω':     'set apart',
 }
 

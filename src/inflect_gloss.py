@@ -109,6 +109,11 @@ IRREGULAR = {
     'understand': ('understood', 'understood'),
     'beat':       ('beat', 'beaten'),
     'strike':     ('struck', 'struck'),
+    'beget':      ('begot', 'begotten'),
+    'seek':       ('sought', 'sought'),
+    'foretell':   ('foretold', 'foretold'),
+    'mistake':    ('mistook', 'mistaken'),
+    'swing':      ('swung', 'swung'),
 }
 
 
@@ -123,11 +128,11 @@ def _regular_past(verb):
         return v + 'd'                                    # bake -> baked
     if re.search(r'[^aeiou]y$', v):
         return v[:-1] + 'ied'                             # try -> tried
-    # Short vowel + single consonant at end: stop -> stopped, ban -> banned
-    # Requires SINGLE vowel: a non-vowel before the final v-c pair, so
-    # "hear" (v-v-c) does not double, while "ban" (c-v-c) does.
-    if re.fullmatch(r'[a-z]{2,4}', v) \
-       and re.search(r'[^aeiou][aeiou][bcdfgklmnprstvz]$', v):
+    # Short vowel + single consonant at end: stop -> stopped, ban -> banned,
+    # beg -> begged. Require EXACTLY ONE vowel in the word so "hear" (ea),
+    # "open" (oe), "travel" (ae) don't wrongly double.
+    if len(re.findall(r'[aeiou]', v)) == 1 \
+       and re.search(r'[aeiou][bcdfgklmnprstvz]$', v):
         return v + v[-1] + 'ed'
     return v + 'ed'
 
@@ -193,8 +198,10 @@ LEMMA_OVERRIDES = {
         'PAI': 'is about to', 'IAI': 'was about to',
         'FAI': 'will be about to', 'PAP': 'being about to',
     },
-    # δεῖ — impersonal "it is necessary"
-    'δεῖ': {
+    # δεῖ — impersonal "it is necessary". MorphGNT lemmatizes as δέω
+    # (same entry as "bind"); the impersonal form is always 3sg PAI/IAI.
+    # Keyed here by the lemma MorphGNT actually uses.
+    'δέω': {
         'PAI': 'it is necessary', 'IAI': 'it was necessary',
         'PAN': 'to be necessary', 'PAP': 'being necessary',
     },
@@ -408,8 +415,8 @@ def _imperfect_active(head, tail):
         ing = h + 'ing'
     elif h.endswith('e'):
         ing = h[:-1] + 'ing'
-    elif re.fullmatch(r'[a-z]{2,4}', h) \
-         and re.search(r'[^aeiou][aeiou][bcdfgklmnprstvz]$', h):
+    elif len(re.findall(r'[aeiou]', h)) == 1 \
+         and re.search(r'[aeiou][bcdfgklmnprstvz]$', h):
         ing = h + h[-1] + 'ing'
     else:
         ing = h + 'ing'

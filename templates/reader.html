@@ -883,8 +883,12 @@ function toGerund(verb) {
   if (w.endsWith('ee')) return w + 'ing';     // see→seeing
   if (w.endsWith('e')) return w.slice(0,-1) + 'ing';    // breathe→breathing
   // Double final consonant for short vowel + single consonant
-  if (/^[a-z]{2,4}$/.test(w) && /[aeiou][bcdfgklmnprstvz]$/.test(w)) {
-    return w + w.slice(-1) + 'ing';           // run→running, set→setting
+  // Short vowel + single consonant at end: run → running, set → setting.
+  // Require EXACTLY ONE vowel so "hear" (ea), "open" (oe), "travel"
+  // (ae) don't wrongly double.
+  const vowelCount = (w.match(/[aeiou]/g) || []).length;
+  if (vowelCount === 1 && /[aeiou][bcdfgklmnprstvz]$/.test(w)) {
+    return w + w.slice(-1) + 'ing';
   }
   return w + 'ing';                           // ask→asking, find→finding
 }

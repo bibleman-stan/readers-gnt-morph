@@ -906,6 +906,88 @@ _GLOSS_OVERRIDE = {
     'πρός': 'to',
     'ἀφορίζω': 'set apart',  # Dodson "rail off" is obscure
     'συναλίζομαι': 'meet with',  # Dodson "I am assembled together with" → unwieldy
+    'χειραγωγός': 'guide',  # Dodson "one who leads a helpless person by the hand" — definitional
+    # ── Pre-scale audit additions (lexicon-wide scan, 2026-04-17) ──────────
+    # High-frequency semantic/content fixes
+    'ἄν': '[modal]',               # Dodson untranslatable 9-word explanation
+    'δύναμαι': 'can',              # "am powerful" → NT use = can/be able
+    'μέλλω': 'be about to',        # "am about to" — make form full infinitive
+    'ἀπέρχομαι': 'depart',         # "come or go away from"
+    'ὑπάρχω': 'exist',             # "am" → clashes with εἰμί
+    'πάσχω': 'suffer',             # "am acted upon" → NT active meaning
+    'δουλεύω': 'serve',            # "am a slave" → NT = actively serve
+    'γρηγορέω': 'watch',           # "am awake" → NT idiom
+    'εὐδοκέω': 'be pleased',       # "am resolved" is archaic
+    'μεριμνάω': 'worry',           # "am anxious"
+    'ὑστερέω': 'lack',             # "am lacking"
+    'ἐκπλήσσομαι': 'be amazed',    # "am thunderstruck"
+    'ζηλόω': 'be zealous',         # "am jealous" too narrow
+    'ἄρχω': 'begin',               # "(act.) I reign" — NT overwhelmingly middle "begin"
+    'ἅπτω': 'touch',               # "(act.) I kindle" — NT overwhelmingly middle "touch"
+    'θεάομαι': 'behold',           # "see" — duplicates ὁράω display
+    'πρεσβεύω': 'serve as ambassador',  # "am aged" is wrong for NT use
+    'ἀπιστέω': 'disbelieve',       # "am unfaithful"
+    'ἀγανακτέω': 'be indignant',   # "am angry"
+    'νήφω': 'be sober',            # "am calm" — NT = vigilant
+    'λανθάνω': 'escape notice',    # "am hidden"
+    'λείπω': 'lack',               # "am wanting" archaic
+    'πρόκειμαι': 'lie before',     # "am set before"
+    'ἀγρυπνέω': 'keep watch',      # "am awake" → NT = keep watch
+    # Long definitional glosses
+    'ποτέ': 'once',
+    'βάπτισμα': 'baptism',
+    'Ἀσία': 'Asia Minor',
+    'τράπεζα': 'table',
+    'κατεσθίω': 'devour',
+    'τάλαντον': 'talent',
+    'βῆμα': 'judgment seat',       # Dodson "space covered by a step of the foot" — NT = tribunal
+    'ἀντιλέγω': 'contradict',
+    'ἀγαθοποιέω': 'do good',
+    'δικαίωμα': 'righteous act',
+    'παῖς': 'child',
+    'βλασφημία': 'blasphemy',
+    'δράκων': 'dragon',
+    'Ἕλλην': 'Greek',              # "Hellene" — standard English = Greek
+    'Ἰούδας': 'Judas',             # "Judah" — NT person = Judas
+    'Μαριάμ': 'Mary',              # "Miriam" — NT form = Mary
+    'ἀδόκιμος': 'disqualified',
+    'βοηθέω': 'help',
+    'πραιτώριον': 'praetorium',
+    'ἀξιόω': 'consider worthy',
+    'Ἑβραϊστί': 'in Hebrew',
+    'βάρβαρος': 'foreigner',
+    'χειροποίητος': 'hand-made',
+    'ἀναπέμπω': 'send back',
+    'μεθίστημι': 'transfer',
+    'πρωτοκλισία': 'place of honor',
+    'σκηνόω': 'dwell',
+    'ἐκτίθημι': 'explain',         # "put out or expose a child" — NT = expound
+    'γονυπετέω': 'kneel before',
+    'εἰδωλολατρία': 'idolatry',
+    'ἀποδεκατόω': 'tithe',
+    'ἀποβαίνω': 'disembark',
+    'περιπίπτω': 'fall among',
+    'βουλευτής': 'council member',
+    'πολιτεύομαι': 'live as a citizen',
+    'παραθήκη': 'deposit',
+    'παρεπίδημος': 'sojourner',
+    'ἱεράτευμα': 'priesthood',
+    'ἀλλοτριεπίσκοπος': 'meddler',
+    'ὀφθαλμοδουλία': 'eye-service',
+    'ἀμήτωρ': 'without mother',
+    'νεφρός': 'inner being',       # Dodson "kidney as a general emotional center"
+    'αἱματεκχυσία': 'shedding of blood',
+    'Ἀρεοπαγίτης': 'Areopagite',
+    'βασκαίνω': 'bewitch',
+    'σιτομέτριον': 'food ration',
+    'ἐσχάτως': "at death's door",
+    'σάλος': 'rough sea',
+    'σπένδομαι': 'be poured out',
+    'νομοδιδάσκαλος': 'teacher of the law',
+    # Punctuation-laden interjections
+    'ἰδού': 'behold!',
+    'ἴδε': 'look!',
+    'ὄφελον': 'would that',
 }
 
 
@@ -933,6 +1015,41 @@ def resolve_bare_gloss(lemma, lexicon):
         if short.startswith(prefix):
             short = short[len(prefix):]
             break
+    # Pipeline rule: Dodson disjunctive first-segments like
+    # "come or go away from" → take the head verb only ("come") so
+    # inflection doesn't produce "came or go away from". Applies to
+    # " or " and " and "; splits and keeps the left side's structure
+    # but strips the disjunction + right branch.
+    for conj in (' or ', ' and '):
+        if conj in short:
+            left = short.split(conj)[0].strip()
+            # After the split, keep the right-branch tail ("away from")
+            # if it's clearly a preposition phrase and not a second verb.
+            # Heuristic: if what follows after conj+word is a preposition
+            # ("from", "to", "at", "in", "out"), append it.
+            right = short[len(left) + len(conj):].strip()
+            m = re.match(r'^\S+\s+(from|to|at|in|out|off|up|down|against|with|on|about|into|upon|over|under)(\b.*)?$', right)
+            if m:
+                short = f'{left} {m.group(1)}{m.group(2) or ""}'.strip()
+            else:
+                short = left
+            break
+    # Pipeline rule: Dodson often gives multi-exclamation synonym lists
+    # like "See! Lo! Behold! Look!". Keep only the first exclamation.
+    if short.count('!') >= 2:
+        m = re.match(r'^[^!]*!', short)
+        if m:
+            short = m.group(0).strip()
+    # Pipeline rule: stripped "I am X" form ("am strong", "am weak")
+    # reads like a parsing note, not a gloss. Convert to bare infinitive
+    # "be X". Does NOT apply to εἰμί itself (handled via override) or
+    # to "am about to" etc. (which have per-lemma overrides).
+    if short.startswith('am ') and not short.startswith('am about'):
+        short = 'be ' + short[3:]
+    # Strip trailing single "?" or "!" punctuation (e.g. "why?", "woe!")
+    # when the whole gloss is a single word with trailing punct.
+    if re.fullmatch(r'[a-zA-Z]+[?!]', short):
+        short = short[:-1]
     return short
 
 
