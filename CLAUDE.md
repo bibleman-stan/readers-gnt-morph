@@ -162,11 +162,18 @@ When Stan signals start-of-session with phrases like **"hey, let's start a new s
 
 When Stan signals end-of-session with phrases like **"let's wrap it up for now," "wrap it up," "let's stop here," "that's enough for today," "commit and wrap,"** or any similar winding-down language — do these things BEFORE you commit or stop:
 
-1. **If substantive work happened** (new features, new book generated, morpheus.py changes, validator rule additions, UX changes, architecture changes), **update HANDOFF.md** with a dated block summarizing what changed. Specifically:
+1. **If substantive work happened** (new features, new book generated, morpheus.py changes, validator rule additions, UX changes, architecture changes), **write a session note** at `private/03-sessions/[YYYY-MM-DD]-[topic-slug]/session-notes.md`. **Date by the calendar day of the first commit in the session** — if a session spans midnight and commits land on the next day, label the folder with the commit date, not the session-start date. This keeps the folder name aligned with `git log` for the overseer walking in cold. The note should cover:
    - What you built or fixed
    - What the validator said before and after
    - Any new edge cases surfaced
-   - Any decisions Stan made during the session
+   - Any decisions Stan made during the session — preserve load-bearing quotes verbatim
+
+   Also include, when applicable:
+   - **Self-log of discipline failures Stan caught this session** — name each one, and if two or more share a common underlying failure mode (pattern-matching over diagnostic, over-claiming, imposing-vs-revealing, aesthetic reasoning), say so explicitly. This is how the next session avoids repeating the same class of mistake.
+   - **Any proposed rule, framing, or claim that was walked back** — with the reason. Logging withdrawals is anti-over-claim discipline.
+   - **Workflow use-count** — if a recurring workflow (scan + adversarial audit, cross-lens convergence, horde dispatch, verdict-render, etc.) was used 3+ times this session, note the count. Repeated use under different conditions = validation that the workflow generalizes.
+
+   **HANDOFF.md is reserved for architectural retrospective additions** — trajectory changes, new lessons learned, resumption-checklist updates. Per-session run-downs belong in `private/03-sessions/`, not HANDOFF.md.
 2. **Commit** with a message that tells the "why," not just the "what." Include what the validator coverage looked like after, especially if morpheus.py changed.
 3. **If the session changed methodology discipline or surfaced a new feedback pattern**, consider writing or updating a memory file at `C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\memory\`.
 4. **Send Stan a wrap-up report** before committing. Something like: "Session wrap-up. Commits landing: [hashes]. Files touched: [list]. Validator state: [coverage summary]. Items closed: [list]. New items opened: [list]. Anything I should flag that we didn't address?" 4-8 lines.
@@ -221,7 +228,7 @@ From HANDOFF.md Part 6.5, carried forward because these will cost you hours if y
 - Implements within the scope above
 - Runs the validator before and after every morpheus.py change
 - Writes thoughtful commit messages
-- Updates HANDOFF.md when substantive changes land
+- Writes session notes to `private/03-sessions/` when substantive changes land; updates HANDOFF.md only for architectural retrospective additions
 - Surfaces edge cases and tradeoffs to Stan rather than making them silently
 - Stays in the cubicle — does not edit readers-gnt or readers-bofm
 

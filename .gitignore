@@ -24,3 +24,6 @@ desktop.ini
 
 # Local-only Claude scratch (project permissions stay tracked via .claude/settings.json)
 .claude/settings.local.json
+
+# Overseer workspace — session notes, OVERSEER-DIRECTIONS, sync logs, etc. (matches sibling repos)
+private/

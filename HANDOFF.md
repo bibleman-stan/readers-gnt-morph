@@ -923,6 +923,8 @@ operation.
 
 ### 2026-04-18 — bulk_generate 18× speedup, mobile fixes, parse-order regression, sync_senselines, horde batch 3
 
+> **Path migration (2026-04-18 evening):** Starting this session, per-session records are written to `private/03-sessions/YYYY-MM-DD-topic-slug/session-notes.md` to harmonize with the sibling repos (`readers-gnt`, `readers-bofm`). This HANDOFF.md entry is preserved in place as the last entry under the old convention. For subsequent sessions, see `private/03-sessions/`. The full record for this session lives at `private/03-sessions/2026-04-18-bulk-generate-mobile-fixes-horde-b3/session-notes.md`.
+
 Continuation of the full-GNT work from the previous session. Agenda
 was scaling discipline + user-facing polish + one silent regression
 to catch.
