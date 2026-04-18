@@ -114,6 +114,14 @@ IRREGULAR = {
     'foretell':   ('foretold', 'foretold'),
     'mistake':    ('mistook', 'mistaken'),
     'swing':      ('swung', 'swung'),
+    'shut':       ('shut', 'shut'),
+    'split':      ('split', 'split'),
+    'spread':     ('spread', 'spread'),
+    'cost':       ('cost', 'cost'),
+    'dig':        ('dug', 'dug'),
+    'spin':       ('spun', 'spun'),
+    'light':      ('lit', 'lit'),
+    'slay':       ('slew', 'slain'),
 }
 
 
@@ -531,7 +539,12 @@ def inflect_gloss(bare_gloss, tvm, lemma=None):
     # mood symbols ?, !, →, ~ carry the mood signal; avoid misleading
     # "may VERB" over every subjunctive).
     if m != 'I':
-        if v == 'P':
+        # Apply passive-voice templates for subjunctive / imperative /
+        # optative / infinitive — and for PRESENT passive participle
+        # ("being said" for λεγόμενος). Aorist / perfect passive participle
+        # falls through to bare gloss per Stan's "just -ing, no interpretation"
+        # participle policy — the template's toGerund handles them.
+        if v == 'P' and (m != 'P' or t == 'P'):
             norm = _strip_lead_article(bare_gloss)
             cls = _classify(norm)
             if cls[0] == 'verbal' and re.fullmatch(r'[a-zA-Z]+', cls[1]):
@@ -539,7 +552,7 @@ def inflect_gloss(bare_gloss, tvm, lemma=None):
                 past_ptc = _phrasal_past_participle(head, tail)
                 if m == 'N':  # infinitive
                     return 'to be ' + past_ptc
-                if m == 'P':  # participle — use -ing form
+                if m == 'P':  # present passive participle
                     return 'being ' + past_ptc
                 # Subjunctive / optative / imperative
                 return 'be ' + past_ptc

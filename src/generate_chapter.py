@@ -1036,6 +1036,104 @@ _GLOSS_OVERRIDE = {
     'ἀληθής':        'true',                # Dodson "unconcealed" is etymological; NT use = "true"
     'ἀληθινός':      'true',                # same etymological issue
     'ἀλήθεια':       'truth',               # confirm clean default
+    # ── Chapter-reviewer findings (Acts 13, 17, 26, Romans 3) ─────────────
+    'κατοικέω':      'live in',             # "dwell in" — archaic
+    'ἅγιος':         'holy',                # "set apart" — etymological; "holy" standard
+    'ἐγκαλέω':       'accuse',              # passive rendered "is brought a charge against"
+    'ἀχρειόομαι':    'be useless',          # "be good for nothing"
+    'σύντροφος':     'childhood companion', # "foster brother" — archaic
+    # ── Sonnet etymological-sweep adds (NT-standard over Dodson first-senses) ──
+    'γίνομαι':       'become',              # Dodson "come into being" → NT primary
+    'οὐρανός':       'heaven',              # "the sky" → heaven (theological)
+    'δόξα':          'glory',               # "honor" → NT standard = glory
+    'βασιλεία':      'kingdom',             # "kingship" → NT noun = kingdom
+    'ἔθνος':         'nation',              # "a race" → nation/Gentiles
+    'φωνή':          'voice',               # "a sound" → voice
+    'ψυχή':          'soul',                # "the soul, life, self"
+    'ἀποθνῄσκω':     'die',                 # "I am dying, am about to die"
+    'σῴζω':          'save',                # "I save, heal"
+    'ζητέω':         'seek',
+    'ἀκολουθέω':     'follow',              # "I accompany, attend, follow"
+    'ἀφίημι':        'forgive',             # "I send away" → NT primary = forgive/leave
+    'ἐγείρω':        'raise',               # "I wake, arouse" → NT = raise (resurrection)
+    'αἴρω':          'take up',             # "I raise, lift up"
+    'φυλακή':        'prison',              # "a watching"
+    'ῥῆμα':          'word',                # "a thing spoken"
+    'σωτηρία':       'salvation',           # "deliverance"
+    'πληρόω':        'fulfill',             # "I fill, fulfill"
+    'ἐκβάλλω':       'cast out',            # "I throw"
+    'βαπτίζω':       'baptize',             # "I dip, submerge" — "dip" misleads
+    'σημεῖον':       'sign',                # "a sign, miracle"
+    'μαρτυρέω':      'testify',             # "I witness"
+    'εὐαγγέλιον':    'gospel',              # "the good news"
+    'ἀποκτείνω':     'kill',                # "I put to death, kill"
+    'τηρέω':         'keep',                # "I keep, guard, observe"
+    'τιμή':          'honor',               # "a price, honor" — price rare in NT
+    'περισσεύω':     'abound',              # "I exceed, am left over"
+    'κρίσις':        'judgment',            # "judging" (gerund) → NT noun
+    'θλῖψις':        'tribulation',         # "persecution"
+    'θαυμάζω':       'marvel',              # "I wonder, admire"
+    'φωνέω':         'call',                # "I crow, shout, summon" — "crow" is of roosters
+    'ἐγγίζω':        'draw near',           # "I come near, approach"
+    'ἐργάζομαι':     'work',                # Dodson has typo "I word, trade, do"
+    'ὑποτάσσω':      'submit',              # "I place under, subject to"
+    'διακονέω':      'serve',               # "I wait at table, serve"
+    'διακονία':      'ministry',            # "waiting at table, service"
+    'ἐπιστρέφω':     'turn',                # "I turn back to"
+    'Σατανᾶς':       'Satan',               # "an adversary, Satan" — proper name
+    'διάβολος':      'devil',               # "slanderous, the Slanderer"
+    'ἀρχή':          'beginning',           # "ruler, beginning" — ἄρχων = ruler
+    'λογίζομαι':     'reckon',              # Pauline standard
+    'καταργέω':      'abolish',             # "I bring to naught, sever"
+    'μυστήριον':     'mystery',             # "anything hidden"
+    'διαθήκη':       'covenant',            # "a covenant, will, testament"
+    'ἐνδύω':         'clothe',              # "I put on, clothe"
+    'θυμός':         'wrath',               # "an outburst of passion"
+    'ὁμολογέω':      'confess',
+    'ἄφεσις':        'forgiveness',         # "deliverance, pardon"
+    'ἀποκαλύπτω':    'reveal',
+    'ἀποκάλυψις':    'revelation',          # "an unveiling, uncovering"
+    'χαρίζομαι':     'forgive',             # "I show favor to, forgive"
+    'χάρισμα':       'gift',                # "an undeserved favor"
+    'εὐλογία':       'blessing',            # "adulation, praise, blessing" — "adulation" wrong
+    'ἐκπορεύομαι':   'go out',              # "I journey out, come forth"
+    'ὑπομένω':       'endure',              # "I remain behind, endure"
+    'φαίνω':         'appear',              # "I shine, appear, seem" — NT primary = appear
+    'λυπέω':         'grieve',
+    'κοιμάομαι':     'sleep',               # "I fall asleep" — euphemism for die
+    'ἀθετέω':        'reject',              # "I annul"
+    'πειρασμός':     'temptation',          # "trial, testing, temptation"
+    'στρέφω':        'turn',
+    'ὑψόω':          'exalt',
+    'φανερόω':       'reveal',
+    'θεμέλιος':      'foundation',
+    'κοπιάω':        'labor',               # "I grow weary, toil"
+    'σκάνδαλον':     'stumbling block',
+    'εἰκών':         'image',
+    'ἀρέσκω':        'please',
+    'διακρίνω':      'doubt',               # "I distinguish, discern, doubt" — NT James/Romans = doubt
+    'δέσμιος':       'prisoner',            # "one bound, a prisoner"
+    'δεσμός':        'chain',               # "a bond, chain"
+    'ξένος':         'stranger',            # "new, novel, a foreigner"
+    'γυμνός':        'naked',               # "wearing only the under-garment"
+    'συμφέρω':       'be profitable',       # "I collect, am profitable to"
+    'κολλάομαι':     'cling to',            # "I glue, cleave"
+    'συνέχω':        'compel',              # "I press together, confine, compel"
+    'πρόθεσις':      'purpose',             # "the show-bread, predetermination" — Pauline = purpose
+    'ἀναχωρέω':      'withdraw',            # "I return, retire, depart, withdraw" — "I return" is wrong first sense
+    'ὑστέρημα':      'need',                # "that which is lacking, poverty"
+    'ἄφρων':         'fool',                # "senseless, foolish"
+    'ἰσχύω':         'be able',             # "I am strong, able" — NT primary
+    'πάρειμι':       'be present',
+    'μεθύω':         'be drunk',
+    'καθέζομαι':     'sit',
+    'ἀρκέω':         'be content',          # "I am sufficient, I suffice"
+    'θαρρέω':        'be confident',        # "I am courageous"
+    'σωφρονέω':      'be self-controlled',  # "I am sober-minded"
+    'ἀπορέω':        'be perplexed',        # "I am in difficulties"
+    'αἰσχύνομαι':    'be ashamed',
+    'ἐκλύομαι':      'grow weary',          # "I am unstrung" — archaic
+    'μαίνομαι':      'be mad',              # "I am raving mad"
 }
 
 
