@@ -8,10 +8,10 @@ Read this file completely before doing anything in this repo. It is your orienta
 
 A browser-based morpheme reader for the Greek New Testament. Each Greek word is decomposed into its morphological pieces (preposition prefix → augment → stem → formative → ending), with color-coded visual annotations that students can toggle on/off layer-by-layer. The goal: let students **see** Greek morphology rather than decode abbreviations mentally.
 
-**Status:** Full book of Acts published (28 chapters, 18,412 words, 99.5%+ validated correctness). Other books not yet generated.
+**Status:** Full book of Acts published (28 chapters, 99.5%+ validated correctness). Pipeline is book-agnostic as of 2026-04-17 (Bundle 3 refactor): `src/books.py` registry, `--book` arg on `generate_chapter.py`, `src/audit_coverage.py` pre-generation gate. Other books being generated as schedule allows.
 
 - **Repo:** github.com/bibleman-stan/readers-gnt-morph (public)
-- **Deploy target:** gnt-reader.com/analysis/morph/ (not yet wired; TBD)
+- **Deploy:** live at `morph.gnt-reader.com` (GitHub Pages, `docs/` folder).
 - **User:** Stan (thebibleman77@gmail.com)
 
 ---
@@ -70,22 +70,29 @@ Repo layout (run all commands from repo root):
   - `docs/<book>/<N>.html` — chapter readers
 
 ```bash
-# First, ensure MorphGNT has the book file at data/morphgnt/<NN>-<BookCode>-morphgnt.txt
-# e.g. 52-Ro-morphgnt.txt for Romans
+# 1. Verify the book is in the registry (src/books.py). If not, add it
+#    with display name, MorphGNT file, chapter count, canonical order.
 
-# Edit src/generate_chapter.py: change MORPHGNT constant to the target book file
-# (and pass the appropriate book_code='romans' etc. to generate_chapter_json)
+# 2. Audit verb-stem coverage before committing to generate.
+#    Fails with list of missing lemmas if below 90%.
+PYTHONIOENCODING=utf-8 python src/audit_coverage.py <book-code>
+# e.g. python src/audit_coverage.py romans
 
-mkdir -p build/<book> docs/<book>
+mkdir -p build/<book-code> docs/<book-code>
 
-# Generate
-python src/generate_chapter.py <chapter-num> > build/<book>/<N>.json
+# 3. Generate the chapter JSON
+PYTHONIOENCODING=utf-8 python src/generate_chapter.py <chapter-num> --book <book-code> \
+    > build/<book-code>/<N>.json
 
-# Validate
-PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/<book>/<N>.json
+# 4. Validate morphology
+PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/<book-code>/<N>.json
 
-# If 100% or close, build the reader
-python src/build_html.py build/<book>/<N>.json templates/reader.html docs/<book>/<N>.html
+# 5. Validate glosses (anti-pattern scan + ground-truth test set)
+PYTHONIOENCODING=utf-8 python src/validate_glosses.py build/<book-code>/<N>.json
+
+# 6. If green, build the reader
+python src/build_html.py build/<book-code>/<N>.json templates/reader.html \
+    docs/<book-code>/<N>.html
 ```
 
 Expect 2-5 new edge-case categories when you run on Romans (dense argumentation), Hebrews (unusual perfects), or Revelation (apocalyptic lexicon, proper names). All should be fixable via the same methodology used for Acts — extend `morpheus.py` rules, re-run validator, ensure no regressions on Acts.

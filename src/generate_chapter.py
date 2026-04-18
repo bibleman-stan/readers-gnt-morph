@@ -8,10 +8,27 @@ import yaml
 from collections import defaultdict
 
 DATA = os.path.join(os.path.dirname(__file__), '..', 'data')
-MORPHGNT = os.path.join(DATA, 'morphgnt', '65-Ac-morphgnt.txt')
 STEMS_FILE = os.path.join(DATA, 'greek-inflexion', 'STEM_DATA', 'morphgnt_lexicon.yaml')
 LEXEMES_FILE = os.path.join(DATA, 'morphological-lexicon', 'lexemes.yaml')
-SENSE_LINES_DIR = 'C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial'
+# Sense-line files live in the sibling readers-gnt repo. Absolute path
+# works on Stan's machine; override via SENSE_LINES_DIR env var for
+# other environments. Fallback to common repo layouts.
+SENSE_LINES_DIR = os.environ.get(
+    'SENSE_LINES_DIR',
+    'C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial'
+)
+
+# Book registry — single source of truth for MorphGNT filenames + display names.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from books import BOOKS
+
+
+def morphgnt_path_for(book_code):
+    """Resolve a book code (e.g., 'acts', 'romans') to its MorphGNT file path."""
+    if book_code not in BOOKS:
+        raise ValueError(f'unknown book code: {book_code!r}; '
+                         f'known: {sorted(BOOKS.keys())}')
+    return os.path.join(DATA, 'morphgnt', BOOKS[book_code]['file'])
 
 # ═══ LOAD DATA ═══
 
@@ -988,6 +1005,28 @@ _GLOSS_OVERRIDE = {
     'ἰδού': 'behold!',
     'ἴδε': 'look!',
     'ὄφελον': 'would that',
+    # ── Pre-scale non-Acts trap lemmas (freq ≥10, not in Acts) ─────────
+    # Surfaced by lexicon scan 2026-04-17; all have Dodson glosses that
+    # produce awkward or incorrect output when inflected.
+    'ἀμήν':          'amen',                # 128x; Dodson runs 4 synonyms
+    'δοκιμάζω':      'test',                # long multi-sense
+    'γεωργός':       'farmer',              # definitional
+    'οἰκοδομή':      'building',            # long
+    'ῥίζα':          'root',                # self-referential
+    'δεῖπνον':       'dinner',              # long
+    'σφραγίς':       'seal',                # long
+    'ποτίζω':        'give to drink',
+    'συνίστημι':     'commend',             # 5 senses in Dodson
+    'ἀνά':           'up',                  # overstuffed preposition entry
+    'δαιμονίζομαι':  'be demon-possessed',
+    'καταισχύνω':    'shame',
+    'ἀναπαύω':       'give rest',
+    'ἀναπίπτω':      'recline',
+    'ὑγιαίνω':       'be healthy',
+    'γέμω':          'be full of',
+    'ἐπαισχύνομαι':  'be ashamed',
+    'ἀναφέρω':       'offer up',
+    'μακροθυμέω':    'be patient',
 }
 
 
@@ -1069,7 +1108,23 @@ def generate_lexicon_json(words, lexicon, freq):
 
 
 def main():
-    chapter = int(sys.argv[1]) if len(sys.argv) > 1 else 9
+    # Backwards-compat: `python generate_chapter.py 9` still works for Acts.
+    # New form: `python generate_chapter.py --book romans 3`.
+    import argparse
+    parser = argparse.ArgumentParser(description='Generate per-chapter morph JSON.')
+    parser.add_argument('chapter', type=int, help='Chapter number within the book')
+    parser.add_argument('--book', default='acts',
+                        help='Book code from src/books.py (default: acts)')
+    args = parser.parse_args()
+
+    book_code = args.book.lower()
+    chapter = args.chapter
+    if book_code not in BOOKS:
+        print(f'ERROR: unknown book code {book_code!r}. Known: '
+              f'{", ".join(sorted(BOOKS.keys()))}', file=sys.stderr)
+        sys.exit(2)
+    book_display = BOOKS[book_code]['display']
+    morphgnt_file = morphgnt_path_for(book_code)
 
     print(f"Loading stems...", file=sys.stderr)
     stems_db = load_stems()
@@ -1083,15 +1138,15 @@ def main():
     freq = load_nt_frequencies()
     print(f"  {len(freq)} lemmas", file=sys.stderr)
 
-    print(f"Processing Acts {chapter}...", file=sys.stderr)
-    words = load_morphgnt_chapter(MORPHGNT, chapter)
+    print(f"Processing {book_display} {chapter}...", file=sys.stderr)
+    words = load_morphgnt_chapter(morphgnt_file, chapter)
 
-    data = generate_chapter_json(MORPHGNT, chapter, stems_db, lexicon, freq,
-                                 book_code='acts')
+    data = generate_chapter_json(morphgnt_file, chapter, stems_db, lexicon, freq,
+                                 book_code=book_code)
     lex = generate_lexicon_json(words, lexicon, freq)
 
     output = {
-        'book': 'Acts',
+        'book': book_display,
         'chapter': chapter,
         'data': data,
         'lex': lex,

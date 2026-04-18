@@ -658,9 +658,87 @@ Deferred to next session (sized as the larger lift):
 - **Full gloss-inflection design.** Two adversarial Opus subagents produced a comprehensive plan covering all 6 indicative tenses × 3 voices, fixing the aorist-participle "VERB-ing" bug (should be "having VERB-ed"), adding passive templates throughout, and explicitly leaving subjunctive/optative/imperative bare for v1 (because "may VERB" misleads English readers as permission, and the morph layer already shows mood). The plan also calls for a hand-curated override table for ~20 trap lemmas (εἰμί, οἶδα, δύναμαι, μέλλω, δεῖ, deponents like ἔρχομαι/ἀποκρίνομαι where naive voice-handling produces "was answered" for ἀπεκρίθη when it should stay "answered"), and a gloss-output validator wired into the existing validator discipline. Architecture: add `tvm` (3-char tense+voice+mood) field to verb entries in chapter JSON; do inflection client-side via vetted irregular-verb table (~200 standard English irregulars). Estimated half-session of focused work, with most time on the override curation and validator, not the inflection logic itself.
 
 Open items for next session:
-- Implement the gloss-inflection plan above (validator first, then engine, then override curation).
-- Generate Romans (next book target).
+- Generate Romans (next book target; pipeline is now book-ready).
 - Future UI additions deferred from this round: full nav-panel overlay (defer until book #2 exists; with only Acts it just duplicates the chapter grid).
+
+### 2026-04-17 (later) — Bundle 3: pipeline scales to full GNT
+
+Agent-parallelized pre-scale hardening. Dispatched 12 Haiku subagents
+simultaneously to map every scaling-relevant surface of the codebase,
+then synthesized findings into a single integration pass. Methodological
+note: this is the first full-scale exercise of the new
+`feedback_decompose_for_haiku.md` memory — the 12-way parallel scan
+replaced what would have been ~2 hours of serial main-context work.
+
+What landed:
+
+- **`src/books.py` — canonical book registry.** Per-book metadata
+  (display name, MorphGNT file, chapter count, canonical order) for
+  all 27 NT books. Single source of truth; referenced by
+  `generate_chapter.py`, `build_html.py`, and anything else that
+  needs book-aware routing.
+- **`src/audit_coverage.py` — pre-generation gate.** Given a book
+  code (or `--all`), audits verb-lemma coverage against
+  greek-inflexion's stems database. Fails below threshold (default
+  90%). Empirical result: all 27 books ≥98.9%, so the gate is
+  defense-in-depth rather than blocking. Still worth running before
+  committing to a book so surprises are caught early.
+- **`generate_chapter.py` refactored.** Dropped hardcoded Acts
+  references (MORPHGNT constant, default `book_code='acts'`,
+  "Processing Acts" log). Now takes `--book` argparse flag defaulting
+  to acts for backwards-compat. Looks up MorphGNT path and display
+  name from `books.py`. `SENSE_LINES_DIR` now respects an env var
+  (`SENSE_LINES_DIR`) for portability.
+- **`build_html.py` refactored.** Dropped local `BOOK_CHAPTERS`
+  dict; uses `books.py` registry. New books automatically pick up
+  chapter navigation without editing build_html.
+- **Validator skip-lists extended** for non-Acts genres. From
+  greek-inflexion scans: +22 `PERFECT_WITHOUT_KAPPA` entries (mostly
+  -έρχομαι / -ίστημι / -λαμβάνω compounds and root perfects), +35
+  `ROOT_AORIST_LEMMAS` entries (2nd-aorist markers and their
+  compounds). Tuned to catch regressions in epistles/Revelation
+  without widening the skip-window beyond what real 2nd-perfect and
+  root-aorist patterns demand.
+- **`_GLOSS_OVERRIDE` extended with 21 non-Acts trap lemmas.**
+  Surfaced by cross-referencing the Dodson lexicon with NT-wide
+  frequency, filtered to lemmas with freq ≥10 that don't appear in
+  Acts. Examples: ἀμήν, δοκιμάζω, γεωργός, ὑγιαίνω, γέμω, μακροθυμέω.
+- **`docs/about.html` rewritten** to be book-agnostic. Title,
+  heading, opening paragraph no longer Acts-specific. "Try Acts 1 →"
+  / "Try Acts 13 →" links preserved since Acts remains the currently
+  live example. Also picked up a note about the `ℓ` bare-glosses
+  toggle that Bundle 2 added.
+- **CLAUDE.md** workflow section updated: new `--book` arg,
+  pre-generation coverage audit step, explicit `validate_glosses.py`
+  gate after `validate_chapter.py`.
+
+What's NOT in this bundle (honest note):
+
+- **Stress-test regression chapter set not yet expanded.** Two
+  agents proposed partly-overlapping non-Acts chapter sets (Hebrews
+  1/11, Romans 3/8, John 1/6, Revelation 5, Mark 1, 1 Cor 15). When
+  the first non-Acts book ships, pick a ~4-chapter subset for the
+  regression fence. Deferred because running it before those
+  chapters exist would require speculative test expectations.
+- **README.md** not fully updated. The drift agent flagged ~8
+  edits (mostly path modernizations from the old `acts<N>_data.json`
+  flat layout to `build/<book>/<N>.json` tree). Low urgency;
+  CLAUDE.md is the authoritative operator doc anyway.
+- **Cross-book chapter navigation** (Acts 28 → Romans 1) still not
+  wired; deferred per scaling-audit recommendation until second book
+  exists.
+
+Validator state at session end:
+- Morphological validator: 99.5%+ on Acts 9 (unchanged — no
+  morpheus.py touched this bundle).
+- Gloss validator: 71/71 ground-truth tests pass; 0 anti-pattern hits
+  across all 5 stress-test chapters.
+- Coverage audit (`audit_coverage.py --all`): 25/27 books at 100%;
+  James 98.9%, Galatians 99.0% (~2 rare particles each); all pass the
+  90% threshold.
+
+Ready for Romans: register in `books.py` (already done), run
+`audit_coverage.py romans` (passes), generate, validate, build.
 
 ### 2026-04-17 (later still still) — gloss inflection v1 shipped
 

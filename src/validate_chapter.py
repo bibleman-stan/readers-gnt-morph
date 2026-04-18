@@ -106,20 +106,41 @@ SUPPLETIVE_AUG_OK = {
     'καταφέρω',    # κατήνεγκα — suppletive aorist ἤνεγκα with compound
 }
 
-# Known 2nd-perfect / irregular perfect verbs that don't use κα formative
+# Known 2nd-perfect / irregular perfect verbs that don't use κα formative.
+# Extended 2026-04-17 via lexicon scan of greek-inflexion 4-/4+ stems —
+# adding -έρχομαι, -ίστημι, -λαμβάνω compounds and root perfects that
+# Acts-only testing didn't stress.
 PERFECT_WITHOUT_KAPPA = {
     'οἶδα', 'ἔοικα', 'γίνομαι', 'πάσχω', 'πείθω',
     'λαμβάνω', 'ἵστημι',  # ἕστηκα is 2nd perfect
+    # Pre-scale additions:
+    'ἀκούω', 'γράφω', 'ἀπόλλυμι', 'εἴωθα', 'σήπω', 'σύνοιδα',
+    'ἔρχομαι', 'εἰσέρχομαι', 'ἐξέρχομαι', 'ἀπέρχομαι', 'διέρχομαι',
+    'παρέρχομαι', 'προσέρχομαι', 'συνέρχομαι',
+    'ἐνίστημι', 'ἐφίστημι', 'συνίστημι', 'προΐστημι', 'περιΐστημι',
+    'καταλαμβάνω', 'συλλαμβάνω', 'προγίνομαι',
 }
 
-# Verbs that take root aorists (no σα formative)
+# Verbs that take root aorists (no σα formative).
+# Extended via lexicon scan for {2nd}/{root} YAML markers.
 ROOT_AORIST_LEMMAS = {
     'τίθημι', 'δίδωμι', 'ἵημι', 'γινώσκω', 'βαίνω',
     'λαμβάνω', 'λέγω', 'ὁράω', 'ἐσθίω', 'πίνω', 'ἔρχομαι',
     'πίπτω', 'εὑρίσκω', 'φεύγω', 'ἔχω', 'τρέχω', 'ἄγω',
-    'βάλλω', 'λείπω', 'τυγχάνω', 'μανθάνω', 'τυγχάνω',
+    'βάλλω', 'λείπω', 'τυγχάνω', 'μανθάνω',
     'ἁμαρτάνω', 'πάσχω', 'γίνομαι', 'ἵστημι', 'φημί',
     'αἱρέω', 'ἀποθνῄσκω', 'λαγχάνω',
+    # Pre-scale additions:
+    'θιγγάνω', 'κάμνω', 'λανθάνω', 'πυνθάνομαι', 'τίκτω',
+    'δύνω', 'δείκνυμι', 'ῥήγνυμι',
+    'ἀφικνέομαι', 'ἐφικνέομαι', 'καθαιρέω',
+    # -έρχομαι compounds inherit root-aorist from ἔρχομαι:
+    'εἰσέρχομαι', 'ἐξέρχομαι', 'προέρχομαι', 'παρέρχομαι',
+    'κατέρχομαι', 'συνέρχομαι', 'ἀπέρχομαι', 'ἐπέρχομαι',
+    'περιέρχομαι', 'ἀνέρχομαι',
+    # -ἐσθίω / -λαμβάνω / -δίδωμι compounds likewise:
+    'συνεσθίω', 'καταλείπω', 'παραλαμβάνω', 'προσλαμβάνω',
+    'παραδίδωμι',
 }
 # Also add known compounds via prefix matching
 

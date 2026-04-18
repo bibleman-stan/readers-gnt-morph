@@ -4,11 +4,16 @@ Inject generated chapter JSON into the HTML template to produce a standalone fil
 """
 import json, sys, os
 
-# Chapter counts per book — used for inter-chapter navigation boundary checks.
-# Extend as new books are generated.
-BOOK_CHAPTERS = {
-    'Acts': 28,
-}
+# Chapter counts per book are derived from the canonical registry in
+# src/books.py — no need to duplicate here. Keyed by display name
+# ("Acts", "Romans", "1 Corinthians") since that's what lives in the
+# chapter JSON's `book` field.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from books import BOOKS, display_to_code
+
+def _chapters_for_display(display):
+    code = display_to_code(display)
+    return BOOKS[code]['chapters'] if code else 0
 
 def main():
     data_file = sys.argv[1] if len(sys.argv) > 1 else 'build/acts/9.json'
@@ -24,7 +29,7 @@ def main():
     # Inject data and chapter info
     book = data.get('book', 'Acts')
     chapter = data.get('chapter', '?')
-    total_chapters = BOOK_CHAPTERS.get(book, 0)
+    total_chapters = _chapters_for_display(book)
     ch_json = json.dumps(data['data'], ensure_ascii=False)
     lex_json = json.dumps(data['lex'], ensure_ascii=False)
 
