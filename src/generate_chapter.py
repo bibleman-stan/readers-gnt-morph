@@ -1134,6 +1134,33 @@ _GLOSS_OVERRIDE = {
     'αἰσχύνομαι':    'be ashamed',
     'ἐκλύομαι':      'grow weary',          # "I am unstrung" — archaic
     'μαίνομαι':      'be mad',              # "I am raving mad"
+    # ── Reviewer batch 2 overrides (post-Bundle-3 horde) ─────────────────
+    'εἰμί':          'be',                  # CRITICAL: bare "am" caused "was amming" bug
+    'Χριστός':       'Christ',              # proper name, not etymological "anointed"
+    'κύριος':        'Lord',                # capitalized (NT-theological standard)
+    'ἀνήρ':          'man',                 # "male human being" too clinical
+    'αἵρεσις':       'sect',                # "self-chosen opinion" definitional
+    'μέν':           'indeed',              # "truly" archaic for this particle
+    'ὅθεν':          'therefore',           # "whence" archaic
+    'ὑποβάλλω':      'instigate',           # "suborn" archaic legal English
+    'ἐκλογή':        'election',            # "choosing out" — theological standard
+    'ἐνδείκνυμαι':   'demonstrate',         # "show forth" archaic
+    'εὐρακύλων':     'northeaster',         # drop the parenthetical "(wind)"
+    'συντρίβω':      'crush',               # "break by crushing" redundant
+    'δίδωμι':        'give',                # "offer" etymological drift
+    'βούλομαι':      'want',                # "will" leads Dodson entry, confusing
+    'ἐπέχω':         'fix attention on',    # "hold forth" archaic
+    'μεταμορφόομαι': 'be transformed',      # "change the form" awkward
+    'μετοικίζω':     'resettle',            # "transport" stiff
+    'ἐμφανίζω':      'reveal',              # "make visible" wordy
+    'ἀδικέω':        'wrong',               # "act unjustly towards" wordy
+    'ἀνατίθεμαι':    'lay before',          # "lay a case before" wordy
+    'εἰσπηδάω':      'rush in',             # "leap into" stiff
+    'παρανομέω':     'break the law',       # "act contrary to law"
+    'προσκλίνομαι':  'adhere to',
+    'ἀναστρέφω':     'conduct oneself',
+    'πράσσω':        'do',                  # confirm — standard
+    'ἀνθίστημι':     'withstand',           # "take a stand against" wordy
 }
 
 

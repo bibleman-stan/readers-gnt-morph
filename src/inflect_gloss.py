@@ -122,6 +122,25 @@ IRREGULAR = {
     'spin':       ('spun', 'spun'),
     'light':      ('lit', 'lit'),
     'slay':       ('slew', 'slain'),
+    # Reviewer-caught (batch 2):
+    'break':      ('broke', 'broken'),
+    'bend':       ('bent', 'bent'),
+    'cast':       ('cast', 'cast'),
+    # Polysyllabic verbs where the stressed final syllable ends in
+    # a single consonant — they double in past tense but the
+    # 1-vowel heuristic doesn't apply. Handle explicitly.
+    'submit':     ('submitted', 'submitted'),
+    'permit':     ('permitted', 'permitted'),
+    'commit':     ('committed', 'committed'),
+    'admit':      ('admitted', 'admitted'),
+    'omit':       ('omitted', 'omitted'),
+    'prefer':     ('preferred', 'preferred'),
+    'refer':      ('referred', 'referred'),
+    'occur':      ('occurred', 'occurred'),
+    'transfer':   ('transferred', 'transferred'),
+    'regret':     ('regretted', 'regretted'),
+    'control':    ('controlled', 'controlled'),
+    'begin':      ('began', 'begun'),
 }
 
 
@@ -185,9 +204,11 @@ def _present_third_singular(verb):
 # tvm_pattern can be a full 3-char code or a wildcard '*' for catch-all.
 # Most-specific match wins (full code > wildcard).
 LEMMA_OVERRIDES = {
-    # εἰμί — full suppletive paradigm; bare lexicon "I am" is useless for inflection
+    # εἰμί — full suppletive paradigm; bare lexicon "I am" is useless for inflection.
+    # Note: Greek imperfect of εἰμί uses middle endings (ἤμην, ἦσθα, ἦν...),
+    # so MorphGNT tags 1st-person imperfect as IMI. Handle both.
     'εἰμί': {
-        'PAI': 'is',  'IAI': 'was', 'FMI': 'will be',
+        'PAI': 'is',  'IAI': 'was', 'IMI': 'was', 'FMI': 'will be',
         'PAS': 'be',  'PAO': 'might be', 'PAN': 'to be', 'PAP': 'being',
     },
     # οἶδα — perfect form, present meaning
@@ -223,10 +244,20 @@ LEMMA_OVERRIDES = {
         'AAI': 'came', 'API': 'came', 'AMI': 'came',
         'IMI': 'was coming',
     },
-    # γίνομαι — deponent ("become / happen")
+    # γίνομαι — deponent ("become / happen"). API is passive-form but
+    # active-semantics; APD "be become" would be nonsensical.
     'γίνομαι': {
         'AMI': 'became', 'API': 'became',
         'IMI': 'was becoming',
+        'APD': 'become',        # "let it be/become" — Γενηθήτω
+        'AMD': 'become',
+        'APS': 'become',
+        'AMS': 'become',
+        'XAI': 'become',        # perfect XAI γέγονεν → "become" (stative)
+        'YAI': 'had become',
+        'AAP': 'becoming',      # AMP/APP participles stay -ing per policy
+        'AMP': 'becoming',
+        'APP': 'becoming',
     },
     # πορεύομαι — deponent ("go")
     'πορεύομαι': {
@@ -272,6 +303,17 @@ LEMMA_OVERRIDES = {
     'φοβέομαι': {
         'API': 'feared', 'AMI': 'feared',
         'IMI': 'was fearing',
+    },
+    # ἐλεάω — "have mercy" phrasal; naive passive inflection produces
+    # "was had mercy" which is broken English.
+    'ἐλεάω': {
+        'API': 'was shown mercy',
+        'APS': 'be shown mercy',
+        'APD': 'be shown mercy',
+        'FPI': 'will be shown mercy',
+        'XPI': 'shown mercy',
+        'APP': 'shown mercy',
+        'XPP': 'shown mercy',
     },
     # ἄρχω — Dodson "(act.) I reign, (mid.) I begin". All 10 Acts
     # occurrences are middle; NT use is overwhelmingly middle
@@ -539,28 +581,44 @@ def inflect_gloss(bare_gloss, tvm, lemma=None):
     # mood symbols ?, !, →, ~ carry the mood signal; avoid misleading
     # "may VERB" over every subjunctive).
     if m != 'I':
-        # Apply passive-voice templates for subjunctive / imperative /
-        # optative / infinitive — and for PRESENT passive participle
-        # ("being said" for λεγόμενος). Aorist / perfect passive participle
-        # falls through to bare gloss per Stan's "just -ing, no interpretation"
-        # participle policy — the template's toGerund handles them.
-        if v == 'P' and (m != 'P' or t == 'P'):
+        # Apply passive-voice templates for all non-indicative passive
+        # forms. Voice is not interpretation (the morphology IS passive);
+        # Stan's "no interpretation" policy applies to aspect/time
+        # (anterior vs simultaneous), not voice. We honor it by never
+        # emitting "having been X-ed" — just the bare past participle,
+        # which reads adjectivally in context.
+        #
+        # Template by mood:
+        #   subjunctive / imperative / optative → "be X-ed"
+        #   infinitive                          → "to be X-ed"
+        #   participle (present)                → "being X-ed"   (imperfective)
+        #   participle (aorist / perfect)       → "X-ed"         (perfective/stative)
+        #   participle (future)                 → "about to be X-ed"
+        if v == 'P':
             norm = _strip_lead_article(bare_gloss)
             cls = _classify(norm)
             if cls[0] == 'verbal' and re.fullmatch(r'[a-zA-Z]+', cls[1]):
                 head, tail = cls[1], cls[2]
                 past_ptc = _phrasal_past_participle(head, tail)
-                if m == 'N':  # infinitive
+                if m == 'N':   # infinitive
                     return 'to be ' + past_ptc
-                if m == 'P':  # present passive participle
-                    return 'being ' + past_ptc
+                if m == 'P':
+                    if t == 'P':      # present passive participle — imperfective
+                        return 'being ' + past_ptc
+                    if t == 'F':      # future passive participle — rare
+                        return 'about to be ' + past_ptc
+                    # Aorist / perfect passive participle — perfective / stative.
+                    # Bare past participle reads adjectivally in context.
+                    return past_ptc
                 # Subjunctive / optative / imperative
                 return 'be ' + past_ptc
             if cls[0] == 'stative':
                 if m == 'N':
                     return 'to be ' + cls[1]
                 if m == 'P':
-                    return 'being ' + cls[1]
+                    if t == 'P':
+                        return 'being ' + cls[1]
+                    return cls[1]
                 return 'be ' + cls[1]
         return bare_gloss
 

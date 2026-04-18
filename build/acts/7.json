@@ -1332,7 +1332,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "transported"
+      "igl": "resettled"
     },
     {
       "txt": "αὐτὸν",
@@ -1560,7 +1560,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "offered"
+      "igl": "gave"
     },
     {
       "txt": "αὐτῷ",
@@ -2851,7 +2851,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "offered"
+      "igl": "gave"
     },
     {
       "txt": "αὐτῷ",
@@ -3765,7 +3765,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "offered"
+      "igl": "gave"
     },
     {
       "txt": "αὐτῷ",
@@ -5613,7 +5613,7 @@
         }
       ],
       "tvm": "API",
-      "igl": "was transfered"
+      "igl": "was transferred"
     },
     {
       "txt": "εἰς",
@@ -7337,7 +7337,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "explained"
     },
     {
       "txt": "δὲ",
@@ -8331,7 +8332,7 @@
         }
       ],
       "tvm": "PPP",
-      "igl": "being acted unjustly towards"
+      "igl": "being wronged"
     },
     {
       "txt": "ἠμύνατο",
@@ -10220,7 +10221,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "fulfilled"
     },
     {
       "txt": "ἐτῶν",
@@ -11131,7 +11133,8 @@
           }
         }
       ],
-      "tvm": "AMP"
+      "tvm": "AMP",
+      "igl": "becoming"
     },
     {
       "txt": "Μωϋσῆς",
@@ -12674,7 +12677,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "seen"
     },
     {
       "txt": "αὐτῷ",
@@ -13602,7 +13606,8 @@
           }
         }
       ],
-      "tvm": "AMP"
+      "tvm": "AMP",
+      "igl": "becoming"
     },
     {
       "txt": "ἐν",
@@ -16336,7 +16341,7 @@
         }
       ],
       "tvm": "FAI",
-      "igl": "will transport"
+      "igl": "will resettle"
     },
     {
       "txt": "ὑμᾶς",
@@ -20402,7 +20407,8 @@
           }
         }
       ],
-      "tvm": "XPP"
+      "tvm": "XPP",
+      "igl": "opened fully"
     },
     {
       "br": true
@@ -21957,7 +21963,7 @@
       "f": 65
     },
     "ἀνήρ": {
-      "gl": "male human being",
+      "gl": "man",
       "f": 216
     },
     "ἀδελφός": {
@@ -21997,7 +22003,7 @@
       "f": 73
     },
     "εἰμί": {
-      "gl": "am",
+      "gl": "be",
       "f": 2456
     },
     "ἐν": {
@@ -22093,7 +22099,7 @@
       "f": 111
     },
     "μετοικίζω": {
-      "gl": "transport",
+      "gl": "resettle",
       "f": 2
     },
     "νῦν": {
@@ -22105,7 +22111,7 @@
       "f": 1605
     },
     "δίδωμι": {
-      "gl": "offer",
+      "gl": "give",
       "f": 415
     },
     "κληρονομία": {
@@ -22589,7 +22595,7 @@
       "f": 530
     },
     "ἀδικέω": {
-      "gl": "act unjustly towards",
+      "gl": "wrong",
       "f": 28
     },
     "ἀμύνομαι": {
@@ -22757,7 +22763,7 @@
       "f": 139
     },
     "κύριος": {
-      "gl": "lord",
+      "gl": "Lord",
       "f": 713
     },
     "ἔντρομος": {

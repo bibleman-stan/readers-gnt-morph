@@ -1363,7 +1363,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "sent out"
     },
     {
       "txt": "ὑπὸ",
@@ -1624,7 +1625,8 @@
           }
         }
       ],
-      "tvm": "AMP"
+      "tvm": "AMP",
+      "igl": "becoming"
     },
     {
       "txt": "ἐν",
@@ -2778,7 +2780,7 @@
         }
       ],
       "tvm": "IMI",
-      "igl": "was taking a stand against"
+      "igl": "was withstanding"
     },
     {
       "txt": "δὲ",
@@ -3229,7 +3231,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "filled"
     },
     {
       "txt": "πνεύματος",
@@ -4561,7 +4564,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "led up"
     },
     {
       "txt": "δὲ",
@@ -7293,7 +7297,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "offered"
+      "igl": "gave"
     },
     {
       "txt": "κριτὰς",
@@ -7490,7 +7494,7 @@
         }
       ],
       "tvm": "AAI",
-      "igl": "offered"
+      "igl": "gave"
     },
     {
       "txt": "αὐτοῖς",
@@ -10589,7 +10593,8 @@
           }
         }
       ],
-      "tvm": "XPP"
+      "tvm": "XPP",
+      "igl": "written"
     },
     {
       "br": true
@@ -11458,7 +11463,8 @@
           }
         }
       ],
-      "tvm": "AMP"
+      "tvm": "AMP",
+      "igl": "becoming"
     },
     {
       "br": true
@@ -12250,7 +12256,7 @@
         }
       ],
       "tvm": "FAI",
-      "igl": "will offer"
+      "igl": "will give"
     },
     {
       "txt": "ὑμῖν",
@@ -12460,7 +12466,7 @@
         }
       ],
       "tvm": "FAI",
-      "igl": "will offer"
+      "igl": "will give"
     },
     {
       "txt": "τὸν",
@@ -13788,7 +13794,8 @@
           }
         }
       ],
-      "tvm": "XPP"
+      "tvm": "XPP",
+      "igl": "said"
     },
     {
       "txt": "ἐν",
@@ -14576,7 +14583,8 @@
           }
         }
       ],
-      "tvm": "APP"
+      "tvm": "APP",
+      "igl": "loosed"
     },
     {
       "txt": "δὲ",
@@ -17105,7 +17113,8 @@
           }
         }
       ],
-      "tvm": "XPP"
+      "tvm": "XPP",
+      "igl": "assigned"
     },
     {
       "txt": "εἰς",
@@ -17817,8 +17826,7 @@
           }
         }
       ],
-      "tvm": "AAI",
-      "igl": "casted out"
+      "tvm": "AAI"
     },
     {
       "txt": "αὐτοὺς",
@@ -18312,7 +18320,7 @@
   ],
   "lex": {
     "εἰμί": {
-      "gl": "am",
+      "gl": "be",
       "f": 2456
     },
     "δέ": {
@@ -18408,7 +18416,7 @@
       "f": 5546
     },
     "κύριος": {
-      "gl": "lord",
+      "gl": "Lord",
       "f": 713
     },
     "νηστεύω": {
@@ -18476,7 +18484,7 @@
       "f": 67
     },
     "μέν": {
-      "gl": "truly",
+      "gl": "indeed",
       "f": 178
     },
     "οὖν": {
@@ -18576,7 +18584,7 @@
       "f": 176
     },
     "ἀνήρ": {
-      "gl": "male human being",
+      "gl": "man",
       "f": 216
     },
     "τις": {
@@ -18632,7 +18640,7 @@
       "f": 427
     },
     "ἀνθίστημι": {
-      "gl": "take a stand against",
+      "gl": "withstand",
       "f": 14
     },
     "Ἐλύμας": {
@@ -19012,7 +19020,7 @@
       "f": 7
     },
     "δίδωμι": {
-      "gl": "offer",
+      "gl": "give",
       "f": 415
     },
     "κριτής": {
