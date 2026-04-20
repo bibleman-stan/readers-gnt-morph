@@ -490,6 +490,112 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
 @media (max-width:600px) {
   .back-to-top { bottom:16px; right:16px; }
 }
+
+/* ═══ LOCATION PICKER (book/chapter/verse nav) ═══
+ * Ported from readers-gnt / readers-bofm sibling pattern.
+ * Two overlays: .nav-panel (full-screen, book list → chapter grid),
+ * and .verse-popover (bottom sheet, verse grid). */
+.tb-title {
+  cursor:pointer; padding:4px 8px; border-radius:6px;
+  transition:background var(--tr), color var(--tr);
+}
+.tb-title:hover { background:rgba(124,175,194,.12); }
+.tb-title::after {
+  content:' \25BE'; font-size:0.7em; opacity:.5; margin-left:2px;
+}
+
+.nav-panel {
+  position:fixed; inset:0; background:rgba(14,16,20,.98);
+  z-index:4000; display:none; flex-direction:column;
+  overflow-y:auto; -webkit-overflow-scrolling:touch;
+}
+.nav-panel.open { display:flex; }
+.nav-panel-header {
+  position:sticky; top:0; background:rgba(14,16,20,.98);
+  height:44px; padding:0 14px; display:flex; align-items:center;
+  gap:8px; z-index:1; border-bottom:1px solid var(--border-subtle);
+}
+.nav-panel-close {
+  width:36px; height:36px; display:flex; align-items:center;
+  justify-content:center; border-radius:6px; background:none;
+  border:none; color:var(--text-dim); cursor:pointer; font-size:20px;
+}
+.nav-panel-close:hover { color:var(--text-secondary); }
+.nav-panel-title {
+  font-size:13px; color:var(--text-secondary); font-weight:500;
+  letter-spacing:.02em;
+}
+.nav-panel-body {
+  padding:0 1em 40px; max-width:42em; margin:0 auto; width:100%;
+}
+.nav-book-row {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:11px 12px; border-radius:8px; cursor:pointer;
+  color:var(--text-secondary); font-size:14px; user-select:none;
+}
+.nav-book-row:hover { background:rgba(255,255,255,.03); color:var(--text-primary); }
+.nav-book-row.active { color:var(--accent); }
+.nav-book-chaps {
+  font-size:11px; color:var(--text-dim);
+}
+.nav-ch-grid {
+  display:none; flex-wrap:wrap; gap:5px;
+  padding:6px 12px 14px; border-bottom:1px solid var(--border-subtle);
+}
+.nav-ch-grid.visible { display:flex; }
+.nav-ch {
+  width:34px; height:30px; display:flex; align-items:center;
+  justify-content:center; border-radius:6px; font-size:12px;
+  color:var(--text-muted); cursor:pointer; background:none;
+  border:none; font-family:inherit;
+}
+.nav-ch:hover { background:rgba(255,255,255,.06); color:var(--text-secondary); }
+.nav-ch.current {
+  color:var(--accent); background:rgba(124,175,194,.15);
+  border:1px solid rgba(124,175,194,.3);
+}
+
+.verse-popover-scrim {
+  position:fixed; inset:0; background:rgba(0,0,0,.5);
+  z-index:4500; display:none; backdrop-filter:blur(2px);
+}
+.verse-popover-scrim.open { display:block; }
+.verse-popover {
+  position:fixed; bottom:0; left:0; right:0;
+  max-width:42em; margin:0 auto;
+  background:var(--bg-elevated);
+  border:1px solid var(--border-medium);
+  border-radius:12px 12px 0 0; padding:20px;
+  z-index:4600; transform:translateY(100%);
+  transition:transform .25s ease; max-height:60vh;
+  overflow-y:auto;
+}
+.verse-popover.open { transform:translateY(0); }
+.verse-popover-title {
+  font-size:14px; color:var(--accent); font-weight:600;
+  margin-bottom:4px; cursor:pointer;
+}
+.verse-popover-title:hover { text-decoration:underline; }
+.verse-popover-subtitle {
+  font-size:11px; color:var(--text-dim); margin-bottom:12px;
+  text-transform:uppercase; letter-spacing:.08em;
+}
+.verse-popover-grid {
+  display:flex; flex-wrap:wrap; gap:4px;
+}
+.verse-popover-num {
+  width:44px; height:44px; display:flex; align-items:center;
+  justify-content:center; border-radius:6px; font-size:13px;
+  color:var(--text-muted); cursor:pointer; border:1px solid transparent;
+  background:none; font-family:inherit;
+}
+.verse-popover-num:hover {
+  background:rgba(255,255,255,.06); color:var(--text-secondary);
+}
+.verse-popover-num.current {
+  color:var(--accent); border-color:rgba(124,175,194,.3);
+  background:rgba(124,175,194,.12);
+}
 </style>
 </head>
 <body>
@@ -497,6 +603,23 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
 <a class="float-nav prev" id="navPrev" href="#" title="Previous chapter (←)">‹</a>
 <a class="float-nav next" id="navNext" href="#" title="Next chapter (→)">›</a>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- Nav panel: full-screen book list → per-book chapter grid → verse popover -->
+<div class="nav-panel" id="nav-panel">
+  <div class="nav-panel-header">
+    <button class="nav-panel-close" onclick="closeNav()" aria-label="Close">&times;</button>
+    <span class="nav-panel-title">Jump to…</span>
+  </div>
+  <div class="nav-panel-body" id="nav-body"></div>
+</div>
+
+<!-- Verse popover: bottom sheet with verse grid for a selected book+chapter -->
+<div class="verse-popover-scrim" id="verse-popover-scrim" onclick="closeVersePopover()"></div>
+<div class="verse-popover" id="verse-popover">
+  <div class="verse-popover-title" id="verse-popover-title" title="Go to chapter start">-</div>
+  <div class="verse-popover-subtitle">Select a verse</div>
+  <div class="verse-popover-grid" id="verse-popover-grid"></div>
+</div>
 <div id="app">
   <div class="toolbar">
     <button class="tab-bare active" onclick="setBare()">Bare</button>
@@ -603,7 +726,7 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
 
     <div class="tb-sep"></div>
     <a class="tb-back" href="./" title="Back to chapter list">←</a>
-    <span class="tb-title">3 John 1</span>
+    <span class="tb-title" id="tb-title" onclick="openNav()" title="Jump to book / chapter / verse">3 John 1</span>
     <div class="tb-spacer"></div>
     <button class="icon-btn" onclick="adjSize(-3)">A-</button>
     <button class="icon-btn" onclick="adjSize(3)">A+</button>
@@ -700,6 +823,18 @@ details.lg-sec > .lg-row:last-child { padding-bottom:10px; }
 // ═══ DATA — loaded from generated JSON ═══
 const CH_DATA = [{"v": 1}, {"txt": "Ὁ", "lem": "ὁ", "prs": "art nom sg masc", "stm": "Ὁ", "cs": "n", "segs": [{"t": "Ὁ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "πρεσβύτερος", "lem": "πρεσβύτερος", "prs": "adj nom sg masc", "stm": "πρεσβύτερ", "suf": "ος", "cs": "n", "segs": [{"t": "πρεσβύτερ", "ch": {"morph": "stm"}}, {"t": "ος", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "Γαΐῳ", "lem": "Γάϊος", "prs": "noun dat sg masc", "stm": "Γαΐ", "suf": "ῳ", "cs": "d", "segs": [{"t": "Γαΐ", "ch": {"morph": "stm"}}, {"t": "ῳ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "τῷ", "lem": "ὁ", "prs": "art dat sg masc", "stm": "τῷ", "cs": "d", "segs": [{"t": "τῷ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἀγαπητῷ,", "lem": "ἀγαπητός", "prs": "adj dat sg masc", "stm": "ἀγαπητ", "suf": "ῷ", "cs": "d", "segs": [{"t": "ἀγαπητ", "ch": {"morph": "stm"}}, {"t": "ῷ", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"txt": "ὃν", "lem": "ὅς", "prs": "rel.pron acc sg masc", "stm": "ὃ", "suf": "ν", "cs": "a", "segs": [{"t": "ὃ", "ch": {"morph": "stm"}}, {"t": "ν", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἐγὼ", "lem": "ἐγώ", "prs": "pers.pron nom sg", "stm": "ἐγὼ", "segs": [{"t": "ἐγὼ", "ch": {"morph": "stm"}}]}, {"txt": "ἀγαπῶ", "lem": "ἀγαπάω", "prs": "pres act ind 1 sg", "stm": "ἀγαπῶ", "segs": [{"t": "ἀγαπῶ", "ch": {"morph": "stm"}}], "tvm": "PAI"}, {"txt": "ἐν", "lem": "ἐν", "prs": "prep"}, {"txt": "ἀληθείᾳ.", "lem": "ἀλήθεια", "prs": "noun dat sg fem", "stm": "ἀληθεί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"v": 2}, {"txt": "Ἀγαπητέ,", "lem": "ἀγαπητός", "prs": "adj voc sg masc", "stm": "Ἀγαπητ", "suf": "έ", "cs": "v", "segs": [{"t": "Ἀγαπητ", "ch": {"morph": "stm"}}, {"t": "έ", "ch": {"morph": "suf", "case": "v"}}]}, {"txt": "περὶ", "lem": "περί", "prs": "prep"}, {"txt": "πάντων", "lem": "πᾶς", "prs": "adj gen pl neut", "stm": "πάντ", "suf": "ων", "cs": "g", "segs": [{"t": "πάντ", "ch": {"morph": "stm"}}, {"t": "ων", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "εὔχομαί", "lem": "εὔχομαι", "prs": "pres mid ind 1 sg", "stm": "εὔχ", "ve": "ομαί", "segs": [{"t": "εὔχ", "ch": {"morph": "stm"}}, {"t": "ομαί", "ch": {"morph": "ve"}}], "tvm": "PMI"}, {"txt": "σε", "lem": "σύ", "prs": "pers.pron acc sg", "stm": "σε", "segs": [{"t": "σε", "ch": {"morph": "stm"}}]}, {"txt": "εὐοδοῦσθαι", "lem": "εὐοδόομαι", "prs": "pres pass inf", "stm": "εὐοδο", "ve": "ῦσθαι", "segs": [{"t": "εὐοδο", "ch": {"morph": "stm"}}, {"t": "ῦσθαι", "ch": {"morph": "ve"}}], "tvm": "PPN", "igl": "to be caused to prosper"}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "ὑγιαίνειν,", "lem": "ὑγιαίνω", "prs": "pres act inf", "stm": "ὑγιαίν", "ve": "ειν", "segs": [{"t": "ὑγιαίν", "ch": {"morph": "stm"}}, {"t": "ειν", "ch": {"morph": "ve"}}], "tvm": "PAN"}, {"br": true}, {"txt": "καθὼς", "lem": "καθώς", "prs": "conj"}, {"txt": "εὐοδοῦταί", "lem": "εὐοδόομαι", "prs": "pres pass ind 3 sg", "stm": "εὐοδο", "ve": "ῦταί", "segs": [{"t": "εὐοδο", "ch": {"morph": "stm"}}, {"t": "ῦταί", "ch": {"morph": "ve"}}], "tvm": "PPI"}, {"txt": "σου", "lem": "σύ", "prs": "pers.pron gen sg", "stm": "σ", "suf": "ου", "cs": "g", "segs": [{"t": "σ", "ch": {"morph": "stm"}}, {"t": "ου", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἡ", "lem": "ὁ", "prs": "art nom sg fem", "stm": "ἡ", "cs": "n", "segs": [{"t": "ἡ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "ψυχή.", "lem": "ψυχή", "prs": "noun nom sg fem", "stm": "ψυχ", "suf": "ή", "cs": "n", "segs": [{"t": "ψυχ", "ch": {"morph": "stm"}}, {"t": "ή", "ch": {"morph": "suf", "case": "n"}}]}, {"br": true}, {"v": 3}, {"txt": "ἐχάρην", "lem": "χαίρω", "prs": "aor pass ind 1 sg", "aug": "ἐ", "stm": "χάρ", "ve": "ην", "segs": [{"t": "ἐ", "ch": {"morph": "aug"}}, {"t": "χάρ", "ch": {"morph": "stm"}}, {"t": "ην", "ch": {"morph": "ve"}}], "tvm": "API", "igl": "was rejoiced"}, {"txt": "γὰρ", "lem": "γάρ", "prs": "conj"}, {"txt": "λίαν", "lem": "λίαν", "prs": "adv"}, {"txt": "ἐρχομένων", "lem": "ἔρχομαι", "prs": "pres mid ptc gen pl masc", "stm": "ἐρχ", "ptc": "ομέν", "suf": "ων", "cs": "g", "segs": [{"t": "ἐρχ", "ch": {"morph": "stm"}}, {"t": "ομέν", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "ων", "ch": {"morph": "suf", "ptc": "marker", "case": "g"}}], "tvm": "PMP"}, {"txt": "ἀδελφῶν", "lem": "ἀδελφός", "prs": "noun gen pl masc", "stm": "ἀδελφ", "suf": "ῶν", "cs": "g", "segs": [{"t": "ἀδελφ", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "μαρτυρούντων", "lem": "μαρτυρέω", "prs": "pres act ptc gen pl masc", "stm": "μαρτυρ", "ptc": "ούντ", "suf": "ων", "cs": "g", "segs": [{"t": "μαρτυρ", "ch": {"morph": "stm"}}, {"t": "ούντ", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "ων", "ch": {"morph": "suf", "ptc": "marker", "case": "g"}}], "tvm": "PAP"}, {"txt": "σου", "lem": "σύ", "prs": "pers.pron gen sg", "stm": "σ", "suf": "ου", "cs": "g", "segs": [{"t": "σ", "ch": {"morph": "stm"}}, {"t": "ου", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "τῇ", "lem": "ὁ", "prs": "art dat sg fem", "stm": "τῇ", "cs": "d", "segs": [{"t": "τῇ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἀληθείᾳ,", "lem": "ἀλήθεια", "prs": "noun dat sg fem", "stm": "ἀληθεί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"txt": "καθὼς", "lem": "καθώς", "prs": "conj"}, {"txt": "σὺ", "lem": "σύ", "prs": "pers.pron nom sg", "stm": "σὺ", "segs": [{"t": "σὺ", "ch": {"morph": "stm"}}]}, {"txt": "ἐν", "lem": "ἐν", "prs": "prep"}, {"txt": "ἀληθείᾳ", "lem": "ἀλήθεια", "prs": "noun dat sg fem", "stm": "ἀληθεί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "περιπατεῖς.", "lem": "περιπατέω", "prs": "pres act ind 2 sg", "pfx": "περι", "stm": "πατε", "ve": "ῖς", "segs": [{"t": "περι", "ch": {"morph": "pfx"}}, {"t": "πατε", "ch": {"morph": "stm"}}, {"t": "ῖς", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"br": true}, {"v": 4}, {"txt": "μειζοτέραν", "lem": "μειζότερος", "prs": "adj acc sg fem", "stm": "μειζοτέρ", "suf": "αν", "cs": "a", "segs": [{"t": "μειζοτέρ", "ch": {"morph": "stm"}}, {"t": "αν", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "τούτων", "lem": "οὗτος", "prs": "dem.pron gen pl neut", "stm": "τούτ", "suf": "ων", "cs": "g", "segs": [{"t": "τούτ", "ch": {"morph": "stm"}}, {"t": "ων", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "οὐκ", "lem": "οὐ", "prs": "adv"}, {"txt": "ἔχω", "lem": "ἔχω", "prs": "pres act ind 1 sg", "stm": "ἔχ", "ve": "ω", "segs": [{"t": "ἔχ", "ch": {"morph": "stm"}}, {"t": "ω", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"txt": "χαράν,", "lem": "χαρά", "prs": "noun acc sg fem", "stm": "χαρ", "suf": "άν", "cs": "a", "segs": [{"t": "χαρ", "ch": {"morph": "stm"}}, {"t": "άν", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "ἵνα", "lem": "ἵνα", "prs": "adv"}, {"txt": "ἀκούω", "lem": "ἀκούω", "prs": "pres act subj 1 sg", "stm": "ἀκού", "ve": "ω", "segs": [{"t": "ἀκού", "ch": {"morph": "stm"}}, {"t": "ω", "ch": {"morph": "ve"}}], "tvm": "PAS"}, {"txt": "τὰ", "lem": "ὁ", "prs": "art acc pl neut", "stm": "τὰ", "cs": "a", "segs": [{"t": "τὰ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἐμὰ", "lem": "ἐμός", "prs": "adj acc pl neut", "stm": "ἐμ", "suf": "ὰ", "cs": "a", "segs": [{"t": "ἐμ", "ch": {"morph": "stm"}}, {"t": "ὰ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "τέκνα", "lem": "τέκνον", "prs": "noun acc pl neut", "stm": "τέκν", "suf": "α", "cs": "a", "segs": [{"t": "τέκν", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἐν", "lem": "ἐν", "prs": "prep"}, {"txt": "τῇ", "lem": "ὁ", "prs": "art dat sg fem", "stm": "τῇ", "cs": "d", "segs": [{"t": "τῇ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἀληθείᾳ", "lem": "ἀλήθεια", "prs": "noun dat sg fem", "stm": "ἀληθεί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "περιπατοῦντα.", "lem": "περιπατέω", "prs": "pres act ptc acc pl neut", "pfx": "περι", "stm": "πατ", "ptc": "οῦντ", "suf": "α", "cs": "a", "segs": [{"t": "περι", "ch": {"morph": "pfx"}}, {"t": "πατ", "ch": {"morph": "stm"}}, {"t": "οῦντ", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "α", "ch": {"morph": "suf", "ptc": "marker", "case": "a"}}], "tvm": "PAP"}, {"br": true}, {"v": 5}, {"txt": "Ἀγαπητέ,", "lem": "ἀγαπητός", "prs": "adj voc sg masc", "stm": "Ἀγαπητ", "suf": "έ", "cs": "v", "segs": [{"t": "Ἀγαπητ", "ch": {"morph": "stm"}}, {"t": "έ", "ch": {"morph": "suf", "case": "v"}}]}, {"txt": "πιστὸν", "lem": "πιστός", "prs": "adj acc sg neut", "stm": "πιστ", "suf": "ὸν", "cs": "a", "segs": [{"t": "πιστ", "ch": {"morph": "stm"}}, {"t": "ὸν", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ποιεῖς", "lem": "ποιέω", "prs": "pres act ind 2 sg", "stm": "ποιε", "ve": "ῖς", "segs": [{"t": "ποιε", "ch": {"morph": "stm"}}, {"t": "ῖς", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"txt": "ὃ", "lem": "ὅς", "prs": "rel.pron acc sg neut", "stm": "ὃ", "segs": [{"t": "ὃ", "ch": {"morph": "stm"}}]}, {"txt": "ἐὰν", "lem": "ἐάν", "prs": "ptcl"}, {"txt": "ἐργάσῃ", "lem": "ἐργάζομαι", "prs": "aor mid subj 2 sg", "stm": "ἐργά", "frm": "σῃ", "segs": [{"t": "ἐργά", "ch": {"morph": "stm"}}, {"t": "σῃ", "ch": {"morph": "frm"}}], "tvm": "AMS"}, {"txt": "εἰς", "lem": "εἰς", "prs": "prep"}, {"txt": "τοὺς", "lem": "ὁ", "prs": "art acc pl masc", "stm": "τοὺς", "cs": "a", "segs": [{"t": "τοὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἀδελφοὺς", "lem": "ἀδελφός", "prs": "noun acc pl masc", "stm": "ἀδελφ", "suf": "οὺς", "cs": "a", "segs": [{"t": "ἀδελφ", "ch": {"morph": "stm"}}, {"t": "οὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "τοῦτο", "lem": "οὗτος", "prs": "dem.pron acc sg neut", "stm": "τοῦτο", "segs": [{"t": "τοῦτο", "ch": {"morph": "stm"}}]}, {"txt": "ξένους,", "lem": "ξένος", "prs": "adj acc pl masc", "stm": "ξέν", "suf": "ους", "cs": "a", "segs": [{"t": "ξέν", "ch": {"morph": "stm"}}, {"t": "ους", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"v": 6}, {"txt": "οἳ", "lem": "ὅς", "prs": "rel.pron nom pl masc", "stm": "οἳ", "segs": [{"t": "οἳ", "ch": {"morph": "stm"}}]}, {"txt": "ἐμαρτύρησάν", "lem": "μαρτυρέω", "prs": "aor act ind 3 pl", "aug": "ἐ", "stm": "μαρτύρη", "frm": "σά", "ve": "ν", "segs": [{"t": "ἐ", "ch": {"morph": "aug"}}, {"t": "μαρτύρη", "ch": {"morph": "stm"}}, {"t": "σά", "ch": {"morph": "frm"}}, {"t": "ν", "ch": {"morph": "ve"}}], "tvm": "AAI", "igl": "testified"}, {"txt": "σου", "lem": "σύ", "prs": "pers.pron gen sg", "stm": "σ", "suf": "ου", "cs": "g", "segs": [{"t": "σ", "ch": {"morph": "stm"}}, {"t": "ου", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "τῇ", "lem": "ὁ", "prs": "art dat sg fem", "stm": "τῇ", "cs": "d", "segs": [{"t": "τῇ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἀγάπῃ", "lem": "ἀγάπη", "prs": "noun dat sg fem", "stm": "ἀγάπ", "suf": "ῃ", "cs": "d", "segs": [{"t": "ἀγάπ", "ch": {"morph": "stm"}}, {"t": "ῃ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἐνώπιον", "lem": "ἐνώπιον", "prs": "prep"}, {"txt": "ἐκκλησίας,", "lem": "ἐκκλησία", "prs": "noun gen sg fem", "stm": "ἐκκλησί", "suf": "ας", "cs": "g", "segs": [{"t": "ἐκκλησί", "ch": {"morph": "stm"}}, {"t": "ας", "ch": {"morph": "suf", "case": "g"}}]}, {"br": true}, {"txt": "οὓς", "lem": "ὅς", "prs": "rel.pron acc pl masc", "stm": "οὓς", "segs": [{"t": "οὓς", "ch": {"morph": "stm"}}]}, {"txt": "καλῶς", "lem": "καλῶς", "prs": "adv"}, {"txt": "ποιήσεις", "lem": "ποιέω", "prs": "fut act ind 2 sg", "stm": "ποιή", "frm": "σε", "ve": "ις", "segs": [{"t": "ποιή", "ch": {"morph": "stm"}}, {"t": "σε", "ch": {"morph": "frm"}}, {"t": "ις", "ch": {"morph": "ve"}}], "tvm": "FAI", "igl": "will do"}, {"txt": "προπέμψας", "lem": "προπέμπω", "prs": "aor act ptc nom sg masc", "pfx": "προ", "stm": "πέμ", "frm": "ψα", "ptc": "ς", "cs": "n", "segs": [{"t": "προ", "ch": {"morph": "pfx"}}, {"t": "πέμ", "ch": {"morph": "stm"}}, {"t": "ψα", "ch": {"morph": "frm", "ptc": "marker"}}, {"t": "ς", "ch": {"morph": "pmk", "ptc": "marker"}}], "tvm": "AAP"}, {"txt": "ἀξίως", "lem": "ἀξίως", "prs": "adv"}, {"txt": "τοῦ", "lem": "ὁ", "prs": "art gen sg masc", "stm": "τοῦ", "cs": "g", "segs": [{"t": "τοῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "θεοῦ·", "lem": "θεός", "prs": "noun gen sg masc", "stm": "θε", "suf": "οῦ", "cs": "g", "segs": [{"t": "θε", "ch": {"morph": "stm"}}, {"t": "οῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"br": true}, {"v": 7}, {"txt": "ὑπὲρ", "lem": "ὑπέρ", "prs": "prep"}, {"txt": "γὰρ", "lem": "γάρ", "prs": "conj"}, {"txt": "τοῦ", "lem": "ὁ", "prs": "art gen sg neut", "stm": "τοῦ", "cs": "g", "segs": [{"t": "τοῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ὀνόματος", "lem": "ὄνομα", "prs": "noun gen sg neut", "stm": "ὀνόματ", "suf": "ος", "cs": "g", "segs": [{"t": "ὀνόματ", "ch": {"morph": "stm"}}, {"t": "ος", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἐξῆλθον", "lem": "ἐξέρχομαι", "prs": "aor act ind 3 pl", "pfx": "ἐξ", "aug": "ῆ", "stm": "λθ", "ve": "ον", "segs": [{"t": "ἐξ", "ch": {"morph": "pfx"}}, {"t": "ῆ", "ch": {"morph": "aug"}}, {"t": "λθ", "ch": {"morph": "stm"}}, {"t": "ον", "ch": {"morph": "ve"}}], "tvm": "AAI", "igl": "went out"}, {"br": true}, {"txt": "μηδὲν", "lem": "μηδείς", "prs": "adj acc sg neut", "stm": "μηδὲ", "suf": "ν", "cs": "a", "segs": [{"t": "μηδὲ", "ch": {"morph": "stm"}}, {"t": "ν", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "λαμβάνοντες", "lem": "λαμβάνω", "prs": "pres act ptc nom pl masc", "stm": "λαμβάν", "ptc": "οντ", "suf": "ες", "cs": "n", "segs": [{"t": "λαμβάν", "ch": {"morph": "stm"}}, {"t": "οντ", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "ες", "ch": {"morph": "suf", "ptc": "marker", "case": "n"}}], "tvm": "PAP"}, {"txt": "ἀπὸ", "lem": "ἀπό", "prs": "prep"}, {"txt": "τῶν", "lem": "ὁ", "prs": "art gen pl masc", "stm": "τῶν", "cs": "g", "segs": [{"t": "τῶν", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἐθνικῶν.", "lem": "ἐθνικός", "prs": "adj gen pl masc", "stm": "ἐθνικ", "suf": "ῶν", "cs": "g", "segs": [{"t": "ἐθνικ", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "suf", "case": "g"}}]}, {"br": true}, {"v": 8}, {"txt": "ἡμεῖς", "lem": "ἐγώ", "prs": "pers.pron nom pl", "stm": "ἡμ", "suf": "εῖς", "cs": "n", "segs": [{"t": "ἡμ", "ch": {"morph": "stm"}}, {"t": "εῖς", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "οὖν", "lem": "οὖν", "prs": "conj"}, {"txt": "ὀφείλομεν", "lem": "ὀφείλω", "prs": "pres act ind 1 pl", "stm": "ὀφείλ", "ve": "ομεν", "segs": [{"t": "ὀφείλ", "ch": {"morph": "stm"}}, {"t": "ομεν", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"txt": "ὑπολαμβάνειν", "lem": "ὑπολαμβάνω", "prs": "pres act inf", "pfx": "ὑπο", "stm": "λαμβάν", "ve": "ειν", "segs": [{"t": "ὑπο", "ch": {"morph": "pfx"}}, {"t": "λαμβάν", "ch": {"morph": "stm"}}, {"t": "ειν", "ch": {"morph": "ve"}}], "tvm": "PAN"}, {"txt": "τοὺς", "lem": "ὁ", "prs": "art acc pl masc", "stm": "τοὺς", "cs": "a", "segs": [{"t": "τοὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "τοιούτους,", "lem": "τοιοῦτος", "prs": "dem.pron acc pl masc", "stm": "τοιούτ", "suf": "ους", "cs": "a", "segs": [{"t": "τοιούτ", "ch": {"morph": "stm"}}, {"t": "ους", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "ἵνα", "lem": "ἵνα", "prs": "conj"}, {"txt": "συνεργοὶ", "lem": "συνεργός", "prs": "adj nom pl masc", "stm": "συνεργ", "suf": "οὶ", "cs": "n", "segs": [{"t": "συνεργ", "ch": {"morph": "stm"}}, {"t": "οὶ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "γινώμεθα", "lem": "γίνομαι", "prs": "pres mid subj 1 pl", "stm": "γιν", "ve": "ώμεθα", "segs": [{"t": "γιν", "ch": {"morph": "stm"}}, {"t": "ώμεθα", "ch": {"morph": "ve"}}], "tvm": "PMS"}, {"txt": "τῇ", "lem": "ὁ", "prs": "art dat sg fem", "stm": "τῇ", "cs": "d", "segs": [{"t": "τῇ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἀληθείᾳ.", "lem": "ἀλήθεια", "prs": "noun dat sg fem", "stm": "ἀληθεί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"v": 9}, {"txt": "Ἔγραψά", "lem": "γράφω", "prs": "aor act ind 1 sg", "aug": "Ἔ", "stm": "γρα", "frm": "ψά", "segs": [{"t": "Ἔ", "ch": {"morph": "aug"}}, {"t": "γρα", "ch": {"morph": "stm"}}, {"t": "ψά", "ch": {"morph": "frm"}}], "tvm": "AAI", "igl": "wrote"}, {"txt": "τι", "lem": "τις", "prs": "inter.pron acc sg neut", "stm": "τι", "segs": [{"t": "τι", "ch": {"morph": "stm"}}]}, {"txt": "τῇ", "lem": "ὁ", "prs": "art dat sg fem", "stm": "τῇ", "cs": "d", "segs": [{"t": "τῇ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "ἐκκλησίᾳ·", "lem": "ἐκκλησία", "prs": "noun dat sg fem", "stm": "ἐκκλησί", "suf": "ᾳ", "cs": "d", "segs": [{"t": "ἐκκλησί", "ch": {"morph": "stm"}}, {"t": "ᾳ", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"txt": "ἀλλʼ", "lem": "ἀλλά", "prs": "conj"}, {"txt": "ὁ", "lem": "ὁ", "prs": "art nom sg masc", "stm": "ὁ", "cs": "n", "segs": [{"t": "ὁ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "φιλοπρωτεύων", "lem": "φιλοπρωτεύω", "prs": "pres act ptc nom sg masc", "stm": "φιλοπρωτεύ", "ptc": "ων", "cs": "n", "segs": [{"t": "φιλοπρωτεύ", "ch": {"morph": "stm"}}, {"t": "ων", "ch": {"morph": "pmk", "ptc": "marker"}}], "tvm": "PAP"}, {"txt": "αὐτῶν", "lem": "αὐτός", "prs": "pers.pron gen pl masc", "stm": "αὐτ", "suf": "ῶν", "cs": "g", "segs": [{"t": "αὐτ", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "Διοτρέφης", "lem": "Διοτρέφης", "prs": "noun nom sg masc", "stm": "Διοτρέφ", "suf": "ης", "cs": "n", "segs": [{"t": "Διοτρέφ", "ch": {"morph": "stm"}}, {"t": "ης", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "οὐκ", "lem": "οὐ", "prs": "adv"}, {"txt": "ἐπιδέχεται", "lem": "ἐπιδέχομαι", "prs": "pres mid ind 3 sg", "pfx": "ἐπι", "stm": "δέχ", "ve": "εται", "segs": [{"t": "ἐπι", "ch": {"morph": "pfx"}}, {"t": "δέχ", "ch": {"morph": "stm"}}, {"t": "εται", "ch": {"morph": "ve"}}], "tvm": "PMI"}, {"txt": "ἡμᾶς.", "lem": "ἐγώ", "prs": "pers.pron acc pl", "stm": "ἡμ", "suf": "ᾶς", "cs": "a", "segs": [{"t": "ἡμ", "ch": {"morph": "stm"}}, {"t": "ᾶς", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"v": 10}, {"txt": "διὰ", "lem": "διά", "prs": "prep"}, {"txt": "τοῦτο,", "lem": "οὗτος", "prs": "dem.pron acc sg neut", "stm": "τοῦτο", "segs": [{"t": "τοῦτο", "ch": {"morph": "stm"}}]}, {"txt": "ἐὰν", "lem": "ἐάν", "prs": "conj"}, {"txt": "ἔλθω,", "lem": "ἔρχομαι", "prs": "aor act subj 1 sg", "stm": "ἔλθ", "ve": "ω", "segs": [{"t": "ἔλθ", "ch": {"morph": "stm"}}, {"t": "ω", "ch": {"morph": "ve"}}], "tvm": "AAS"}, {"br": true}, {"txt": "ὑπομνήσω", "lem": "ὑπομιμνῄσκω", "prs": "fut act ind 1 sg", "pfx": "ὑπο", "stm": "μνή", "frm": "σω", "segs": [{"t": "ὑπο", "ch": {"morph": "pfx"}}, {"t": "μνή", "ch": {"morph": "stm"}}, {"t": "σω", "ch": {"morph": "frm"}}], "tvm": "FAI", "igl": "will remind"}, {"txt": "αὐτοῦ", "lem": "αὐτός", "prs": "pers.pron gen sg masc", "stm": "αὐτ", "suf": "οῦ", "cs": "g", "segs": [{"t": "αὐτ", "ch": {"morph": "stm"}}, {"t": "οῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "τὰ", "lem": "ὁ", "prs": "art acc pl neut", "stm": "τὰ", "cs": "a", "segs": [{"t": "τὰ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἔργα", "lem": "ἔργον", "prs": "noun acc pl neut", "stm": "ἔργ", "suf": "α", "cs": "a", "segs": [{"t": "ἔργ", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἃ", "lem": "ὅς", "prs": "rel.pron acc pl neut", "stm": "ἃ", "segs": [{"t": "ἃ", "ch": {"morph": "stm"}}]}, {"txt": "ποιεῖ,", "lem": "ποιέω", "prs": "pres act ind 3 sg", "stm": "ποιε", "ve": "ῖ", "segs": [{"t": "ποιε", "ch": {"morph": "stm"}}, {"t": "ῖ", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"br": true}, {"txt": "λόγοις", "lem": "λόγος", "prs": "noun dat pl masc", "stm": "λόγ", "suf": "οις", "cs": "d", "segs": [{"t": "λόγ", "ch": {"morph": "stm"}}, {"t": "οις", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "πονηροῖς", "lem": "πονηρός", "prs": "adj dat pl masc", "stm": "πονηρ", "suf": "οῖς", "cs": "d", "segs": [{"t": "πονηρ", "ch": {"morph": "stm"}}, {"t": "οῖς", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "φλυαρῶν", "lem": "φλυαρέω", "prs": "pres act ptc nom sg masc", "stm": "φλυαρ", "ptc": "ῶν", "cs": "n", "segs": [{"t": "φλυαρ", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "pmk", "ptc": "marker"}}], "tvm": "PAP"}, {"txt": "ἡμᾶς·", "lem": "ἐγώ", "prs": "pers.pron acc pl", "stm": "ἡμ", "suf": "ᾶς", "cs": "a", "segs": [{"t": "ἡμ", "ch": {"morph": "stm"}}, {"t": "ᾶς", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "μὴ", "lem": "μή", "prs": "adv"}, {"txt": "ἀρκούμενος", "lem": "ἀρκέω", "prs": "pres pass ptc nom sg masc", "stm": "ἀρκ", "ptc": "ούμεν", "suf": "ος", "cs": "n", "segs": [{"t": "ἀρκ", "ch": {"morph": "stm"}}, {"t": "ούμεν", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "ος", "ch": {"morph": "suf", "ptc": "marker", "case": "n"}}], "tvm": "PPP", "igl": "being content"}, {"txt": "ἐπὶ", "lem": "ἐπί", "prs": "prep"}, {"txt": "τούτοις", "lem": "οὗτος", "prs": "dem.pron dat pl neut", "stm": "τούτ", "suf": "οις", "cs": "d", "segs": [{"t": "τούτ", "ch": {"morph": "stm"}}, {"t": "οις", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "οὔτε", "lem": "οὔτε", "prs": "conj"}, {"txt": "αὐτὸς", "lem": "αὐτός", "prs": "pers.pron nom sg masc", "stm": "αὐτ", "suf": "ὸς", "cs": "n", "segs": [{"t": "αὐτ", "ch": {"morph": "stm"}}, {"t": "ὸς", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "ἐπιδέχεται", "lem": "ἐπιδέχομαι", "prs": "pres mid ind 3 sg", "pfx": "ἐπι", "stm": "δέχ", "ve": "εται", "segs": [{"t": "ἐπι", "ch": {"morph": "pfx"}}, {"t": "δέχ", "ch": {"morph": "stm"}}, {"t": "εται", "ch": {"morph": "ve"}}], "tvm": "PMI"}, {"txt": "τοὺς", "lem": "ὁ", "prs": "art acc pl masc", "stm": "τοὺς", "cs": "a", "segs": [{"t": "τοὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἀδελφοὺς", "lem": "ἀδελφός", "prs": "noun acc pl masc", "stm": "ἀδελφ", "suf": "οὺς", "cs": "a", "segs": [{"t": "ἀδελφ", "ch": {"morph": "stm"}}, {"t": "οὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "τοὺς", "lem": "ὁ", "prs": "art acc pl masc", "stm": "τοὺς", "cs": "a", "segs": [{"t": "τοὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "βουλομένους", "lem": "βούλομαι", "prs": "pres mid ptc acc pl masc", "stm": "βουλ", "ptc": "ομέν", "suf": "ους", "cs": "a", "segs": [{"t": "βουλ", "ch": {"morph": "stm"}}, {"t": "ομέν", "ch": {"morph": "pmk", "ptc": "marker"}}, {"t": "ους", "ch": {"morph": "suf", "ptc": "marker", "case": "a"}}], "tvm": "PMP"}, {"txt": "κωλύει", "lem": "κωλύω", "prs": "pres act ind 3 sg", "stm": "κωλύ", "ve": "ει", "segs": [{"t": "κωλύ", "ch": {"morph": "stm"}}, {"t": "ει", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "ἐκ", "lem": "ἐκ", "prs": "prep"}, {"txt": "τῆς", "lem": "ὁ", "prs": "art gen sg fem", "stm": "τῆς", "cs": "g", "segs": [{"t": "τῆς", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἐκκλησίας", "lem": "ἐκκλησία", "prs": "noun gen sg fem", "stm": "ἐκκλησί", "suf": "ας", "cs": "g", "segs": [{"t": "ἐκκλησί", "ch": {"morph": "stm"}}, {"t": "ας", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἐκβάλλει.", "lem": "ἐκβάλλω", "prs": "pres act ind 3 sg", "pfx": "ἐκ", "stm": "βάλλ", "ve": "ει", "segs": [{"t": "ἐκ", "ch": {"morph": "pfx"}}, {"t": "βάλλ", "ch": {"morph": "stm"}}, {"t": "ει", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"br": true}, {"v": 11}, {"txt": "Ἀγαπητέ,", "lem": "ἀγαπητός", "prs": "adj voc sg masc", "stm": "Ἀγαπητ", "suf": "έ", "cs": "v", "segs": [{"t": "Ἀγαπητ", "ch": {"morph": "stm"}}, {"t": "έ", "ch": {"morph": "suf", "case": "v"}}]}, {"txt": "μὴ", "lem": "μή", "prs": "adv"}, {"txt": "μιμοῦ", "lem": "μιμέομαι", "prs": "pres mid imp 2 sg", "stm": "μιμοῦ", "segs": [{"t": "μιμοῦ", "ch": {"morph": "stm"}}], "tvm": "PMD"}, {"txt": "τὸ", "lem": "ὁ", "prs": "art acc sg neut", "stm": "τὸ", "cs": "a", "segs": [{"t": "τὸ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "κακὸν", "lem": "κακός", "prs": "adj acc sg neut", "stm": "κακ", "suf": "ὸν", "cs": "a", "segs": [{"t": "κακ", "ch": {"morph": "stm"}}, {"t": "ὸν", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "ἀλλὰ", "lem": "ἀλλά", "prs": "conj"}, {"txt": "τὸ", "lem": "ὁ", "prs": "art acc sg neut", "stm": "τὸ", "cs": "a", "segs": [{"t": "τὸ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "ἀγαθόν.", "lem": "ἀγαθός", "prs": "adj acc sg neut", "stm": "ἀγαθ", "suf": "όν", "cs": "a", "segs": [{"t": "ἀγαθ", "ch": {"morph": "stm"}}, {"t": "όν", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"txt": "ὁ", "lem": "ὁ", "prs": "art nom sg masc", "stm": "ὁ", "cs": "n", "segs": [{"t": "ὁ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "ἀγαθοποιῶν", "lem": "ἀγαθοποιέω", "prs": "pres act ptc nom sg masc", "stm": "ἀγαθοποι", "ptc": "ῶν", "cs": "n", "segs": [{"t": "ἀγαθοποι", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "pmk", "ptc": "marker"}}], "tvm": "PAP"}, {"txt": "ἐκ", "lem": "ἐκ", "prs": "prep"}, {"txt": "τοῦ", "lem": "ὁ", "prs": "art gen sg masc", "stm": "τοῦ", "cs": "g", "segs": [{"t": "τοῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "θεοῦ", "lem": "θεός", "prs": "noun gen sg masc", "stm": "θε", "suf": "οῦ", "cs": "g", "segs": [{"t": "θε", "ch": {"morph": "stm"}}, {"t": "οῦ", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἐστιν·", "lem": "εἰμί", "prs": "pres act ind 3 sg", "stm": "ἐσ", "ve": "τιν", "segs": [{"t": "ἐσ", "ch": {"morph": "stm"}}, {"t": "τιν", "ch": {"morph": "ve"}}], "tvm": "PAI", "igl": "is"}, {"br": true}, {"txt": "ὁ", "lem": "ὁ", "prs": "art nom sg masc", "stm": "ὁ", "cs": "n", "segs": [{"t": "ὁ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "κακοποιῶν", "lem": "κακοποιέω", "prs": "pres act ptc nom sg masc", "stm": "κακοποι", "ptc": "ῶν", "cs": "n", "segs": [{"t": "κακοποι", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "pmk", "ptc": "marker"}}], "tvm": "PAP"}, {"txt": "οὐχ", "lem": "οὐ", "prs": "adv"}, {"txt": "ἑώρακεν", "lem": "ὁράω", "prs": "perf act ind 3 sg", "stm": "ἑώρα", "frm": "κε", "ve": "ν", "segs": [{"t": "ἑώρα", "ch": {"morph": "stm"}}, {"t": "κε", "ch": {"morph": "frm"}}, {"t": "ν", "ch": {"morph": "ve"}}], "tvm": "XAI", "igl": "seen"}, {"txt": "τὸν", "lem": "ὁ", "prs": "art acc sg masc", "stm": "τὸν", "cs": "a", "segs": [{"t": "τὸν", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "θεόν.", "lem": "θεός", "prs": "noun acc sg masc", "stm": "θε", "suf": "όν", "cs": "a", "segs": [{"t": "θε", "ch": {"morph": "stm"}}, {"t": "όν", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}, {"v": 12}, {"txt": "Δημητρίῳ", "lem": "Δημήτριος", "prs": "noun dat sg masc", "stm": "Δημητρί", "suf": "ῳ", "cs": "d", "segs": [{"t": "Δημητρί", "ch": {"morph": "stm"}}, {"t": "ῳ", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "μεμαρτύρηται", "lem": "μαρτυρέω", "prs": "perf pass ind 3 sg", "rdp": "με", "stm": "μαρτύρη", "ve": "ται", "segs": [{"t": "με", "ch": {"morph": "rdp"}}, {"t": "μαρτύρη", "ch": {"morph": "stm"}}, {"t": "ται", "ch": {"morph": "ve"}}], "tvm": "XPI", "igl": "been testified"}, {"txt": "ὑπὸ", "lem": "ὑπό", "prs": "prep"}, {"txt": "πάντων", "lem": "πᾶς", "prs": "adj gen pl masc", "stm": "πάντ", "suf": "ων", "cs": "g", "segs": [{"t": "πάντ", "ch": {"morph": "stm"}}, {"t": "ων", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "ὑπὸ", "lem": "ὑπό", "prs": "prep"}, {"txt": "αὐτῆς", "lem": "αὐτός", "prs": "pers.pron gen sg fem", "stm": "αὐτ", "suf": "ῆς", "cs": "g", "segs": [{"t": "αὐτ", "ch": {"morph": "stm"}}, {"t": "ῆς", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "τῆς", "lem": "ὁ", "prs": "art gen sg fem", "stm": "τῆς", "cs": "g", "segs": [{"t": "τῆς", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἀληθείας·", "lem": "ἀλήθεια", "prs": "noun gen sg fem", "stm": "ἀληθεί", "suf": "ας", "cs": "g", "segs": [{"t": "ἀληθεί", "ch": {"morph": "stm"}}, {"t": "ας", "ch": {"morph": "suf", "case": "g"}}]}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "adv"}, {"txt": "ἡμεῖς", "lem": "ἐγώ", "prs": "pers.pron nom pl", "stm": "ἡμ", "suf": "εῖς", "cs": "n", "segs": [{"t": "ἡμ", "ch": {"morph": "stm"}}, {"t": "εῖς", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "δὲ", "lem": "δέ", "prs": "conj"}, {"txt": "μαρτυροῦμεν,", "lem": "μαρτυρέω", "prs": "pres act ind 1 pl", "stm": "μαρτυροῦμεν", "segs": [{"t": "μαρτυροῦμεν", "ch": {"morph": "stm"}}], "tvm": "PAI"}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "οἶδας", "lem": "οἶδα", "prs": "perf act ind 2 sg", "stm": "οἶδ", "ve": "ας", "segs": [{"t": "οἶδ", "ch": {"morph": "stm"}}, {"t": "ας", "ch": {"morph": "ve"}}], "tvm": "XAI"}, {"txt": "ὅτι", "lem": "ὅτι", "prs": "conj"}, {"txt": "ἡ", "lem": "ὁ", "prs": "art nom sg fem", "stm": "ἡ", "cs": "n", "segs": [{"t": "ἡ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "μαρτυρία", "lem": "μαρτυρία", "prs": "noun nom sg fem", "stm": "μαρτυρί", "suf": "α", "cs": "n", "segs": [{"t": "μαρτυρί", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "ἡμῶν", "lem": "ἐγώ", "prs": "pers.pron gen pl", "stm": "ἡμ", "suf": "ῶν", "cs": "g", "segs": [{"t": "ἡμ", "ch": {"morph": "stm"}}, {"t": "ῶν", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "ἀληθής", "lem": "ἀληθής", "prs": "adj nom sg fem", "stm": "ἀληθ", "suf": "ής", "cs": "n", "segs": [{"t": "ἀληθ", "ch": {"morph": "stm"}}, {"t": "ής", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "ἐστιν.", "lem": "εἰμί", "prs": "pres act ind 3 sg", "stm": "ἐσ", "ve": "τιν", "segs": [{"t": "ἐσ", "ch": {"morph": "stm"}}, {"t": "τιν", "ch": {"morph": "ve"}}], "tvm": "PAI", "igl": "is"}, {"br": true}, {"v": 13}, {"txt": "Πολλὰ", "lem": "πολύς", "prs": "adj acc pl neut", "stm": "Πολλ", "suf": "ὰ", "cs": "a", "segs": [{"t": "Πολλ", "ch": {"morph": "stm"}}, {"t": "ὰ", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "εἶχον", "lem": "ἔχω", "prs": "impf act ind 1 sg", "aug": "εἶ", "stm": "χ", "ve": "ον", "segs": [{"t": "εἶ", "ch": {"morph": "aug"}}, {"t": "χ", "ch": {"morph": "stm"}}, {"t": "ον", "ch": {"morph": "ve"}}], "tvm": "IAI", "igl": "had"}, {"txt": "γράψαι", "lem": "γράφω", "prs": "aor act inf", "stm": "γρά", "frm": "ψα", "ve": "ι", "segs": [{"t": "γρά", "ch": {"morph": "stm"}}, {"t": "ψα", "ch": {"morph": "frm"}}, {"t": "ι", "ch": {"morph": "ve"}}], "tvm": "AAN"}, {"txt": "σοι,", "lem": "σύ", "prs": "pers.pron dat sg", "stm": "σο", "suf": "ι", "cs": "d", "segs": [{"t": "σο", "ch": {"morph": "stm"}}, {"t": "ι", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"txt": "ἀλλʼ", "lem": "ἀλλά", "prs": "conj"}, {"txt": "οὐ", "lem": "οὐ", "prs": "adv"}, {"txt": "θέλω", "lem": "θέλω", "prs": "pres act ind 1 sg", "stm": "θέλ", "ve": "ω", "segs": [{"t": "θέλ", "ch": {"morph": "stm"}}, {"t": "ω", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"txt": "διὰ", "lem": "διά", "prs": "prep"}, {"txt": "μέλανος", "lem": "μέλαν", "prs": "noun gen sg neut", "stm": "μέλαν", "suf": "ος", "cs": "g", "segs": [{"t": "μέλαν", "ch": {"morph": "stm"}}, {"t": "ος", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "καλάμου", "lem": "κάλαμος", "prs": "noun gen sg masc", "stm": "καλάμ", "suf": "ου", "cs": "g", "segs": [{"t": "καλάμ", "ch": {"morph": "stm"}}, {"t": "ου", "ch": {"morph": "suf", "case": "g"}}]}, {"txt": "σοι", "lem": "σύ", "prs": "pers.pron dat sg", "stm": "σο", "suf": "ι", "cs": "d", "segs": [{"t": "σο", "ch": {"morph": "stm"}}, {"t": "ι", "ch": {"morph": "suf", "case": "d"}}]}, {"txt": "γράφειν·", "lem": "γράφω", "prs": "pres act inf", "stm": "γράφ", "ve": "ειν", "segs": [{"t": "γράφ", "ch": {"morph": "stm"}}, {"t": "ειν", "ch": {"morph": "ve"}}], "tvm": "PAN"}, {"br": true}, {"v": 14}, {"txt": "ἐλπίζω", "lem": "ἐλπίζω", "prs": "pres act ind 1 sg", "stm": "ἐλπίζ", "ve": "ω", "segs": [{"t": "ἐλπίζ", "ch": {"morph": "stm"}}, {"t": "ω", "ch": {"morph": "ve"}}], "tvm": "PAI"}, {"txt": "δὲ", "lem": "δέ", "prs": "conj"}, {"txt": "εὐθέως", "lem": "εὐθέως", "prs": "adv"}, {"txt": "σε", "lem": "σύ", "prs": "pers.pron acc sg", "stm": "σε", "segs": [{"t": "σε", "ch": {"morph": "stm"}}]}, {"txt": "ἰδεῖν,", "lem": "ὁράω", "prs": "aor act inf", "stm": "ἰδ", "ve": "εῖν", "segs": [{"t": "ἰδ", "ch": {"morph": "stm"}}, {"t": "εῖν", "ch": {"morph": "ve"}}], "tvm": "AAN"}, {"br": true}, {"txt": "καὶ", "lem": "καί", "prs": "conj"}, {"txt": "στόμα", "lem": "στόμα", "prs": "noun acc sg neut", "stm": "στόμ", "suf": "α", "cs": "a", "segs": [{"t": "στόμ", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "πρὸς", "lem": "πρός", "prs": "prep"}, {"txt": "στόμα", "lem": "στόμα", "prs": "noun acc sg neut", "stm": "στόμ", "suf": "α", "cs": "a", "segs": [{"t": "στόμ", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "λαλήσομεν.", "lem": "λαλέω", "prs": "fut act ind 1 pl", "stm": "λαλή", "frm": "σο", "ve": "μεν", "segs": [{"t": "λαλή", "ch": {"morph": "stm"}}, {"t": "σο", "ch": {"morph": "frm"}}, {"t": "μεν", "ch": {"morph": "ve"}}], "tvm": "FAI", "igl": "will speak"}, {"br": true}, {"v": 15}, {"txt": "Εἰρήνη", "lem": "εἰρήνη", "prs": "noun nom sg fem", "stm": "Εἰρήν", "suf": "η", "cs": "n", "segs": [{"t": "Εἰρήν", "ch": {"morph": "stm"}}, {"t": "η", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "σοι.", "lem": "σύ", "prs": "pers.pron dat sg", "stm": "σο", "suf": "ι", "cs": "d", "segs": [{"t": "σο", "ch": {"morph": "stm"}}, {"t": "ι", "ch": {"morph": "suf", "case": "d"}}]}, {"br": true}, {"txt": "ἀσπάζονταί", "lem": "ἀσπάζομαι", "prs": "pres mid ind 3 pl", "stm": "ἀσπάζ", "ve": "ονταί", "segs": [{"t": "ἀσπάζ", "ch": {"morph": "stm"}}, {"t": "ονταί", "ch": {"morph": "ve"}}], "tvm": "PMI"}, {"txt": "σε", "lem": "σύ", "prs": "pers.pron acc sg", "stm": "σε", "segs": [{"t": "σε", "ch": {"morph": "stm"}}]}, {"txt": "οἱ", "lem": "ὁ", "prs": "art nom pl masc", "stm": "οἱ", "cs": "n", "segs": [{"t": "οἱ", "ch": {"morph": "suf", "case": "n"}}]}, {"txt": "φίλοι.", "lem": "φίλος", "prs": "adj nom pl masc", "stm": "φίλ", "suf": "οι", "cs": "n", "segs": [{"t": "φίλ", "ch": {"morph": "stm"}}, {"t": "οι", "ch": {"morph": "suf", "case": "n"}}]}, {"br": true}, {"txt": "ἀσπάζου", "lem": "ἀσπάζομαι", "prs": "pres mid imp 2 sg", "stm": "ἀσπάζ", "ve": "ου", "segs": [{"t": "ἀσπάζ", "ch": {"morph": "stm"}}, {"t": "ου", "ch": {"morph": "ve"}}], "tvm": "PMD"}, {"txt": "τοὺς", "lem": "ὁ", "prs": "art acc pl masc", "stm": "τοὺς", "cs": "a", "segs": [{"t": "τοὺς", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "φίλους", "lem": "φίλος", "prs": "adj acc pl masc", "stm": "φίλ", "suf": "ους", "cs": "a", "segs": [{"t": "φίλ", "ch": {"morph": "stm"}}, {"t": "ους", "ch": {"morph": "suf", "case": "a"}}]}, {"txt": "κατʼ", "lem": "κατά", "prs": "prep"}, {"txt": "ὄνομα.", "lem": "ὄνομα", "prs": "noun acc sg neut", "stm": "ὄνομ", "suf": "α", "cs": "a", "segs": [{"t": "ὄνομ", "ch": {"morph": "stm"}}, {"t": "α", "ch": {"morph": "suf", "case": "a"}}]}, {"br": true}];
 const LEX = {"ὁ": {"gl": "the", "f": 19769}, "πρεσβύτερος": {"gl": "elder", "f": 65}, "Γάϊος": {"gl": "Gaius", "f": 5}, "ἀγαπητός": {"gl": "loved", "f": 61}, "ὅς": {"gl": "who", "f": 1408}, "ἐγώ": {"gl": "I", "f": 2572}, "ἀγαπάω": {"gl": "love", "f": 143}, "ἐν": {"gl": "in", "f": 2733}, "ἀλήθεια": {"gl": "truth", "f": 109}, "περί": {"gl": "about", "f": 332}, "πᾶς": {"gl": "all", "f": 1244}, "εὔχομαι": {"gl": "pray", "f": 7}, "σύ": {"gl": "you", "f": 2894}, "εὐοδόομαι": {"gl": "cause to prosper", "f": 4}, "καί": {"gl": "and", "f": 8973}, "ὑγιαίνω": {"gl": "be healthy", "f": 12}, "καθώς": {"gl": "just as", "f": 182}, "ψυχή": {"gl": "soul", "f": 102}, "χαίρω": {"gl": "rejoice", "f": 74}, "γάρ": {"gl": "for", "f": 1039}, "λίαν": {"gl": "very", "f": 12}, "ἔρχομαι": {"gl": "come", "f": 631}, "ἀδελφός": {"gl": "brother", "f": 342}, "μαρτυρέω": {"gl": "testify", "f": 76}, "περιπατέω": {"gl": "walk", "f": 95}, "μειζότερος": {"gl": "greater", "f": 1}, "οὗτος": {"gl": "this", "f": 1385}, "οὐ": {"gl": "no", "f": 1605}, "ἔχω": {"gl": "have", "f": 706}, "χαρά": {"gl": "joy", "f": 59}, "ἵνα": {"gl": "so that", "f": 662}, "ἀκούω": {"gl": "hear", "f": 427}, "ἐμός": {"gl": "mine", "f": 76}, "τέκνον": {"gl": "child", "f": 99}, "πιστός": {"gl": "trustworthy", "f": 67}, "ποιέω": {"gl": "do", "f": 568}, "ἐάν": {"gl": "if", "f": 331}, "ἐργάζομαι": {"gl": "work", "f": 41}, "εἰς": {"gl": "into", "f": 1754}, "ξένος": {"gl": "stranger", "f": 14}, "ἀγάπη": {"gl": "love", "f": 116}, "ἐνώπιον": {"gl": "before", "f": 94}, "ἐκκλησία": {"gl": "church", "f": 114}, "καλῶς": {"gl": "well", "f": 36}, "προπέμπω": {"gl": "send forward", "f": 9}, "ἀξίως": {"gl": "worthily", "f": 6}, "θεός": {"gl": "God", "f": 1307}, "ὑπέρ": {"gl": "for", "f": 150}, "ὄνομα": {"gl": "name", "f": 229}, "ἐξέρχομαι": {"gl": "go out", "f": 216}, "μηδείς": {"gl": "no one", "f": 90}, "λαμβάνω": {"gl": "receive", "f": 258}, "ἀπό": {"gl": "from", "f": 644}, "ἐθνικός": {"gl": "pagan", "f": 4}, "οὖν": {"gl": "therefore", "f": 494}, "ὀφείλω": {"gl": "owe", "f": 35}, "ὑπολαμβάνω": {"gl": "take up", "f": 5}, "τοιοῦτος": {"gl": "of such a kind", "f": 56}, "συνεργός": {"gl": "fellow worker", "f": 13}, "γίνομαι": {"gl": "become", "f": 667}, "γράφω": {"gl": "write", "f": 190}, "τις": {"gl": "any one", "f": 530}, "ἀλλά": {"gl": "but", "f": 638}, "φιλοπρωτεύω": {"gl": "desire preeminence", "f": 1}, "αὐτός": {"gl": "he", "f": 5546}, "Διοτρέφης": {"gl": "Diotrephes", "f": 1}, "ἐπιδέχομαι": {"gl": "accept", "f": 2}, "διά": {"gl": "through", "f": 666}, "ὑπομιμνῄσκω": {"gl": "remind", "f": 7}, "ἔργον": {"gl": "work", "f": 169}, "λόγος": {"gl": "word", "f": 330}, "πονηρός": {"gl": "evil", "f": 78}, "φλυαρέω": {"gl": "gossip against", "f": 1}, "μή": {"gl": "not", "f": 1036}, "ἀρκέω": {"gl": "be content", "f": 8}, "ἐπί": {"gl": "upon", "f": 885}, "οὔτε": {"gl": "and not", "f": 87}, "βούλομαι": {"gl": "want", "f": 37}, "κωλύω": {"gl": "prevent", "f": 23}, "ἐκ": {"gl": "from out", "f": 913}, "ἐκβάλλω": {"gl": "cast out", "f": 81}, "μιμέομαι": {"gl": "imitate", "f": 4}, "κακός": {"gl": "bad", "f": 50}, "ἀγαθός": {"gl": "good", "f": 101}, "ἀγαθοποιέω": {"gl": "do good", "f": 10}, "εἰμί": {"gl": "be", "f": 2456}, "κακοποιέω": {"gl": "do harm", "f": 4}, "ὁράω": {"gl": "see", "f": 476}, "Δημήτριος": {"gl": "Demetrius", "f": 3}, "ὑπό": {"gl": "by", "f": 220}, "δέ": {"gl": "but", "f": 2766}, "οἶδα": {"gl": "know", "f": 296}, "ὅτι": {"gl": "that", "f": 1294}, "μαρτυρία": {"gl": "witness", "f": 37}, "ἀληθής": {"gl": "true", "f": 26}, "πολύς": {"gl": "much", "f": 415}, "θέλω": {"gl": "will", "f": 208}, "μέλαν": {"gl": "ink", "f": 3}, "κάλαμος": {"gl": "reed", "f": 12}, "ἐλπίζω": {"gl": "hope", "f": 31}, "εὐθέως": {"gl": "immediately", "f": 35}, "στόμα": {"gl": "mouth", "f": 78}, "πρός": {"gl": "to", "f": 696}, "λαλέω": {"gl": "speak", "f": 297}, "εἰρήνη": {"gl": "peace", "f": 91}, "ἀσπάζομαι": {"gl": "greet", "f": 59}, "φίλος": {"gl": "friendly", "f": 29}, "κατά": {"gl": "according to", "f": 469}};
+
+// ═══ NAV DATA — for the location picker ═══
+// CUR_BOOK is the current book's URL slug (e.g. 'romans', '1corinthians').
+// BOOKS: {slug: {name, chapters}}  — keyed by URL slug; name is the display
+// name shown in the picker. BOOK_KEYS is the canonical NT ordering of slugs.
+// VERSE_COUNTS[slug][chapter] = max verse number in that chapter (computed
+// at build time from the JSON; lets the popover render the verse grid
+// without fetching anything).
+const CUR_BOOK = '3john';
+const BOOKS = {"matthew": {"name": "Matthew", "chapters": 28}, "mark": {"name": "Mark", "chapters": 16}, "luke": {"name": "Luke", "chapters": 24}, "john": {"name": "John", "chapters": 21}, "acts": {"name": "Acts", "chapters": 28}, "romans": {"name": "Romans", "chapters": 16}, "1corinthians": {"name": "1 Corinthians", "chapters": 16}, "2corinthians": {"name": "2 Corinthians", "chapters": 13}, "galatians": {"name": "Galatians", "chapters": 6}, "ephesians": {"name": "Ephesians", "chapters": 6}, "philippians": {"name": "Philippians", "chapters": 4}, "colossians": {"name": "Colossians", "chapters": 4}, "1thessalonians": {"name": "1 Thessalonians", "chapters": 5}, "2thessalonians": {"name": "2 Thessalonians", "chapters": 3}, "1timothy": {"name": "1 Timothy", "chapters": 6}, "2timothy": {"name": "2 Timothy", "chapters": 4}, "titus": {"name": "Titus", "chapters": 3}, "philemon": {"name": "Philemon", "chapters": 1}, "hebrews": {"name": "Hebrews", "chapters": 13}, "james": {"name": "James", "chapters": 5}, "1peter": {"name": "1 Peter", "chapters": 5}, "2peter": {"name": "2 Peter", "chapters": 3}, "1john": {"name": "1 John", "chapters": 5}, "2john": {"name": "2 John", "chapters": 1}, "3john": {"name": "3 John", "chapters": 1}, "jude": {"name": "Jude", "chapters": 1}, "revelation": {"name": "Revelation", "chapters": 22}};
+const BOOK_KEYS = ["matthew", "mark", "luke", "john", "acts", "romans", "1corinthians", "2corinthians", "galatians", "ephesians", "philippians", "colossians", "1thessalonians", "2thessalonians", "1timothy", "2timothy", "titus", "philemon", "hebrews", "james", "1peter", "2peter", "1john", "2john", "3john", "jude", "revelation"];
+const VERSE_COUNTS = {"matthew": {"1": 25, "10": 42, "11": 30, "12": 50, "13": 58, "14": 36, "15": 39, "16": 28, "17": 27, "18": 35, "19": 30, "2": 23, "20": 34, "21": 46, "22": 46, "23": 39, "24": 51, "25": 46, "26": 75, "27": 66, "28": 20, "3": 17, "4": 25, "5": 48, "6": 34, "7": 29, "8": 34, "9": 38}, "mark": {"1": 45, "10": 52, "11": 33, "12": 44, "13": 37, "14": 72, "15": 47, "16": 20, "2": 28, "3": 35, "4": 41, "5": 43, "6": 56, "7": 37, "8": 38, "9": 50}, "luke": {"1": 80, "10": 42, "11": 54, "12": 59, "13": 35, "14": 35, "15": 32, "16": 31, "17": 37, "18": 43, "19": 48, "2": 52, "20": 47, "21": 38, "22": 71, "23": 56, "24": 53, "3": 38, "4": 44, "5": 39, "6": 49, "7": 50, "8": 56, "9": 62}, "john": {"1": 51, "10": 42, "11": 57, "12": 50, "13": 38, "14": 31, "15": 27, "16": 33, "17": 26, "18": 40, "19": 42, "2": 25, "20": 31, "21": 25, "3": 36, "4": 54, "5": 47, "6": 71, "7": 53, "8": 59, "9": 41}, "acts": {"1": 26, "10": 48, "11": 30, "12": 25, "13": 52, "14": 28, "15": 41, "16": 40, "17": 34, "18": 28, "19": 40, "2": 47, "20": 38, "21": 40, "22": 30, "23": 35, "24": 27, "25": 27, "26": 32, "27": 44, "28": 31, "3": 26, "4": 37, "5": 42, "6": 15, "7": 60, "8": 40, "9": 43}, "romans": {"1": 32, "10": 21, "11": 36, "12": 21, "13": 14, "14": 23, "15": 33, "16": 24, "2": 29, "3": 31, "4": 25, "5": 21, "6": 23, "7": 25, "8": 39, "9": 33}, "1corinthians": {"1": 31, "10": 33, "11": 34, "12": 31, "13": 13, "14": 40, "15": 58, "16": 24, "2": 16, "3": 23, "4": 21, "5": 13, "6": 20, "7": 40, "8": 13, "9": 27}, "2corinthians": {"1": 24, "10": 18, "11": 33, "12": 21, "13": 13, "2": 17, "3": 18, "4": 18, "5": 21, "6": 18, "7": 16, "8": 24, "9": 15}, "galatians": {"1": 24, "2": 21, "3": 29, "4": 31, "5": 26, "6": 18}, "ephesians": {"1": 23, "2": 22, "3": 21, "4": 32, "5": 33, "6": 24}, "philippians": {"1": 30, "2": 30, "3": 21, "4": 23}, "colossians": {"1": 29, "2": 23, "3": 25, "4": 18}, "1thessalonians": {"1": 10, "2": 20, "3": 13, "4": 18, "5": 28}, "2thessalonians": {"1": 12, "2": 17, "3": 18}, "1timothy": {"1": 20, "2": 15, "3": 16, "4": 16, "5": 25, "6": 21}, "2timothy": {"1": 18, "2": 26, "3": 17, "4": 22}, "titus": {"1": 16, "2": 15, "3": 15}, "philemon": {"1": 25}, "hebrews": {"1": 14, "10": 39, "11": 40, "12": 29, "13": 25, "2": 18, "3": 19, "4": 16, "5": 14, "6": 20, "7": 28, "8": 13, "9": 28}, "james": {"1": 27, "2": 26, "3": 18, "4": 17, "5": 20}, "1peter": {"1": 25, "2": 25, "3": 22, "4": 19, "5": 14}, "2peter": {"1": 21, "2": 22, "3": 18}, "1john": {"1": 10, "2": 29, "3": 24, "4": 21, "5": 21}, "2john": {"1": 13}, "3john": {"1": 15}, "jude": {"1": 25}, "revelation": {"1": 20, "10": 11, "11": 19, "12": 18, "13": 18, "14": 20, "15": 8, "16": 21, "17": 18, "18": 24, "19": 21, "2": 29, "20": 15, "21": 27, "22": 21, "3": 22, "4": 11, "5": 14, "6": 17, "7": 17, "8": 13, "9": 21}};
 
 // ═══ LAYER DEFINITIONS ═══
 const MORPH_LAYERS = ['pfx','aug','form','end','case','gender'];
@@ -853,8 +988,128 @@ function closeLegend() {
   document.getElementById('legend-scrim').classList.remove('open');
   document.getElementById('legend').classList.remove('open');
 }
+
+// ═══ LOCATION PICKER — nav panel + verse popover ═══
+// Sibling pattern (readers-gnt / readers-bofm): clicking the book+chapter
+// title in the toolbar opens a full-screen nav panel. Click a book to expand
+// its chapter grid; click a chapter to open the verse popover; click a verse
+// to navigate. For same-chapter selections we scroll to an #v-N anchor
+// on the .verse-block div; for different chapters we load the target page.
+let _expandedBook = null;
+function openNav() {
+  buildNavPanel();
+  document.getElementById('nav-panel').classList.add('open');
+}
+function closeNav() {
+  document.getElementById('nav-panel').classList.remove('open');
+}
+function buildNavPanel() {
+  const body = document.getElementById('nav-body');
+  body.innerHTML = '';
+  _expandedBook = null;
+  for (const slug of BOOK_KEYS) {
+    const book = BOOKS[slug];
+    const isActive = (slug === CUR_BOOK);
+
+    const row = document.createElement('div');
+    row.className = 'nav-book-row' + (isActive ? ' active' : '');
+    row.innerHTML = '<span>' + book.name + '</span>' +
+      '<span class="nav-book-chaps">' + book.chapters + ' ch</span>';
+    body.appendChild(row);
+
+    const grid = document.createElement('div');
+    grid.className = 'nav-ch-grid';
+    grid.id = 'nav-grid-' + slug;
+
+    if (book.chapters === 1) {
+      row.onclick = () => showVersePopover(slug, 1);
+    } else {
+      row.onclick = () => toggleBookChapters(slug);
+      for (let i = 1; i <= book.chapters; i++) {
+        const ch = document.createElement('button');
+        ch.className = 'nav-ch' + (isActive && i === CUR_CHAPTER ? ' current' : '');
+        ch.textContent = i;
+        ch.onclick = ((s, c) => () => showVersePopover(s, c))(slug, i);
+        grid.appendChild(ch);
+      }
+    }
+    body.appendChild(grid);
+
+    if (isActive && book.chapters > 1) {
+      grid.classList.add('visible');
+      _expandedBook = slug;
+    }
+  }
+}
+function toggleBookChapters(slug) {
+  if (BOOKS[slug].chapters === 1) return;
+  const grid = document.getElementById('nav-grid-' + slug);
+  if (!grid) return;
+  if (_expandedBook && _expandedBook !== slug) {
+    const prev = document.getElementById('nav-grid-' + _expandedBook);
+    if (prev) prev.classList.remove('visible');
+  }
+  grid.classList.toggle('visible');
+  _expandedBook = grid.classList.contains('visible') ? slug : null;
+}
+function showVersePopover(slug, chapterNum) {
+  const verseCount = (VERSE_COUNTS[slug] && VERSE_COUNTS[slug][chapterNum]) || 0;
+  if (verseCount === 0) {
+    closeNav();
+    navigateTo(slug, chapterNum);
+    return;
+  }
+  const titleEl = document.getElementById('verse-popover-title');
+  titleEl.textContent = BOOKS[slug].name + ' ' + chapterNum;
+  titleEl.onclick = function() {
+    closeVersePopover();
+    closeNav();
+    navigateTo(slug, chapterNum);
+  };
+  const grid = document.getElementById('verse-popover-grid');
+  grid.innerHTML = '';
+  for (let v = 1; v <= verseCount; v++) {
+    const btn = document.createElement('button');
+    btn.className = 'verse-popover-num';
+    btn.textContent = v;
+    btn.onclick = ((s, c, vn) => () => {
+      closeVersePopover();
+      closeNav();
+      navigateTo(s, c, vn);
+    })(slug, chapterNum, v);
+    grid.appendChild(btn);
+  }
+  document.getElementById('verse-popover-scrim').classList.add('open');
+  document.getElementById('verse-popover').classList.add('open');
+}
+function closeVersePopover() {
+  document.getElementById('verse-popover-scrim').classList.remove('open');
+  document.getElementById('verse-popover').classList.remove('open');
+}
+function navigateTo(book, chapter, verse) {
+  // Same-chapter with a verse: in-page scroll, no navigation.
+  if (book === CUR_BOOK && chapter === CUR_CHAPTER) {
+    if (verse) {
+      const el = document.getElementById('v-' + verse);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#v-' + verse);
+      }
+    }
+    return;
+  }
+  // Different chapter: load the page. Morph chapters live at docs/<book>/<N>.html,
+  // so same-book target is './<M>.html' and other-book target is '../<book>/<M>.html'.
+  const path = (book === CUR_BOOK ? './' : '../' + book + '/') + chapter + '.html';
+  window.location.href = path + (verse ? '#v-' + verse : '');
+}
+
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLegend();
+  if (e.key === 'Escape') {
+    closeLegend();
+    closeNav();
+    closeVersePopover();
+  }
   if (e.target.matches('input,textarea,select')) return;
   if (e.key === 'ArrowLeft') goChapter(-1);
   else if (e.key === 'ArrowRight') goChapter(1);
@@ -1018,7 +1273,10 @@ function render(data) {
     if (d.v) {
       if (inLine) { h += '</div>'; inLine = false; }
       if (inVerse) h += '</div>';
-      h += `<div class="verse-block">`;
+      // id="v-<N>" is the anchor target for the location picker's verse jump
+      // (navigateTo scrolls to #v-<verse>) and for URL fragments like
+      // romans/3.html#v-16 from cross-chapter nav.
+      h += `<div class="verse-block" id="v-${d.v}">`;
       h += `<span class="v-num">1:${d.v}</span>`;
       h += '<div class="sense-line">';
       inVerse = true;
@@ -1145,6 +1403,15 @@ function render(data) {
 loadPrefs();
 updateUI();
 render(CH_DATA);
+
+// Honor #v-<N> URL fragments after render — lets cross-chapter links from
+// the location picker (e.g. romans/3.html#v-16) land on the target verse.
+if (location.hash && /^#v-\d+$/.test(location.hash)) {
+  requestAnimationFrame(() => {
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView({ block: 'start' });
+  });
+}
 </script>
 </body>
 </html>
