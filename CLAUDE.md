@@ -143,31 +143,76 @@ The origin: reactive fix-break cycles were eating time. Every feature revealed 2
 
 ## Session bookend protocol
 
-Canonical shared source: [`overseer-workspace/SESSION-BOOKEND-PROTOCOL.md`](../overseer-workspace/SESSION-BOOKEND-PROTOCOL.md) — CHECK-IN, WRAP-UP, context thresholds, and compaction-resume protocol. **Read it at the start of every session.**
+Self-contained — the overseer coordination layer retired 2026-04-20. Claude answers only to Stan. No shared source file; this section is the spec.
 
-### morph-specific CHECK-IN file list (structured as mandatory + consult-on-trigger per shared protocol)
+### CHECK-IN at session start
 
-**MANDATORY (read every wake — including short "hey wake up" signals):**
-1. This CLAUDE.md in full
-2. `private/OVERSEER-DIRECTIONS.md` active-directives section (NOT the archive if/when one exists) — created 2026-04-19; carries cross-project push-FROM-HERE items + active open items + sync log
-3. [HANDOFF.md](HANDOFF.md) — architectural retrospective; Resumption Checklist in Part 6.5 is the most load-bearing section on a fresh wake
-4. `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — scope per shared protocol (morph items only)
-5. `git log --oneline -10`
+When Stan signals start-of-session (including short wakes like "hey wake up"), before any substantive work, read the files below in order, then self-report per-file.
 
-**CONSULT-ON-TRIGGER (evaluate the trigger; do NOT silently skip):**
-- [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX / deployment work not touching vendored corpora.
-- Run the validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** first wake on a new machine, OR you suspect pipeline state has shifted. **Skip when:** recent validator run in the session log shows clean state.
-- `c:/Users/bibleman/repos/overseer-workspace/LANDSCAPE-MAP.md` — **trigger:** cross-project state matters to today's task (e.g., readers-gnt substrate change, shared-methodology discussion). **Skip when:** morph-local work with no cross-project implications.
+**MANDATORY (read every wake, no exceptions):**
+1. **This CLAUDE.md in full** — active rules may have changed
+2. **`private/open-items.md`** — live work queue
+3. **[HANDOFF.md](HANDOFF.md)** — architectural retrospective; Resumption Checklist in Part 6.5 is most load-bearing on a fresh wake
+4. **`C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md`** — mobile→desktop bridge; morph-scope items only (never delete; leave non-morph items untouched)
+5. **`git log --oneline -10`** — any unfamiliar commit is a state change to understand before working
+6. **`PYTHONIOENCODING=utf-8 python src/sync_senselines.py`** (report-only) — surface any `readers-gnt` sense-line drift since last session; if drift exists, default to `--regen` without asking
 
-**Self-report is mandatory before your first substantive response** — see the shared protocol's SELF-REPORT section for the one-line-per-file format. A silent skip is a check-in failure.
+**CONSULT-ON-TRIGGER (evaluate; a silent skip is a check-in failure):**
+- [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX / deployment work with no vendored-corpus touching.
+- Validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** first wake on a new machine, OR pipeline state suspected to have shifted (morpheus.py / inflect_gloss.py / generator touched since last verified run). **Skip when:** recent clean run in session log.
 
-### morph-specific WRAP-UP additions
+**SELF-REPORT format** — one line per file in a check-in message, before your first substantive response:
 
-Session notes go to `private/03-sessions/[YYYY-MM-DD]-[topic-slug]/session-notes.md`. The "What the notes should contain" bullet list from the shared protocol applies in full. HANDOFF.md updates ONLY for architectural retrospective additions (trajectory, lessons learned, resumption-checklist), not per-session run-downs.
+> **Checked in.**
+> - CLAUDE.md — read
+> - open-items.md — read; [N items / changes since last wrap]
+> - HANDOFF.md — read; [new entries or "tail unchanged"]
+> - brainstorming inbox — read; [N items / disposition]
+> - git log — [N new commits; surprises or "nothing unexpected"]
+> - sync_senselines — [N stale / clean]
+> - NOTICE.md — [read / skipped]; [trigger evaluation]
+> - validator — [read / skipped]; [trigger evaluation]
+>
+> [One-line focus candidate + ask.]
 
-### Context-threshold and compaction-resume — see shared protocol
+One sentence max per line. Purpose: prove the read happened; make skips auditable.
 
-Threshold discipline and compaction-resume rules live in the shared protocol (revised 2026-04-19 so execution-heavy sessions like full-GNT regens or horde dispatches aren't interrupted at 40%).
+### WRAP-UP at session end
+
+When Stan signals "wrap it up" (or equivalent), in order:
+
+1. **Create the session folder:** `private/03-sessions/<YYYY-MM-DD>-<brief_description>/`. Date = calendar day of the first commit in the session (midnight-spanning sessions take the commit date). `brief_description` is short, lowercase, hyphenated.
+2. **Verbatim transcript:** copy the Claude Code session file (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl` — most recent by mtime if uncertain) into the session folder as `transcript.jsonl`. This is the true verbatim — every user/assistant turn + tool call. Do not edit or paraphrase it.
+3. **Session notes** at `<folder>/session-notes.md`. What it should contain:
+   - What you built or fixed
+   - What validator said before and after (if pipeline-relevant)
+   - Any new edge cases surfaced
+   - Decisions Stan made — preserve load-bearing quotes verbatim
+   - **Self-log of discipline failures Stan caught.** Name each. If ≥2 share a common underlying mode (over-structuring, alignment-skip, imposing-vs-revealing, pattern-matching-over-diagnostic, rule-multiplication), say so explicitly.
+   - **Any proposed rule / framing / claim walked back** — with the reason (anti-over-claim discipline).
+   - **Workflow use-count** — if a recurring workflow was used 3+ times, note the count; repeated use = validation.
+4. **Update `private/open-items.md`** — mark applied items with commit hashes and date; add new items surfaced this session; prune the list when items land.
+5. **Update HANDOFF.md** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.md.
+6. **Wrap-up message** to Stan (4-8 lines): commits landing, files touched, items closed, items opened, session-folder path, anything to flag.
+7. **Commit.**
+
+### Context-aware self-discipline
+
+Compaction is the silent equivalent of "wrap it up." Thresholds:
+
+- **~50% context remaining — informal checkpoint.** Commit WIP code even if incomplete, save in-flight batch state to a file, note session-so-far in the session folder. Don't stop working.
+- **~40% context remaining — defensive checkpoint, NOT hard wrap.** Write out anything that only lives in memory (partial notes, batch aggregations, reasoning chains). **Continue deliverable work** — execution-heavy sessions (full-GNT regens, horde dispatches) should run through this threshold, not be interrupted by ceremony. Tell Stan you've crossed 40% so he can decide whether to continue in a fresh session.
+- **~25% context remaining — hard wrap.** Finish only the wrap-up. Don't start new work. The runway between 25% and auto-compact is the margin for wrap-up itself.
+
+When in doubt, write it down. Files survive compaction; working memory does not.
+
+### Compaction-resume protocol
+
+When the conversation resumes from an auto-compaction summary rather than a live session start:
+
+- **In-flight continuation** (Stan's first post-compaction message is a direct continuation of the pre-compaction task — "keep going on X", "back to Y"): **minimal 3-file check-in** — this CLAUDE.md's active-rules section, `private/open-items.md`, and the brainstorming inbox. Then pick up the task. Do NOT execute the full CHECK-IN.
+- **Fresh-start signal** ("new session", "hey wake up", "let's work on X today"): execute the full CHECK-IN above.
+- **Ambiguous:** ask Stan in one line whether to treat as resume-in-flight or fresh start.
 
 ---
 
