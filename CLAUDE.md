@@ -143,76 +143,65 @@ The origin: reactive fix-break cycles were eating time. Every feature revealed 2
 
 ## Session bookend protocol
 
-Self-contained — the overseer coordination layer retired 2026-04-20. Claude answers only to Stan. No shared source file; this section is the spec.
+The overseer retired 2026-04-20; Stan is the sole authority. Session bookends produce artifacts in a per-session folder that survives compaction. Shape matches sibling repos (`readers-gnt`, `readers-bofm`) with morph-specific adjustments (sense-line drift awareness; HANDOFF.md as triggered-consult rather than every-wake mandatory).
+
+### Session folder convention
+
+Each Claude Code session (JSONL boundary) gets its own folder:
+
+`private/03-sessions/yyyy-mm-dd-brief_description/`
+
+Use the **session start date**. A compaction-wake starts a new session; create a new folder with a new descriptor even if the calendar date matches a pre-compaction folder. Multiple folders sharing a date with different descriptors is correct and expected.
+
+The folder is the persistent write surface for the session. Session memory evaporates at compaction; the folder survives.
 
 ### CHECK-IN at session start
 
-When Stan signals start-of-session (including short wakes like "hey wake up"), before any substantive work, read the files below in order, then self-report per-file.
-
-**MANDATORY (read every wake, no exceptions):**
+**MANDATORY (read every wake, including short "hey wake up" signals):**
 1. **This CLAUDE.md in full** — active rules may have changed
-2. **`private/open-items.md`** — live work queue
-3. **[HANDOFF.md](HANDOFF.md)** — architectural retrospective; Resumption Checklist in Part 6.5 is most load-bearing on a fresh wake
-4. **`C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md`** — mobile→desktop bridge; morph-scope items only (never delete; leave non-morph items untouched)
-5. **`git log --oneline -10`** — any unfamiliar commit is a state change to understand before working
-6. **`PYTHONIOENCODING=utf-8 python src/sync_senselines.py`** (report-only) — surface any `readers-gnt` sense-line drift since last session; if drift exists, default to `--regen` without asking
+2. **Most recent `private/03-sessions/yyyy-mm-dd-*/session-notes.md`** — prior-session carry-forwards, discipline patterns, open threads
+3. **`git log --oneline -10`** — any unfamiliar commit is a state change to understand before working
+4. **`PYTHONIOENCODING=utf-8 python src/sync_senselines.py`** (report-only) — morph-specific: sense-line drift check against the `readers-gnt` substrate. **If drift exists, default to `--regen` without asking** — observed drift in a substrate-consumer pipeline IS the instruction to sync.
 
-**CONSULT-ON-TRIGGER (evaluate; a silent skip is a check-in failure):**
-- [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX / deployment work with no vendored-corpus touching.
-- Validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** first wake on a new machine, OR pipeline state suspected to have shifted (morpheus.py / inflect_gloss.py / generator touched since last verified run). **Skip when:** recent clean run in session log.
+**CONSULT-ON-TRIGGER (evaluate the trigger; a silent skip is a check-in failure):**
+- [HANDOFF.md](HANDOFF.md) — **trigger:** architectural question, first wake on a new machine, or anything that might intersect the eight lessons / channel architecture / validator discipline. **Skip when:** routine execution work (regens, gloss overrides, nav UI) with no architectural implication.
+- [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX work with no vendored-corpus touching.
+- Validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** morpheus.py / inflect_gloss.py / generator touched since last verified run. **Skip when:** recent clean run + no pipeline code changes.
+- `private/open-items.md` — **trigger:** choosing what to work on next, or at wrap-up to update. **Skip when:** Stan has already named today's focus.
+- `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — **trigger:** Stan's wake signal references a mobile-captured idea, or you want to check the inbox for morph-scope items. **Skip when:** focus is already explicit and no inbox reference made.
 
-**SELF-REPORT format** — one line per file in a check-in message, before your first substantive response:
+**SELF-REPORT before first substantive response** — one line per mandatory file (e.g., `- CLAUDE.md: read`), plus read/skip + trigger evaluation for each consult-on-trigger item that fired. A silent skip is a check-in failure.
 
-> **Checked in.**
-> - CLAUDE.md — read
-> - open-items.md — read; [N items / changes since last wrap]
-> - HANDOFF.md — read; [new entries or "tail unchanged"]
-> - brainstorming inbox — read; [N items / disposition]
-> - git log — [N new commits; surprises or "nothing unexpected"]
-> - sync_senselines — [N stale / clean]
-> - NOTICE.md — [read / skipped]; [trigger evaluation]
-> - validator — [read / skipped]; [trigger evaluation]
->
-> [One-line focus candidate + ask.]
+### During the session
 
-One sentence max per line. Purpose: prove the read happened; make skips auditable.
+Log as things happen — in the session folder's `session-notes.md` (draft as you go, or assemble at wrap):
+- **Discipline failures** Stan catches. If ≥2 share a common underlying mode (over-structuring, alignment-skip, imposing-vs-revealing, pattern-matching-over-diagnostic, rule-multiplication, present-observation-as-choice-point), name the mode explicitly.
+- **Withdrawn or discarded proposals** — with the reason (anti-over-claim discipline).
+- **Workflow use-count** running tally — agent dispatches, commits, memory changes, regen runs. Recurring use is validation of the workflow.
 
 ### WRAP-UP at session end
 
-When Stan signals "wrap it up" (or equivalent), in order:
+When Stan signals "wrap it up" (or equivalent), produce in the session folder:
 
-1. **Create the session folder:** `private/03-sessions/<YYYY-MM-DD>-<brief_description>/`. Date = calendar day of the first commit in the session (midnight-spanning sessions take the commit date). `brief_description` is short, lowercase, hyphenated.
-2. **Verbatim transcript:** copy the Claude Code session file (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl` — most recent by mtime if uncertain) into the session folder as `transcript.jsonl`. This is the true verbatim — every user/assistant turn + tool call. Do not edit or paraphrase it.
-3. **Session notes** at `<folder>/session-notes.md`. What it should contain:
-   - What you built or fixed
-   - What validator said before and after (if pipeline-relevant)
-   - Any new edge cases surfaced
-   - Decisions Stan made — preserve load-bearing quotes verbatim
-   - **Self-log of discipline failures Stan caught.** Name each. If ≥2 share a common underlying mode (over-structuring, alignment-skip, imposing-vs-revealing, pattern-matching-over-diagnostic, rule-multiplication), say so explicitly.
-   - **Any proposed rule / framing / claim walked back** — with the reason (anti-over-claim discipline).
-   - **Workflow use-count** — if a recurring workflow was used 3+ times, note the count; repeated use = validation.
-4. **Update `private/open-items.md`** — mark applied items with commit hashes and date; add new items surfaced this session; prune the list when items land.
-5. **Update HANDOFF.md** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.md.
+1. **`full-transcript.md`** — verbatim dialogue extracted from the session JSONL. Dispatch a Sonnet agent with the JSONL path (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl`, most recent by mtime if uncertain) to stream-process: numbered turns alternating Stan / Claude, strip `tool_use` and `tool_result` blocks, strip `<system-reminder>` blocks. Keep everything else verbatim.
+2. **`session-notes.md`** — session arc, commits landed, discipline observations with common-mode grouping, withdrawn proposals, workflow use-count, carry-forwards for the next session. Preserve load-bearing Stan phrases verbatim.
+3. **`dialogue-notes.md`** — produce only for methodology-heavy sessions where the dialogue arc itself is the work (not just executing a pre-specified task). Captures the reasoning path. Most morph sessions are execution; this file is rare here.
+4. **Update `private/open-items.md`** — mark applied items with commit hash + date; add new items surfaced this session; prune when items land.
+5. **Update [HANDOFF.md](HANDOFF.md)** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.
 6. **Wrap-up message** to Stan (4-8 lines): commits landing, files touched, items closed, items opened, session-folder path, anything to flag.
 7. **Commit.**
 
-### Context-aware self-discipline
+### Context-threshold discipline
 
-Compaction is the silent equivalent of "wrap it up." Thresholds:
-
-- **~50% context remaining — informal checkpoint.** Commit WIP code even if incomplete, save in-flight batch state to a file, note session-so-far in the session folder. Don't stop working.
-- **~40% context remaining — defensive checkpoint, NOT hard wrap.** Write out anything that only lives in memory (partial notes, batch aggregations, reasoning chains). **Continue deliverable work** — execution-heavy sessions (full-GNT regens, horde dispatches) should run through this threshold, not be interrupted by ceremony. Tell Stan you've crossed 40% so he can decide whether to continue in a fresh session.
-- **~25% context remaining — hard wrap.** Finish only the wrap-up. Don't start new work. The runway between 25% and auto-compact is the margin for wrap-up itself.
+- **Green zone (0-60%):** execute normally.
+- **Yellow zone (60-80%):** start drafting `session-notes.md` in the session folder; consider wrapping at natural breakpoints. Write out anything that only lives in memory.
+- **Red zone (80%+):** stop new execution, wrap up. The runway between 80% and auto-compact is the margin for wrap-up itself.
 
 When in doubt, write it down. Files survive compaction; working memory does not.
 
 ### Compaction-resume protocol
 
-When the conversation resumes from an auto-compaction summary rather than a live session start:
-
-- **In-flight continuation** (Stan's first post-compaction message is a direct continuation of the pre-compaction task — "keep going on X", "back to Y"): **minimal 3-file check-in** — this CLAUDE.md's active-rules section, `private/open-items.md`, and the brainstorming inbox. Then pick up the task. Do NOT execute the full CHECK-IN.
-- **Fresh-start signal** ("new session", "hey wake up", "let's work on X today"): execute the full CHECK-IN above.
-- **Ambiguous:** ask Stan in one line whether to treat as resume-in-flight or fresh start.
+Compaction is a session boundary. When resuming from a compaction summary, execute the full CHECK-IN protocol above and create a new session folder with a new descriptor. A compaction-wake gives context but does not exercise the orientation muscles — silent skip is a check-in failure. Short-form wake signals ("hey wake up") still require the full mandatory reads; mandatory is short enough that skipping saves no meaningful time.
 
 ---
 
