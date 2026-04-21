@@ -22,7 +22,11 @@ desktop.ini
 *.swp
 *.swo
 
-# Local-only Claude scratch (project permissions stay tracked via .claude/settings.json)
+# Claude Code config — fully local. The harness auto-writes permission
+# additions to settings.json every time a new path is approved, which
+# clutters GitHub Desktop each session. Matches readers-gnt (commit 4af66ce)
+# and readers-bofm gitignore policy.
+.claude/settings.json
 .claude/settings.local.json
 
 # Overseer workspace — session notes, OVERSEER-DIRECTIONS, sync logs, etc. (matches sibling repos)
