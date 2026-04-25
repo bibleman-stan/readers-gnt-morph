@@ -187,15 +187,37 @@ Log as things happen — in the session folder's `session-notes.md` (draft as yo
 
 ### WRAP-UP at session end
 
-When Stan signals "wrap it up" (or equivalent), produce in the session folder:
+When Stan signals "wrap it up" (or equivalent), produce in the session folder. The shape mirrors `readers-gnt`'s — Stan should be able to walk into a `private/03-sessions/yyyy-mm-dd-*/` folder months later and reconstruct what happened, why, and what was decided.
 
-1. **`full-transcript.md`** — verbatim dialogue extracted from the session JSONL. Dispatch a Sonnet agent with the JSONL path (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl`, most recent by mtime if uncertain) to stream-process: numbered turns alternating Stan / Claude, strip `tool_use` and `tool_result` blocks, strip `<system-reminder>` blocks. Keep everything else verbatim.
-2. **`session-notes.md`** — session arc, commits landed, discipline observations with common-mode grouping, withdrawn proposals, workflow use-count, carry-forwards for the next session. Preserve load-bearing Stan phrases verbatim.
-3. **`dialogue-notes.md`** — produce only for methodology-heavy sessions where the dialogue arc itself is the work (not just executing a pre-specified task). Captures the reasoning path. Most morph sessions are execution; this file is rare here.
-4. **Update `private/open-items.md`** — mark applied items with commit hash + date; add new items surfaced this session; prune when items land.
-5. **Update [HANDOFF.md](HANDOFF.md)** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.
-6. **Wrap-up message** to Stan (4-8 lines): commits landing, files touched, items closed, items opened, session-folder path, anything to flag.
-7. **Commit.**
+**Always produce:**
+
+1. **`full-transcript.md`** — verbatim dialogue extracted from the session JSONL. Dispatch a Sonnet agent with the JSONL path (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl`, most recent by mtime if uncertain) to stream-process: numbered turns alternating Stan / Claude, strip `tool_use` and `tool_result` blocks, strip `<system-reminder>` blocks. Keep everything else verbatim. **Scope to the current wake-to-wrap turn range only** — the JSONL accumulates across sessions; tell the agent the start phrase ("hey wake up" / "wake up - time to work" / equivalent) and end phrase ("wrap it up" / equivalent) so it filters correctly. The agent should report turn count + scoped JSONL line range so I can sanity-check.
+
+2. **`session-notes.md`** — session arc, commits landed (table format with commit hash + subject), discipline observations with common-mode grouping, withdrawn proposals, workflow use-count tally, carry-forwards for the next session. Preserve load-bearing Stan phrases verbatim. This is the human-readable summary, not the transcript.
+
+**Produce when applicable:**
+
+3. **`dialogue-notes.md`** — produce only when the session's dialogue arc itself is the work product (methodology decisions, design discussions, novel rule shaping) — not for routine execution. Captures the reasoning *path* with named arcs, verbatim Stan phrases that triggered moves, and the named insight at the end of each arc. Most morph sessions are execution; this file is rare. When in doubt: was today's value primarily in the conclusions, or in HOW we got to the conclusions? If the latter, write it.
+
+4. **`proposals-for-stan.md`** — produce when the session generated decisions Stan needs to review or carry forward — applied items with rationale, overridden items with rationale, deferred items needing his judgment. Use categories like Applied / Overridden / Deferred-for-review. Skip when nothing was deferred.
+
+5. **`review-lists/`** subfolder — only when the session produced candidate lists requiring Stan-by-Stan review (e.g., a horde-batch's flagged items, a sweep's edge cases). One markdown file per list with checkboxes for each item.
+
+6. **Free-form session-specific files** — sweep aggregates, batch-result tables, decision matrices. If the session produced structured output worth preserving separately from `session-notes.md`, write it as a named file in the same folder. The folder is the session's persistent write surface; nothing forces files into one of the named slots above.
+
+**During the session — write in the session folder as work happens, not just at wrap.** Sessions that produce structured output (sweep results, horde findings, decision logs) should accumulate those in folder files in real time. The per-turn discipline-failure log + workflow use-count tally + withdrawn proposals all belong in `session-notes.md` as the session unfolds. Working memory evaporates at compaction; folder files survive.
+
+**Then update — outside the session folder:**
+
+7. **`private/open-items.md`** — mark applied items with commit hash + date; add new items surfaced this session; prune when items land.
+
+8. **[HANDOFF.md](HANDOFF.md)** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.
+
+**Then close out:**
+
+9. **Wrap-up message** to Stan (4-8 lines): commits landing, files touched, items closed, items opened, session-folder path, anything to flag.
+
+10. **Commit** any tracked changes (the session folder itself lives under gitignored `private/` and won't be in the commit; that's correct).
 
 ### Context-threshold discipline
 
