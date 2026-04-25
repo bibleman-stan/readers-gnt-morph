@@ -161,7 +161,13 @@ The folder is the persistent write surface for the session. Session memory evapo
 1. **This CLAUDE.md in full** — active rules may have changed
 2. **Most recent `private/03-sessions/yyyy-mm-dd-*/session-notes.md`** — prior-session carry-forwards, discipline patterns, open threads
 3. **`git log --oneline -10`** — any unfamiliar commit is a state change to understand before working
-4. **`PYTHONIOENCODING=utf-8 python src/sync_senselines.py`** (report-only) — morph-specific: sense-line drift check against the `readers-gnt` substrate. **If drift exists, default to `--regen` without asking** — observed drift in a substrate-consumer pipeline IS the instruction to sync.
+4. **Sense-line sync against the `readers-gnt` substrate.** This is morph's most important operational rule because morph's whole job is to render that substrate accurately. The standing action sequence on every wake — no exceptions, no permission step:
+   1. Run `PYTHONIOENCODING=utf-8 python src/sync_senselines.py` (report mode).
+   2. **If even one chapter is stale, immediately run `python src/sync_senselines.py --regen`.** Do not ask. Do not pause to "confirm with Stan." Observed drift in a substrate-consumer pipeline IS the directive to sync — Stan's editorial work in `readers-gnt` is the instruction; my job is to absorb it.
+   3. **Commit the regen** — `git add build/ docs/ && git commit -m "Sync sense-line changes from readers-gnt — N chapters"`.
+   4. Self-report the chapter count + commit hash in the check-in message.
+
+   If `report` says "All in sync. No chapters stale." — note that explicitly in the self-report. Do not skip step 1 even when expecting clean state; the whole point is verification, not assumption.
 
 **CONSULT-ON-TRIGGER (evaluate the trigger; a silent skip is a check-in failure):**
 - [HANDOFF.md](HANDOFF.md) — **trigger:** architectural question, first wake on a new machine, or anything that might intersect the eight lessons / channel architecture / validator discipline. **Skip when:** routine execution work (regens, gloss overrides, nav UI) with no architectural implication.
