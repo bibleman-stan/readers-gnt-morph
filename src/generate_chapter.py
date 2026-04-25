@@ -938,6 +938,16 @@ _GLOSS_OVERRIDE = {
     'ἀποστέλλω': 'send',
     'συνέρχομαι': 'gather',
     'παρακαλέω': 'urge',
+    # Deponent middle whose dictionary gloss ("I take to myself, welcome")
+    # leaks the first-person reflexive into 3rd-person forms — Acts 28:2
+    # προσελάβοντο rendered "took to myself" (wrong person + clunky English).
+    # "Welcome" is the NT sense (welcoming travelers, accepting a weak brother).
+    'προσλαμβάνομαι': 'welcome',
+    # Dodson "I hang up, suspend" — the "up" is excess in every NT use
+    # (snake hanging from Paul's hand Acts 28:4, hanged on a tree Gal 3:13,
+    # millstone Matt 18:6 / Mark 9:42, the law/prophets "hang" on the
+    # commandments Matt 22:40, etc.). Stop including "up".
+    'κρεμάννυμι': 'hang',
     'κατά': 'according to',
     'ἐπί': 'upon',
     'διά': 'through',
