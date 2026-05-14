@@ -8,7 +8,7 @@ Read this file completely before doing anything in this repo. It is your orienta
 
 A browser-based morpheme reader for the Greek New Testament. Each Greek word is decomposed into its morphological pieces (preposition prefix → augment → stem → formative → ending), with color-coded visual annotations that students can toggle on/off layer-by-layer. The goal: let students **see** Greek morphology rather than decode abbreviations mentally.
 
-**Status:** Full book of Acts published (28 chapters, 99.5%+ validated correctness). Pipeline is book-agnostic as of 2026-04-17 (Bundle 3 refactor): `src/books.py` registry, `--book` arg on `generate_chapter.py`, `src/audit_coverage.py` pre-generation gate. Other books being generated as schedule allows.
+**Status:** Full Greek New Testament published — all 27 books, 260 chapters, live at morph.gnt-reader.com. Morphological decomposition validated at 99.5%+ corpus-wide by `src/validate_chapter.py`; English glosses validated by `src/validate_glosses.py` (ground-truth test set + anti-pattern scan). Pipeline is book-agnostic: `src/books.py` registry, `--book` arg on `generate_chapter.py`, `src/bulk_generate.py` whole-GNT regen in ~23s, `src/audit_coverage.py` pre-generation gate.
 
 - **Repo:** github.com/bibleman-stan/readers-gnt-morph (public)
 - **Deploy:** live at `morph.gnt-reader.com` (GitHub Pages, `docs/` folder).
@@ -34,12 +34,14 @@ This is the **morph analytical layer**. You are part of a family of projects; un
 **You own (full read/write authority):**
 - Everything in `readers-gnt-morph/` — code, templates, HTML outputs, chapter JSONs, vendored data, documentation
 
-**You do NOT touch:**
-- **`c:/Users/bibleman/repos/readers-gnt/`** — the sibling reading edition. Your `generate_chapter.py` reads sense-lines from it, but you NEVER write to it. Editorial decisions about line breaks happen in a different Claude session working in that repo. If you see a problem with a sense-line, SURFACE IT TO STAN — do not edit it yourself.
-- **`c:/Users/bibleman/repos/readers-bofm/`** — a parallel colometric project in the same family. Not your concern.
-- **`c:/Users/bibleman/repos/overseer-workspace/`** — the overseer's cross-project workspace. You can READ it if useful for context; you do not write to it.
+**You do NOT touch (read-only at most):**
+- **`c:/Users/bibleman/repos/readers-gnt/`** — the sibling reading edition; morph's substrate source. Your `generate_chapter.py` reads sense-lines from it, but you NEVER write to it. Editorial decisions about line breaks happen in a different Claude session working in that repo. If you see a problem with a sense-line, SURFACE IT TO STAN — do not edit it yourself.
+- **`c:/Users/bibleman/repos/readers-bofm/`** — Book of Mormon colometric edition (the proof-of-concept reference impl). Not your concern.
+- **`c:/Users/bibleman/repos/readers-tanakh/`** — Hebrew Bible colometric edition. Not your concern.
+- **`c:/Users/bibleman/repos/rev-reader/`** — Revelation annotation apparatus (another GNT-substrate consumer, parallel to you). Not your concern.
+- **`c:/Users/bibleman/repos/atu-method/`** — the shared ATU-method (Atomic Thought Unit) methodology + Python infrastructure repo, extracted 2026-04-26 from the colometric proof-of-concepts. The colometric editions import its package; **morph does not** — morph consumes the substrate *output* (sense-line files), not the colometry tooling. Read it for FYSA context if useful; never write to it.
 
-**The "substrate as stable API" principle:** the sense-line files at `readers-gnt/data/text-files/v4-editorial/` are the interface contract between the sibling project and you. Your job is to CONSUME them cleanly. Their format (verse markers, one line per sense-line, UTF-8 polytonic Greek, blank lines between verses) does not change shape. If you think you need structural enrichment in the substrate, fork the idea into a different project — do not propose modifying the substrate.
+**The "substrate as stable API" principle:** the sense-line files at `readers-gnt/data/text-files/v4/grk/` are the interface contract between the sibling project and you. Your job is to CONSUME them cleanly. Their *format* (verse markers, one line per sense-line, UTF-8 polytonic Greek, blank lines between verses) is stable — but the *path* can move (it was `v4-editorial/` until the 2026-04-26 ATU-method restructure split it into `v4/grk/` + `v4/eng-kjv/`). If the path moves again, `sync_senselines.py` will error loudly; fix `SENSE_LINES_DIR` in `generate_chapter.py` + `_SENSE_DIR` in `sync_senselines.py` + the `books.py` docstring. If you think you need structural enrichment in the substrate, fork the idea into a different project — do not propose modifying the substrate.
 
 ---
 
@@ -141,25 +143,17 @@ The origin: reactive fix-break cycles were eating time. Every feature revealed 2
 
 ---
 
-## Session bookend protocol
+## Orientation & continuity
 
-The overseer retired 2026-04-20; Stan is the sole authority. Session bookends produce artifacts in a per-session folder that survives compaction. Shape matches sibling repos (`readers-gnt`, `readers-bofm`) with morph-specific adjustments (sense-line drift awareness; HANDOFF.md as triggered-consult rather than every-wake mandatory).
+The overseer retired 2026-04-20; Stan is the sole authority. **Sessionizing is retired (2026-05-14)** — no per-session folders, no `session-notes.md` / `full-transcript.md` / `dialogue-notes.md` / `proposals-for-stan.md`, no WRAP-UP ceremony. The Claude Code JSONL at `C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl` is the verbatim record — it already captures every turn losslessly, so re-transcribing it into folder artifacts was redundant work. Surface state inline in chat; persist durable work-queue items in `private/open-items.md`; that's it.
 
-### Session folder convention
-
-Each Claude Code session (JSONL boundary) gets its own folder:
-
-`private/03-sessions/yyyy-mm-dd-brief_description/`
-
-Use the **session start date**. A compaction-wake starts a new session; create a new folder with a new descriptor even if the calendar date matches a pre-compaction folder. Multiple folders sharing a date with different descriptors is correct and expected.
-
-The folder is the persistent write surface for the session. Session memory evaporates at compaction; the folder survives.
+The existing `private/03-sessions/` folders are frozen historical artifacts from the sessionized era — don't add to them, don't delete them.
 
 ### CHECK-IN at session start
 
 **MANDATORY (read every wake, including short "hey wake up" signals):**
 1. **This CLAUDE.md in full** — active rules may have changed
-2. **Most recent `private/03-sessions/yyyy-mm-dd-*/session-notes.md`** — prior-session carry-forwards, discipline patterns, open threads
+2. **`private/open-items.md`** — the rolling work queue; prior-session carry-forwards live here now
 3. **`git log --oneline -10`** — any unfamiliar commit is a state change to understand before working
 4. **Sense-line sync against the `readers-gnt` substrate.** This is morph's most important operational rule because morph's whole job is to render that substrate accurately. The standing action sequence on every wake — no exceptions, no permission step:
    1. Run `PYTHONIOENCODING=utf-8 python src/sync_senselines.py` (report mode).
@@ -167,69 +161,30 @@ The folder is the persistent write surface for the session. Session memory evapo
    3. **Commit the regen** — `git add build/ docs/ && git commit -m "Sync sense-line changes from readers-gnt — N chapters"`.
    4. Self-report the chapter count + commit hash in the check-in message.
 
-   If `report` says "All in sync. No chapters stale." — note that explicitly in the self-report. Do not skip step 1 even when expecting clean state; the whole point is verification, not assumption.
+   If `report` says "All in sync. No chapters stale." — note that explicitly in the self-report. Do not skip step 1 even when expecting clean state; the whole point is verification, not assumption. Substrate path is `readers-gnt/data/text-files/v4/grk/` (was `v4-editorial/` before the 2026-04-26 ATU-method restructure).
 
 **CONSULT-ON-TRIGGER (evaluate the trigger; a silent skip is a check-in failure):**
 - [HANDOFF.md](HANDOFF.md) — **trigger:** architectural question, first wake on a new machine, or anything that might intersect the eight lessons / channel architecture / validator discipline. **Skip when:** routine execution work (regens, gloss overrides, nav UI) with no architectural implication.
 - [NOTICE.md](NOTICE.md) — **trigger:** touching vendored data or making licensing-relevant changes. **Skip when:** code / pipeline / UX work with no vendored-corpus touching.
 - Validator (`PYTHONIOENCODING=utf-8 python src/validate_chapter.py build/acts/9.json`) — **trigger:** morpheus.py / inflect_gloss.py / generator touched since last verified run. **Skip when:** recent clean run + no pipeline code changes.
-- `private/open-items.md` — **trigger:** choosing what to work on next, or at wrap-up to update. **Skip when:** Stan has already named today's focus.
 - `C:\vaults-nano\my_brain\00_Inbox\claude-brainstorming.md` — **trigger:** Stan's wake signal references a mobile-captured idea, or you want to check the inbox for morph-scope items. **Skip when:** focus is already explicit and no inbox reference made.
 
 **SELF-REPORT before first substantive response** — one line per mandatory file (e.g., `- CLAUDE.md: read`), plus read/skip + trigger evaluation for each consult-on-trigger item that fired. A silent skip is a check-in failure.
 
+### Post-compaction JSONL re-acquisition (MANDATORY)
+
+When the wake follows a compaction event (a system summary is present and the JSONL is significantly longer than the visible conversation), the FIRST action after the orientation reads is to read **the last 20-30 user↔assistant turns** from the JSONL verbatim. The compaction summary preserves structural narrative but loses verbatim turn-by-turn detail — Stan's exact phrasing, his minor corrections, the tradeoffs he weighed. "Kind of" memory from the summary alone lets me bluff continuity but fails the actual trust state. Read the recent window proactively; don't grep-on-demand only when challenged. Report the re-read in the self-report.
+
 ### During the session
 
-Log as things happen — in the session folder's `session-notes.md` (draft as you go, or assemble at wrap):
-- **Discipline failures** Stan catches. If ≥2 share a common underlying mode (over-structuring, alignment-skip, imposing-vs-revealing, pattern-matching-over-diagnostic, rule-multiplication, present-observation-as-choice-point), name the mode explicitly.
-- **Withdrawn or discarded proposals** — with the reason (anti-over-claim discipline).
-- **Workflow use-count** running tally — agent dispatches, commits, memory changes, regen runs. Recurring use is validation of the workflow.
+- **Surface state inline.** Discipline failures Stan catches, withdrawn proposals, decisions made — say them in chat as they happen. Don't defer to a wrap artifact; there is no wrap artifact.
+- **Commit proactively.** The JSONL survives compaction but the working tree doesn't get auto-saved — commit substantive work as it lands so a compaction never costs uncommitted changes. Status claims come AFTER the commit.
+- **`private/open-items.md` is the only durable write surface.** When a work-queue item is surfaced, deferred, or completed, update `open-items.md` — mark applied items with commit hash + date, add new items, prune landed ones. This is the one file that has to survive across sessions.
+- **[HANDOFF.md](HANDOFF.md)** — update ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Not a per-session log.
 
-### WRAP-UP at session end
+### WRAP-UP
 
-When Stan signals "wrap it up" (or equivalent), produce in the session folder. The shape mirrors `readers-gnt`'s — Stan should be able to walk into a `private/03-sessions/yyyy-mm-dd-*/` folder months later and reconstruct what happened, why, and what was decided.
-
-**Always produce:**
-
-1. **`full-transcript.md`** — verbatim dialogue extracted from the session JSONL. Dispatch a Sonnet agent with the JSONL path (`C:\Users\bibleman\.claude\projects\c--Users-bibleman-repos-readers-gnt-morph\<session-id>.jsonl`, most recent by mtime if uncertain) to stream-process: numbered turns alternating Stan / Claude, strip `tool_use` and `tool_result` blocks, strip `<system-reminder>` blocks. Keep everything else verbatim. **Scope to the current wake-to-wrap turn range only** — the JSONL accumulates across sessions; tell the agent the start phrase ("hey wake up" / "wake up - time to work" / equivalent) and end phrase ("wrap it up" / equivalent) so it filters correctly. The agent should report turn count + scoped JSONL line range so I can sanity-check.
-
-2. **`session-notes.md`** — session arc, commits landed (table format with commit hash + subject), discipline observations with common-mode grouping, withdrawn proposals, workflow use-count tally, carry-forwards for the next session. Preserve load-bearing Stan phrases verbatim. This is the human-readable summary, not the transcript.
-
-**Produce when applicable:**
-
-3. **`dialogue-notes.md`** — produce only when the session's dialogue arc itself is the work product (methodology decisions, design discussions, novel rule shaping) — not for routine execution. Captures the reasoning *path* with named arcs, verbatim Stan phrases that triggered moves, and the named insight at the end of each arc. Most morph sessions are execution; this file is rare. When in doubt: was today's value primarily in the conclusions, or in HOW we got to the conclusions? If the latter, write it.
-
-4. **`proposals-for-stan.md`** — produce when the session generated decisions Stan needs to review or carry forward — applied items with rationale, overridden items with rationale, deferred items needing his judgment. Use categories like Applied / Overridden / Deferred-for-review. Skip when nothing was deferred.
-
-5. **`review-lists/`** subfolder — only when the session produced candidate lists requiring Stan-by-Stan review (e.g., a horde-batch's flagged items, a sweep's edge cases). One markdown file per list with checkboxes for each item.
-
-6. **Free-form session-specific files** — sweep aggregates, batch-result tables, decision matrices. If the session produced structured output worth preserving separately from `session-notes.md`, write it as a named file in the same folder. The folder is the session's persistent write surface; nothing forces files into one of the named slots above.
-
-**During the session — write in the session folder as work happens, not just at wrap.** Sessions that produce structured output (sweep results, horde findings, decision logs) should accumulate those in folder files in real time. The per-turn discipline-failure log + workflow use-count tally + withdrawn proposals all belong in `session-notes.md` as the session unfolds. Working memory evaporates at compaction; folder files survive.
-
-**Then update — outside the session folder:**
-
-7. **`private/open-items.md`** — mark applied items with commit hash + date; add new items surfaced this session; prune when items land.
-
-8. **[HANDOFF.md](HANDOFF.md)** — ONLY for architectural-retrospective additions (trajectory, lessons learned, resumption-checklist changes). Per-session run-downs belong in session notes, not HANDOFF.
-
-**Then close out:**
-
-9. **Wrap-up message** to Stan (4-8 lines): commits landing, files touched, items closed, items opened, session-folder path, anything to flag.
-
-10. **Commit** any tracked changes (the session folder itself lives under gitignored `private/` and won't be in the commit; that's correct).
-
-### Context-threshold discipline
-
-- **Green zone (0-60%):** execute normally.
-- **Yellow zone (60-80%):** start drafting `session-notes.md` in the session folder; consider wrapping at natural breakpoints. Write out anything that only lives in memory.
-- **Red zone (80%+):** stop new execution, wrap up. The runway between 80% and auto-compact is the margin for wrap-up itself.
-
-When in doubt, write it down. Files survive compaction; working memory does not.
-
-### Compaction-resume protocol
-
-Compaction is a session boundary. When resuming from a compaction summary, execute the full CHECK-IN protocol above and create a new session folder with a new descriptor. A compaction-wake gives context but does not exercise the orientation muscles — silent skip is a check-in failure. Short-form wake signals ("hey wake up") still require the full mandatory reads; mandatory is short enough that skipping saves no meaningful time.
+There is no wrap ceremony. When Stan signals "wrap it up": make sure substantive work is committed and pushed, make sure `private/open-items.md` reflects reality, give a 2-4 line summary inline (commits landed, items closed/opened, anything to flag), and stop. Do NOT generate transcript dumps or session-notes files — the JSONL is the record.
 
 ---
 
@@ -271,9 +226,9 @@ From HANDOFF.md Part 6.5, carried forward because these will cost you hours if y
 - Implements within the scope above
 - Runs the validator before and after every morpheus.py change
 - Writes thoughtful commit messages
-- Writes session notes to `private/03-sessions/` when substantive changes land; updates HANDOFF.md only for architectural retrospective additions
-- Surfaces edge cases and tradeoffs to Stan rather than making them silently
-- Stays in the cubicle — does not edit readers-gnt or readers-bofm
+- Keeps `private/open-items.md` current; updates HANDOFF.md only for architectural retrospective additions (no session notes — the JSONL is the record)
+- Surfaces edge cases and tradeoffs to Stan inline, as they happen, rather than making them silently or deferring to a wrap artifact
+- Stays in the cubicle — does not edit readers-gnt, readers-bofm, readers-tanakh, rev-reader, or atu-method
 
 ---
 
