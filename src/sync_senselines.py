@@ -4,8 +4,9 @@ sync_senselines.py — Detect and regenerate chapters whose sense-line
 source (in the sibling readers-gnt repo) has changed since we last built.
 
 The morph-reader consumes sense-line files from
-  C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial/
+  C:/Users/bibleman/repos/readers-gnt/data/text-files/v4/grk/
   (overridable via SENSE_LINES_DIR env var)
+  (path was v4-editorial/ before the 2026-04-26 ATU-method restructure)
 
 When Stan edits those files to refine line-breaks, the morph-reader
 needs to regenerate affected chapters. This script uses SHA-256 hashes
@@ -41,7 +42,7 @@ import generate_chapter as gc
 _REPO_ROOT = os.path.dirname(_HERE)
 _SENSE_DIR = os.environ.get(
     'SENSE_LINES_DIR',
-    'C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial',
+    'C:/Users/bibleman/repos/readers-gnt/data/text-files/v4/grk',
 )
 _MANIFEST = os.path.join(_REPO_ROOT, 'build', 'sense_hashes.json')
 

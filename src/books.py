@@ -17,7 +17,7 @@ removed, numeric prefixes kept (1corinthians, not first-corinthians).
 The `order` field is the canonical NT position (Matthew=40 through
 Revelation=66) for sorting.
 `sense_code` matches the sibling readers-gnt repo's directory naming
-(at data/text-files/v4-editorial/NN-<sense_code>/) — used to locate
+(at data/text-files/v4/grk/NN-<sense_code>/) — used to locate
 sense-line files for colometric layout.
 """
 
