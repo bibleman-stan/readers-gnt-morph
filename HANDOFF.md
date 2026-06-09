@@ -213,7 +213,7 @@ Without the UX layer, every future teaching moment would start with "okay, red m
 
 ### External data used but not copied into this folder
 
-- **Sense-line files** at `C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial/` — the user's editorial line-break files. `generate_chapter.py` reads these directly to get clause-level line breaks. For Hebrew, you'll need a similar sense-line source (or generate your own).
+- **Sense-line files** at `C:/Users/bibleman/repos/readers-gnt/data/text-files/v1.5/grk/` — the user's editorial line-break files. `generate_chapter.py` reads these directly to get clause-level line breaks. For Hebrew, you'll need a similar sense-line source (or generate your own).
 
 ---
 

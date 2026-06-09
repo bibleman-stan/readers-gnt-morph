@@ -41,7 +41,7 @@ docs/<book>/<N>.html (standalone, client-side rendering; GitHub Pages serves doc
 
 ## Relationship to the Reader's GNT substrate
 
-Sense-line data at `readers-gnt/data/text-files/v4-editorial/<NN>-<book>/<book>-<NN>.txt` is consumed **read-only**. When the Reader's GNT evolves its line breaks (editorial refinements, canon updates, methodology sweeps), `src/sync_senselines.py` detects the drift via SHA-256 manifest comparison and regenerates the affected chapters on demand — typically a few seconds per book.
+Sense-line data at `readers-gnt/data/text-files/v1.5/grk/<NN>-<sense_code>/<sense_code>-<NN>.txt` is consumed **read-only**. When the Reader's GNT evolves its line breaks (editorial refinements, canon updates, methodology sweeps), `src/sync_senselines.py` detects the drift via SHA-256 manifest comparison and regenerates the affected chapters on demand — typically a few seconds per book.
 
 ## Getting started
 
@@ -90,7 +90,7 @@ PYTHONIOENCODING=utf-8 python src/sync_senselines.py           # report only
 PYTHONIOENCODING=utf-8 python src/sync_senselines.py --regen   # regen + rebuild stale chapters
 ```
 
-The sense-line path defaults to `C:/Users/bibleman/repos/readers-gnt/data/text-files/v4-editorial`. Override with the `SENSE_LINES_DIR` environment variable.
+The sense-line path defaults to `C:/Users/bibleman/repos/readers-gnt/data/text-files/v1.5/grk`. Override with the `SENSE_LINES_DIR` environment variable.
 
 ## Documentation
 
