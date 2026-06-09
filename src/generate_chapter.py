@@ -12,12 +12,12 @@ STEMS_FILE = os.path.join(DATA, 'greek-inflexion', 'STEM_DATA', 'morphgnt_lexico
 LEXEMES_FILE = os.path.join(DATA, 'morphological-lexicon', 'lexemes.yaml')
 # Sense-line files live in the sibling readers-gnt repo. Absolute path
 # works on Stan's machine; override via SENSE_LINES_DIR env var for
-# other environments. As of the ATU-method restructure (2026-04-26),
-# readers-gnt splits its v4 corpus into v4/grk/ (Greek — what morph
-# consumes) and v4/eng-kjv/ (KJV-aligned English). Was v4-editorial/.
+# other environments. readers-gnt's live layer is v1.5 (binding-rule
+# stage; v4 retired 2026-05-22), split into v1.5/grk/ (Greek — what
+# morph consumes) and v1.5/eng-kjv/ (KJV-aligned English).
 SENSE_LINES_DIR = os.environ.get(
     'SENSE_LINES_DIR',
-    'C:/Users/bibleman/repos/readers-gnt/data/text-files/v4/grk'
+    'C:/Users/bibleman/repos/readers-gnt/data/text-files/v1.5/grk'
 )
 
 # Book registry — single source of truth for MorphGNT filenames + display names.
