@@ -3772,12 +3772,21 @@
       "txt": "θεῷ—",
       "lem": "θεός",
       "prs": "noun dat sg masc",
-      "stm": "θεῷ—",
+      "stm": "θε",
+      "suf": "ῷ",
+      "cs": "d",
       "segs": [
         {
-          "t": "θεῷ—",
+          "t": "θε",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
           }
         }
       ]
@@ -4187,12 +4196,21 @@
       "txt": "θεῷ—",
       "lem": "θεός",
       "prs": "noun dat sg masc",
-      "stm": "θεῷ—",
+      "stm": "θε",
+      "suf": "ῷ",
+      "cs": "d",
       "segs": [
         {
-          "t": "θεῷ—",
+          "t": "θε",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
           }
         }
       ]

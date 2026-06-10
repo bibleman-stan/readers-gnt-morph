@@ -1664,12 +1664,21 @@
       "txt": "Χριστῷ—",
       "lem": "Χριστός",
       "prs": "noun dat sg masc",
-      "stm": "Χριστῷ—",
+      "stm": "Χριστ",
+      "suf": "ῷ",
+      "cs": "d",
       "segs": [
         {
-          "t": "Χριστῷ—",
+          "t": "Χριστ",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "ῷ",
+          "ch": {
+            "morph": "suf",
+            "case": "d"
           }
         }
       ]
@@ -1732,7 +1741,8 @@
       "prs": "perf pass ptc nom pl masc",
       "rdp": "σε",
       "stm": "σῳσ",
-      "suf": "μένοι—",
+      "ptc": "μέν",
+      "suf": "οι",
       "cs": "n",
       "segs": [
         {
@@ -1748,9 +1758,17 @@
           }
         },
         {
-          "t": "μένοι—",
+          "t": "μέν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "οι",
           "ch": {
             "morph": "suf",
+            "ptc": "marker",
             "case": "n"
           }
         }

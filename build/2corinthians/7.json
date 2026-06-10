@@ -1627,7 +1627,8 @@
       "lem": "θλίβω",
       "prs": "pres pass ptc nom pl masc",
       "stm": "θλιβ",
-      "suf": "όμενοι—",
+      "ptc": "όμεν",
+      "suf": "οι",
       "cs": "n",
       "segs": [
         {
@@ -1637,9 +1638,17 @@
           }
         },
         {
-          "t": "όμενοι—",
+          "t": "όμεν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
+          }
+        },
+        {
+          "t": "οι",
           "ch": {
             "morph": "suf",
+            "ptc": "marker",
             "case": "n"
           }
         }
@@ -1684,12 +1693,21 @@
       "txt": "φόβοι—",
       "lem": "φόβος",
       "prs": "noun nom pl masc",
-      "stm": "φόβοι—",
+      "stm": "φόβ",
+      "suf": "οι",
+      "cs": "n",
       "segs": [
         {
-          "t": "φόβοι—",
+          "t": "φόβ",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "οι",
+          "ch": {
+            "morph": "suf",
+            "case": "n"
           }
         }
       ]

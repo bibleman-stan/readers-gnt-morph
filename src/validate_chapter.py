@@ -22,8 +22,11 @@ from collections import defaultdict, Counter
 
 def strip_punct(s):
     """Remove punctuation/editorial marks for surface comparison.
-    Matches morpheus.clean_surface() + normalizes apostrophe variants."""
-    s = re.sub(r'[⸀⸁⸂⸃⸄⸅⁰¹²³⁴⁵⁶⁷⁸⁹]', '', s or '')
+    Matches morpheus.clean_surface() + normalizes apostrophe variants.
+    Em-dash (—) and en-dash (–) are inter-word editorial punctuation that
+    morpheus.clean_surface() strips from segments, so strip them here too or
+    a legit trailing dash on display text falsely trips SEGS_CONCAT_MISMATCH."""
+    s = re.sub(r'[⸀⸁⸂⸃⸄⸅⁰¹²³⁴⁵⁶⁷⁸⁹—–]', '', s or '')
     # Normalize apostrophe variants: U+02BC, U+2019, U+0027 → single form
     s = s.replace('\u02bc', "'").replace('\u2019', "'")
     return s.strip('.,;·:?!')
@@ -205,12 +208,18 @@ def check_channel_vocab(entry, report):
 
 
 def check_augment_expected(entry, report):
-    """Aorist/imperfect/pluperfect indicatives should have an augment."""
+    """Aorist/imperfect/pluperfect indicatives should have an augment.
+
+    Gate on the tvm code (MorphGNT tense/voice/mood, e.g. 'AAI'), NOT on
+    prs string contents: the 2026-04-17 parse-display reorder made prs
+    tense-initial with no 'verb' token, which silently killed the old
+    `'verb' not in prs` gates on every verb check (audit 2026-06-06).
+    """
     prs = entry.get('prs', '')
-    if 'verb' not in prs or 'ind' not in prs:
+    tvm = entry.get('tvm', '')
+    if len(tvm) != 3 or tvm[2] != 'I':   # indicative only
         return
-    has_past = any(t in prs for t in [' aor ', ' impf ', ' plpf '])
-    if not has_past:
+    if tvm[0] not in 'IAY':              # impf / aor / plpf
         return
     has_aug = 'aug' in entry
     # Filter: suppletive verbs often have invisible augments
@@ -228,7 +237,7 @@ def check_augment_expected(entry, report):
 def check_participle_structure(entry, report):
     """Participles should have case and a pmk (participle morpheme kernel)."""
     prs = entry.get('prs', '')
-    if 'verb' not in prs or 'ptc' not in prs:
+    if entry.get('tvm', '')[2:3] != 'P':   # participle mood code
         return
 
     has_cs = 'cs' in entry
@@ -296,7 +305,7 @@ def check_compound_prefix(entry, report):
     should have a pfx extracted. Uses the stems DB to distinguish real
     compounds from simplex verbs that happen to start with prefix-letters."""
     prs = entry.get('prs', '')
-    if 'verb' not in prs:
+    if 'tvm' not in entry:   # verbs only (tvm present iff verb)
         return
     lemma = entry.get('lem', '')
     if not lemma:
@@ -378,14 +387,15 @@ def check_formative_expected(entry, report):
     """Verbs in specific tense/voice combos should have formatives,
     but only when the DB confirms the verb uses a sigmatic/thematic pattern."""
     prs = entry.get('prs', '')
-    if 'verb' not in prs:
+    tvm = entry.get('tvm', '')
+    if len(tvm) != 3:   # verbs only
         return
 
     has_frm = 'frm' in entry
     lemma = entry.get('lem', '')
 
     # 1st aorist active/middle: expect formative only if DB says aor stem is sigmatic
-    if 'aor' in prs and ('act' in prs or 'mid' in prs):
+    if tvm[0] == 'A' and tvm[1] in 'AM':
         is_sigmatic = _stem_has_sigmatic_aorist(lemma)
         if is_sigmatic is False:
             # Liquid/root/nasal aorist — no formative expected
@@ -399,7 +409,7 @@ def check_formative_expected(entry, report):
                         f'{prs} lemma={lemma} — σα/σε formative expected (sigmatic)')
 
     # Aorist passive: expect θ formative if DB says pass stem contains θ
-    elif 'aor' in prs and 'pass' in prs:
+    elif tvm[0] == 'A' and tvm[1] == 'P':
         has_theta = _stem_has_sigmatic_passive(lemma)
         if has_theta is False or has_theta is None:
             return
@@ -410,7 +420,7 @@ def check_formative_expected(entry, report):
                         f'{prs} lemma={lemma} — θη/θε formative expected')
 
     # Perfect active: expect κ formative if DB confirms κ-perfect
-    elif 'perf' in prs and 'act' in prs:
+    elif tvm[0] == 'X' and tvm[1] == 'A':
         has_kappa = _stem_has_kappa_perfect(lemma)
         if has_kappa is False or has_kappa is None:
             return
@@ -424,7 +434,7 @@ def check_formative_expected(entry, report):
 def check_voice_classification(entry, report):
     """Every verb should have its voice classifiable as act/mid/pass."""
     prs = entry.get('prs', '')
-    if 'verb' not in prs:
+    if 'tvm' not in entry:   # verbs only (tvm present iff verb)
         return
     has_voice = any(v in prs for v in [' act', ' mid', ' pass'])
     report.tally('VERB_HAS_VOICE', has_voice)

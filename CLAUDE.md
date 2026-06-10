@@ -9,7 +9,7 @@ If you are a Claude that spawned in this workspace (VSCode opened at this repo):
 Browser-based morpheme reader for the Greek New Testament. Each Greek word decomposed into morphological pieces (prefix → augment → stem → formative → ending) with color-coded toggleable layers. Live at **morph.gnt-reader.com** — full GNT, 27 books, 260 chapters published. Morphological decomposition validated 99.5%+ corpus-wide.
 
 - **Sibling to**: `readers-gnt` (consumes its sense-lines; never writes to it)
-- **Data**: `data/chapter-jsons/` (per-chapter morpheme decompositions); vendored corpora under `data/`
+- **Data**: `build/<book>/<chapter>.json` (per-chapter morpheme decompositions); vendored corpora under `data/`
 - **Build**: `src/bulk_generate.py` (whole-GNT regen in ~23s); `src/generate_chapter.py --book X` per chapter
 - **Validation**: `src/validate_chapter.py` (morphology), `src/validate_glosses.py` (English)
 - **Live deploy**: morph.gnt-reader.com (GitHub Pages from `docs/` folder)

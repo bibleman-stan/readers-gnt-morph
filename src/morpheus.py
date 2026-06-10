@@ -44,8 +44,15 @@ def clean_stem_val(s):
 
 
 def clean_surface(text):
-    """Clean surface text: strip editorial marks and trailing punctuation."""
-    s = re.sub(r'[⸀⸁⸂⸃⸄⸅⁰¹²³⁴⁵⁶⁷⁸⁹]', '', text)
+    """Clean surface text: strip editorial marks and trailing punctuation.
+
+    Em-dash (— U+2014) and en-dash (– U+2013) are editorial punctuation that
+    sit between words in the source text; they must not leak into morpheme
+    segments. Strip them here (the segment-construction boundary) so segs
+    never carry a stray dash. Display text is set separately and keeps its
+    legitimate inter-word dashes.
+    """
+    s = re.sub(r'[⸀⸁⸂⸃⸄⸅⁰¹²³⁴⁵⁶⁷⁸⁹—–]', '', text)
     return s.strip('.,;·:?!')
 
 
@@ -527,6 +534,14 @@ def _detect_augment_from_stems(aug_stem, unaug_stem, prefix):
     if len(av) > len(uv) and common_len == 0:
         # Simple syllabic augment at word start
         if av.startswith('ε') and not uv.startswith('ε'):
+            return aug_stem_use[0]
+        # Irregular η-augment prepended to a consonant-initial stem:
+        # θέλω → ἤθελ (DB pair θελ/ἠθελ), μέλλω → ἠμελλ. The augmented
+        # stem is exactly η + unaugmented stem, so common_len is 0 (η vs
+        # consonant) and no temporal pattern matches (those require the
+        # unaugmented rest to START with the short vowel). Audit 2026-06-06:
+        # this class was ~5% of past-indicative verbs corpus-wide.
+        if av.startswith('η') and av[1:] == uv:
             return aug_stem_use[0]
 
     return ''

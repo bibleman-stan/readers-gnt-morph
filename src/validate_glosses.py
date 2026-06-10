@@ -21,6 +21,16 @@ import re
 import sys
 from pathlib import Path
 
+# Force UTF-8 stdout/stderr so the Greek forms in the report print on
+# Windows even when PYTHONIOENCODING is unset (default cp1252 raises
+# UnicodeEncodeError on Greek — that crash produced the stale
+# glosses_report.txt traceback).
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding='utf-8')
+    except (AttributeError, ValueError):
+        pass
+
 
 # ═══════════════════════════════════════════
 # ANTI-PATTERN SCANNER

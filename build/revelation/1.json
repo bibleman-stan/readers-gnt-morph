@@ -2349,12 +2349,21 @@
       "txt": "αὐτοῦ—",
       "lem": "αὐτός",
       "prs": "pers.pron gen sg masc",
-      "stm": "αὐτοῦ—",
+      "stm": "αὐτ",
+      "suf": "οῦ",
+      "cs": "g",
       "segs": [
         {
-          "t": "αὐτοῦ—",
+          "t": "αὐτ",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
           }
         }
       ]
@@ -2547,12 +2556,21 @@
       "txt": "αὐτοῦ—",
       "lem": "αὐτός",
       "prs": "pers.pron gen sg masc",
-      "stm": "αὐτοῦ—",
+      "stm": "αὐτ",
+      "suf": "οῦ",
+      "cs": "g",
       "segs": [
         {
-          "t": "αὐτοῦ—",
+          "t": "αὐτ",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "οῦ",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
           }
         }
       ]
@@ -7248,13 +7266,21 @@
       "txt": "ζῶν—",
       "lem": "ζάω",
       "prs": "pres act ptc nom sg masc",
-      "stm": "ζῶν—",
+      "stm": "ζ",
+      "ptc": "ῶν",
       "cs": "n",
       "segs": [
         {
-          "t": "ζῶν—",
+          "t": "ζ",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "ῶν",
+          "ch": {
+            "morph": "pmk",
+            "ptc": "marker"
           }
         }
       ],
@@ -7441,12 +7467,21 @@
       "txt": "⸀αἰώνων—",
       "lem": "αἰών",
       "prs": "noun gen pl masc",
-      "stm": "αἰώνων—",
+      "stm": "αἰών",
+      "suf": "ων",
+      "cs": "g",
       "segs": [
         {
-          "t": "αἰώνων—",
+          "t": "αἰών",
           "ch": {
             "morph": "stm"
+          }
+        },
+        {
+          "t": "ων",
+          "ch": {
+            "morph": "suf",
+            "case": "g"
           }
         }
       ]

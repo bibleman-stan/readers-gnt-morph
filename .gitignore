@@ -31,3 +31,7 @@ desktop.ini
 
 # Overseer workspace — session notes, OVERSEER-DIRECTIONS, sync logs, etc. (matches sibling repos)
 private/
+
+# Scratch — throwaway dev artifacts (probes, test HTML, one-off xlsx). Keep on
+# disk, out of git. Promote reusable scripts to src/ or research/.
+scratch/
