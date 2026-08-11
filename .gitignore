@@ -30,7 +30,12 @@ desktop.ini
 .claude/settings.local.json
 
 # Overseer workspace — session notes, OVERSEER-DIRECTIONS, sync logs, etc. (matches sibling repos)
-private/
+# Private material stays local. The README stub is the exception and IS
+# tracked, so the folder's purpose and layout survive even though its
+# contents cannot. A bare `private/` cannot be negated into -- git will not
+# descend into an ignored directory -- so the contents are ignored instead.
+/private/*
+!/private/README.md
 
 # Scratch — throwaway dev artifacts (probes, test HTML, one-off xlsx). Keep on
 # disk, out of git. Promote reusable scripts to src/ or research/.
